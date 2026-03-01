@@ -73,20 +73,55 @@ export interface Testimonial {
 
 export const testimonials: Testimonial[] = [
   {
-    name: "Romain",
+    name: "Humbert",
     content:
-      "Maximilien a su être à l'écoute de mes besoins pour mon application. Nous avons fait plusieurs appels durant le mois, afin qu'il s'assure lui-même du bon avancement de l'application et il a su accompagner pas à pas. Je vous recommande fortement Maximilien pour votre futur projet!",
+      "Merci à Maximilien pour l'accompagnement, il a été très réactif, à l'écoute.",
   },
   {
-    name: "Junior",
-    company: "APetitPrix",
+    name: "Satoschi",
+    content: "RAS",
+  },
+  {
+    name: "Marcus Cadasse",
+    content: "Très pro",
+  },
+  {
+    name: "apetitsprix",
     content:
-      "service professionnel à l'écoute , top et livré dans les délais. Je recommande.",
+      "Service professionnel à l'écoute, top et livré dans les délais. Je recommande.",
+  },
+  {
+    name: "Thomas Le Berre",
+    content: "Très bon développement d'une application complexe",
+  },
+  {
+    name: "Mathieu",
+    company: "mnmarketing",
+    content: "Excellent prestataire je recommande à 100%",
+  },
+  {
+    name: "Thomas Le Berre",
+    content: "Très bon travail",
   },
   {
     name: "René",
     content:
-      "Je recommande Maxilien qui est très à l'écoute, très patient et surtout très professionnel. Une bonne manière de penser et de fonctionner pour une satisfaction client assurée. Vraiment agréablement surpris. Merci encore.",
+      "Je recommande Maximilien qui est très à l'écoute, très patient et surtout très professionnel. Une bonne manière de penser et de fonctionner pour une satisfaction client assurée. Vraiment agréablement surpris. Merci encore.",
+  },
+  {
+    name: "Romain",
+    content:
+      "Maximilien a su être à l'écoute de mes besoins pour mon application. Nous avons fait plusieurs appels durant le mois, afin qu'il s'assure lui-même du bon avancement de l'application et il a su accompagner pas à pas. Je vous recommande fortement Maximilien pour votre futur projet !",
+  },
+  {
+    name: "reyvax",
+    content:
+      "Maximilien a bien répondu à mes attentes, il prend les choses à cœur, et est très agréable !",
+  },
+  {
+    name: "Rudy Lemoine",
+    content:
+      "Très bon contact, je recommande :) a exactement sorti ce que je voulais ! Merci Maximilien",
   },
 ];
 

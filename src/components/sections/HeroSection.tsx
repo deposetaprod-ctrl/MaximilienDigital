@@ -53,7 +53,7 @@ export function HeroSection({ heroRef, onCtaClick }: HeroSectionProps) {
           transition={{ duration: 0.5, delay: 0.35 }}
         >
           <AnimatedBaseButton onClick={onCtaClick}>
-            Parler de mon projet
+            C'est combien pour mon projet ?
             <ArrowRight className="inline-block ml-2 h-4 w-4" />
           </AnimatedBaseButton>
         </motion.div>

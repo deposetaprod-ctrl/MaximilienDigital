@@ -30,7 +30,7 @@ export function TestimonialsSection() {
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {testimonials.map((testimonial, i) => (
             <motion.div
-              key={testimonial.name}
+              key={`${testimonial.name}-${i}`}
               className="rounded-xl border border-border bg-card p-6 transition-[shadow,border-color] duration-200 hover:shadow-md hover:border-primary/30"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}

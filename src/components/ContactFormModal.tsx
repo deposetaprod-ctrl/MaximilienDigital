@@ -8,11 +8,12 @@ import { useState, type FormEvent } from "react";
 interface ContactFormModalProps {
   open: boolean;
   onOpenChange: (open: boolean) => void;
+  initialDescription?: string;
 }
 
 type FormStatus = "idle" | "submitting" | "success" | "error";
 
-export function ContactFormModal({ open, onOpenChange }: ContactFormModalProps) {
+export function ContactFormModal({ open, onOpenChange, initialDescription }: ContactFormModalProps) {
   const [status, setStatus] = useState<FormStatus>("idle");
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
@@ -71,7 +72,7 @@ export function ContactFormModal({ open, onOpenChange }: ContactFormModalProps) 
                 </p>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="mt-6 space-y-4">
+              <form key={initialDescription ?? "default"} onSubmit={handleSubmit} className="mt-6 space-y-4">
                 <div>
                   <label
                     htmlFor="contact-name"
@@ -156,6 +157,7 @@ export function ContactFormModal({ open, onOpenChange }: ContactFormModalProps) 
                     required
                     name="description"
                     rows={4}
+                    defaultValue={initialDescription ?? ""}
                     className="w-full rounded-lg border border-input bg-background px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring/50 focus:border-primary transition-colors resize-none"
                     placeholder="Parlez-moi de votre idée, vos objectifs, votre calendrier..."
                   />

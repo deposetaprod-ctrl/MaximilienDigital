@@ -40,7 +40,7 @@ export default function RootLayout({
               (function() {
                 try {
                   var theme = localStorage.getItem('theme');
-                  if (theme === 'dark') {
+                  if (theme !== 'light') {
                     document.documentElement.classList.add('dark');
                   }
                 } catch(e) {}
