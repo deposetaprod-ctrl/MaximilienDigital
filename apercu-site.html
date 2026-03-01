@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aperçu · Maximilien Godeau | Développeur SaaS, Mobile & IA</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      background: #0a0a0a;
+      color: #fafafa;
+      line-height: 1.6;
+    }
+    .container { max-width: 72rem; margin: 0 auto; padding: 0 1rem; }
+    section { padding: 4rem 0; }
+    h1 { font-size: 2.5rem; font-weight: 700; letter-spacing: -0.02em; }
+    h2 { font-size: 1.875rem; font-weight: 700; text-align: center; margin-bottom: 0.75rem; }
+    .muted { color: #a1a1aa; }
+    .primary { color: #eab308; }
+    .card {
+      background: #18181b;
+      border: 1px solid #27272a;
+      border-radius: 0.75rem;
+      padding: 1.5rem;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .card:hover { border-color: rgba(234, 179, 8, 0.3); box-shadow: 0 4px 12px rgba(0,0,0,0.3); }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.75rem;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      font-size: 1rem;
+    }
+    .btn-primary {
+      background: linear-gradient(to right, #eab308, #ca8a04);
+      color: #0a0a0a;
+    }
+    .btn-primary:hover { background: linear-gradient(to right, #facc15, #eab308); }
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+    .hero p:first-of-type { font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1rem; }
+    .hero h1 { margin-bottom: 1.5rem; }
+    .hero .subtitle { font-size: 1.125rem; max-width: 36rem; margin: 0 auto 2.5rem; color: #a1a1aa; }
+    .grid-3 { display: grid; gap: 1.5rem; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+    .grid-2 { display: grid; gap: 1.5rem; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+    .tag { display: inline-block; padding: 0.25rem 0.5rem; background: #27272a; border-radius: 0.375rem; font-size: 0.75rem; margin-right: 0.5rem; margin-top: 0.5rem; }
+    .section-title { margin-bottom: 2rem; }
+    .section-title p { text-align: center; color: #71717a; max-width: 32rem; margin: 0.5rem auto 0; }
+    footer { border-top: 1px solid #27272a; padding: 2rem 1rem; text-align: center; color: #71717a; font-size: 0.875rem; }
+    .badge { position: fixed; top: 0; left: 0; right: 0; background: #27272a; color: #a1a1aa; text-align: center; padding: 0.5rem; font-size: 0.75rem; z-index: 10; }
+    .modal-overlay { position: fixed; inset: 0; z-index: 100; background: rgba(0,0,0,0.5); display: none; align-items: center; justify-content: center; padding: 1rem; }
+    .modal-overlay.open { display: flex; }
+    .modal-box { background: #18181b; border: 1px solid #27272a; border-radius: 0.75rem; padding: 1.5rem; max-width: 28rem; width: 100%; max-height: 90vh; overflow-y: auto; position: relative; }
+    .modal-box h3 { font-size: 1.25rem; margin-bottom: 0.25rem; }
+    .modal-box .close { position: absolute; top: 1rem; right: 1rem; background: none; border: none; color: #a1a1aa; cursor: pointer; font-size: 1.25rem; padding: 0.25rem; }
+    .modal-box .close:hover { color: #fafafa; }
+    .modal-box label { display: block; font-size: 0.875rem; font-weight: 500; margin-bottom: 0.375rem; margin-top: 1rem; }
+    .modal-box input, .modal-box select, .modal-box textarea { width: 100%; padding: 0.5rem 0.75rem; border-radius: 0.5rem; border: 1px solid #3f3f46; background: #0a0a0a; color: #fafafa; font-size: 0.875rem; }
+    .modal-box textarea { resize: vertical; min-height: 4rem; }
+    .modal-box .result-box { margin-top: 1rem; padding: 1rem; border-radius: 0.5rem; background: rgba(234,179,8,0.1); border: 1px solid rgba(234,179,8,0.2); display: none; }
+    .modal-box .result-box.show { display: block; }
+    .modal-box .result-box .price { font-size: 1.5rem; font-weight: 700; margin: 0.5rem 0; }
+    .modal-box .result-box .btn { width: 100%; justify-content: center; margin-top: 1rem; }
+    .modal-box .btn-block { width: 100%; justify-content: center; margin-top: 1rem; cursor: pointer; }
+    .modal-box .autre-estimation { display: block; text-align: center; margin-top: 0.5rem; font-size: 0.875rem; color: #71717a; cursor: pointer; background: none; border: none; width: 100%; }
+    .modal-box .autre-estimation:hover { color: #a1a1aa; }
+    .modal-box .check-group { display: flex; flex-wrap: wrap; gap: 0.75rem 1.5rem; margin-top: 0.5rem; }
+    .modal-box .check-group label { display: flex; align-items: center; gap: 0.5rem; cursor: pointer; font-size: 0.875rem; margin-top: 0; }
+    .modal-box .check-group input[type="checkbox"] { width: 1rem; height: 1rem; accent-color: #eab308; }
+    .modal-box .result-box .time { font-size: 1rem; font-weight: 600; margin-top: 0.5rem; color: #fafafa; }
+  </style>
+</head>
+<body>
+  <div class="badge">Aperçu statique — Le vrai site a des animations et un formulaire de contact</div>
+
+  <section class="hero">
+    <p class="primary">Développeur SaaS · Mobile · IA</p>
+    <h1>Maximilien Godeau</h1>
+    <p class="subtitle">Je transforme vos idées en produits digitaux performants. Applications SaaS, mobiles et solutions d'intelligence artificielle sur mesure.</p>
+    <button type="button" class="btn btn-primary" id="btn-estimation">C'est combien pour mon projet ?</button>
+  </section>
+
+  <!-- Popup estimation -->
+  <div class="modal-overlay" id="modal-estimation" aria-hidden="true">
+    <div class="modal-box">
+      <button type="button" class="close" id="modal-close" aria-label="Fermer">×</button>
+      <h3>C'est combien pour mon projet ?</h3>
+      <p class="muted" style="font-size: 0.875rem;">Indiquez le type d'application et les fonctionnalités prévues. Fourchette indicative max. 20 000 €, délai max. 6 mois.</p>
+      <form id="form-estimation">
+        <label for="typeapp">Type d'application (ex : type Uber, app de rencontre, marketplace…)</label>
+        <input type="text" id="typeapp" placeholder="Ex : application type Uber pour livraison" style="margin-top: 0.25rem;" />
+        <label style="margin-top: 1rem;">Support</label>
+        <div class="check-group">
+          <label><input type="checkbox" id="chk-web" /> Web / SaaS</label>
+          <label><input type="checkbox" id="chk-mobile" /> Mobile</label>
+        </div>
+        <p class="muted" style="font-size: 0.75rem; margin-top: 0.25rem;">Vous pouvez cocher les deux (web + mobile).</p>
+        <label style="margin-top: 1rem;">Fonctionnalités</label>
+        <div class="check-group">
+          <label><input type="checkbox" id="chk-chat" /> Chat / messagerie</label>
+          <label><input type="checkbox" id="chk-backoffice" /> Backoffice / admin</label>
+          <label><input type="checkbox" id="chk-ia" /> Intégration IA</label>
+          <label><input type="checkbox" id="chk-grandpublic" /> Application grand public</label>
+          <label><input type="checkbox" id="chk-pro" /> Application professionnelle</label>
+        </div>
+        <label for="desc" style="margin-top: 1rem;">Décrivez votre projet (optionnel)</label>
+        <textarea id="desc" rows="3" placeholder="Ex : app pour mettre en relation livreurs et clients, avec suivi en direct..."></textarea>
+        <button type="submit" class="btn btn-primary btn-block">Obtenir une fourchette</button>
+      </form>
+      <div class="result-box" id="result-box">
+        <p class="muted" style="font-size: 0.875rem;">Fourchette indicative</p>
+        <p class="price" id="result-price"></p>
+        <p class="time" id="result-time"></p>
+        <p class="muted" style="font-size: 0.875rem; font-weight: 600; margin-top: 1rem; color: #fafafa;">Négocier avec nous</p>
+        <p class="muted" style="font-size: 0.875rem; margin-top: 0.25rem;">Vous pouvez échanger sur le prix et le délai. Choisissez comment nous contacter :</p>
+        <a href="https://chat.whatsapp.com/K1pakG7WODOC3tk27RQ42P?mode=gi_t" target="_blank" rel="noopener noreferrer" class="btn btn-block" style="background:#25D366;color:#fff;margin-top:0.75rem;">Rejoindre le groupe WhatsApp</a>
+        <button type="button" class="btn btn-primary btn-block" id="btn-open-phone-form" style="margin-top:0.5rem;">Laisser mon numéro (ouvre un formulaire)</button>
+        <div id="phone-form-box" style="display:none; margin-top:1rem; padding:1rem; border:1px solid #3f3f46; border-radius:0.5rem; background:#0a0a0a;">
+          <p class="muted" style="font-size:0.875rem; margin-bottom:0.75rem;">Renseignez vos coordonnées pour être rappelé.</p>
+          <form id="phone-form">
+            <label for="ph-name" style="display:block; font-size:0.75rem; margin-bottom:0.25rem;">Nom</label>
+            <input type="text" id="ph-name" required placeholder="Votre nom" style="width:100%; padding:0.5rem; margin-bottom:0.5rem; border-radius:0.375rem; border:1px solid #3f3f46; background:#18181b; color:#fafafa;">
+            <label for="ph-phone" style="display:block; font-size:0.75rem; margin-bottom:0.25rem;">Téléphone</label>
+            <input type="tel" id="ph-phone" required placeholder="+33 6 12 34 56 78" style="width:100%; padding:0.5rem; margin-bottom:0.5rem; border-radius:0.375rem; border:1px solid #3f3f46; background:#18181b; color:#fafafa;">
+            <label for="ph-email" style="display:block; font-size:0.75rem; margin-bottom:0.25rem;">Email</label>
+            <input type="email" id="ph-email" required placeholder="votre@email.com" style="width:100%; padding:0.5rem; margin-bottom:0.75rem; border-radius:0.375rem; border:1px solid #3f3f46; background:#18181b; color:#fafafa;">
+            <button type="submit" class="btn btn-primary btn-block">Envoyer</button>
+          </form>
+        </div>
+        <button type="button" class="autre-estimation" id="autre-estimation">Faire une autre estimation</button>
+      </div>
+    </div>
+  </div>
+
+  <section>
+    <div class="container">
+      <div class="section-title">
+        <h2>Ce que je propose</h2>
+        <p>Des solutions sur mesure pour votre activité.</p>
+      </div>
+      <div class="grid-3">
+        <div class="card">
+          <p class="primary" style="font-size: 1.5rem; margin-bottom: 0.5rem;">◇</p>
+          <h3 style="font-size: 1.125rem; margin-bottom: 0.5rem;">Développement SaaS</h3>
+          <p class="muted" style="font-size: 0.875rem;">Applications web sur mesure, performantes et scalables. De l'idée au déploiement, je construis votre plateforme SaaS avec les technologies les plus modernes.</p>
+        </div>
+        <div class="card">
+          <p class="primary" style="font-size: 1.5rem; margin-bottom: 0.5rem;">◇</p>
+          <h3 style="font-size: 1.125rem; margin-bottom: 0.5rem;">Applications Mobiles</h3>
+          <p class="muted" style="font-size: 0.875rem;">Applications iOS et Android intuitives et fluides. Une expérience utilisateur soignée pour fidéliser vos clients et simplifier votre activité.</p>
+        </div>
+        <div class="card">
+          <p class="primary" style="font-size: 1.5rem; margin-bottom: 0.5rem;">◇</p>
+          <h3 style="font-size: 1.125rem; margin-bottom: 0.5rem;">Solutions IA</h3>
+          <p class="muted" style="font-size: 0.875rem;">Intégration d'intelligence artificielle dans vos outils existants. Automatisation, analyse de données et chatbots intelligents pour optimiser vos processus.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="section-title">
+        <h2>Projets</h2>
+        <p>Quelques réalisations récentes.</p>
+      </div>
+      <div class="grid-3">
+        <div class="card">
+          <h3 style="font-size: 1.125rem; margin-bottom: 0.5rem;">EsportNews.fr</h3>
+          <p class="muted" style="font-size: 0.875rem;">Plateforme média dédiée à l'esport, proposant actualités, suivi des scores en direct et analyses approfondies de la scène compétitive.</p>
+          <span class="tag">Média</span><span class="tag">Esport</span><span class="tag">Live Data</span>
+        </div>
+        <div class="card">
+          <h3 style="font-size: 1.125rem; margin-bottom: 0.5rem;">Application de livraison locale</h3>
+          <p class="muted" style="font-size: 0.875rem;">Application mobile connectant commerçants locaux et livreurs pour une livraison rapide en centre-ville.</p>
+          <span class="tag">Mobile</span><span class="tag">React Native</span><span class="tag">API</span>
+        </div>
+        <div class="card">
+          <h3 style="font-size: 1.125rem; margin-bottom: 0.5rem;">Assistant IA pour cabinet comptable</h3>
+          <p class="muted" style="font-size: 0.875rem;">Chatbot intelligent capable de répondre aux questions courantes des clients et de pré-traiter les documents comptables.</p>
+          <span class="tag">IA</span><span class="tag">Python</span><span class="tag">GPT</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="section-title">
+        <h2>Ce que disent mes clients</h2>
+        <p>Des retours concrets de ceux qui m'ont fait confiance.</p>
+      </div>
+      <div class="grid-3">
+        <div class="card"><p style="font-size: 0.875rem;">« Merci à Maximilien pour l'accompagnement, il a été très réactif, à l'écoute. »</p><p class="muted" style="margin-top: 1rem; font-size: 0.875rem; font-weight: 600;">Humbert</p></div>
+        <div class="card"><p style="font-size: 0.875rem;">« RAS »</p><p class="muted" style="margin-top: 1rem; font-size: 0.875rem; font-weight: 600;">Satoschi</p></div>
+        <div class="card"><p style="font-size: 0.875rem;">« Très pro »</p><p class="muted" style="margin-top: 1rem; font-size: 0.875rem; font-weight: 600;">Marcus Cadasse</p></div>
+        <div class="card"><p style="font-size: 0.875rem;">« Service professionnel à l'écoute, top et livré dans les délais. Je recommande. »</p><p class="muted" style="margin-top: 1rem; font-size: 0.875rem; font-weight: 600;">apetitsprix</p></div>
+        <div class="card"><p style="font-size: 0.875rem;">« Très bon développement d'une application complexe »</p><p class="muted" style="margin-top: 1rem; font-size: 0.875rem; font-weight: 600;">Thomas Le Berre</p></div>
+        <div class="card"><p style="font-size: 0.875rem;">« Excellent prestataire je recommande à 100% »</p><p class="muted" style="margin-top: 1rem; font-size: 0.875rem; font-weight: 600;">Mathieu · mnmarketing</p></div>
+        <div class="card"><p style="font-size: 0.875rem;">« Très bon travail »</p><p class="muted" style="margin-top: 1rem; font-size: 0.875rem; font-weight: 600;">Thomas Le Berre</p></div>
+        <div class="card"><p style="font-size: 0.875rem;">« Je recommande Maximilien qui est très à l'écoute, très patient et surtout très professionnel. Une bonne manière de penser et de fonctionner pour une satisfaction client assurée. Vraiment agréablement surpris. Merci encore. »</p><p class="muted" style="margin-top: 1rem; font-size: 0.875rem; font-weight: 600;">René</p></div>
+        <div class="card"><p style="font-size: 0.875rem;">« Maximilien a su être à l'écoute de mes besoins pour mon application. Nous avons fait plusieurs appels durant le mois, afin qu'il s'assure lui-même du bon avancement de l'application et il a su accompagner pas à pas. Je vous recommande fortement Maximilien pour votre futur projet ! »</p><p class="muted" style="margin-top: 1rem; font-size: 0.875rem; font-weight: 600;">Romain</p></div>
+        <div class="card"><p style="font-size: 0.875rem;">« Maximilien a bien répondu à mes attentes, il prend les choses à cœur, et est très agréable ! »</p><p class="muted" style="margin-top: 1rem; font-size: 0.875rem; font-weight: 600;">reyvax</p></div>
+        <div class="card"><p style="font-size: 0.875rem;">« Très bon contact, je recommande :) a exactement sorti ce que je voulais ! Merci Maximilien »</p><p class="muted" style="margin-top: 1rem; font-size: 0.875rem; font-weight: 600;">Rudy Lemoine</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container" style="text-align: center;">
+      <h2 style="margin-bottom: 0.5rem;">Prêt à lancer votre projet ?</h2>
+      <p class="muted" style="margin-bottom: 1.5rem;">Discutons de votre idée et construisons ensemble.</p>
+      <button class="btn btn-primary">Me contacter</button>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">© 2025 Maximilien Godeau. Tous droits réservés.</div>
+  </footer>
+
+  <script>
+    (function() {
+      var PRICE_MIN = 3000, PRICE_MAX = 20000, TIME_MIN = 1, TIME_MAX = 6;
+      var typeKeywords = ['uber','taxi','vtc','rencontre','dating','livraison','delivery','marketplace','réservation','booking','paiement','payment','multi-utilisateur','temps réel','realtime','géoloc','carte','map','chat','messagerie','réseau social','social','commande','e-commerce','admin','backoffice','dashboard','statistique','ia','bot','intelligence artificielle','automatisation','notification','push'];
+      function scoreFromText(desc, typeApp) {
+        var text = (desc + ' ' + typeApp).toLowerCase();
+        if (text.length < 3) return 0;
+        var s = 0;
+        for (var i = 0; i < typeKeywords.length; i++) {
+          if (text.indexOf(typeKeywords[i]) !== -1) s += 4;
+        }
+        return Math.min(s, 28);
+      }
+      function formatPrice(n) { return n.toLocaleString('fr-FR') + ' €'; }
+      function formatTime(m) { return m <= 1 ? '1 mois' : Math.round(m) + ' mois'; }
+      function estimate() {
+        var web = document.getElementById('chk-web').checked;
+        var mobile = document.getElementById('chk-mobile').checked;
+        var chat = document.getElementById('chk-chat').checked;
+        var backoffice = document.getElementById('chk-backoffice').checked;
+        var ia = document.getElementById('chk-ia').checked;
+        var grandPublic = document.getElementById('chk-grandpublic').checked;
+        var pro = document.getElementById('chk-pro').checked;
+        var typeApp = document.getElementById('typeapp').value;
+        var desc = document.getElementById('desc').value;
+        var score = 0;
+        if (web && mobile) score += 28;
+        else if (mobile) score += 14;
+        else if (web) score += 8;
+        else score += 10;
+        if (chat) score += 8;
+        if (backoffice) score += 15;
+        if (ia) score += 12;
+        if (grandPublic) score += 8;
+        if (pro) score += 8;
+        score += scoreFromText(desc, typeApp);
+        score = Math.min(score, 100);
+        var ratio = score / 100;
+        var minP = Math.round(PRICE_MIN + ratio * (PRICE_MAX - PRICE_MIN) * 0.7);
+        var maxP = Math.round(PRICE_MIN + ratio * (PRICE_MAX - PRICE_MIN));
+        minP = Math.min(minP, PRICE_MAX - 1);
+        maxP = Math.min(maxP, PRICE_MAX);
+        var tMin = Math.max(1, Math.round((TIME_MIN + ratio * (TIME_MAX - TIME_MIN) * 0.6) * 10) / 10);
+        var tMax = Math.min(TIME_MAX, Math.round((TIME_MIN + ratio * (TIME_MAX - TIME_MIN)) * 10) / 10);
+        var timeLabel = tMax - tMin < 0.5 ? 'environ ' + formatTime(tMax) : 'de ' + formatTime(tMin) + ' à ' + formatTime(tMax);
+        document.getElementById('result-price').textContent = 'Entre ' + formatPrice(minP) + ' et ' + formatPrice(maxP);
+        document.getElementById('result-time').textContent = 'Délai : ' + timeLabel;
+        document.getElementById('form-estimation').style.display = 'none';
+        document.getElementById('result-box').classList.add('show');
+      }
+      function resetModal() {
+        document.getElementById('form-estimation').style.display = 'block';
+        document.getElementById('result-box').classList.remove('show');
+      }
+      function openModal() {
+        document.getElementById('modal-estimation').classList.add('open');
+        document.getElementById('modal-estimation').setAttribute('aria-hidden', 'false');
+        resetModal();
+      }
+      function closeModal() {
+        document.getElementById('modal-estimation').classList.remove('open');
+        document.getElementById('modal-estimation').setAttribute('aria-hidden', 'true');
+      }
+      document.getElementById('btn-estimation').addEventListener('click', openModal);
+      document.getElementById('modal-close').addEventListener('click', closeModal);
+      document.getElementById('modal-estimation').addEventListener('click', function(e) { if (e.target === this) closeModal(); });
+      document.getElementById('form-estimation').addEventListener('submit', function(e) { e.preventDefault(); estimate(); });
+      document.getElementById('autre-estimation').addEventListener('click', function() {
+        document.getElementById('phone-form-box').style.display = 'none';
+        resetModal();
+      });
+      document.getElementById('btn-open-phone-form').addEventListener('click', function() {
+        document.getElementById('phone-form-box').style.display = document.getElementById('phone-form-box').style.display === 'none' ? 'block' : 'none';
+      });
+      document.getElementById('phone-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        var name = document.getElementById('ph-name').value;
+        var phone = document.getElementById('ph-phone').value;
+        var email = document.getElementById('ph-email').value;
+        var body = 'Bonjour,\n\nJe souhaite être recontacté par téléphone.\n\nNom : ' + name + '\nTéléphone : ' + phone + '\nEmail : ' + email;
+        window.location.href = 'mailto:Maximilien.godeau.off@gmail.com?subject=Demande de rappel - ' + encodeURIComponent(name) + '&body=' + encodeURIComponent(body);
+      });
+    })();
+  </script>
+</body>
+</html>
