@@ -1,16 +1,18 @@
 "use client";
 
 import { Dialog } from "@base-ui/react";
-import { X, Calculator, ArrowRight, Monitor, Smartphone, MessageCircle, LayoutDashboard, Brain, Users, Briefcase, Phone } from "lucide-react";
+import Image from "next/image";
+import { X, Calculator, Monitor, Smartphone, MessageCircle, LayoutDashboard, Brain, Users, Briefcase, Phone } from "lucide-react";
 import { useState } from "react";
 import { estimatePrice, type EstimationInput, type EstimationResult } from "@/lib/estimation";
+import { developerOptions } from "@/lib/data";
 
 const WHATSAPP_GROUP_URL = "https://chat.whatsapp.com/K1pakG7WODOC3tk27RQ42P?mode=gi_t";
 
 interface EstimationModalProps {
   open: boolean;
   onOpenChange: (open: boolean) => void;
-  onRequestContact: (projectSummary: string) => void;
+  onRequestContact: (projectSummary: string, developer: string) => void;
 }
 
 const defaultInput: EstimationInput = {
@@ -23,6 +25,7 @@ const defaultInput: EstimationInput = {
   ia: false,
   grandPublic: false,
   pro: false,
+  developer: "mathieu",
 };
 
 export function EstimationModal({
@@ -57,6 +60,7 @@ export function EstimationModal({
       `[Estimation]`,
       `Fourchette: ${result.priceLabel}`,
       `Délai: ${result.timeLabel}`,
+      form.developer ? `Développeur: ${form.developer === "jules" ? "Jules" : "Mathieu"}` : "",
       form.typeApp ? `Type d'app: ${form.typeApp}` : "",
       `Support: ${form.web ? "Web" : ""} ${form.mobile ? "Mobile" : ""}`.trim() || "Non précisé",
       `Fonctionnalités: ${[
@@ -73,7 +77,7 @@ export function EstimationModal({
 
   function handleRequestContact() {
     onOpenChange(false);
-    onRequestContact(buildProjectSummary());
+    onRequestContact(buildProjectSummary(), form.developer ?? "mathieu");
   }
 
   return (
@@ -120,7 +124,7 @@ export function EstimationModal({
                   className="mt-2 w-full flex items-center justify-center gap-2 rounded-lg border-2 border-primary text-primary px-6 py-3 font-semibold hover:bg-primary/10 transition-colors cursor-pointer"
                 >
                   <Phone className="h-4 w-4" />
-                  Laisser mon numéro (ouvre un formulaire)
+                  Laisser mon numéro
                 </button>
                 <button
                   type="button"
@@ -201,6 +205,50 @@ export function EstimationModal({
                       <Briefcase className="h-4 w-4 text-muted-foreground" />
                       <span className="text-sm">Application professionnelle</span>
                     </label>
+                  </div>
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-foreground mb-2">
+                    Avec qui souhaitez-vous travailler ?
+                  </label>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    {developerOptions.map((dev) => (
+                      <label
+                        key={dev.value}
+                        className={`relative flex flex-col rounded-xl border-2 bg-card overflow-hidden cursor-pointer transition-all hover:border-primary/50 ${
+                          form.developer === dev.value
+                            ? "border-primary ring-2 ring-primary/20"
+                            : "border-border"
+                        }`}
+                      >
+                        <input
+                          type="radio"
+                          name="developer"
+                          value={dev.value}
+                          checked={form.developer === dev.value}
+                          onChange={() => update("developer", dev.value as "jules" | "mathieu")}
+                          className="sr-only"
+                        />
+                        <div className="relative h-28 w-full bg-muted">
+                          <Image
+                            src={dev.image}
+                            alt={dev.name}
+                            fill
+                            className="object-cover"
+                            sizes="(max-width: 640px) 100vw, 240px"
+                          />
+                        </div>
+                        <div className="p-3">
+                          <span className="font-semibold text-foreground">{dev.name}</span>
+                          <ul className="mt-1.5 space-y-0.5 text-xs text-muted-foreground list-disc list-inside">
+                            {dev.bullets.map((b) => (
+                              <li key={b}>{b}</li>
+                            ))}
+                          </ul>
+                        </div>
+                      </label>
+                    ))}
                   </div>
                 </div>
 

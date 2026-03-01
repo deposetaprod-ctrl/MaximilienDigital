@@ -17,10 +17,12 @@ export default function Home() {
   const [estimationOpen, setEstimationOpen] = useState(false);
   const [contactOpen, setContactOpen] = useState(false);
   const [contactInitialDescription, setContactInitialDescription] = useState<string | null>(null);
+  const [contactInitialDeveloper, setContactInitialDeveloper] = useState<string | null>(null);
   const { heroRef, hasScrolledPast } = useScrollPastHero();
 
-  function handleRequestContact(projectSummary: string) {
+  function handleRequestContact(projectSummary: string, developer: string) {
     setContactInitialDescription(projectSummary);
+    setContactInitialDeveloper(developer);
     setContactOpen(true);
   }
 
@@ -44,9 +46,13 @@ export default function Home() {
         open={contactOpen}
         onOpenChange={(open) => {
           setContactOpen(open);
-          if (!open) setContactInitialDescription(null);
+          if (!open) {
+            setContactInitialDescription(null);
+            setContactInitialDeveloper(null);
+          }
         }}
         initialDescription={contactInitialDescription ?? undefined}
+        initialDeveloper={contactInitialDeveloper ?? undefined}
       />
       <ScrollNotificationPopup visible={hasScrolledPast} onCtaClick={() => setContactOpen(true)} />
     </>

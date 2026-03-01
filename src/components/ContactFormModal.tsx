@@ -1,19 +1,22 @@
 "use client";
 
 import { Dialog } from "@base-ui/react";
+import Image from "next/image";
 import { X, Send, Loader2, CheckCircle } from "lucide-react";
-import { budgetOptions } from "@/lib/data";
+import { budgetOptions, developerOptions } from "@/lib/data";
 import { useState, type FormEvent } from "react";
 
 interface ContactFormModalProps {
   open: boolean;
   onOpenChange: (open: boolean) => void;
   initialDescription?: string;
+  /** Développeur déjà choisi depuis l'estimation (Jules / Mathieu) */
+  initialDeveloper?: string;
 }
 
 type FormStatus = "idle" | "submitting" | "success" | "error";
 
-export function ContactFormModal({ open, onOpenChange, initialDescription }: ContactFormModalProps) {
+export function ContactFormModal({ open, onOpenChange, initialDescription, initialDeveloper }: ContactFormModalProps) {
   const [status, setStatus] = useState<FormStatus>("idle");
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
@@ -26,6 +29,7 @@ export function ContactFormModal({ open, onOpenChange, initialDescription }: Con
       email: formData.get("email") as string,
       phone: formData.get("phone") as string,
       budget: formData.get("budget") as string,
+      developer: formData.get("developer") as string,
       description: formData.get("description") as string,
     };
 
@@ -142,6 +146,42 @@ export function ContactFormModal({ open, onOpenChange, initialDescription }: Con
                       </option>
                     ))}
                   </select>
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-foreground mb-2">
+                    Souhaitez-vous être recontacté par <span className="text-destructive">*</span>
+                  </label>
+                  <div className="grid grid-cols-1 gap-3">
+                    {developerOptions.map((dev) => (
+                      <label
+                        key={dev.value}
+                        className="flex items-start gap-3 rounded-lg border border-input bg-background p-3 cursor-pointer hover:border-primary/50 transition-colors has-[:checked]:border-primary has-[:checked]:ring-2 has-[:checked]:ring-primary/20"
+                      >
+                        <input
+                          type="radio"
+                          name="developer"
+                          value={dev.value}
+                          required
+                          defaultChecked={initialDeveloper ? dev.value === initialDeveloper : undefined}
+                          className="mt-1 rounded-full border-input text-primary focus:ring-primary"
+                        />
+                        <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-full bg-muted">
+                          <Image
+                            src={dev.image}
+                            alt={dev.name}
+                            fill
+                            className="object-cover"
+                            sizes="48px"
+                          />
+                        </div>
+                        <div className="min-w-0 flex-1">
+                          <span className="font-semibold text-foreground">{dev.name}</span>
+                          <p className="text-sm text-muted-foreground mt-0.5">{dev.description}</p>
+                        </div>
+                      </label>
+                    ))}
+                  </div>
                 </div>
 
                 <div>

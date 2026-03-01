@@ -6,6 +6,7 @@ interface ContactFormData {
   email: string;
   phone?: string;
   budget: string;
+  developer?: string;
   description: string;
 }
 
@@ -58,7 +59,7 @@ export async function POST(request: NextRequest) {
       from: `"Portfolio Contact" <${process.env.SMTP_USER}>`,
       to: "juleslordet@proton.me, Maximilien.godeau.off@gmail.com",
       replyTo: body.email,
-      subject: `Nouveau message de ${body.name}${body.phone ? " — " + body.phone : ""}`,
+      subject: `[${body.developer === "jules" ? "Jules" : body.developer === "mathieu" ? "Mathieu" : "Contact"}] ${body.name}${body.phone ? " — " + body.phone : ""}`,
       html: `
         <h2>Nouveau message depuis le portfolio</h2>
         <table style="border-collapse:collapse;width:100%;max-width:600px;font-family:sans-serif;">
@@ -77,6 +78,10 @@ export async function POST(request: NextRequest) {
           <tr>
             <td style="padding:8px 12px;font-weight:bold;border-bottom:1px solid #eee;">Budget</td>
             <td style="padding:8px 12px;border-bottom:1px solid #eee;">${body.budget || "Non renseigné"}</td>
+          </tr>
+          <tr>
+            <td style="padding:8px 12px;font-weight:bold;border-bottom:1px solid #eee;">Développeur choisi</td>
+            <td style="padding:8px 12px;border-bottom:1px solid #eee;">${body.developer === "jules" ? "Jules" : body.developer === "mathieu" ? "Mathieu" : body.developer || "Non renseigné"}</td>
           </tr>
           <tr>
             <td style="padding:8px 12px;font-weight:bold;vertical-align:top;">Objet / Description du projet</td>

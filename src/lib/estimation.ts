@@ -1,3 +1,5 @@
+export type DeveloperChoice = "jules" | "mathieu";
+
 export interface EstimationInput {
   description: string;
   typeApp: string;
@@ -8,6 +10,8 @@ export interface EstimationInput {
   ia: boolean;
   grandPublic: boolean;
   pro: boolean;
+  /** Jules = +10% sur le prix par rapport à Mathieu */
+  developer?: DeveloperChoice;
 }
 
 export interface EstimationResult {
@@ -65,6 +69,7 @@ export function estimatePrice(input: EstimationInput): EstimationResult {
     ia,
     grandPublic,
     pro,
+    developer,
   } = input;
 
   let score = 0;
@@ -87,8 +92,13 @@ export function estimatePrice(input: EstimationInput): EstimationResult {
 
   // Prix : entre PRICE_MIN et PRICE_MAX
   const priceRatio = score / 100;
-  const min = Math.round(PRICE_MIN + priceRatio * (PRICE_MAX - PRICE_MIN) * 0.7);
-  const max = Math.round(PRICE_MIN + priceRatio * (PRICE_MAX - PRICE_MIN));
+  let min = Math.round(PRICE_MIN + priceRatio * (PRICE_MAX - PRICE_MIN) * 0.7);
+  let max = Math.round(PRICE_MIN + priceRatio * (PRICE_MAX - PRICE_MIN));
+  // Jules = +10 % par rapport à Mathieu
+  if (developer === "jules") {
+    min = Math.round(min * 1.1);
+    max = Math.round(max * 1.1);
+  }
   const clampedMin = Math.min(min, PRICE_MAX - 1);
   const clampedMax = Math.min(max, PRICE_MAX);
 
