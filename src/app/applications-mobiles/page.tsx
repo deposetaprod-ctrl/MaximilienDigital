@@ -42,8 +42,8 @@ export default function MobileAppsLandingPage() {
               >
                 Discuter de mon app sur WhatsApp
               </a>
-              <AnimatedBaseButton asChild variant="outline">
-                <Link href="/#estimation">Estimer le budget de mon app</Link>
+              <AnimatedBaseButton render={<Link href="/#estimation" />} variant="outline">
+                Estimer le budget de mon app
               </AnimatedBaseButton>
               <Link
                 href="/financement"
@@ -221,11 +221,11 @@ export default function MobileAppsLandingPage() {
             comment passer de l&apos;idée à une application utilisée par vos clients.
           </p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
-            <AnimatedBaseButton asChild>
-              <Link href="/#contact">Parler de mon projet</Link>
+            <AnimatedBaseButton render={<Link href="/#contact" />}>
+              Parler de mon projet
             </AnimatedBaseButton>
-            <AnimatedBaseButton asChild variant="outline">
-              <Link href="/">Voir la page principale</Link>
+            <AnimatedBaseButton render={<Link href="/" />} variant="outline">
+              Voir la page principale
             </AnimatedBaseButton>
           </div>
         </div>

@@ -27,11 +27,11 @@ export default function FinancementPage() {
           </p>
 
           <div className="mt-10 flex flex-wrap items-center gap-4">
-            <AnimatedBaseButton asChild>
-              <a href="tel:+33766074746">Appeler le 07 66 07 47 46</a>
+            <AnimatedBaseButton render={<a href="tel:+33766074746" />}>
+              Appeler le 07 66 07 47 46
             </AnimatedBaseButton>
-            <AnimatedBaseButton asChild variant="outline">
-              <Link href="/#estimation">Estimer le budget de mon app</Link>
+            <AnimatedBaseButton render={<Link href="/#estimation" />} variant="outline">
+              Estimer le budget de mon app
             </AnimatedBaseButton>
           </div>
         </div>

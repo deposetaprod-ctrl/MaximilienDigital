@@ -37,11 +37,11 @@ export default function SaasLandingPage() {
             </p>
 
             <div className="mt-8 flex flex-wrap items-center gap-4">
-              <AnimatedBaseButton asChild>
-                <Link href="/#estimation">Estimer mon projet SaaS</Link>
+              <AnimatedBaseButton render={<Link href="/#estimation" />}>
+                Estimer mon projet SaaS
               </AnimatedBaseButton>
-              <AnimatedBaseButton asChild variant="outline">
-                <Link href="/#contact">Parler de ma plateforme</Link>
+              <AnimatedBaseButton render={<Link href="/#contact" />} variant="outline">
+                Parler de ma plateforme
               </AnimatedBaseButton>
               <Link
                 href="/financement"
@@ -235,8 +235,8 @@ export default function SaasLandingPage() {
             >
               Discuter sur WhatsApp
             </a>
-            <AnimatedBaseButton asChild variant="outline">
-              <Link href="/">Voir la page principale</Link>
+            <AnimatedBaseButton render={<Link href="/" />} variant="outline">
+              Voir la page principale
             </AnimatedBaseButton>
           </div>
         </div>

@@ -6,18 +6,21 @@ import React from "react";
 
 interface AnimatedButtonProps extends React.ComponentProps<typeof Button> {
   className?: string;
-  children: React.ReactNode;
+  children?: React.ReactNode;
   variant?: "primary" | "outline";
+  render?: React.ReactElement;
 }
 
 export function AnimatedBaseButton({
   className,
   children,
   variant = "primary",
+  render,
   ...props
 }: AnimatedButtonProps) {
   return (
     <Button
+      render={render}
       {...props}
       className={cn(
         "px-6 py-3 font-semibold rounded-lg transition-colors duration-200 cursor-pointer",
