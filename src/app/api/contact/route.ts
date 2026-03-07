@@ -79,10 +79,10 @@ export async function POST(request: NextRequest) {
             <td style="padding:8px 12px;font-weight:bold;border-bottom:1px solid #eee;">Budget</td>
             <td style="padding:8px 12px;border-bottom:1px solid #eee;">${body.budget || "Non renseigné"}</td>
           </tr>
-          <tr>
+          ${body.developer ? `<tr>
             <td style="padding:8px 12px;font-weight:bold;border-bottom:1px solid #eee;">Développeur choisi</td>
-            <td style="padding:8px 12px;border-bottom:1px solid #eee;">${body.developer === "jules" ? "Jules" : body.developer === "mathieu" ? "Mathieu" : body.developer || "Non renseigné"}</td>
-          </tr>
+            <td style="padding:8px 12px;border-bottom:1px solid #eee;">${body.developer === "jules" ? "Jules" : body.developer === "mathieu" ? "Mathieu" : body.developer}</td>
+          </tr>` : ""}
           <tr>
             <td style="padding:8px 12px;font-weight:bold;vertical-align:top;">Objet / Description du projet</td>
             <td style="padding:8px 12px;white-space:pre-wrap;">${body.description}</td>
