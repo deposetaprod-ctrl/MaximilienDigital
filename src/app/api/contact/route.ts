@@ -56,7 +56,7 @@ export async function POST(request: NextRequest) {
     const { error } = await resend.emails.send({
       from: "Portfolio Contact <onboarding@resend.dev>",
       to: ["juleslordet@proton.me", "Maximilien.godeau.off@gmail.com"],
-      reply_to: body.email,
+      replyTo: body.email,
       subject: `[${devLabel}] ${body.name}${body.phone ? " — " + body.phone : ""}`,
       html: `
         <h2>Nouveau message depuis le portfolio</h2>
