@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist } from "next/font/google";
+import { Navigation } from "@/components/Navigation";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -8,7 +9,7 @@ const geistSans = Geist({
 });
 
 export const metadata: Metadata = {
-  title: "Maximilien Godeau | Développeur SaaS, Mobile & IA",
+  title: "Maximilien Digital | Développeur SaaS, Mobile & IA",
   description:
     "Expert en développement SaaS, applications mobiles et solutions d'intelligence artificielle. Transformons votre idée en produit digital performant.",
   keywords: [
@@ -19,7 +20,7 @@ export const metadata: Metadata = {
     "freelance",
   ],
   openGraph: {
-    title: "Maximilien Godeau | Développeur SaaS, Mobile & IA",
+    title: "Maximilien Digital | Développeur SaaS, Mobile & IA",
     description:
       "Transformons votre idée en produit digital performant.",
     type: "website",
@@ -52,6 +53,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} font-sans antialiased`}
       >
+        <Navigation />
         {children}
       </body>
     </html>

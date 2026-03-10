@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aperçu · Financement | Maximilien Digital</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      background: #0a0a0a;
+      color: #fafafa;
+      line-height: 1.6;
+    }
+    .container { max-width: 72rem; margin: 0 auto; padding: 0 1rem; }
+    section { padding: 4rem 0; }
+    h1 { font-size: 2.2rem; font-weight: 700; letter-spacing: -0.02em; }
+    .muted { color: #a1a1aa; }
+    .primary { color: #eab308; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.75rem;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      font-size: 0.95rem;
+    }
+    .btn-primary {
+      background: linear-gradient(to right, #3b82f6, #1d4ed8);
+      color: #0b1120;
+    }
+    .btn-primary:hover { background: linear-gradient(to right, #60a5fa, #2563eb); }
+    .btn-outline {
+      background: transparent;
+      color: #93c5fd;
+      border: 1px solid #3b82f6;
+    }
+    .btn-outline:hover { background: rgba(37, 99, 235, 0.12); }
+    .badge {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: #27272a;
+      color: #a1a1aa;
+      padding: 0.4rem 0.75rem;
+      font-size: 0.75rem;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+    }
+    .badge-text { opacity: 0.85; }
+    .badge-nav { display: inline-flex; gap: 0.5rem; align-items: center; }
+    .badge-link {
+      color: #d4d4d8;
+      text-decoration: none;
+      padding: 0.2rem 0.55rem;
+      border-radius: 9999px;
+      border: 1px solid transparent;
+      font-weight: 500;
+    }
+    .badge-link:hover { border-color: #52525b; background: #18181b; }
+    .badge-link-active {
+      border-color: #3b82f6;
+      background: #18181b;
+      color: #93c5fd;
+    }
+    footer { border-top: 1px solid #27272a; padding: 2rem 1rem; text-align: center; color: #71717a; font-size: 0.875rem; margin-top: 2rem; }
+  </style>
+</head>
+<body>
+  <div class="badge">
+    <span class="badge-text">Aperçu statique — Financement</span>
+    <nav class="badge-nav">
+      <a href="apercu-site.html" class="badge-link">Accueil</a>
+      <a href="apercu-mobile.html" class="badge-link">Mobile</a>
+      <a href="apercu-saas.html" class="badge-link">SaaS</a>
+      <a href="apercu-financement.html" class="badge-link badge-link-active">Financement</a>
+    </nav>
+  </div>
+
+  <main>
+    <section style="padding:5rem 0 3rem; margin-top:1.8rem;">
+      <div class="container" style="max-width:56rem;">
+        <p class="primary" style="font-size:0.75rem; text-transform:uppercase; letter-spacing:0.18em;">
+          Financement · SaaS &amp; mobile
+        </p>
+        <h1>Trouver un financement pour votre application.</h1>
+        <p class="muted" style="margin-top:1rem; font-size:0.95rem;">
+          Vous avez une idée d&apos;application SaaS ou mobile, mais vous devez encore valider le budget
+          ou convaincre des partenaires (banque, aides publiques, investisseurs, associés) ? Cette page
+          vous explique comment je peux vous aider à transformer votre idée en un projet clair, chiffré
+          et crédible techniquement. Pour toute question liée au financement, contactez-moi directement
+          au <span style="font-weight:600; color:#e5e7eb;">07&nbsp;66&nbsp;07&nbsp;47&nbsp;46</span>.
+        </p>
+        <div style="margin-top:1.5rem; display:flex; flex-wrap:wrap; gap:0.75rem;">
+          <a href="tel:+33766074746" class="btn btn-primary">Appeler le 07 66 07 47 46</a>
+          <a href="apercu-site.html#form-estimation" class="btn btn-outline">Voir l&apos;estimation de budget</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">© 2025 Maximilien Digital. Aperçu page financement.</div>
+  </footer>
+</body>
+</html>
+

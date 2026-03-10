@@ -137,6 +137,34 @@ export const budgetOptions = [
   { value: "unknown", label: "Je ne sais pas encore" },
 ];
 
+// --- Choix développeur (demande de devis) ---
+
+export interface DeveloperOption {
+  value: string;
+  name: string;
+  description: string;
+  image: string;
+  /** Points clés affichés en puces (ex. dans la modale d'estimation) */
+  bullets: string[];
+}
+
+export const developerOptions: DeveloperOption[] = [
+  {
+    value: "jules",
+    name: "Jules",
+    description: "Un peu plus cher · Très réactif · Fullstack · Très disponible",
+    image: "/jules.jpg",
+    bullets: ["Prix ★★", "Disponibilité ★★", "Efficacité ★★"],
+  },
+  {
+    value: "mathieu",
+    name: "Mathieu",
+    description: "Un peu moins cher · Fullstack · Un peu moins disponible",
+    image: "/mathieu.jpg",
+    bullets: ["Prix ★", "Disponibilité ★", "Efficacité ★★"],
+  },
+];
+
 // --- Infos de contact (placeholders) ---
 
 export const contactInfo = {

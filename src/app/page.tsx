@@ -11,28 +11,30 @@ import { Footer } from "@/components/sections/Footer";
 import { ContactFormModal } from "@/components/ContactFormModal";
 import { EstimationModal } from "@/components/EstimationModal";
 import { ScrollNotificationPopup } from "@/components/ScrollNotificationPopup";
-import { ThemeToggle } from "@/components/ThemeToggle";
+import { QuickContactModal } from "@/components/QuickContactModal";
+
+const WHATSAPP_GROUP_URL = "https://chat.whatsapp.com/K1pakG7WODOC3tk27RQ42P?mode=gi_t";
 
 export default function Home() {
   const [estimationOpen, setEstimationOpen] = useState(false);
   const [contactOpen, setContactOpen] = useState(false);
+  const [quickContactOpen, setQuickContactOpen] = useState(false);
   const [contactInitialDescription, setContactInitialDescription] = useState<string | null>(null);
   const { heroRef, hasScrolledPast } = useScrollPastHero();
 
-  function handleRequestContact(projectSummary: string) {
+  function handleRequestContact(projectSummary: string, _developer: string) {
     setContactInitialDescription(projectSummary);
     setContactOpen(true);
   }
 
   return (
     <>
-      <ThemeToggle />
       <main>
         <HeroSection heroRef={heroRef} onCtaClick={() => setEstimationOpen(true)} />
         <ServicesSection />
         <ProjectsSection />
         <TestimonialsSection />
-        <FinalCtaSection onCtaClick={() => setContactOpen(true)} />
+        <FinalCtaSection onCtaClick={() => setQuickContactOpen(true)} />
       </main>
       <Footer />
       <EstimationModal
@@ -40,6 +42,7 @@ export default function Home() {
         onOpenChange={setEstimationOpen}
         onRequestContact={handleRequestContact}
       />
+      <QuickContactModal open={quickContactOpen} onOpenChange={setQuickContactOpen} />
       <ContactFormModal
         open={contactOpen}
         onOpenChange={(open) => {

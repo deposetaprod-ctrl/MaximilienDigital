@@ -32,7 +32,7 @@ export function HeroSection({ heroRef, onCtaClick }: HeroSectionProps) {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.1 }}
         >
-          Maximilien Godeau
+          Maximilien Digital
         </motion.h1>
 
         <motion.p
@@ -53,7 +53,7 @@ export function HeroSection({ heroRef, onCtaClick }: HeroSectionProps) {
           transition={{ duration: 0.5, delay: 0.35 }}
         >
           <AnimatedBaseButton onClick={onCtaClick}>
-            C'est combien pour mon projet ?
+            C&apos;est combien pour mon projet ?
             <ArrowRight className="inline-block ml-2 h-4 w-4" />
           </AnimatedBaseButton>
         </motion.div>
@@ -92,7 +92,7 @@ export function HeroSection({ heroRef, onCtaClick }: HeroSectionProps) {
           <div className="overflow-hidden rounded-t-2xl">
             <Image
               src="/max.png"
-              alt="Maximilien Godeau"
+              alt="Maximilien Digital"
               width={288}
               height={288}
               className="h-auto w-full object-cover"
@@ -103,7 +103,7 @@ export function HeroSection({ heroRef, onCtaClick }: HeroSectionProps) {
           {/* Info bar */}
           <div className="mt-[-1px] rounded-b-2xl bg-card px-5 py-4 shadow-lg ring-1 ring-border">
             <p className="text-lg font-bold text-foreground">
-              Maximilien Godeau
+              Maximilien Digital
             </p>
             <p className="text-sm text-muted-foreground">
               Développeur SaaS &middot; Mobile &middot; IA

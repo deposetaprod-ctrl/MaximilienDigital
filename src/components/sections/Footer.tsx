@@ -8,7 +8,7 @@ export function Footer() {
     <footer className="border-t border-border px-4 py-8">
       <div className="mx-auto max-w-6xl flex flex-col items-center gap-4 sm:flex-row sm:justify-between">
         <p className="text-sm text-muted-foreground">
-          &copy; {year} Maximilien Godeau. Tous droits réservés.
+          &copy; {year} Maximilien Digital. Tous droits réservés.
         </p>
       </div>
     </footer>

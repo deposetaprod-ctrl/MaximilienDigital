@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aperçu · SaaS | Maximilien Digital</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      background: #0a0a0a;
+      color: #fafafa;
+      line-height: 1.6;
+    }
+    .container { max-width: 72rem; margin: 0 auto; padding: 0 1rem; }
+    section { padding: 4rem 0; }
+    h1 { font-size: 2.2rem; font-weight: 700; letter-spacing: -0.02em; }
+    h2 { font-size: 1.5rem; font-weight: 700; margin-bottom: 0.75rem; }
+    .muted { color: #a1a1aa; }
+    .primary { color: #eab308; }
+    .card {
+      background: #18181b;
+      border: 1px solid #27272a;
+      border-radius: 0.75rem;
+      padding: 1.5rem;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .card:hover { border-color: rgba(234, 179, 8, 0.3); box-shadow: 0 4px 12px rgba(0,0,0,0.3); }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.75rem;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      font-size: 0.95rem;
+    }
+    .btn-primary {
+      background: linear-gradient(to right, #eab308, #ca8a04);
+      color: #0a0a0a;
+    }
+    .btn-primary:hover { background: linear-gradient(to right, #facc15, #eab308); }
+    .btn-outline {
+      background: transparent;
+      color: #eab308;
+      border: 1px solid #eab308;
+    }
+    .btn-outline:hover { background: rgba(234, 179, 8, 0.08); }
+    .badge {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: #27272a;
+      color: #a1a1aa;
+      padding: 0.4rem 0.75rem;
+      font-size: 0.75rem;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+    }
+    .badge-text { opacity: 0.85; }
+    .badge-nav { display: inline-flex; gap: 0.5rem; align-items: center; }
+    .badge-link {
+      color: #d4d4d8;
+      text-decoration: none;
+      padding: 0.2rem 0.55rem;
+      border-radius: 9999px;
+      border: 1px solid transparent;
+      font-weight: 500;
+    }
+    .badge-link:hover { border-color: #52525b; background: #18181b; }
+    .badge-link-active {
+      border-color: #eab308;
+      background: #18181b;
+      color: #facc15;
+    }
+    .hero {
+      padding: 5rem 1rem 3rem;
+      margin-top: 1.8rem;
+    }
+    .hero-grid {
+      display: grid;
+      gap: 2.5rem;
+    }
+    @media (min-width: 768px) {
+      .hero-grid {
+        grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+        align-items: center;
+      }
+    }
+    .grid-3 { display: grid; gap: 1.5rem; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+    footer { border-top: 1px solid #27272a; padding: 2rem 1rem; text-align: center; color: #71717a; font-size: 0.875rem; margin-top: 2rem; }
+    .tag { display: inline-block; padding: 0.25rem 0.5rem; background: #27272a; border-radius: 0.375rem; font-size: 0.7rem; margin-right: 0.5rem; margin-top: 0.25rem; }
+  </style>
+</head>
+<body>
+  <div class="badge">
+    <span class="badge-text">Aperçu statique — Landing SaaS</span>
+    <nav class="badge-nav">
+      <a href="apercu-site.html" class="badge-link">Accueil</a>
+      <a href="apercu-mobile.html" class="badge-link">Mobile</a>
+      <a href="apercu-saas.html" class="badge-link badge-link-active">SaaS</a>
+      <a href="apercu-financement.html" class="badge-link">Financement</a>
+    </nav>
+  </div>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <p class="primary" style="font-size:0.75rem; text-transform:uppercase; letter-spacing:0.18em;">
+            SaaS &amp; plateformes web · MVP en 30 jours
+          </p>
+          <h1>Une application SaaS fonctionnelle en 30 jours.</h1>
+          <p class="muted" style="margin-top:1rem; font-size:0.95rem;">
+            Je m&apos;adresse aux entreprises et fondateurs qui veulent transformer une idée en
+            une vraie plateforme SaaS : backoffice, API, comptes clients, paiements… Je
+            privilégie un MVP rapide, exploitable et maintenable plutôt qu&apos;une démo fragile.
+          </p>
+          <div style="margin-top:1.5rem; display:flex; flex-wrap:wrap; gap:0.75rem;">
+            <a href="#processus" class="btn btn-primary">
+              Comprendre mon approche SaaS
+            </a>
+            <a href="https://chat.whatsapp.com/K1pakG7WODOC3tk27RQ42P?mode=gi_t" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+              Discuter sur WhatsApp
+            </a>
+            <a href="apercu-financement.html" class="btn" style="background:#2563eb;color:#e5f2ff;">
+              TROUVER UN FINANCEMENT
+            </a>
+          </div>
+          <ul style="margin-top:1.25rem; display:grid; gap:0.35rem; font-size:0.85rem; color:#a1a1aa;">
+            <li>• MVP SaaS en moins de 30 jours, centré sur vos fonctionnalités cœur.</li>
+            <li>• Architecture prête à évoluer (multi-tenant, rôles, permissions).</li>
+            <li>• Intégration IA, paiements, emails transactionnels et automatisations.</li>
+            <li>• Hébergement moderne (Vercel, services managés) pour rester serein.</li>
+          </ul>
+        </div>
+        <div>
+          <div class="card">
+            <h2 style="font-size:1rem;">Construire une plateforme qui tient la route</h2>
+            <p class="muted" style="margin-top:0.75rem; font-size:0.85rem;">
+              L&apos;objectif est de livrer un produit que vos clients peuvent utiliser
+              immédiatement : authentification, gestion des comptes, backoffice pour vos
+              équipes et premiers tableaux de bord.
+            </p>
+            <div style="margin-top:1rem; display:grid; gap:0.5rem; font-size:0.8rem;">
+              <div class="card" style="padding:0.75rem; background:#0a0a0a; border-color:#27272a;">
+                <p style="font-weight:600;">Phase 1 · Découverte</p>
+                <p class="muted" style="font-size:0.75rem; margin-top:0.15rem;">
+                  Analyse du besoin, de votre modèle d&apos;abonnement, des rôles utilisateurs
+                  et des écrans indispensables (dashboard, backoffice, etc.).
+                </p>
+              </div>
+              <div class="card" style="padding:0.75rem; background:#0a0a0a; border-color:#27272a;">
+                <p style="font-weight:600;">Phase 2 · Développement (30 jours)</p>
+                <p class="muted" style="font-size:0.75rem; margin-top:0.15rem;">
+                  Mise en place de l&apos;architecture (API, base de données, authentification),
+                  développement des fonctionnalités essentielles et mise en ligne d&apos;un MVP
+                  exploitable.
+                </p>
+              </div>
+              <div class="card" style="padding:0.75rem; background:#0a0a0a; border-color:#27272a;">
+                <p style="font-weight:600;">Phase 3 · Retours &amp; itérations</p>
+                <p class="muted" style="font-size:0.75rem; margin-top:0.15rem;">
+                  Recueil des retours utilisateurs, corrections, ajout de fonctionnalités
+                  secondaires et accompagnement sur la suite.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="processus" style="padding:3rem 0; border-top:1px solid #27272a;">
+      <div class="container" style="display:grid; gap:2.5rem; grid-template-columns:1fr; max-width:60rem;">
+        <div>
+          <h2>Formules pour lancer votre SaaS</h2>
+          <p class="muted" style="font-size:0.9rem; margin-bottom:1rem;">
+            On adapte le périmètre au stade de votre projet : validation d&apos;idée, premier
+            produit ou plateforme plus avancée.
+          </p>
+          <div style="display:grid; gap:0.75rem; font-size:0.85rem;">
+            <div class="card">
+              <p style="font-weight:600;">Formule MVP landing</p>
+              <p class="muted" style="font-size:0.8rem; margin-top:0.15rem;">
+                Une page de vente pour tester l&apos;intérêt du marché et commencer à collecter
+                des leads avant même que le produit ne soit prêt.
+              </p>
+            </div>
+            <div class="card">
+              <p style="font-weight:600;">Formule MVP SaaS</p>
+              <p class="muted" style="font-size:0.8rem; margin-top:0.15rem;">
+                Première version simplifiée de votre plateforme avec les fonctionnalités
+                essentielles, authentification et premiers abonnés.
+              </p>
+            </div>
+            <div class="card">
+              <p style="font-weight:600;">Formule template</p>
+              <p class="muted" style="font-size:0.8rem; margin-top:0.15rem;">
+                Basée sur une base existante (template ou boilerplate) personnalisée pour vos
+                besoins, afin de réduire les délais et le budget.
+              </p>
+            </div>
+            <div class="card">
+              <p style="font-weight:600;">Formule illimitée</p>
+              <p class="muted" style="font-size:0.8rem; margin-top:0.15rem;">
+                Développement plus poussé avec fonctionnalités avancées, automatisations,
+                intégrations spécifiques et optimisation de la scalabilité.
+              </p>
+            </div>
+          </div>
+          <p class="muted" style="font-size:0.8rem; margin-top:0.9rem;">
+            Stack utilisée : React, Next.js, Node.js / TypeScript, PostgreSQL, Redis,
+            TailwindCSS, intégrations IA (OpenAI, Azure, Google…) et Bubble.io pour certains
+            modules si pertinent.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section style="padding:3rem 0 1rem;">
+      <div class="container">
+        <h2>Exemple de projet proche d&apos;un SaaS</h2>
+        <div class="card" style="margin-top:1rem;">
+          <h3 style="font-size:1rem;">EsportNews.fr</h3>
+          <p class="muted" style="font-size:0.85rem; margin-top:0.5rem;">
+            Plateforme média avec backoffice, flux de données en temps réel et outils
+            d&apos;administration : un bon exemple de produit web complexe, proche d&apos;un SaaS.
+          </p>
+          <div style="margin-top:0.75rem;">
+            <span class="tag">Média</span>
+            <span class="tag">Esport</span>
+            <span class="tag">Live Data</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">© 2025 Maximilien Digital. Aperçu landing SaaS.</div>
+  </footer>
+</body>
+</html>
+

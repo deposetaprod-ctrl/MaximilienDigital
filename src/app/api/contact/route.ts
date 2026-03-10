@@ -1,23 +1,16 @@
 import { NextRequest, NextResponse } from "next/server";
-import nodemailer from "nodemailer";
+import { Resend } from "resend";
 
 interface ContactFormData {
   name: string;
   email: string;
   phone?: string;
   budget: string;
+  developer?: string;
   description: string;
 }
 
-const transporter = nodemailer.createTransport({
-  host: process.env.SMTP_HOST,
-  port: Number(process.env.SMTP_PORT) || 587,
-  secure: Number(process.env.SMTP_PORT) === 465,
-  auth: {
-    user: process.env.SMTP_USER,
-    pass: process.env.SMTP_PASS,
-  },
-});
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 async function saveToStorage(data: ContactFormData & { createdAt: string }) {
   const url = process.env.KV_REST_API_URL;
@@ -53,12 +46,18 @@ export async function POST(request: NextRequest) {
     }
 
     const createdAt = new Date().toISOString();
+    const devLabel =
+      body.developer === "jules"
+        ? "Jules"
+        : body.developer === "mathieu"
+        ? "Mathieu"
+        : "Contact";
 
-    await transporter.sendMail({
-      from: `"Portfolio Contact" <${process.env.SMTP_USER}>`,
-      to: "juleslordet@proton.me, Maximilien.godeau.off@gmail.com",
-      replyTo: body.email,
-      subject: `Nouveau message de ${body.name}${body.phone ? " — " + body.phone : ""}`,
+    const { error } = await resend.emails.send({
+      from: "Portfolio Contact <onboarding@resend.dev>",
+      to: ["juleslordet@proton.me", "Maximilien.godeau.off@gmail.com"],
+      reply_to: body.email,
+      subject: `[${devLabel}] ${body.name}${body.phone ? " — " + body.phone : ""}`,
       html: `
         <h2>Nouveau message depuis le portfolio</h2>
         <table style="border-collapse:collapse;width:100%;max-width:600px;font-family:sans-serif;">
@@ -78,6 +77,10 @@ export async function POST(request: NextRequest) {
             <td style="padding:8px 12px;font-weight:bold;border-bottom:1px solid #eee;">Budget</td>
             <td style="padding:8px 12px;border-bottom:1px solid #eee;">${body.budget || "Non renseigné"}</td>
           </tr>
+          ${body.developer ? `<tr>
+            <td style="padding:8px 12px;font-weight:bold;border-bottom:1px solid #eee;">Développeur choisi</td>
+            <td style="padding:8px 12px;border-bottom:1px solid #eee;">${devLabel}</td>
+          </tr>` : ""}
           <tr>
             <td style="padding:8px 12px;font-weight:bold;vertical-align:top;">Objet / Description du projet</td>
             <td style="padding:8px 12px;white-space:pre-wrap;">${body.description}</td>
@@ -86,6 +89,14 @@ export async function POST(request: NextRequest) {
         <p style="margin-top:16px;font-size:12px;color:#888;">Envoyé le ${new Date().toLocaleString("fr-FR", { timeZone: "Europe/Paris" })}</p>
       `,
     });
+
+    if (error) {
+      console.error("Resend error:", error);
+      return NextResponse.json(
+        { error: "Une erreur est survenue lors de l'envoi. Veuillez réessayer." },
+        { status: 500 }
+      );
+    }
 
     await saveToStorage({ ...body, createdAt });
 

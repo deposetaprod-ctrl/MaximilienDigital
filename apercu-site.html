@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aperçu · Maximilien Godeau | Développeur SaaS, Mobile & IA</title>
+  <title>Aperçu · Maximilien Digital | Développeur SaaS, Mobile & IA</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
@@ -55,12 +55,71 @@
     .hero h1 { margin-bottom: 1.5rem; }
     .hero .subtitle { font-size: 1.125rem; max-width: 36rem; margin: 0 auto 2.5rem; color: #a1a1aa; }
     .grid-3 { display: grid; gap: 1.5rem; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
-    .grid-2 { display: grid; gap: 1.5rem; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+   .grid-2 { display: grid; gap: 1.5rem; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
     .tag { display: inline-block; padding: 0.25rem 0.5rem; background: #27272a; border-radius: 0.375rem; font-size: 0.75rem; margin-right: 0.5rem; margin-top: 0.5rem; }
     .section-title { margin-bottom: 2rem; }
     .section-title p { text-align: center; color: #71717a; max-width: 32rem; margin: 0.5rem auto 0; }
     footer { border-top: 1px solid #27272a; padding: 2rem 1rem; text-align: center; color: #71717a; font-size: 0.875rem; }
-    .badge { position: fixed; top: 0; left: 0; right: 0; background: #27272a; color: #a1a1aa; text-align: center; padding: 0.5rem; font-size: 0.75rem; z-index: 10; }
+    .badge {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: #27272a;
+      color: #a1a1aa;
+      padding: 0.4rem 0.75rem;
+      font-size: 0.75rem;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+    }
+    .badge-text { opacity: 0.85; }
+    .badge-nav { display: inline-flex; gap: 0.5rem; align-items: center; }
+    .badge-link {
+      color: #d4d4d8;
+      text-decoration: none;
+      padding: 0.2rem 0.55rem;
+      border-radius: 9999px;
+      border: 1px solid transparent;
+      font-weight: 500;
+    }
+    .badge-link:hover { border-color: #52525b; background: #18181b; }
+    .badge-link-active {
+      border-color: #eab308;
+      background: #18181b;
+      color: #facc15;
+    }
+    .whatsapp-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      background: rgba(15,23,42,0.96);
+      color: #e5e7eb;
+      font-size: 0.75rem;
+      font-weight: 500;
+      text-decoration: none;
+      border: 1px solid #334155;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.55);
+    }
+    .whatsapp-pill:hover {
+      border-color: #22c55e;
+      color: #f9fafb;
+    }
+    .whatsapp-pill-icon {
+      width: 1.1rem;
+      height: 1.1rem;
+      border-radius: 9999px;
+      background: #22c55e;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      color: #022c22;
+    }
     .modal-overlay { position: fixed; inset: 0; z-index: 100; background: rgba(0,0,0,0.5); display: none; align-items: center; justify-content: center; padding: 1rem; }
     .modal-overlay.open { display: flex; }
     .modal-box { background: #18181b; border: 1px solid #27272a; border-radius: 0.75rem; padding: 1.5rem; max-width: 28rem; width: 100%; max-height: 90vh; overflow-y: auto; position: relative; }
@@ -81,14 +140,50 @@
     .modal-box .check-group label { display: flex; align-items: center; gap: 0.5rem; cursor: pointer; font-size: 0.875rem; margin-top: 0; }
     .modal-box .check-group input[type="checkbox"] { width: 1rem; height: 1rem; accent-color: #eab308; }
     .modal-box .result-box .time { font-size: 1rem; font-weight: 600; margin-top: 0.5rem; color: #fafafa; }
+    .dev-option { display: flex; align-items: flex-start; gap: 0.75rem; padding: 0.75rem; border-radius: 0.5rem; border: 1px solid #3f3f46; background: #0a0a0a; cursor: pointer; margin-bottom: 0.5rem; transition: border-color 0.2s, box-shadow 0.2s; }
+    .dev-option:hover { border-color: #52525b; }
+    .dev-option:has(input:checked) { border-color: #eab308; box-shadow: 0 0 0 2px rgba(234,179,8,0.2); }
+    .dev-option input { margin-top: 0.35rem; accent-color: #eab308; }
+    .dev-avatar { width: 3rem; height: 3rem; border-radius: 9999px; overflow: hidden; flex-shrink: 0; background: #27272a; }
+    .dev-avatar img { width: 100%; height: 100%; object-fit: cover; }
+    .dev-info { flex: 1; min-width: 0; }
+    .dev-info strong { display: block; font-size: 0.875rem; color: #fafafa; }
+    .dev-info span { font-size: 0.75rem; color: #a1a1aa; margin-top: 0.125rem; display: block; }
+    .dev-cards-estimation { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-top: 0.5rem; }
+    .dev-card-est { display: flex; flex-direction: column; border: 2px solid #3f3f46; border-radius: 0.75rem; overflow: hidden; cursor: pointer; transition: border-color 0.2s, box-shadow 0.2s; background: #0a0a0a; }
+    .dev-card-est:hover { border-color: #52525b; }
+    .dev-card-est:has(input:checked) { border-color: #eab308; box-shadow: 0 0 0 2px rgba(234,179,8,0.2); }
+    .dev-card-est input { position: absolute; opacity: 0; pointer-events: none; }
+    .dev-card-est-img { height: 6rem; background: #27272a; overflow: hidden; }
+    .dev-card-est-img img { width: 100%; height: 100%; object-fit: cover; }
+    .dev-card-est-body { padding: 0.5rem 0.75rem; }
+    .dev-card-est-body strong { display: block; font-size: 0.875rem; color: #fafafa; margin-bottom: 0.25rem; }
+    .dev-card-est-body ul { margin: 0; padding-left: 1rem; font-size: 0.7rem; color: #a1a1aa; line-height: 1.4; }
   </style>
 </head>
 <body>
-  <div class="badge">Aperçu statique — Le vrai site a des animations et un formulaire de contact</div>
+  <div class="badge">
+    <span class="badge-text">Aperçu statique — Le vrai site a des animations et un formulaire de contact</span>
+    <nav class="badge-nav">
+      <a href="apercu-site.html" class="badge-link badge-link-active">Accueil</a>
+      <a href="apercu-mobile.html" class="badge-link">Mobile</a>
+      <a href="apercu-saas.html" class="badge-link">SaaS</a>
+      <a href="apercu-financement.html" class="badge-link">Financement</a>
+    </nav>
+    <a
+      href="https://chat.whatsapp.com/K1pakG7WODOC3tk27RQ42P?mode=gi_t"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="whatsapp-pill"
+    >
+      <span class="whatsapp-pill-icon">WA</span>
+      <span>Groupe WhatsApp</span>
+    </a>
+  </div>
 
   <section class="hero">
     <p class="primary">Développeur SaaS · Mobile · IA</p>
-    <h1>Maximilien Godeau</h1>
+    <h1>Maximilien Digital</h1>
     <p class="subtitle">Je transforme vos idées en produits digitaux performants. Applications SaaS, mobiles et solutions d'intelligence artificielle sur mesure.</p>
     <button type="button" class="btn btn-primary" id="btn-estimation">C'est combien pour mon projet ?</button>
   </section>
@@ -116,6 +211,33 @@
           <label><input type="checkbox" id="chk-grandpublic" /> Application grand public</label>
           <label><input type="checkbox" id="chk-pro" /> Application professionnelle</label>
         </div>
+        <label style="margin-top: 1rem; display: block;">Avec qui souhaitez-vous travailler ?</label>
+        <div class="dev-cards-estimation">
+          <label class="dev-card-est">
+            <input type="radio" name="est-developer" value="mathieu" checked>
+            <div class="dev-card-est-img"><img src="public/mathieu.jpg" alt="Mathieu"></div>
+            <div class="dev-card-est-body">
+              <strong>Mathieu</strong>
+              <ul>
+                <li>Prix ★</li>
+                <li>Disponibilité ★</li>
+                <li>Efficacité ★★</li>
+              </ul>
+            </div>
+          </label>
+          <label class="dev-card-est">
+            <input type="radio" name="est-developer" value="jules">
+            <div class="dev-card-est-img"><img src="public/jules.jpg" alt="Jules"></div>
+            <div class="dev-card-est-body">
+              <strong>Jules</strong>
+              <ul>
+                <li>Prix ★★</li>
+                <li>Disponibilité ★★</li>
+                <li>Efficacité ★★</li>
+              </ul>
+            </div>
+          </label>
+        </div>
         <label for="desc" style="margin-top: 1rem;">Décrivez votre projet (optionnel)</label>
         <textarea id="desc" rows="3" placeholder="Ex : app pour mettre en relation livreurs et clients, avec suivi en direct..."></textarea>
         <button type="submit" class="btn btn-primary btn-block">Obtenir une fourchette</button>
@@ -127,21 +249,47 @@
         <p class="muted" style="font-size: 0.875rem; font-weight: 600; margin-top: 1rem; color: #fafafa;">Négocier avec nous</p>
         <p class="muted" style="font-size: 0.875rem; margin-top: 0.25rem;">Vous pouvez échanger sur le prix et le délai. Choisissez comment nous contacter :</p>
         <a href="https://chat.whatsapp.com/K1pakG7WODOC3tk27RQ42P?mode=gi_t" target="_blank" rel="noopener noreferrer" class="btn btn-block" style="background:#25D366;color:#fff;margin-top:0.75rem;">Rejoindre le groupe WhatsApp</a>
-        <button type="button" class="btn btn-primary btn-block" id="btn-open-phone-form" style="margin-top:0.5rem;">Laisser mon numéro (ouvre un formulaire)</button>
+        <button type="button" class="btn btn-primary btn-block" id="btn-open-phone-form" style="margin-top:0.5rem;">Laisser mon numéro</button>
         <div id="phone-form-box" style="display:none; margin-top:1rem; padding:1rem; border:1px solid #3f3f46; border-radius:0.5rem; background:#0a0a0a;">
-          <p class="muted" style="font-size:0.875rem; margin-bottom:0.75rem;">Renseignez vos coordonnées pour être rappelé.</p>
+          <p class="muted" style="font-size:0.875rem; margin-bottom:0.75rem;">Renseignez vos coordonnées.</p>
           <form id="phone-form">
             <label for="ph-name" style="display:block; font-size:0.75rem; margin-bottom:0.25rem;">Nom</label>
             <input type="text" id="ph-name" required placeholder="Votre nom" style="width:100%; padding:0.5rem; margin-bottom:0.5rem; border-radius:0.375rem; border:1px solid #3f3f46; background:#18181b; color:#fafafa;">
             <label for="ph-phone" style="display:block; font-size:0.75rem; margin-bottom:0.25rem;">Téléphone</label>
             <input type="tel" id="ph-phone" required placeholder="+33 6 12 34 56 78" style="width:100%; padding:0.5rem; margin-bottom:0.5rem; border-radius:0.375rem; border:1px solid #3f3f46; background:#18181b; color:#fafafa;">
             <label for="ph-email" style="display:block; font-size:0.75rem; margin-bottom:0.25rem;">Email</label>
-            <input type="email" id="ph-email" required placeholder="votre@email.com" style="width:100%; padding:0.5rem; margin-bottom:0.75rem; border-radius:0.375rem; border:1px solid #3f3f46; background:#18181b; color:#fafafa;">
+            <input type="email" id="ph-email" required placeholder="votre@email.com" style="width:100%; padding:0.5rem; margin-bottom:0.5rem; border-radius:0.375rem; border:1px solid #3f3f46; background:#18181b; color:#fafafa;">
+            <label for="ph-budget" style="display:block; font-size:0.75rem; margin-bottom:0.25rem;">Budget</label>
+            <select id="ph-budget" style="width:100%; padding:0.5rem; margin-bottom:0.5rem; border-radius:0.375rem; border:1px solid #3f3f46; background:#18181b; color:#fafafa;">
+              <option value="">Choisir une fourchette</option>
+              <option value="&lt; 5 k€">&lt; 5 k€</option>
+              <option value="5–10 k€">5–10 k€</option>
+              <option value="10–15 k€">10–15 k€</option>
+              <option value="15–20 k€">15–20 k€</option>
+              <option value="&gt; 20 k€">&gt; 20 k€</option>
+            </select>
+            <label for="ph-desc" style="display:block; font-size:0.75rem; margin-bottom:0.25rem;">Décrivez votre projet</label>
+            <textarea id="ph-desc" rows="3" placeholder="Parlez-moi de votre idée, vos objectifs..." style="width:100%; padding:0.5rem; margin-bottom:0.75rem; border-radius:0.375rem; border:1px solid #3f3f46; background:#18181b; color:#fafafa; resize:vertical;"></textarea>
             <button type="submit" class="btn btn-primary btn-block">Envoyer</button>
           </form>
         </div>
         <button type="button" class="autre-estimation" id="autre-estimation">Faire une autre estimation</button>
       </div>
+    </div>
+  </div>
+
+  <!-- Popup contact simple (Me contacter) -->
+  <div class="modal-overlay" id="modal-contact" aria-hidden="true">
+    <div class="modal-box">
+      <button type="button" class="close" id="contact-close" aria-label="Fermer">×</button>
+      <h3>Être rappelé</h3>
+      <p class="muted" style="font-size:0.875rem;">Laissez simplement votre numéro, ou rejoignez le groupe WhatsApp.</p>
+      <form id="simple-phone-form">
+        <label for="simple-phone">Téléphone</label>
+        <input type="tel" id="simple-phone" required placeholder="+33 6 12 34 56 78" />
+        <button type="submit" class="btn btn-primary btn-block">Envoyer mon numéro</button>
+      </form>
+      <a href="https://chat.whatsapp.com/K1pakG7WODOC3tk27RQ42P?mode=gi_t" target="_blank" rel="noopener noreferrer" class="btn btn-block" style="background:#25D366;color:#fff;margin-top:0.75rem;">Rejoindre le groupe WhatsApp</a>
     </div>
   </div>
 
@@ -223,12 +371,12 @@
     <div class="container" style="text-align: center;">
       <h2 style="margin-bottom: 0.5rem;">Prêt à lancer votre projet ?</h2>
       <p class="muted" style="margin-bottom: 1.5rem;">Discutons de votre idée et construisons ensemble.</p>
-      <button class="btn btn-primary">Me contacter</button>
+      <button type="button" class="btn btn-primary" id="btn-me-contacter">Me contacter</button>
     </div>
   </section>
 
   <footer>
-    <div class="container">© 2025 Maximilien Godeau. Tous droits réservés.</div>
+    <div class="container">© 2025 Maximilien Digital. Tous droits réservés.</div>
   </footer>
 
   <script>
@@ -271,6 +419,11 @@
         var ratio = score / 100;
         var minP = Math.round(PRICE_MIN + ratio * (PRICE_MAX - PRICE_MIN) * 0.7);
         var maxP = Math.round(PRICE_MIN + ratio * (PRICE_MAX - PRICE_MIN));
+        var dev = (document.querySelector('input[name="est-developer"]:checked') || {}).value;
+        if (dev === 'jules') {
+          minP = Math.round(minP * 1.1);
+          maxP = Math.round(maxP * 1.1);
+        }
         minP = Math.min(minP, PRICE_MAX - 1);
         maxP = Math.min(maxP, PRICE_MAX);
         var tMin = Math.max(1, Math.round((TIME_MIN + ratio * (TIME_MAX - TIME_MIN) * 0.6) * 10) / 10);
@@ -297,20 +450,48 @@
       document.getElementById('btn-estimation').addEventListener('click', openModal);
       document.getElementById('modal-close').addEventListener('click', closeModal);
       document.getElementById('modal-estimation').addEventListener('click', function(e) { if (e.target === this) closeModal(); });
+
+      // Popup contact simple (Me contacter)
+      var contactModal = document.getElementById('modal-contact');
+      var contactBtn = document.getElementById('btn-me-contacter');
+      if (contactModal && contactBtn) {
+        var contactClose = document.getElementById('contact-close');
+        var simpleForm = document.getElementById('simple-phone-form');
+        function openContact() {
+          contactModal.classList.add('open');
+          contactModal.setAttribute('aria-hidden', 'false');
+        }
+        function closeContact() {
+          contactModal.classList.remove('open');
+          contactModal.setAttribute('aria-hidden', 'true');
+        }
+        contactBtn.addEventListener('click', openContact);
+        contactClose.addEventListener('click', closeContact);
+        contactModal.addEventListener('click', function(e) { if (e.target === this) closeContact(); });
+        simpleForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          var phone = document.getElementById('simple-phone').value;
+          var body = 'Bonjour,\n\nJe souhaite être recontacté par téléphone.\n\nTéléphone : ' + phone;
+          window.location.href = 'mailto:Maximilien.godeau.off@gmail.com?subject=Demande de rappel&body=' + encodeURIComponent(body);
+        });
+      }
       document.getElementById('form-estimation').addEventListener('submit', function(e) { e.preventDefault(); estimate(); });
       document.getElementById('autre-estimation').addEventListener('click', function() {
         document.getElementById('phone-form-box').style.display = 'none';
         resetModal();
       });
       document.getElementById('btn-open-phone-form').addEventListener('click', function() {
-        document.getElementById('phone-form-box').style.display = document.getElementById('phone-form-box').style.display === 'none' ? 'block' : 'none';
+        var box = document.getElementById('phone-form-box');
+        box.style.display = box.style.display === 'none' ? 'block' : 'none';
       });
       document.getElementById('phone-form').addEventListener('submit', function(e) {
         e.preventDefault();
         var name = document.getElementById('ph-name').value;
         var phone = document.getElementById('ph-phone').value;
         var email = document.getElementById('ph-email').value;
-        var body = 'Bonjour,\n\nJe souhaite être recontacté par téléphone.\n\nNom : ' + name + '\nTéléphone : ' + phone + '\nEmail : ' + email;
+        var budget = document.getElementById('ph-budget').value || '';
+        var desc = document.getElementById('ph-desc').value || '';
+        var body = 'Bonjour,\n\nJe souhaite être recontacté.\n\nNom : ' + name + '\nTéléphone : ' + phone + '\nEmail : ' + email + (budget ? '\nBudget : ' + budget : '') + (desc ? '\n\nProjet : ' + desc : '');
         window.location.href = 'mailto:Maximilien.godeau.off@gmail.com?subject=Demande de rappel - ' + encodeURIComponent(name) + '&body=' + encodeURIComponent(body);
       });
     })();

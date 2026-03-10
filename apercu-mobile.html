@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aperçu · Applications mobiles | Maximilien Digital</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      background: #0a0a0a;
+      color: #fafafa;
+      line-height: 1.6;
+    }
+    .container { max-width: 72rem; margin: 0 auto; padding: 0 1rem; }
+    section { padding: 4rem 0; }
+    h1 { font-size: 2.2rem; font-weight: 700; letter-spacing: -0.02em; }
+    h2 { font-size: 1.5rem; font-weight: 700; margin-bottom: 0.75rem; }
+    .muted { color: #a1a1aa; }
+    .primary { color: #eab308; }
+    .card {
+      background: #18181b;
+      border: 1px solid #27272a;
+      border-radius: 0.75rem;
+      padding: 1.5rem;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .card:hover { border-color: rgba(234, 179, 8, 0.3); box-shadow: 0 4px 12px rgba(0,0,0,0.3); }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.75rem;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      font-size: 0.95rem;
+    }
+    .btn-primary {
+      background: linear-gradient(to right, #eab308, #ca8a04);
+      color: #0a0a0a;
+    }
+    .btn-primary:hover { background: linear-gradient(to right, #facc15, #eab308); }
+    .btn-outline {
+      background: transparent;
+      color: #eab308;
+      border: 1px solid #eab308;
+    }
+    .btn-outline:hover { background: rgba(234, 179, 8, 0.08); }
+    .badge {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: #27272a;
+      color: #a1a1aa;
+      padding: 0.4rem 0.75rem;
+      font-size: 0.75rem;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+    }
+    .badge-text { opacity: 0.85; }
+    .badge-nav { display: inline-flex; gap: 0.5rem; align-items: center; }
+    .badge-link {
+      color: #d4d4d8;
+      text-decoration: none;
+      padding: 0.2rem 0.55rem;
+      border-radius: 9999px;
+      border: 1px solid transparent;
+      font-weight: 500;
+    }
+    .badge-link:hover { border-color: #52525b; background: #18181b; }
+    .badge-link-active {
+      border-color: #eab308;
+      background: #18181b;
+      color: #facc15;
+    }
+    .hero {
+      padding: 5rem 1rem 3rem;
+      margin-top: 1.8rem;
+    }
+    .hero-grid {
+      display: grid;
+      gap: 2.5rem;
+    }
+    @media (min-width: 768px) {
+      .hero-grid {
+        grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+        align-items: center;
+      }
+    }
+    .grid-3 { display: grid; gap: 1.5rem; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+    footer { border-top: 1px solid #27272a; padding: 2rem 1rem; text-align: center; color: #71717a; font-size: 0.875rem; margin-top: 2rem; }
+    .tag { display: inline-block; padding: 0.25rem 0.5rem; background: #27272a; border-radius: 0.375rem; font-size: 0.7rem; margin-right: 0.5rem; margin-top: 0.25rem; }
+  </style>
+</head>
+<body>
+  <div class="badge">
+    <span class="badge-text">Aperçu statique — Landing applications mobiles</span>
+    <nav class="badge-nav">
+      <a href="apercu-site.html" class="badge-link">Accueil</a>
+      <a href="apercu-mobile.html" class="badge-link badge-link-active">Mobile</a>
+      <a href="apercu-saas.html" class="badge-link">SaaS</a>
+      <a href="apercu-financement.html" class="badge-link">Financement</a>
+    </nav>
+  </div>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <p class="primary" style="font-size:0.75rem; text-transform:uppercase; letter-spacing:0.18em;">
+            Applications mobiles · MVP en 30 jours
+          </p>
+          <h1>Une application mobile fonctionnelle en 30 jours.</h1>
+          <p class="muted" style="margin-top:1rem; font-size:0.95rem;">
+            Je m&apos;adresse aux entreprises, porteurs de projets et entrepreneurs qui souhaitent
+            lancer une application mobile ou une PWA, simple ou complexe. iOS, Android ou les deux :
+            je conçois et développe des apps rapides à mettre sur le marché, avec la possibilité
+            d&apos;intégrer une couche d&apos;intelligence artificielle.
+          </p>
+          <div style="margin-top:1.5rem; display:flex; flex-wrap:wrap; gap:0.75rem;">
+            <a href="https://chat.whatsapp.com/K1pakG7WODOC3tk27RQ42P?mode=gi_t" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+              Discuter de mon app sur WhatsApp
+            </a>
+            <a href="#processus" class="btn btn-outline">Voir le processus &amp; les formules</a>
+            <a href="apercu-financement.html" class="btn" style="background:#2563eb;color:#e5f2ff;">
+              TROUVER UN FINANCEMENT
+            </a>
+          </div>
+          <ul style="margin-top:1.25rem; display:grid; gap:0.35rem; font-size:0.85rem; color:#a1a1aa;">
+            <li>• MVP d&apos;application en moins de 30 jours.</li>
+            <li>• Un seul code pour iOS &amp; Android (React Native / Expo) ou Bubble.io.</li>
+            <li>• Intégration IA (chatbots, assistants, génération de contenu…).</li>
+            <li>• Publication sur l&apos;App Store, Google Play ou en PWA.</li>
+          </ul>
+        </div>
+        <div>
+          <div class="card">
+            <h2 style="font-size:1rem;">Un accompagnement complet pour votre application</h2>
+            <p class="muted" style="margin-top:0.75rem; font-size:0.85rem;">
+              L&apos;objectif : publier une première version de votre app qui fonctionne réellement,
+              que l&apos;on peut mettre entre les mains de vos utilisateurs, puis faire évoluer.
+            </p>
+            <div style="margin-top:1rem; display:grid; gap:0.5rem; font-size:0.8rem;">
+              <div class="card" style="padding:0.75rem; background:#0a0a0a; border-color:#27272a;">
+                <p style="font-weight:600;">Phase 1 · Découverte</p>
+                <p class="muted" style="font-size:0.75rem; margin-top:0.15rem;">
+                  Présentez-moi votre projet, votre modèle économique et vos objectifs. Nous
+                  définissons ensemble la version 1 de l&apos;application.
+                </p>
+              </div>
+              <div class="card" style="padding:0.75rem; background:#0a0a0a; border-color:#27272a;">
+                <p style="font-weight:600;">Phase 2 · Développement (30 jours)</p>
+                <p class="muted" style="font-size:0.75rem; margin-top:0.15rem;">
+                  Développement en React Native / Expo ou Bubble.io, avec des points réguliers
+                  pour s&apos;assurer que l&apos;application reste alignée à votre vision.
+                </p>
+              </div>
+              <div class="card" style="padding:0.75rem; background:#0a0a0a; border-color:#27272a;">
+                <p style="font-weight:600;">Phase 3 · Retours &amp; retouches</p>
+                <p class="muted" style="font-size:0.75rem; margin-top:0.15rem;">
+                  Mise en ligne, premiers retours utilisateurs, puis série de retouches pour
+                  ajuster les parcours et le design sans tout refaire.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="processus" style="padding:3rem 0; border-top:1px solid #27272a;">
+      <div class="container" style="display:grid; gap:2.5rem; grid-template-columns:1fr; max-width:60rem;">
+        <div>
+          <h2>Formules possibles pour votre app mobile</h2>
+          <p class="muted" style="font-size:0.9rem; margin-bottom:1rem;">
+            Selon la maturité de votre projet et votre budget, nous adaptons le périmètre :
+            de la simple page de vente au produit complet.
+          </p>
+          <div style="display:grid; gap:0.75rem; font-size:0.85rem;">
+            <div class="card">
+              <p style="font-weight:600;">Formule MVP landing</p>
+              <p class="muted" style="font-size:0.8rem; margin-top:0.15rem;">
+                Une page de vente publiée sur le web pour tester l&apos;intérêt marché avant
+                d&apos;engager un développement applicatif complet.
+              </p>
+            </div>
+            <div class="card">
+              <p style="font-weight:600;">Formule MVP app</p>
+              <p class="muted" style="font-size:0.8rem; margin-top:0.15rem;">
+                Première version simplifiée de l&apos;application avec les fonctionnalités
+                essentielles : idéale pour valider votre idée auprès de vrais utilisateurs.
+              </p>
+            </div>
+            <div class="card">
+              <p style="font-weight:600;">Formule template</p>
+              <p class="muted" style="font-size:0.8rem; margin-top:0.15rem;">
+                Application basée sur une template existante, personnalisée à votre cas pour
+                réduire le temps et le coût de développement.
+              </p>
+            </div>
+            <div class="card">
+              <p style="font-weight:600;">Formule illimitée</p>
+              <p class="muted" style="font-size:0.8rem; margin-top:0.15rem;">
+                Développement de l&apos;application de vos rêves, incluant fonctionnalités
+                secondaires, automatisations et diffusion sur les stores.
+              </p>
+            </div>
+          </div>
+          <p class="muted" style="font-size:0.8rem; margin-top:0.9rem;">
+            Stack utilisée : React / React Native, Node.js, TypeScript, Next.js, TailwindCSS,
+            PostgreSQL, Firebase, Bubble.io, intégrations IA (OpenAI, Azure, Google…).
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section style="padding:3rem 0 1rem;">
+      <div class="container">
+        <h2>Exemple de projet mobile</h2>
+        <div class="card" style="margin-top:1rem;">
+          <h3 style="font-size:1rem;">Application de livraison locale</h3>
+          <p class="muted" style="font-size:0.85rem; margin-top:0.5rem;">
+            Application mobile connectant commerçants locaux et livreurs pour une livraison
+            rapide en centre-ville : suivi en temps réel, notifications push et paiement en
+            ligne sécurisé.
+          </p>
+          <div style="margin-top:0.75rem;">
+            <span class="tag">Mobile</span>
+            <span class="tag">React Native</span>
+            <span class="tag">API</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">© 2025 Maximilien Digital. Aperçu landing applications mobiles.</div>
+  </footer>
+</body>
+</html>
+
