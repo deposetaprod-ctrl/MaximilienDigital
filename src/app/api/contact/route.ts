@@ -10,7 +10,7 @@ interface ContactFormData {
   description: string;
 }
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+
 
 async function saveToStorage(data: ContactFormData & { createdAt: string }) {
   const url = process.env.KV_REST_API_URL;
@@ -27,6 +27,7 @@ async function saveToStorage(data: ContactFormData & { createdAt: string }) {
 }
 
 export async function POST(request: NextRequest) {
+  const resend = new Resend(process.env.RESEND_API_KEY);
   try {
     const body: ContactFormData = await request.json();
 
