@@ -15,6 +15,7 @@ type FormStatus = "idle" | "submitting" | "success" | "error";
 
 export function ContactFormModal({ open, onOpenChange, initialDescription }: ContactFormModalProps) {
   const [status, setStatus] = useState<FormStatus>("idle");
+  const [errorMessage, setErrorMessage] = useState<string>("Une erreur est survenue. Veuillez réessayer.");
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -36,10 +37,14 @@ export function ContactFormModal({ open, onOpenChange, initialDescription }: Con
         body: JSON.stringify(data),
       });
 
-      if (!res.ok) throw new Error("Erreur serveur");
+      if (!res.ok) {
+        const errorData = await res.json().catch(() => ({}));
+        throw new Error(errorData.error || "Erreur serveur");
+      }
 
       setStatus("success");
-    } catch {
+    } catch (err: any) {
+      setErrorMessage(err.message || "Une erreur est survenue. Veuillez réessayer.");
       setStatus("error");
     }
   }
@@ -165,7 +170,7 @@ export function ContactFormModal({ open, onOpenChange, initialDescription }: Con
 
                 {status === "error" && (
                   <p className="text-sm text-destructive">
-                    Une erreur est survenue. Veuillez réessayer.
+                    {errorMessage}
                   </p>
                 )}
 
