@@ -38,13 +38,21 @@ export function ContactFormModal({ open, onOpenChange, initialDescription }: Con
       });
 
       if (!res.ok) {
-        const errorData = await res.json().catch(() => ({}));
+        let errorData = {};
+        try {
+          errorData = await res.clone().json();
+        } catch (e) {
+          const text = await res.text();
+          console.error("Non-JSON Error Response:", text);
+          throw new Error("HTTP " + res.status + " - " + res.statusText);
+        }
         throw new Error(errorData.error || "Erreur serveur");
       }
 
       setStatus("success");
     } catch (err: any) {
-      setErrorMessage(err.message || "Une erreur est survenue. Veuillez réessayer.");
+      console.error("Contact Form Submission Error:", err);
+      setErrorMessage(err.message || "Une erreur est survenue lors de l'envoi. Veuillez réessayer.");
       setStatus("error");
     }
   }
