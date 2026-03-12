@@ -31,28 +31,23 @@ export function ContactFormModal({ open, onOpenChange, initialDescription }: Con
     };
 
     try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
-      });
-
-      if (!res.ok) {
-        let errorData: any = {};
-        try {
-          errorData = await res.clone().json();
-        } catch (e) {
-          const text = await res.text();
-          console.error("Non-JSON Error Response:", text);
-          throw new Error("HTTP " + res.status + " - " + res.statusText);
-        }
-        throw new Error(errorData.error || "Erreur serveur");
-      }
-
+      const subject = encodeURIComponent(`[Contact Portfolio] ${data.name}`);
+      let bodyText = `Nom : ${data.name}\nEmail : ${data.email}\n`;
+      if (data.phone) bodyText += `Téléphone : ${data.phone}\n`;
+      if (data.budget) bodyText += `Budget estimé : ${data.budget}\n`;
+      bodyText += `\nDescription du projet :\n${data.description}\n`;
+      
+      const bodyParams = encodeURIComponent(bodyText);
+      const mailtoLink = `mailto:maximilien.godeau.off@gmail.com?subject=${subject}&body=${bodyParams}`;
+      
+      // Use window.location.href to trigger the native mail client
+      window.location.href = mailtoLink;
+      
+      // Assume success since we triggered the mail app opening
       setStatus("success");
     } catch (err: any) {
-      console.error("Contact Form Submission Error:", err);
-      setErrorMessage(err.message || "Une erreur est survenue lors de l'envoi. Veuillez réessayer.");
+      console.error("Contact Form Mailto Error:", err);
+      setErrorMessage(err.message || "Impossible d'ouvrir votre client email.");
       setStatus("error");
     }
   }
