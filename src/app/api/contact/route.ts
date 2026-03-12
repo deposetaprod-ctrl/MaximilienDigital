@@ -54,9 +54,17 @@ export async function POST(request: NextRequest) {
         ? "Mathieu"
         : "Contact";
 
+    if (!process.env.RESEND_API_KEY) {
+      console.error("Missing RESEND_API_KEY environment variable");
+      return NextResponse.json(
+        { error: "Configuration serveur manquante : Clé API Resend introuvable. Redéployez votre site ou redémarrez votre serveur local." },
+        { status: 500 }
+      );
+    }
+
     const { error } = await resend.emails.send({
       from: "Portfolio Contact <onboarding@resend.dev>",
-      to: ["Maximilien.godeau.off@gmail.com"],
+      to: ["maximilien.godeau.off@gmail.com"],
       replyTo: body.email,
       subject: `[${devLabel}] ${body.name}${body.phone ? " — " + body.phone : ""}`,
       html: `
