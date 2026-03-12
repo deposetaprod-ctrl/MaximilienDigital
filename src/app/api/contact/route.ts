@@ -110,10 +110,10 @@ export async function POST(request: NextRequest) {
     await saveToStorage({ ...body, createdAt });
 
     return NextResponse.json({ success: true });
-  } catch (error) {
+  } catch (error: any) {
     console.error("Contact form error:", error);
     return NextResponse.json(
-      { error: "Une erreur est survenue. Veuillez réessayer." },
+      { error: error?.message || "Une erreur est survenue lors de l'envoi. Veuillez réessayer." },
       { status: 500 }
     );
   }
