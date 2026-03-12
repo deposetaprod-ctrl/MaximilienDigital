@@ -38,7 +38,7 @@ export function ContactFormModal({ open, onOpenChange, initialDescription }: Con
       });
 
       if (!res.ok) {
-        let errorData = {};
+        let errorData: any = {};
         try {
           errorData = await res.clone().json();
         } catch (e) {
