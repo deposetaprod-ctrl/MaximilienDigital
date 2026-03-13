@@ -45,12 +45,12 @@ export default function MobileAppsLandingPage() {
               <AnimatedBaseButton render={<Link href="/#estimation" />} variant="outline">
                 Estimer le budget de mon app
               </AnimatedBaseButton>
-              <Link
-                href="/financement"
-                className="inline-flex items-center justify-center rounded-lg bg-secondary px-5 py-2.5 text-sm font-semibold text-secondary-foreground shadow-sm hover:bg-secondary/80 ring-1 ring-border transition-colors cursor-pointer"
+              <AnimatedBaseButton
+                render={<Link href="/financement" />}
+                className="bg-sky-600 font-semibold text-white hover:bg-sky-500 ring-0"
               >
                 TROUVER UN FINANCEMENT
-              </Link>
+              </AnimatedBaseButton>
             </div>
 
             <ul className="mt-6 grid gap-2 text-sm text-muted-foreground sm:grid-cols-2">
