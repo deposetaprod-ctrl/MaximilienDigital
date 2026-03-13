@@ -167,14 +167,14 @@ export const developerOptions: DeveloperOption[] = [
     value: "jules",
     name: "Jules",
     description: "Un peu plus cher · Très réactif · Fullstack · Très disponible",
-    image: "/jules.jpg",
+    image: "/jules-v2.jpg",
     bullets: ["Prix ★★", "Disponibilité ★★", "Efficacité ★★"],
   },
   {
     value: "mathieu",
     name: "Mathieu",
     description: "Un peu moins cher · Fullstack · Un peu moins disponible",
-    image: "/mathieu.jpg",
+    image: "/mathieu-v2.jpg",
     bullets: ["Prix ★", "Disponibilité ★", "Efficacité ★★"],
   },
 ];
