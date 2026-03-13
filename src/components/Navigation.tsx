@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ThemeToggle } from "./ThemeToggle";
 
 const navItems = [
   { name: "Accueil", href: "/" },
@@ -58,10 +57,6 @@ export function Navigation() {
           <span>WhatsApp</span>
         </a>
 
-        {/* Theme Toggle (if needed alongside) */}
-        <div className="ml-1">
-          <ThemeToggle />
-        </div>
       </div>
 
       {/* Mobile WhatsApp Button (absolute positioned if we want it separate, but center pill might be enough. Let's keep it in the pill but icon only on mobile) */}
