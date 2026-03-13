@@ -47,9 +47,9 @@ export default function MobileAppsLandingPage() {
               </AnimatedBaseButton>
               <AnimatedBaseButton
                 render={<Link href="/financement" />}
-                className="bg-sky-600 font-semibold text-white hover:bg-sky-500 ring-0"
+                className="bg-white/5 font-medium text-white hover:bg-white/10 ring-1 ring-white/10"
               >
-                TROUVER UN FINANCEMENT
+                Trouver un financement
               </AnimatedBaseButton>
             </div>
 
