@@ -40,25 +40,39 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    title: "Application de rencontre",
+    description:
+      "Une application mobile repensant l'expérience de dating avec une interface moderne, intuitive et des algorithmes de connexion.",
+    tags: ["Mobile", "React Native", "Dating"],
+    image: "/rencontre.png",
+  },
+  {
+    title: "Assistant pour coach sportif",
+    description:
+      "Une plateforme complète permettant à un coach sportif de suivre ses élèves, partager des plans d'entrainement et analyser leurs performances.",
+    tags: ["Mobile", "SaaS", "Sport"],
+    image: "/coach.png",
+  },
+  {
+    title: "Traitement de factures",
+    description:
+      "Une application web interne pour automatiser la lecture, le traitement et la validation de factures grâce à l'intelligence artificielle.",
+    tags: ["SaaS", "IA", "Automatisation"],
+    image: "/factures.png",
+  },
+  {
+    title: "Application Majordome",
+    description:
+      "Une application de service haut de gamme offrant des prestations de conciergerie privée, avec une interface très premium.",
+    tags: ["Mobile", "Luxe", "UX Premium"],
+    image: "/majordome.png",
+  },
+  {
     title: "EsportNews.fr",
     description:
       "Plateforme média dédiée à l'esport, proposant actualités, suivi des scores en direct et analyses approfondies de la scène compétitive.",
     tags: ["Média", "Esport", "Live Data"],
     image: "esportnews.png",
-  },
-  {
-    title: "Application de livraison locale",
-    description:
-      "Application mobile connectant commerçants locaux et livreurs pour une livraison rapide en centre-ville.",
-    tags: ["Mobile", "React Native", "API"],
-    image: "",
-  },
-  {
-    title: "Assistant IA pour cabinet comptable",
-    description:
-      "Chatbot intelligent capable de répondre aux questions courantes des clients et de pré-traiter les documents comptables.",
-    tags: ["IA", "Python", "GPT"],
-    image: "",
   },
 ];
 

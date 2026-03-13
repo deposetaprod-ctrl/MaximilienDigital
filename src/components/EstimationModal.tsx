@@ -113,7 +113,7 @@ export function EstimationModal({
                   href={WHATSAPP_GROUP_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-3 w-full flex items-center justify-center gap-2 rounded-lg bg-[#25D366] px-6 py-3 font-semibold text-white hover:bg-[#20BD5A] transition-colors cursor-pointer"
+                  className="mt-3 w-full flex items-center justify-center gap-2 rounded-lg bg-white px-6 py-3 font-semibold text-black hover:bg-neutral-200 transition-colors cursor-pointer"
                 >
                   <MessageCircle className="h-5 w-5" />
                   Rejoindre le groupe WhatsApp

@@ -45,7 +45,7 @@ export default function SaasLandingPage() {
               </AnimatedBaseButton>
               <Link
                 href="/financement"
-                className="inline-flex items-center justify-center rounded-lg bg-sky-600 px-5 py-2.5 text-sm font-semibold text-sky-50 shadow-sm hover:bg-sky-500 transition-colors cursor-pointer"
+                className="inline-flex items-center justify-center rounded-lg bg-secondary px-5 py-2.5 text-sm font-semibold text-secondary-foreground shadow-sm hover:bg-secondary/80 ring-1 ring-border transition-colors cursor-pointer"
               >
                 TROUVER UN FINANCEMENT
               </Link>
@@ -231,7 +231,7 @@ export default function SaasLandingPage() {
               href={WHATSAPP_GROUP_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center rounded-lg bg-emerald-500 px-5 py-2.5 text-sm font-semibold text-emerald-950 shadow-sm hover:bg-emerald-400 transition-colors cursor-pointer"
+              className="inline-flex items-center justify-center rounded-lg bg-white px-5 py-2.5 text-sm font-semibold text-black shadow-sm hover:bg-neutral-200 transition-colors cursor-pointer"
             >
               Discuter sur WhatsApp
             </a>

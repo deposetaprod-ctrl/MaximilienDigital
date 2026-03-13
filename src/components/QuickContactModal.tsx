@@ -90,7 +90,7 @@ export function QuickContactModal({ open, onOpenChange }: QuickContactModalProps
               href={WHATSAPP_GROUP_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-3 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-emerald-500 px-4 py-2.5 text-sm font-semibold text-emerald-950 hover:bg-emerald-400 transition-colors cursor-pointer"
+              className="mt-3 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-white px-4 py-2.5 text-sm font-semibold text-black hover:bg-neutral-200 transition-colors cursor-pointer"
             >
               <MessageCircle className="h-4 w-4" />
               Rejoindre le groupe WhatsApp
