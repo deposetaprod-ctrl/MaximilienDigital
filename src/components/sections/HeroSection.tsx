@@ -8,10 +8,9 @@ import { motion } from "framer-motion";
 interface HeroSectionProps {
   heroRef: (node: HTMLElement | null) => void;
   onCtaClick: () => void;
-  onSongClick: () => void;
 }
 
-export function HeroSection({ heroRef, onCtaClick, onSongClick }: HeroSectionProps) {
+export function HeroSection({ heroRef, onCtaClick }: HeroSectionProps) {
   return (
     <section
       ref={heroRef}
