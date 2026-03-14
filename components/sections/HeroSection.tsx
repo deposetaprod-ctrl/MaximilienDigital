@@ -8,9 +8,10 @@ import { motion } from "framer-motion";
 interface HeroSectionProps {
   heroRef: (node: HTMLElement | null) => void;
   onCtaClick: () => void;
+  onSongClick: () => void;
 }
 
-export function HeroSection({ heroRef, onCtaClick }: HeroSectionProps) {
+export function HeroSection({ heroRef, onCtaClick, onSongClick }: HeroSectionProps) {
   return (
     <section
       ref={heroRef}
@@ -56,6 +57,13 @@ export function HeroSection({ heroRef, onCtaClick }: HeroSectionProps) {
             C&apos;est combien pour mon projet ?
             <ArrowRight className="inline-block ml-2 h-4 w-4" />
           </AnimatedBaseButton>
+
+          <button
+            onClick={onSongClick}
+            className="mt-4 block w-full text-sm text-muted-foreground hover:text-primary transition-colors"
+          >
+            Suggérer une chanson pour coder ♪
+          </button>
         </motion.div>
 
         {/* Carte photo style Come Up */}

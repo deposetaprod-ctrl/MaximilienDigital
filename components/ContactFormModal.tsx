@@ -30,16 +30,19 @@ export function ContactFormModal({ open, onOpenChange, initialDescription }: Con
     };
 
     try {
-      const res = await fetch("/api/contact", {
+      const response = await fetch("/api/send-contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
       });
 
-      if (!res.ok) throw new Error("Erreur serveur");
+      if (!response.ok) {
+        throw new Error("Erreur lors de l'envoi");
+      }
 
       setStatus("success");
-    } catch {
+    } catch (err: any) {
+      console.error("Contact Form error:", err);
       setStatus("error");
     }
   }
