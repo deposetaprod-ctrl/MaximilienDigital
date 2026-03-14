@@ -56,13 +56,6 @@ export function HeroSection({ heroRef, onCtaClick }: HeroSectionProps) {
             C&apos;est combien pour mon projet ?
             <ArrowRight className="inline-block ml-2 h-4 w-4" />
           </AnimatedBaseButton>
-          
-          <button
-            onClick={onSongClick}
-            className="mt-4 block w-full text-sm text-muted-foreground hover:text-primary transition-colors"
-          >
-            Suggérer une chanson pour coder ♪
-          </button>
         </motion.div>
 
         {/* Carte photo style Come Up */}
