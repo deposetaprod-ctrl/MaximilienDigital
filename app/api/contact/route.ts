@@ -56,7 +56,7 @@ export async function POST(request: NextRequest) {
 
     const { error } = await resend.emails.send({
       from: "Portfolio Contact <onboarding@resend.dev>",
-      to: ["juleslordet@proton.me", "Maximilien.godeau.off@gmail.com"],
+      to: ["Maximilien.godeau.off@gmail.com"],
       replyTo: body.email,
       subject: `[${devLabel}] ${body.name}${body.phone ? " — " + body.phone : ""}`,
       html: `

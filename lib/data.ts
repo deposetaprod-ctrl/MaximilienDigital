@@ -168,7 +168,7 @@ export const developerOptions: DeveloperOption[] = [
 // --- Infos de contact (placeholders) ---
 
 export const contactInfo = {
-  email: "contact@maximiliengodeau.com",
+  email: "maximilien.godeau.off@gmail.com",
   linkedin: "#",
   github: "#",
   twitter: "#",
