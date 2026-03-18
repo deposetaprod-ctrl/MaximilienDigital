@@ -2,7 +2,7 @@ import Link from "next/link";
 import { AnimatedBaseButton } from "@/components/ui/AnimatedBaseButton";
 
 export const metadata = {
-  title: "Financer votre application (SaaS ou mobile) | Maximilien Digital",
+  title: "Financer votre application (SaaS ou mobile) | DIGIMAX",
   description:
     "Aide au cadrage fonctionnel et technique pour préparer un dossier de financement de votre application SaaS ou mobile.",
 };

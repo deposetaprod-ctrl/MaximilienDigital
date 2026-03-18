@@ -6,7 +6,7 @@ import { TestimonialsSection } from "@/components/sections/TestimonialsSection";
 const WHATSAPP_GROUP_URL = "https://chat.whatsapp.com/K1pakG7WODOC3tk27RQ42P?mode=gi_t";
 
 export const metadata = {
-  title: "Développement SaaS sur mesure | Maximilien Digital",
+  title: "Développement SaaS sur mesure | DIGIMAX",
   description:
     "Applications SaaS performantes, scalables et maintenables : de l'idée au produit en production avec une architecture moderne.",
 };

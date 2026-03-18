@@ -6,7 +6,7 @@ import { TestimonialsSection } from "@/components/sections/TestimonialsSection";
 const WHATSAPP_GROUP_URL = "https://chat.whatsapp.com/K1pakG7WODOC3tk27RQ42P?mode=gi_t";
 
 export const metadata = {
-  title: "Développement d'applications mobiles | Maximilien Digital",
+  title: "Développement d'applications mobiles | DIGIMAX",
   description:
     "Création d'applications mobiles iOS et Android sur mesure : conception, design, développement et mise en production.",
 };

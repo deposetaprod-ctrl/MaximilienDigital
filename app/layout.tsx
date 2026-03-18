@@ -9,7 +9,7 @@ const geistSans = Geist({
 });
 
 export const metadata: Metadata = {
-  title: "Maximilien Digital | Développeur SaaS, Mobile & IA",
+  title: "DIGIMAX | Développeur SaaS, Mobile & IA",
   description:
     "Expert en développement SaaS, applications mobiles et solutions d'intelligence artificielle. Transformons votre idée en produit digital performant.",
   keywords: [
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     "freelance",
   ],
   openGraph: {
-    title: "Maximilien Digital | Développeur SaaS, Mobile & IA",
+    title: "DIGIMAX | Développeur SaaS, Mobile & IA",
     description:
       "Transformons votre idée en produit digital performant.",
     type: "website",

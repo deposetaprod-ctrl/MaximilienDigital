@@ -1,7 +1,7 @@
 "use client";
 
-import { testimonials } from "@/lib/data";
-import { Quote } from "lucide-react";
+import { testimonials, contactInfo } from "@/lib/data";
+import { Quote, ExternalLink, Star } from "lucide-react";
 import { motion } from "framer-motion";
 
 export function TestimonialsSection() {
@@ -48,6 +48,33 @@ export function TestimonialsSection() {
               </div>
             </motion.div>
           ))}
+        </div>
+        <div className="mt-16 flex flex-col items-center">
+          <motion.a
+            href={contactInfo.comeup}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group relative flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-8 py-4 text-sm font-semibold text-primary transition-all hover:bg-primary/10 hover:border-primary/40"
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4, delay: 0.2 }}
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+          >
+            <div className="flex items-center gap-1 mr-2 text-amber-500">
+              <Star className="h-4 w-4 fill-current" />
+              <Star className="h-4 w-4 fill-current" />
+              <Star className="h-4 w-4 fill-current" />
+              <Star className="h-4 w-4 fill-current" />
+              <Star className="h-4 w-4 fill-current" />
+            </div>
+            Voir plus d'avis sur ComeUp
+            <ExternalLink className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+          </motion.a>
+          <p className="mt-4 text-xs text-muted-foreground">
+            Basé sur plus de 10 avis 5 étoiles
+          </p>
         </div>
       </div>
     </section>

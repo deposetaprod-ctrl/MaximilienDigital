@@ -186,4 +186,5 @@ export const contactInfo = {
   linkedin: "#",
   github: "#",
   twitter: "#",
+  comeup: "https://comeup.com/fr/service/382688/vous-developper-une-application-mobile-saas-avec-ou-sans-intelligence-artificielle",
 };

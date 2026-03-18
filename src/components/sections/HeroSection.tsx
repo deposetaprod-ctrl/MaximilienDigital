@@ -32,7 +32,7 @@ export function HeroSection({ heroRef, onCtaClick }: HeroSectionProps) {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.1 }}
         >
-          Maximilien Digital
+          DIGIMAX
         </motion.h1>
 
         <motion.p
@@ -92,7 +92,7 @@ export function HeroSection({ heroRef, onCtaClick }: HeroSectionProps) {
           <div className="overflow-hidden rounded-t-2xl">
             <Image
               src="/max.png"
-              alt="Maximilien Digital"
+              alt="DIGIMAX"
               width={288}
               height={288}
               className="h-auto w-full object-cover"
@@ -103,7 +103,7 @@ export function HeroSection({ heroRef, onCtaClick }: HeroSectionProps) {
           {/* Info bar */}
           <div className="mt-[-1px] rounded-b-2xl bg-card px-5 py-4 shadow-lg ring-1 ring-border">
             <p className="text-lg font-bold text-foreground">
-              Maximilien Digital
+              DIGIMAX
             </p>
             <p className="text-sm text-muted-foreground">
               Développeur SaaS &middot; Mobile &middot; IA
