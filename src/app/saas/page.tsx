@@ -1,15 +1,48 @@
 import Link from "next/link";
+import type { Metadata } from "next";
 import { services, projects } from "@/lib/data";
 import { AnimatedBaseButton } from "@/components/ui/AnimatedBaseButton";
 import { TestimonialsSection } from "@/components/sections/TestimonialsSection";
 
 const WHATSAPP_GROUP_URL = "https://chat.whatsapp.com/K1pakG7WODOC3tk27RQ42P?mode=gi_t";
 
-export const metadata = {
-  title: "Développement SaaS sur mesure | DIGIMAX",
+export const metadata: Metadata = {
+  title: "Développement SaaS sur mesure — MVP en 30 jours",
   description:
-    "Applications SaaS performantes, scalables et maintenables : de l'idée au produit en production avec une architecture moderne.",
+    "Développeur freelance spécialisé en applications SaaS React/Next.js. Architecture multi-tenant, paiements, IA : MVP fonctionnel livré en 30 jours. Devis gratuit.",
+  keywords: [
+    "développement SaaS",
+    "freelance SaaS",
+    "Next.js",
+    "React",
+    "MVP SaaS",
+    "application web sur mesure",
+    "développeur freelance France",
+  ],
+  alternates: {
+    canonical: "https://digimax.agency/saas",
+  },
+  openGraph: {
+    url: "https://digimax.agency/saas",
+    images: [{ url: "/og-image.png", width: 1200, height: 630 }],
+  },
 };
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: "Développement SaaS sur mesure",
+  provider: {
+    "@type": "LocalBusiness",
+    name: "Maximilien Digital",
+    url: "https://digimax.agency",
+  },
+  description:
+    "Développement d'applications SaaS performantes, scalables et maintenables avec React et Next.js. MVP en 30 jours.",
+  url: "https://digimax.agency/saas",
+  areaServed: "FR",
+};
+
 
 export default function SaasLandingPage() {
   const saasService = services.find((s) => s.title.includes("SaaS"));
@@ -19,6 +52,10 @@ export default function SaasLandingPage() {
 
   return (
     <main className="min-h-screen bg-background text-foreground">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {/* Hero */}
       <section className="px-4 py-16 md:py-24">
         <div className="mx-auto flex max-w-5xl flex-col gap-10 md:flex-row md:items-center">

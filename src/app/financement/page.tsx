@@ -1,11 +1,27 @@
 import Link from "next/link";
+import type { Metadata } from "next";
 import { AnimatedBaseButton } from "@/components/ui/AnimatedBaseButton";
 
-export const metadata = {
-  title: "Financer votre application (SaaS ou mobile) | DIGIMAX",
+export const metadata: Metadata = {
+  title: "Financer votre application SaaS ou mobile — Aide & Accompagnement",
   description:
-    "Aide au cadrage fonctionnel et technique pour préparer un dossier de financement de votre application SaaS ou mobile.",
+    "Obtenez un dossier technique chiffré et crédible pour financer votre application SaaS ou mobile. Accompagnement BPI, banques, investisseurs. Contactez Maximilien Digital.",
+  keywords: [
+    "financement application",
+    "BPI France",
+    "financement SaaS",
+    "aide financement application mobile",
+    "dossier financement tech",
+  ],
+  alternates: {
+    canonical: "https://digimax.agency/financement",
+  },
+  openGraph: {
+    url: "https://digimax.agency/financement",
+    images: [{ url: "/og-image.png", width: 1200, height: 630 }],
+  },
 };
+
 
 export default function FinancementPage() {
   return (

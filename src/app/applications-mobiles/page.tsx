@@ -1,21 +1,58 @@
 import Link from "next/link";
+import type { Metadata } from "next";
 import { projects } from "@/lib/data";
 import { AnimatedBaseButton } from "@/components/ui/AnimatedBaseButton";
 import { TestimonialsSection } from "@/components/sections/TestimonialsSection";
 
 const WHATSAPP_GROUP_URL = "https://chat.whatsapp.com/K1pakG7WODOC3tk27RQ42P?mode=gi_t";
 
-export const metadata = {
-  title: "Développement d'applications mobiles | DIGIMAX",
+export const metadata: Metadata = {
+  title: "Développement d'applications mobiles iOS & Android — MVP 30 jours",
   description:
-    "Création d'applications mobiles iOS et Android sur mesure : conception, design, développement et mise en production.",
+    "Développeur freelance React Native & Expo. Applications mobiles iOS et Android sur mesure avec intégration IA. Publiée sur l'App Store & Google Play en 30 jours.",
+  keywords: [
+    "développement application mobile",
+    "freelance React Native",
+    "application iOS Android",
+    "Expo",
+    "MVP mobile",
+    "application mobile sur mesure",
+    "développeur mobile France",
+  ],
+  alternates: {
+    canonical: "https://digimax.agency/applications-mobiles",
+  },
+  openGraph: {
+    url: "https://digimax.agency/applications-mobiles",
+    images: [{ url: "/og-image.png", width: 1200, height: 630 }],
+  },
 };
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: "Développement d'applications mobiles iOS & Android",
+  provider: {
+    "@type": "LocalBusiness",
+    name: "Maximilien Digital",
+    url: "https://digimax.agency",
+  },
+  description:
+    "Création d'applications mobiles iOS et Android avec React Native et Expo. Intégration IA, publication sur les stores. MVP en 30 jours.",
+  url: "https://digimax.agency/applications-mobiles",
+  areaServed: "FR",
+};
+
 
 export default function MobileAppsLandingPage() {
   const mobileProjects = projects.filter((p) => p.tags.includes("Mobile"));
 
   return (
     <main className="min-h-screen bg-background text-foreground">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {/* Hero */}
       <section className="px-4 py-16 md:py-24">
         <div className="mx-auto flex max-w-5xl flex-col gap-10 md:flex-row md:items-center">
