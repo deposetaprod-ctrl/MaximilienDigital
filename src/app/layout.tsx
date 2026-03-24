@@ -26,6 +26,10 @@ export const metadata: Metadata = {
       "Transformons votre idée en produit digital performant.",
     type: "website",
   },
+  icons: {
+    icon: "/icon.png",
+    apple: "/icon.png",
+  },
 };
 
 export default function RootLayout({
