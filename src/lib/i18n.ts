@@ -251,8 +251,8 @@ export const translations = {
 
     // Offer page
     off_tag: "Offre Spéciale · Durée limitée",
-    off_h1: "Votre projet digital à partir de 1000€.",
-    off_intro: "MVP gratuit, aperçu immédiat et livraison sous 30 jours. Profitez d'une offre exceptionnelle pour lancer votre SaaS ou application mobile.",
+    off_h1: "Votre MVP Gratuit & Aperçu Immédiat.",
+    off_intro: "Obtenez un premier aperçu fonctionnel de votre projet sans frais. Domaine offert et lancement de votre application mobile ou SaaS à partir de 1000€.",
     off_preview_title: "MVP Gratuit & Aperçu Immédiat",
     off_preview_desc: "Je réalise un premier aperçu fonctionnel (MVP) de votre projet gratuitement et immédiatement pour valider votre idée.",
     off_domain_title: "Domaine Offert",
@@ -518,8 +518,8 @@ export const translations = {
 
     // Offer page
     off_tag: "Special Offer · Limited Time",
-    off_h1: "Your digital project from 1000€.",
-    off_intro: "Free MVP, immediate preview, and 30-day delivery. Take advantage of an exceptional offer to launch your SaaS or mobile app.",
+    off_h1: "Free MVP & Immediate Preview.",
+    off_intro: "Get a first functional preview of your project at no cost. Free domain name and launch of your mobile or SaaS app starting from 1000€.",
     off_preview_title: "Free MVP & Immediate Preview",
     off_preview_desc: "I'll create a first functional MVP of your project for free and immediately to validate your idea.",
     off_domain_title: "Free Domain Name",

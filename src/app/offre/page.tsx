@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import OffreClient from "./OffreClient";
 
 export const metadata: Metadata = {
-  title: "Offre MVP Gratuit & Application à partir de 1000€ | Maximilien Digital",
+  title: "MVP Gratuit Application Mobile & SaaS | Maximilien Digital",
   description:
-    "Lancement spécial : Votre MVP gratuit immédiatement, application ou site web à partir de 1000€. Livraison sous 30 jours. Profitez de l'expertise de Maximilien Digital.",
+    "Obtenez votre MVP gratuit et un aperçu immédiat de votre projet digital. Lancement d'application et SaaS à partir de 1000€. Livraison sous 30 jours. Expertise locale.",
   keywords: [
     "MVP gratuit",
     "application mobile 1000€",
