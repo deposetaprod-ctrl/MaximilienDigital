@@ -27,6 +27,7 @@ const defaultInput: EstimationInput = {
   grandPublic: false,
   pro: false,
   developer: "mathieu",
+  budget: "",
 };
 
 export function EstimationModal({
@@ -69,6 +70,7 @@ export function EstimationModal({
       `Fourchette: ${result.priceLabel}`,
       `Délai: ${result.timeLabel}`,
       form.developer ? `Développeur: ${form.developer === "jules" ? "Jules" : "Mathieu"}` : "",
+      form.budget ? `Budget: ${form.budget}` : "",
       form.typeApp ? `Type d'app: ${form.typeApp}` : "",
       `Support: ${form.web ? "Web" : ""} ${form.mobile ? "Mobile" : ""}`.trim() || "Non précisé",
       `Fonctionnalités: ${[
@@ -94,6 +96,7 @@ export function EstimationModal({
   const descText = locale === "en"
     ? "Describe your project and check the planned features. An indicative price and timeline will be provided (max. €20,000, 6 months)."
     : "Décrivez votre projet et cochez les fonctionnalités prévues. Une fourchette de prix et de délai vous sera donnée à titre indicatif (max. 20 000 €, 6 mois).";
+  const budgetLabel = t("cf_budget");
   const typeAppLabel = locale === "en"
     ? "App type (e.g. Uber-like, dating app, marketplace…)"
     : "Type d'application (ex : type Uber, app de rencontre, marketplace…)";
@@ -215,6 +218,33 @@ export function EstimationModal({
                     </label>
                   </div>
                   <p className="text-xs text-muted-foreground mt-1">{bothLabel}</p>
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-foreground mb-2">{budgetLabel}</label>
+                  <div className="flex flex-wrap gap-2">
+                    {[
+                      { key: "budget_1k", val: "1000€" },
+                      { key: "budget_2k", val: "2000€" },
+                      { key: "budget_3k", val: "3000€" },
+                      { key: "budget_lt5k", val: "<5000€" },
+                      { key: "budget_5k10k", val: "5-10k€" },
+                      { key: "budget_gt50k", val: ">50k€" },
+                    ].map((opt) => (
+                      <button
+                        key={opt.key}
+                        type="button"
+                        onClick={() => update("budget", t(opt.key as any))}
+                        className={`px-3 py-1.5 rounded-lg border text-xs font-medium transition-all ${
+                          form.budget === t(opt.key as any)
+                            ? "bg-primary border-primary text-primary-foreground shadow-lg shadow-primary/20"
+                            : "bg-background border-border text-muted-foreground hover:border-primary/50"
+                        }`}
+                      >
+                        {t(opt.key as any)}
+                      </button>
+                    ))}
+                  </div>
                 </div>
 
                 <div>

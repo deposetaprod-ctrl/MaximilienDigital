@@ -100,6 +100,9 @@ export const translations = {
     cf_error: "Une erreur est survenue. Réessayez ou contactez-moi directement.",
 
     // Budget options
+    budget_1k: "Environ 1 000 €",
+    budget_2k: "Environ 2 000 €",
+    budget_3k: "Environ 3 000 €",
     budget_lt5k: "Moins de 5 000 €",
     budget_5k10k: "5 000 - 10 000 €",
     budget_10k25k: "10 000 - 25 000 €",
@@ -365,6 +368,9 @@ export const translations = {
     cf_error: "Something went wrong. Please try again or contact me directly.",
 
     // Budget options
+    budget_1k: "Around €1,000",
+    budget_2k: "Around €2,000",
+    budget_3k: "Around €3,000",
     budget_lt5k: "Less than €5,000",
     budget_5k10k: "€5,000 - €10,000",
     budget_10k25k: "€10,000 - €25,000",

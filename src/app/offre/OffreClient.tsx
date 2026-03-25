@@ -5,11 +5,22 @@ import { useLanguage } from "@/context/LanguageContext";
 import { AnimatedBaseButton } from "@/components/ui/AnimatedBaseButton";
 import { CheckCircle2, Zap, Globe, ShieldCheck, ArrowRight, MessageCircle } from "lucide-react";
 import { motion } from "framer-motion";
+import { useState } from "react";
+import { EstimationModal } from "@/components/EstimationModal";
+import { ContactFormModal } from "@/components/ContactFormModal";
 
 const WHATSAPP_GROUP_URL = "https://chat.whatsapp.com/K1pakG7WODOC3tk27RQ42P?mode=gi_t";
 
 export default function OfferPage() {
   const { t } = useLanguage();
+  const [estimationOpen, setEstimationOpen] = useState(false);
+  const [contactOpen, setContactOpen] = useState(false);
+  const [contactInitialDescription, setContactInitialDescription] = useState<string | null>(null);
+
+  function handleRequestContact(projectSummary: string, _developer: string) {
+    setContactInitialDescription(projectSummary);
+    setContactOpen(true);
+  }
 
   const features = [
     {
@@ -85,7 +96,7 @@ export default function OfferPage() {
             transition={{ delay: 0.3 }}
             className="flex flex-wrap justify-center gap-4"
           >
-            <AnimatedBaseButton render={<Link href="/#contact" />}>
+            <AnimatedBaseButton onClick={() => setEstimationOpen(true)}>
               {t("off_cta_main")}
               <ArrowRight className="ml-2 h-4 w-4" />
             </AnimatedBaseButton>
@@ -161,7 +172,22 @@ export default function OfferPage() {
                 <div className="font-bold text-xl">EsportNews</div>
             </div>
         </div>
+        </div>
       </div>
+
+      <EstimationModal
+        open={estimationOpen}
+        onOpenChange={setEstimationOpen}
+        onRequestContact={handleRequestContact}
+      />
+      <ContactFormModal
+        open={contactOpen}
+        onOpenChange={(open) => {
+          setContactOpen(open);
+          if (!open) setContactInitialDescription(null);
+        }}
+        initialDescription={contactInitialDescription ?? undefined}
+      />
     </main>
   );
 }

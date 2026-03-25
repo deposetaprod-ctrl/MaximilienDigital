@@ -12,6 +12,7 @@ export interface EstimationInput {
   pro: boolean;
   /** Jules = +10% sur le prix par rapport à Mathieu */
   developer?: DeveloperChoice;
+  budget?: string;
 }
 
 export interface EstimationResult {
