@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import MobileClient from "./MobileClient";
 
 export const metadata: Metadata = {
-  title: "Développement d'Applications Mobiles iOS & Android | MVP en 30 jours",
+  title: "Développement d'Applications Mobiles iOS & Android | Maximilien Digital",
   description:
-    "Création d'applications mobiles performantes avec React Native. MVP livré en 30 jours, prêt pour l'App Store et Google Play.",
+    "Création d'applications mobiles performantes par Maximilien Digital. MVP livré en 30 jours, prêt pour l'App Store et Google Play.",
   keywords: [
     "développement application mobile",
     "développeur React Native freelance",

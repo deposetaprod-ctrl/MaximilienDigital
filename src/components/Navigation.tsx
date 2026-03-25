@@ -91,12 +91,12 @@ export function Navigation() {
 
       </div>
 
-      {/* Mobile WhatsApp Button */}
+      {/* Mobile WhatsApp Button - Positioned below the main pill to avoid overlap */}
       <a
         href={WHATSAPP_GROUP_URL}
         target="_blank"
         rel="noopener noreferrer"
-        className="sm:hidden absolute right-4 top-0 inline-flex items-center justify-center h-10 w-10 rounded-full border border-border bg-card shadow-lg pointer-events-auto hover:border-primary/50 group"
+        className="sm:hidden absolute right-2 top-16 inline-flex items-center justify-center h-10 w-10 rounded-full border border-border bg-card shadow-lg pointer-events-auto hover:border-primary/50 group"
         title="WhatsApp"
       >
         <span className="flex h-6 w-6 items-center justify-center rounded-full bg-secondary text-[0.6rem] font-bold text-secondary-foreground group-hover:bg-primary group-hover:text-primary-foreground transition-colors">

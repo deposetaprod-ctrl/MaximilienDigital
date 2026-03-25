@@ -12,7 +12,7 @@ export function Footer() {
     <footer className="border-t border-border px-4 py-8">
       <div className="mx-auto max-w-6xl flex flex-col items-center gap-6 sm:flex-row sm:justify-between">
         <p className="text-sm text-muted-foreground">
-          &copy; {year} DIGIMAX. {t("footer_rights")}
+          &copy; {year} Maximilien Digital. {t("footer_rights")}
         </p>
         <div className="flex items-center gap-4">
           <a

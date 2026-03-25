@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import OffreClient from "./OffreClient";
 
 export const metadata: Metadata = {
-  title: "Offre Spéciale : Votre Projet Digital à Prix Bas | MVP en 30 jours",
+  title: "Offre Spéciale : Votre Projet Digital à Prix Bas | Maximilien Digital",
   description:
-    "Profitez de notre offre limitée : prototype gratuit, nom de domaine offert et tarifs ultra-compétitifs pour votre SaaS, application mobile ou site web.",
+    "Profitez de l'offre limitée de Maximilien Digital : prototype gratuit, nom de domaine offert et tarifs ultra-compétitifs pour votre SaaS, application mobile ou site web.",
   keywords: [
     "offre spéciale développement",
     "création site internet pas cher",
