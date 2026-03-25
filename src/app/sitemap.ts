@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 
-const BASE_URL = "https://digimax.agency";
+const BASE_URL = "https://maximilien.digital";
 
 const pages = [
   { path: "", priority: 1 as const, changeFrequency: "monthly" as const },

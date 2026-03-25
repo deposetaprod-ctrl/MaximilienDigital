@@ -10,7 +10,7 @@ const geistSans = Geist({
   subsets: ["latin"],
 });
 
-const BASE_URL = "https://digimax.agency";
+const BASE_URL = "https://maximilien.digital";
 
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
@@ -87,9 +87,9 @@ export default function RootLayout({
     "@graph": [
       {
         "@type": "Person",
-        "@id": "https://digimax.agency/#person",
+        "@id": "https://maximilien.digital/#person",
         name: "Maximilien",
-        url: "https://digimax.agency",
+        url: "https://maximilien.digital",
         jobTitle: "Développeur Freelance SaaS, Mobile & IA",
         description:
           "Développeur freelance spécialisé en SaaS, applications mobiles et intelligence artificielle. MVP livré en 30 jours.",
@@ -97,9 +97,9 @@ export default function RootLayout({
       },
       {
         "@type": "LocalBusiness",
-        "@id": "https://digimax.agency/#business",
+        "@id": "https://maximilien.digital/#business",
         name: "Maximilien Digital",
-        url: "https://digimax.agency",
+        url: "https://maximilien.digital",
         telephone: "+33766074746",
         email: "maximilien.godeau.off@gmail.com",
         description:
