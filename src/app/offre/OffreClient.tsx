@@ -173,7 +173,6 @@ export default function OfferPage() {
             </div>
         </div>
         </div>
-      </div>
 
       <EstimationModal
         open={estimationOpen}
