@@ -7,6 +7,7 @@ export const translations = {
     nav_mobile: "Mobile",
     nav_saas: "SaaS",
     nav_financement: "Financement",
+    nav_offer: "Offre",
 
     // Hero
     hero_tagline: "Développeur SaaS · Mobile · IA",
@@ -244,6 +245,25 @@ export const translations = {
       "Envoyez-moi un message avec quelques mots sur votre projet. On voit ensemble comment passer de l'idée à une application utilisée par vos clients.",
     mob_cta_talk: "Parler de mon projet",
     mob_cta_home: "Voir la page principale",
+
+    // Offer page
+    off_tag: "Offre Spéciale · Durée limitée",
+    off_h1: "Votre projet digital à prix cassé.",
+    off_intro: "Profitez d'une offre exceptionnelle pour lancer votre SaaS, site internet ou application mobile avec des avantages exclusifs.",
+    off_preview_title: "Aperçu Gratuit",
+    off_preview_desc: "Je réalise un premier aperçu fonctionnel ou une maquette de votre projet sans aucun engagement de votre part.",
+    off_domain_title: "Domaine Offert",
+    off_domain_desc: "Votre nom de domaine (.fr, .com, .net) est offert pour la première année de lancement.",
+    off_reactivity_title: "Réactivité Maximale",
+    off_reactivity_desc: "Une équipe à votre écoute avec des délais de livraison ultra-rapides pour ne pas perdre de temps.",
+    off_price_title: "Prix Bas Garanti",
+    off_price_desc: "Des tarifs ultra-compétitifs sans compromis sur la qualité du code et de l'expérience utilisateur.",
+    off_cta_main: "Profiter de l'offre maintenant",
+    off_cta_whatsapp: "Discuter sur WhatsApp",
+    off_services_title: "Une offre valable sur tous nos services",
+    off_saas_link: "Développement SaaS",
+    off_mobile_link: "Applications Mobiles",
+    off_web_link: "Sites Internet Vitrine",
   },
 
   en: {
@@ -252,6 +272,7 @@ export const translations = {
     nav_mobile: "Mobile",
     nav_saas: "SaaS",
     nav_financement: "Funding",
+    nav_offer: "Offer",
 
     // Hero
     hero_tagline: "SaaS · Mobile · AI Developer",
@@ -488,6 +509,25 @@ export const translations = {
       "Send me a message with a few words about your project. Let's figure out together how to go from idea to an app your customers love.",
     mob_cta_talk: "Talk about my project",
     mob_cta_home: "View main page",
+
+    // Offer page
+    off_tag: "Special Offer · Limited Time",
+    off_h1: "Your digital project at an unbeatable price.",
+    off_intro: "Take advantage of an exceptional offer to launch your SaaS, website, or mobile app with exclusive benefits.",
+    off_preview_title: "Free Preview",
+    off_preview_desc: "I'll create a first functional preview or mockup of your project with no commitment on your part.",
+    off_domain_title: "Free Domain Name",
+    off_domain_desc: "Your domain name (.fr, .com, .net) is included for the first year of launch.",
+    off_reactivity_title: "Maximum Reactivity",
+    off_reactivity_desc: "A team at your service with ultra-fast delivery times so you don't waste any time.",
+    off_price_title: "Low Price Guaranteed",
+    off_price_desc: "Ultra-competitive rates without compromising on code quality and user experience.",
+    off_cta_main: "Get this offer now",
+    off_cta_whatsapp: "Chat on WhatsApp",
+    off_services_title: "Offer valid across all our services",
+    off_saas_link: "SaaS Development",
+    off_mobile_link: "Mobile Applications",
+    off_web_link: "Showcase Websites",
   },
 } as const;
 
