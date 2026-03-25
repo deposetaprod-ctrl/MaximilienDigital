@@ -3,12 +3,15 @@
 import { AnimatedBaseButton } from "@/components/ui/AnimatedBaseButton";
 import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
+import { useLanguage } from "@/context/LanguageContext";
 
 interface FinalCtaSectionProps {
   onCtaClick: () => void;
 }
 
 export function FinalCtaSection({ onCtaClick }: FinalCtaSectionProps) {
+  const { t } = useLanguage();
+
   return (
     <section className="px-4 py-16 md:py-24 bg-primary/5">
       <div className="mx-auto max-w-3xl text-center">
@@ -19,7 +22,7 @@ export function FinalCtaSection({ onCtaClick }: FinalCtaSectionProps) {
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.4 }}
         >
-          Prêt à concrétiser votre projet ?
+          {t("finalcta_title")}
         </motion.h2>
         <motion.p
           className="mt-4 text-muted-foreground leading-relaxed max-w-lg mx-auto"
@@ -28,8 +31,7 @@ export function FinalCtaSection({ onCtaClick }: FinalCtaSectionProps) {
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.4, delay: 0.05 }}
         >
-          Discutons ensemble de votre idée. Je vous accompagne de la conception
-          au lancement de votre produit digital.
+          {t("finalcta_subtitle")}
         </motion.p>
         <motion.div
           className="mt-8"
@@ -39,7 +41,7 @@ export function FinalCtaSection({ onCtaClick }: FinalCtaSectionProps) {
           transition={{ duration: 0.4, delay: 0.1 }}
         >
           <AnimatedBaseButton onClick={onCtaClick}>
-            Discutons ensemble
+            {t("finalcta_cta")}
             <ArrowRight className="inline-block ml-2 h-4 w-4" />
           </AnimatedBaseButton>
         </motion.div>

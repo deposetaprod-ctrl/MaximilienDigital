@@ -1,74 +1,44 @@
+"use client";
+
 import Link from "next/link";
-import type { Metadata } from "next";
-import { projects } from "@/lib/data";
+import { useLanguage } from "@/context/LanguageContext";
 import { AnimatedBaseButton } from "@/components/ui/AnimatedBaseButton";
 import { TestimonialsSection } from "@/components/sections/TestimonialsSection";
+import { projects } from "@/lib/data";
+import type { TranslationKey } from "@/lib/i18n";
 
 const WHATSAPP_GROUP_URL = "https://chat.whatsapp.com/K1pakG7WODOC3tk27RQ42P?mode=gi_t";
 
-export const metadata: Metadata = {
-  title: "Développement d'applications mobiles iOS & Android — MVP 30 jours",
-  description:
-    "Développeur freelance React Native & Expo. Applications mobiles iOS et Android sur mesure avec intégration IA. Publiée sur l'App Store & Google Play en 30 jours.",
-  keywords: [
-    "développement application mobile",
-    "freelance React Native",
-    "application iOS Android",
-    "Expo",
-    "MVP mobile",
-    "application mobile sur mesure",
-    "développeur mobile France",
-  ],
-  alternates: {
-    canonical: "https://digimax.agency/applications-mobiles",
-  },
-  openGraph: {
-    url: "https://digimax.agency/applications-mobiles",
-    images: [{ url: "/og-image.png", width: 1200, height: 630 }],
-  },
-};
+interface MobileProjectItem {
+  titleKey: TranslationKey;
+  descKey: TranslationKey;
+  tags: string[];
+}
 
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "Service",
-  name: "Développement d'applications mobiles iOS & Android",
-  provider: {
-    "@type": "LocalBusiness",
-    name: "Maximilien Digital",
-    url: "https://digimax.agency",
-  },
-  description:
-    "Création d'applications mobiles iOS et Android avec React Native et Expo. Intégration IA, publication sur les stores. MVP en 30 jours.",
-  url: "https://digimax.agency/applications-mobiles",
-  areaServed: "FR",
-};
-
+const mobileProjectItems: MobileProjectItem[] = [
+  { titleKey: "project_dating_title", descKey: "project_dating_desc", tags: ["Mobile", "React Native", "Dating"] },
+  { titleKey: "project_coach_title", descKey: "project_coach_desc", tags: ["Mobile", "SaaS", "Sport"] },
+  { titleKey: "project_majordome_title", descKey: "project_majordome_desc", tags: ["Mobile", "Luxe", "UX Premium"] },
+];
 
 export default function MobileAppsLandingPage() {
-  const mobileProjects = projects.filter((p) => p.tags.includes("Mobile"));
+  const { t } = useLanguage();
+  // Keep data-driven filter for non-mobile projects that may be added later
+  const hasMobileProjects = projects.some((p) => p.tags.includes("Mobile"));
 
   return (
     <main className="min-h-screen bg-background text-foreground">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
       {/* Hero */}
       <section className="px-4 py-16 md:py-24">
         <div className="mx-auto flex max-w-5xl flex-col gap-10 md:flex-row md:items-center">
           <div className="flex-1">
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">
-              Applications mobiles · MVP en 30 jours
+              {t("mob_tag")}
             </p>
             <h1 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
-              Une application mobile fonctionnelle en 30 jours.
+              {t("mob_h1")}
             </h1>
-            <p className="mt-4 text-base text-muted-foreground md:text-lg">
-              Je m&apos;adresse aux entreprises, porteurs de projets et entrepreneurs qui
-              souhaitent lancer une application mobile ou une PWA, simple ou complexe. iOS,
-              Android ou les deux : je conçois et développe des apps rapides à mettre sur
-              le marché, avec la possibilité d&apos;intégrer de l&apos;intelligence artificielle.
-            </p>
+            <p className="mt-4 text-base text-muted-foreground md:text-lg">{t("mob_intro")}</p>
 
             <div className="mt-8 flex flex-wrap items-center gap-4">
               <a
@@ -77,162 +47,112 @@ export default function MobileAppsLandingPage() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center rounded-lg bg-white px-5 py-2.5 text-sm font-semibold text-black shadow-sm hover:bg-neutral-200 transition-colors cursor-pointer"
               >
-                Discuter de mon app sur WhatsApp
+                {t("mob_cta1")}
               </a>
               <AnimatedBaseButton render={<Link href="/#estimation" />} variant="outline">
-                Estimer le budget de mon app
+                {t("mob_cta2")}
               </AnimatedBaseButton>
               <AnimatedBaseButton
                 render={<Link href="/financement" />}
                 className="bg-white/5 font-medium text-white hover:bg-white/10 ring-1 ring-white/10"
               >
-                Trouver un financement
+                {t("mob_cta3")}
               </AnimatedBaseButton>
             </div>
 
             <ul className="mt-6 grid gap-2 text-sm text-muted-foreground sm:grid-cols-2">
-              <li>• MVP d&apos;application en moins de 30 jours.</li>
-              <li>• Un seul code pour iOS &amp; Android (React Native / Expo) ou Bubble.io.</li>
-              <li>• Intégration IA (chatbots, assistants, génération de contenu…).</li>
-              <li>• Publication sur l&apos;App Store, Google Play ou en PWA.</li>
+              <li>• {t("mob_li1")}</li>
+              <li>• {t("mob_li2")}</li>
+              <li>• {t("mob_li3")}</li>
+              <li>• {t("mob_li4")}</li>
             </ul>
           </div>
 
           <div className="flex-1 rounded-2xl border border-border bg-card p-5 shadow-sm">
-            <h2 className="text-sm font-semibold text-foreground">
-              Un accompagnement complet pour votre application
-            </h2>
-            <p className="mt-3 text-sm text-muted-foreground">
-              Nous clarifions ensemble les fonctionnalités prioritaires, puis je construis un
-              MVP robuste que l&apos;on peut faire évoluer. L&apos;objectif : publier rapidement
-              une première version, mesurer l&apos;usage, puis itérer.
-            </p>
+            <h2 className="text-sm font-semibold text-foreground">{t("mob_approach_title")}</h2>
+            <p className="mt-3 text-sm text-muted-foreground">{t("mob_approach_desc")}</p>
             <div className="mt-4 grid gap-3 text-sm">
               <div className="rounded-lg border border-border bg-background px-3 py-2.5">
-                <p className="font-medium text-foreground">1. Cadrage produit</p>
-                <p className="text-xs text-muted-foreground">
-                  Atelier rapide pour clarifier la cible, les parcours utilisateurs et
-                  identifier les écrans essentiels.
-                </p>
+                <p className="font-medium text-foreground">{t("mob_step1_title")}</p>
+                <p className="text-xs text-muted-foreground">{t("mob_step1_desc")}</p>
               </div>
               <div className="rounded-lg border border-border bg-background px-3 py-2.5">
-                <p className="font-medium text-foreground">2. Prototype &amp; design</p>
-                <p className="text-xs text-muted-foreground">
-                  Maquettes interactives pour valider les parcours avant de coder.
-                </p>
+                <p className="font-medium text-foreground">{t("mob_step2_title")}</p>
+                <p className="text-xs text-muted-foreground">{t("mob_step2_desc")}</p>
               </div>
               <div className="rounded-lg border border-border bg-background px-3 py-2.5">
-                <p className="font-medium text-foreground">3. Développement &amp; lancement</p>
-                <p className="text-xs text-muted-foreground">
-                  Développement, tests, publication, puis suivi pour les premières versions.
-                </p>
+                <p className="font-medium text-foreground">{t("mob_step3_title")}</p>
+                <p className="text-xs text-muted-foreground">{t("mob_step3_desc")}</p>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Processus & formules */}
+      {/* Process & packages */}
       <section className="px-4 py-14 md:py-16 border-t border-border/40">
         <div className="mx-auto max-w-5xl grid gap-10 md:grid-cols-2">
           <div>
-            <h2 className="text-xl font-semibold text-foreground">
-              Ce que je fais pour votre app mobile
-            </h2>
-            <p className="mt-3 text-sm text-muted-foreground">
-              Mon objectif est de livrer une application réellement utilisable par vos
-              clients, pas seulement une maquette. Nous allons traiter un problème à la fois
-              et prioriser les fonctionnalités qui créent de la valeur.
-            </p>
+            <h2 className="text-xl font-semibold text-foreground">{t("mob_process_title")}</h2>
+            <p className="mt-3 text-sm text-muted-foreground">{t("mob_process_desc")}</p>
             <div className="mt-4 space-y-3 text-sm">
               <div>
-                <p className="font-medium text-foreground">Phase 1 · Découverte</p>
-                <p className="text-xs text-muted-foreground">
-                  Présentation de votre projet, compréhension de votre modèle économique et
-                  des cas d&apos;usage. On clarifie ensemble la version 1 de l&apos;application.
-                </p>
+                <p className="font-medium text-foreground">{t("mob_phase1_title")}</p>
+                <p className="text-xs text-muted-foreground">{t("mob_phase1_desc")}</p>
               </div>
               <div>
-                <p className="font-medium text-foreground">Phase 2 · Développement (30 jours)</p>
-                <p className="text-xs text-muted-foreground">
-                  Développement en React Native / Expo ou Bubble.io, avec échanges réguliers
-                  pour rester alignés sur votre vision.
-                </p>
+                <p className="font-medium text-foreground">{t("mob_phase2_title")}</p>
+                <p className="text-xs text-muted-foreground">{t("mob_phase2_desc")}</p>
               </div>
               <div>
-                <p className="font-medium text-foreground">Phase 3 · Retours &amp; retouches</p>
-                <p className="text-xs text-muted-foreground">
-                  Mise en production, analyse des premiers retours utilisateurs et série de
-                  retouches pour ajuster l&apos;app sans repartir de zéro.
-                </p>
+                <p className="font-medium text-foreground">{t("mob_phase3_title")}</p>
+                <p className="text-xs text-muted-foreground">{t("mob_phase3_desc")}</p>
               </div>
             </div>
           </div>
           <div>
-            <h3 className="text-sm font-semibold text-foreground">
-              Formules possibles pour votre app
-            </h3>
+            <h3 className="text-sm font-semibold text-foreground">{t("mob_formulas_title")}</h3>
             <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
               <li>
-                <span className="font-medium text-foreground">Formule MVP landing.</span>{" "}
-                Une page de vente en ligne pour tester l&apos;intérêt avant de développer
-                l&apos;application complète.
+                <span className="font-medium text-foreground">{t("mob_formula_landing_title")}</span>{" "}
+                {t("mob_formula_landing_desc")}
               </li>
               <li>
-                <span className="font-medium text-foreground">Formule MVP app.</span>{" "}
-                Une première version simplifiée avec les fonctionnalités essentielles, idéale
-                pour valider votre idée auprès de vrais utilisateurs.
+                <span className="font-medium text-foreground">{t("mob_formula_mvp_title")}</span>{" "}
+                {t("mob_formula_mvp_desc")}
               </li>
               <li>
-                <span className="font-medium text-foreground">Formule template.</span>{" "}
-                App basée sur une template existante, personnalisée à votre cas, pour
-                réduire le temps de développement et le budget.
+                <span className="font-medium text-foreground">{t("mob_formula_template_title")}</span>{" "}
+                {t("mob_formula_template_desc")}
               </li>
               <li>
-                <span className="font-medium text-foreground">Formule illimitée.</span>{" "}
-                Application plus poussée, avec ensemble des fonctionnalités essentielles et
-                secondaires, publication sur les stores et accompagnement dans la durée.
+                <span className="font-medium text-foreground">{t("mob_formula_unlimited_title")}</span>{" "}
+                {t("mob_formula_unlimited_desc")}
               </li>
             </ul>
-            <p className="mt-4 text-xs text-muted-foreground">
-              Stack principale : React / React Native, TypeScript, Node.js, Next.js,
-              TailwindCSS, PostgreSQL, Firebase, Bubble.io, intégration IA (OpenAI, Azure,
-              Google…).
-            </p>
+            <p className="mt-4 text-xs text-muted-foreground">{t("mob_stack")}</p>
           </div>
         </div>
       </section>
 
-      {/* Projets mobiles */}
-      {mobileProjects.length > 0 && (
+      {/* Mobile projects */}
+      {hasMobileProjects && (
         <section className="px-4 py-16 md:py-20 bg-secondary/40">
           <div className="mx-auto max-w-6xl">
             <h2 className="text-2xl font-bold text-foreground text-center sm:text-3xl">
-              Exemples d&apos;applications mobiles
+              {t("mob_projects_title")}
             </h2>
             <p className="mt-3 text-center text-muted-foreground max-w-xl mx-auto text-sm">
-              Quelques projets sur lesquels j&apos;ai travaillé, mêlant expérience utilisateur,
-              temps réel et intégrations métier.
+              {t("mob_projects_subtitle")}
             </p>
-
             <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {mobileProjects.map((project) => (
-                <div
-                  key={project.title}
-                  className="rounded-xl border border-border bg-card p-5 shadow-sm"
-                >
-                  <h3 className="text-base font-semibold text-foreground">
-                    {project.title}
-                  </h3>
-                  <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
-                    {project.description}
-                  </p>
+              {mobileProjectItems.map((project) => (
+                <div key={project.titleKey} className="rounded-xl border border-border bg-card p-5 shadow-sm">
+                  <h3 className="text-base font-semibold text-foreground">{t(project.titleKey)}</h3>
+                  <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{t(project.descKey)}</p>
                   <div className="mt-4 flex flex-wrap gap-2">
                     {project.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary"
-                      >
+                      <span key={tag} className="rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary">
                         {tag}
                       </span>
                     ))}
@@ -244,25 +164,22 @@ export default function MobileAppsLandingPage() {
         </section>
       )}
 
-      {/* Témoignages globaux */}
+      {/* Testimonials */}
       <TestimonialsSection />
 
-      {/* CTA final */}
+      {/* Final CTA */}
       <section className="px-4 py-16 md:py-20 bg-primary/5">
         <div className="mx-auto max-w-3xl text-center">
-          <h2 className="text-2xl font-bold text-foreground sm:text-3xl">
-            Vous avez une idée d&apos;application mobile ?
-          </h2>
+          <h2 className="text-2xl font-bold text-foreground sm:text-3xl">{t("mob_cta_title")}</h2>
           <p className="mt-4 text-muted-foreground leading-relaxed text-sm md:text-base">
-            Envoyez-moi un message avec quelques mots sur votre projet. On voit ensemble
-            comment passer de l&apos;idée à une application utilisée par vos clients.
+            {t("mob_cta_desc")}
           </p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
             <AnimatedBaseButton render={<Link href="/#contact" />}>
-              Parler de mon projet
+              {t("mob_cta_talk")}
             </AnimatedBaseButton>
             <AnimatedBaseButton render={<Link href="/" />} variant="outline">
-              Voir la page principale
+              {t("mob_cta_home")}
             </AnimatedBaseButton>
           </div>
         </div>
@@ -270,4 +187,3 @@ export default function MobileAppsLandingPage() {
     </main>
   );
 }
-

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist } from "next/font/google";
 import { Navigation } from "@/components/Navigation";
+import { LanguageProvider } from "@/context/LanguageContext";
 import Script from "next/script";
 import "./globals.css";
 
@@ -37,6 +38,11 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: BASE_URL,
+    languages: {
+      fr: BASE_URL,
+      en: BASE_URL,
+      "x-default": BASE_URL,
+    },
   },
   openGraph: {
     title: "Maximilien Digital | Développeur SaaS, Mobile & IA",
@@ -139,8 +145,10 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} font-sans antialiased`}
       >
-        <Navigation />
-        {children}
+        <LanguageProvider>
+          <Navigation />
+          {children}
+        </LanguageProvider>
       </body>
     </html>
   );

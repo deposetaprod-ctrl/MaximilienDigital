@@ -2,18 +2,20 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-
-const navItems = [
-  { name: "Accueil", href: "/" },
-  { name: "Mobile", href: "/applications-mobiles" },
-  { name: "SaaS", href: "/saas" },
-  { name: "Financement", href: "/financement" },
-];
+import { useLanguage } from "@/context/LanguageContext";
 
 const WHATSAPP_GROUP_URL = "https://chat.whatsapp.com/K1pakG7WODOC3tk27RQ42P?mode=gi_t";
 
 export function Navigation() {
   const pathname = usePathname();
+  const { locale, setLocale, t } = useLanguage();
+
+  const navItems = [
+    { name: t("nav_home"), href: "/" },
+    { name: t("nav_mobile"), href: "/applications-mobiles" },
+    { name: t("nav_saas"), href: "/saas" },
+    { name: t("nav_financement"), href: "/financement" },
+  ];
 
   return (
     <header className="fixed top-4 left-0 right-0 z-50 flex justify-center px-4 pointer-events-none">
@@ -42,7 +44,36 @@ export function Navigation() {
         </nav>
 
         {/* Separator */}
-        <div className="w-px h-5 bg-border hidden sm:block"></div>
+        <div className="w-px h-5 bg-border" />
+
+        {/* Language Toggle */}
+        <div className="flex items-center gap-0.5 rounded-full bg-secondary/50 p-0.5">
+          <button
+            onClick={() => setLocale("fr")}
+            className={`px-2.5 py-1 text-xs font-semibold rounded-full transition-all cursor-pointer ${
+              locale === "fr"
+                ? "bg-primary text-primary-foreground shadow-sm"
+                : "text-muted-foreground hover:text-foreground"
+            }`}
+            aria-label="Français"
+          >
+            FR
+          </button>
+          <button
+            onClick={() => setLocale("en")}
+            className={`px-2.5 py-1 text-xs font-semibold rounded-full transition-all cursor-pointer ${
+              locale === "en"
+                ? "bg-primary text-primary-foreground shadow-sm"
+                : "text-muted-foreground hover:text-foreground"
+            }`}
+            aria-label="English"
+          >
+            EN
+          </button>
+        </div>
+
+        {/* Separator */}
+        <div className="w-px h-5 bg-border hidden sm:block" />
 
         {/* WhatsApp Button */}
         <a
@@ -59,7 +90,7 @@ export function Navigation() {
 
       </div>
 
-      {/* Mobile WhatsApp Button (absolute positioned if we want it separate, but center pill might be enough. Let's keep it in the pill but icon only on mobile) */}
+      {/* Mobile WhatsApp Button */}
       <a
         href={WHATSAPP_GROUP_URL}
         target="_blank"

@@ -3,6 +3,7 @@
 import { Dialog } from "@base-ui/react";
 import { X, MessageCircle, Phone } from "lucide-react";
 import { useState, type FormEvent } from "react";
+import { useLanguage } from "@/context/LanguageContext";
 
 const WHATSAPP_GROUP_URL = "https://chat.whatsapp.com/K1pakG7WODOC3tk27RQ42P?mode=gi_t";
 
@@ -13,6 +14,7 @@ interface QuickContactModalProps {
 
 export function QuickContactModal({ open, onOpenChange }: QuickContactModalProps) {
   const [submitting, setSubmitting] = useState(false);
+  const { t } = useLanguage();
 
   function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -27,7 +29,6 @@ export function QuickContactModal({ open, onOpenChange }: QuickContactModalProps
       phone +
       "\n\n(Message envoyé depuis le formulaire rapide du site.)";
 
-    // Simple mailto pour rester indépendant de l'API de contact complète
     window.location.href =
       "mailto:Maximilien.godeau.off@gmail.com" +
       "?subject=" +
@@ -51,13 +52,9 @@ export function QuickContactModal({ open, onOpenChange }: QuickContactModalProps
 
             <div className="flex items-center gap-2 mb-2">
               <Phone className="h-5 w-5 text-primary" />
-              <h2 className="text-lg font-semibold text-foreground">
-                Être rappelé rapidement
-              </h2>
+              <h2 className="text-lg font-semibold text-foreground">{t("qc_title")}</h2>
             </div>
-            <p className="text-sm text-muted-foreground mb-4">
-              Laissez simplement votre numéro de téléphone ou rejoignez le groupe WhatsApp pour échanger directement.
-            </p>
+            <p className="text-sm text-muted-foreground mb-4">{t("qc_subtitle")}</p>
 
             <form onSubmit={handleSubmit} className="space-y-3">
               <div>
@@ -65,7 +62,7 @@ export function QuickContactModal({ open, onOpenChange }: QuickContactModalProps
                   htmlFor="quick-phone"
                   className="block text-sm font-medium text-foreground mb-1.5"
                 >
-                  Numéro de téléphone <span className="text-destructive">*</span>
+                  {t("qc_phone_label")} <span className="text-destructive">*</span>
                 </label>
                 <input
                   id="quick-phone"
@@ -73,7 +70,7 @@ export function QuickContactModal({ open, onOpenChange }: QuickContactModalProps
                   type="tel"
                   required
                   className="w-full rounded-lg border border-input bg-background px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring/50 focus:border-primary transition-colors"
-                  placeholder="+33 6 12 34 56 78"
+                  placeholder={t("qc_phone_placeholder")}
                 />
               </div>
 
@@ -82,7 +79,7 @@ export function QuickContactModal({ open, onOpenChange }: QuickContactModalProps
                 disabled={submitting}
                 className="w-full rounded-lg bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground hover:bg-primary/90 transition-colors disabled:opacity-60 disabled:cursor-not-allowed cursor-pointer"
               >
-                Envoyer mon numéro
+                {t("qc_submit")}
               </button>
             </form>
 
@@ -93,7 +90,7 @@ export function QuickContactModal({ open, onOpenChange }: QuickContactModalProps
               className="mt-3 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-white px-4 py-2.5 text-sm font-semibold text-black hover:bg-neutral-200 transition-colors cursor-pointer"
             >
               <MessageCircle className="h-4 w-4" />
-              Rejoindre le groupe WhatsApp
+              {t("qc_whatsapp")}
             </a>
           </div>
         </Dialog.Popup>
@@ -101,4 +98,3 @@ export function QuickContactModal({ open, onOpenChange }: QuickContactModalProps
     </Dialog.Root>
   );
 }
-

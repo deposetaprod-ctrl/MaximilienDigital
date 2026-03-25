@@ -3,8 +3,11 @@
 import { testimonials, contactInfo } from "@/lib/data";
 import { Quote, ExternalLink, Star } from "lucide-react";
 import { motion } from "framer-motion";
+import { useLanguage } from "@/context/LanguageContext";
 
 export function TestimonialsSection() {
+  const { t } = useLanguage();
+
   return (
     <section className="px-4 py-16 md:py-24">
       <div className="mx-auto max-w-6xl">
@@ -15,7 +18,7 @@ export function TestimonialsSection() {
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.4 }}
         >
-          Ce que disent mes clients
+          {t("testimonials_title")}
         </motion.h2>
         <motion.p
           className="mt-3 text-center text-muted-foreground max-w-lg mx-auto"
@@ -24,7 +27,7 @@ export function TestimonialsSection() {
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.4, delay: 0.05 }}
         >
-          Des retours concrets de ceux qui m&apos;ont fait confiance.
+          {t("testimonials_subtitle")}
         </motion.p>
 
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -42,9 +45,7 @@ export function TestimonialsSection() {
                 {testimonial.content}
               </p>
               <div className="mt-6 border-t border-border pt-4">
-                <p className="text-sm font-semibold text-foreground">
-                  {testimonial.name}
-                </p>
+                <p className="text-sm font-semibold text-foreground">{testimonial.name}</p>
               </div>
             </motion.div>
           ))}
@@ -69,12 +70,10 @@ export function TestimonialsSection() {
               <Star className="h-4 w-4 fill-current" />
               <Star className="h-4 w-4 fill-current" />
             </div>
-            Voir plus d'avis sur ComeUp
+            {t("testimonials_see_more")}
             <ExternalLink className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </motion.a>
-          <p className="mt-4 text-xs text-muted-foreground">
-            Basé sur plus de 10 avis 5 étoiles
-          </p>
+          <p className="mt-4 text-xs text-muted-foreground">{t("testimonials_based_on")}</p>
         </div>
       </div>
     </section>

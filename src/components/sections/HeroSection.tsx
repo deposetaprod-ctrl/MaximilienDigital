@@ -4,6 +4,7 @@ import Image from "next/image";
 import { AnimatedBaseButton } from "@/components/ui/AnimatedBaseButton";
 import { ArrowRight, Code2, Smartphone, Brain, Star } from "lucide-react";
 import { motion } from "framer-motion";
+import { useLanguage } from "@/context/LanguageContext";
 
 interface HeroSectionProps {
   heroRef: (node: HTMLElement | null) => void;
@@ -11,6 +12,8 @@ interface HeroSectionProps {
 }
 
 export function HeroSection({ heroRef, onCtaClick }: HeroSectionProps) {
+  const { t } = useLanguage();
+
   return (
     <section
       ref={heroRef}
@@ -23,7 +26,7 @@ export function HeroSection({ heroRef, onCtaClick }: HeroSectionProps) {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
         >
-          Développeur SaaS &middot; Mobile &middot; IA
+          {t("hero_tagline")}
         </motion.p>
 
         <motion.h1
@@ -41,9 +44,7 @@ export function HeroSection({ heroRef, onCtaClick }: HeroSectionProps) {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          Je transforme vos idées en produits digitaux performants.
-          Applications SaaS, mobiles et solutions d&apos;intelligence
-          artificielle sur mesure.
+          {t("hero_subtitle")}
         </motion.p>
 
         <motion.div
@@ -53,19 +54,19 @@ export function HeroSection({ heroRef, onCtaClick }: HeroSectionProps) {
           transition={{ duration: 0.5, delay: 0.35 }}
         >
           <AnimatedBaseButton onClick={onCtaClick}>
-            C&apos;est combien pour mon projet ?
+            {t("hero_cta")}
             <ArrowRight className="inline-block ml-2 h-4 w-4" />
           </AnimatedBaseButton>
         </motion.div>
 
-        {/* Carte photo style Come Up */}
+        {/* Photo card */}
         <motion.div
           className="relative mx-auto mt-12 w-64 sm:w-72"
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, delay: 0.45 }}
         >
-          {/* Icônes flottantes */}
+          {/* Floating icons */}
           <motion.div
             className="absolute -right-4 top-8 z-10 rounded-xl bg-card p-2.5 shadow-lg ring-1 ring-border"
             animate={{ y: [0, -6, 0] }}
@@ -102,24 +103,15 @@ export function HeroSection({ heroRef, onCtaClick }: HeroSectionProps) {
 
           {/* Info bar */}
           <div className="mt-[-1px] rounded-b-2xl bg-card px-5 py-4 shadow-lg ring-1 ring-border">
-            <p className="text-lg font-bold text-foreground">
-              DIGIMAX
-            </p>
-            <p className="text-sm text-muted-foreground">
-              Développeur SaaS &middot; Mobile &middot; IA
-            </p>
+            <p className="text-lg font-bold text-foreground">DIGIMAX</p>
+            <p className="text-sm text-muted-foreground">{t("hero_dev_role")}</p>
             <div className="mt-2 flex items-center gap-2">
               <div className="flex">
                 {[...Array(5)].map((_, i) => (
-                  <Star
-                    key={i}
-                    className="h-3.5 w-3.5 fill-primary text-primary"
-                  />
+                  <Star key={i} className="h-3.5 w-3.5 fill-primary text-primary" />
                 ))}
               </div>
-              <span className="text-xs text-muted-foreground">
-                + 30 projets
-              </span>
+              <span className="text-xs text-muted-foreground">{t("hero_projects")}</span>
             </div>
           </div>
         </motion.div>

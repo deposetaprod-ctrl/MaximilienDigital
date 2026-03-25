@@ -2,8 +2,8 @@
 
 import { Dialog } from "@base-ui/react";
 import { X, Send, Loader2, CheckCircle } from "lucide-react";
-import { budgetOptions } from "@/lib/data";
 import { useState, type FormEvent } from "react";
+import { useLanguage } from "@/context/LanguageContext";
 
 interface ContactFormModalProps {
   open: boolean;
@@ -15,7 +15,18 @@ type FormStatus = "idle" | "submitting" | "success" | "error";
 
 export function ContactFormModal({ open, onOpenChange, initialDescription }: ContactFormModalProps) {
   const [status, setStatus] = useState<FormStatus>("idle");
-  const [errorMessage, setErrorMessage] = useState<string>("Une erreur est survenue. Veuillez réessayer.");
+  const [errorMessage, setErrorMessage] = useState<string>("");
+  const { t } = useLanguage();
+
+  const budgetOptions = [
+    { value: "", label: t("cf_budget_placeholder") },
+    { value: "< 5k", label: t("budget_lt5k") },
+    { value: "5k-10k", label: t("budget_5k10k") },
+    { value: "10k-25k", label: t("budget_10k25k") },
+    { value: "25k-50k", label: t("budget_25k50k") },
+    { value: "> 50k", label: t("budget_gt50k") },
+    { value: "unknown", label: t("budget_unknown") },
+  ];
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -38,13 +49,13 @@ export function ContactFormModal({ open, onOpenChange, initialDescription }: Con
       });
 
       if (!response.ok) {
-        throw new Error("Erreur lors de l'envoi");
+        throw new Error(t("cf_error"));
       }
 
       setStatus("success");
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.error("Contact Form error:", err);
-      setErrorMessage(err.message || "Une erreur est survenue.");
+      setErrorMessage(err instanceof Error ? err.message : t("cf_error"));
       setStatus("error");
     }
   }
@@ -54,36 +65,29 @@ export function ContactFormModal({ open, onOpenChange, initialDescription }: Con
       <Dialog.Portal>
         <Dialog.Backdrop className="fixed inset-0 z-50 bg-black/40 backdrop-blur-sm transition-opacity duration-300 data-[starting-style]:opacity-0 data-[ending-style]:opacity-0" />
         <Dialog.Popup className="fixed inset-0 z-50 flex items-center justify-center p-4 transition-all duration-300 data-[starting-style]:opacity-0 data-[starting-style]:scale-95 data-[ending-style]:opacity-0 data-[ending-style]:scale-95">
-          <div className="relative w-full max-w-lg rounded-xl bg-card p-6 shadow-xl md:p-8 max-h-[90vh] overflow-y-auto">
+          <div className="relative w-full max-w-lg rounded-xl bg-card p-6 shadow-xl md:p-8 max-h-[90vh] overflow-y-auto border border-border">
             <Dialog.Close className="absolute right-4 top-4 rounded-md p-1.5 text-muted-foreground hover:text-foreground hover:bg-muted transition-colors cursor-pointer">
               <X className="h-5 w-5" />
             </Dialog.Close>
 
             <Dialog.Title className="text-xl font-semibold text-foreground">
-              Parlons de votre projet
+              {t("cf_title")}
             </Dialog.Title>
             <Dialog.Description className="mt-1 text-sm text-muted-foreground">
-              Décrivez votre projet et je vous recontacte sous 24h.
+              {t("cf_subtitle")}
             </Dialog.Description>
 
             {status === "success" ? (
               <div className="mt-8 flex flex-col items-center gap-3 py-8 text-center animate-fade-in">
                 <CheckCircle className="h-12 w-12 text-green-500" />
-                <p className="text-lg font-medium text-foreground">
-                  Message envoyé !
-                </p>
-                <p className="text-sm text-muted-foreground">
-                  Je vous recontacte très vite.
-                </p>
+                <p className="text-lg font-medium text-foreground">{t("cf_success_title")}</p>
+                <p className="text-sm text-muted-foreground">{t("cf_success_subtitle")}</p>
               </div>
             ) : (
               <form key={initialDescription ?? "default"} onSubmit={handleSubmit} className="mt-6 space-y-4">
                 <div>
-                  <label
-                    htmlFor="contact-name"
-                    className="block text-sm font-medium text-foreground mb-1.5"
-                  >
-                    Nom complet <span className="text-destructive">*</span>
+                  <label htmlFor="contact-name" className="block text-sm font-medium text-foreground mb-1.5">
+                    {t("cf_name")} <span className="text-destructive">*</span>
                   </label>
                   <input
                     id="contact-name"
@@ -96,11 +100,8 @@ export function ContactFormModal({ open, onOpenChange, initialDescription }: Con
                 </div>
 
                 <div>
-                  <label
-                    htmlFor="contact-email"
-                    className="block text-sm font-medium text-foreground mb-1.5"
-                  >
-                    Email <span className="text-destructive">*</span>
+                  <label htmlFor="contact-email" className="block text-sm font-medium text-foreground mb-1.5">
+                    {t("cf_email")} <span className="text-destructive">*</span>
                   </label>
                   <input
                     id="contact-email"
@@ -113,16 +114,12 @@ export function ContactFormModal({ open, onOpenChange, initialDescription }: Con
                 </div>
 
                 <div>
-                  <label
-                    htmlFor="contact-phone"
-                    className="block text-sm font-medium text-foreground mb-1.5"
-                  >
-                    Téléphone <span className="text-destructive">*</span>
+                  <label htmlFor="contact-phone" className="block text-sm font-medium text-foreground mb-1.5">
+                    {t("cf_phone")}
                   </label>
                   <input
                     id="contact-phone"
                     type="tel"
-                    required
                     name="phone"
                     className="w-full rounded-lg border border-input bg-background px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring/50 focus:border-primary transition-colors"
                     placeholder="+33 6 12 34 56 78"
@@ -130,11 +127,8 @@ export function ContactFormModal({ open, onOpenChange, initialDescription }: Con
                 </div>
 
                 <div>
-                  <label
-                    htmlFor="contact-budget"
-                    className="block text-sm font-medium text-foreground mb-1.5"
-                  >
-                    Budget estimé
+                  <label htmlFor="contact-budget" className="block text-sm font-medium text-foreground mb-1.5">
+                    {t("cf_budget")}
                   </label>
                   <select
                     id="contact-budget"
@@ -150,12 +144,8 @@ export function ContactFormModal({ open, onOpenChange, initialDescription }: Con
                 </div>
 
                 <div>
-                  <label
-                    htmlFor="contact-description"
-                    className="block text-sm font-medium text-foreground mb-1.5"
-                  >
-                    Décrivez votre projet{" "}
-                    <span className="text-destructive">*</span>
+                  <label htmlFor="contact-description" className="block text-sm font-medium text-foreground mb-1.5">
+                    {t("cf_description")} <span className="text-destructive">*</span>
                   </label>
                   <textarea
                     id="contact-description"
@@ -169,9 +159,7 @@ export function ContactFormModal({ open, onOpenChange, initialDescription }: Con
                 </div>
 
                 {status === "error" && (
-                  <p className="text-sm text-destructive">
-                    {errorMessage}
-                  </p>
+                  <p className="text-sm text-destructive">{errorMessage}</p>
                 )}
 
                 <button
@@ -182,12 +170,12 @@ export function ContactFormModal({ open, onOpenChange, initialDescription }: Con
                   {status === "submitting" ? (
                     <>
                       <Loader2 className="h-4 w-4 animate-spin" />
-                      Envoi en cours...
+                      {t("cf_sending")}
                     </>
                   ) : (
                     <>
                       <Send className="h-4 w-4" />
-                      Envoyer
+                      {t("cf_submit")}
                     </>
                   )}
                 </button>

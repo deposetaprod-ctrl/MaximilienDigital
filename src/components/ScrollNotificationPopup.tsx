@@ -3,6 +3,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { X, MessageSquare } from "lucide-react";
 import { useState } from "react";
+import { useLanguage } from "@/context/LanguageContext";
 
 interface ScrollNotificationPopupProps {
   visible: boolean;
@@ -14,6 +15,7 @@ export function ScrollNotificationPopup({
   onCtaClick,
 }: ScrollNotificationPopupProps) {
   const [dismissed, setDismissed] = useState(false);
+  const { t } = useLanguage();
 
   const shouldShow = visible && !dismissed;
 
@@ -31,7 +33,7 @@ export function ScrollNotificationPopup({
           <button
             onClick={() => setDismissed(true)}
             className="absolute top-3 right-3 rounded-lg p-1.5 text-muted-foreground hover:text-foreground hover:bg-muted transition-colors cursor-pointer"
-            aria-label="Fermer"
+            aria-label="Close"
           >
             <X className="h-4 w-4" />
           </button>
@@ -39,17 +41,17 @@ export function ScrollNotificationPopup({
             <div className="flex items-center gap-2">
               <MessageSquare className="h-5 w-5 text-primary shrink-0" />
               <span className="text-foreground font-semibold text-base md:text-lg">
-                Vous avez un projet en tête ?
+                {t("popup_title")}
               </span>
             </div>
             <p className="text-sm text-muted-foreground max-w-md">
-              Voyons ensemble comment je peux vous aider à le concrétiser.
+              {t("popup_subtitle")}
             </p>
             <button
               onClick={onCtaClick}
               className="rounded-lg bg-primary px-6 py-2.5 text-sm font-semibold text-primary-foreground hover:bg-primary/90 transition-colors cursor-pointer"
             >
-              Me contacter
+              {t("popup_cta")}
             </button>
           </div>
         </motion.div>

@@ -1,11 +1,29 @@
 "use client";
 
-import { projects } from "@/lib/data";
 import { FolderOpen } from "lucide-react";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { useLanguage } from "@/context/LanguageContext";
+import type { TranslationKey } from "@/lib/i18n";
+
+interface ProjectItem {
+  titleKey: TranslationKey;
+  descKey: TranslationKey;
+  tags: string[];
+  image: string;
+}
+
+const projectItems: ProjectItem[] = [
+  { titleKey: "project_dating_title", descKey: "project_dating_desc", tags: ["Mobile", "React Native", "Dating"], image: "/rencontre.png" },
+  { titleKey: "project_coach_title", descKey: "project_coach_desc", tags: ["Mobile", "SaaS", "Sport"], image: "/coach.png" },
+  { titleKey: "project_invoices_title", descKey: "project_invoices_desc", tags: ["SaaS", "IA", "Automatisation"], image: "/factures.png" },
+  { titleKey: "project_majordome_title", descKey: "project_majordome_desc", tags: ["Mobile", "Luxe", "UX Premium"], image: "/majordome.png" },
+  { titleKey: "project_esport_title", descKey: "project_esport_desc", tags: ["Média", "Esport", "Live Data"], image: "esportnews.png" },
+];
 
 export function ProjectsSection() {
+  const { t } = useLanguage();
+
   return (
     <section className="px-4 py-16 md:py-24 bg-secondary/50">
       <div className="mx-auto max-w-6xl">
@@ -16,7 +34,7 @@ export function ProjectsSection() {
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.4 }}
         >
-          Mes réalisations
+          {t("projects_title")}
         </motion.h2>
         <motion.p
           className="mt-3 text-center text-muted-foreground max-w-lg mx-auto"
@@ -25,13 +43,13 @@ export function ProjectsSection() {
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.4, delay: 0.05 }}
         >
-          Quelques projets sur lesquels j&apos;ai travaillé récemment.
+          {t("projects_subtitle")}
         </motion.p>
 
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {projects.map((project, i) => (
+          {projectItems.map((project, i) => (
             <motion.div
-              key={project.title}
+              key={project.titleKey}
               className="rounded-xl border border-border bg-card overflow-hidden transition-[shadow,border-color] duration-200 hover:shadow-md hover:border-primary/30"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -42,7 +60,7 @@ export function ProjectsSection() {
                 {project.image ? (
                   <Image
                     src={project.image.startsWith("/") ? project.image : `/${project.image}`}
-                    alt={project.title}
+                    alt={t(project.titleKey)}
                     fill
                     className="object-cover"
                   />
@@ -51,11 +69,9 @@ export function ProjectsSection() {
                 )}
               </div>
               <div className="p-6">
-                <h3 className="text-lg font-semibold text-foreground">
-                  {project.title}
-                </h3>
+                <h3 className="text-lg font-semibold text-foreground">{t(project.titleKey)}</h3>
                 <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
-                  {project.description}
+                  {t(project.descKey)}
                 </p>
                 <div className="mt-4 flex flex-wrap gap-2">
                   {project.tags.map((tag) => (
