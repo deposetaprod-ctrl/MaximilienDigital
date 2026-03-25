@@ -62,6 +62,15 @@ export default function OfferPage() {
           >
             {t("off_h1")}
           </motion.h1>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.15 }}
+            className="inline-flex items-center gap-2 px-6 py-2 rounded-2xl bg-primary text-primary-foreground font-bold text-xl mb-8 shadow-xl shadow-primary/20 rotate-1 hover:rotate-0 transition-transform cursor-default"
+          >
+            <Zap className="fill-current w-5 h-5" />
+            <span>Offre Lancement à 1000€</span>
+          </motion.div>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}

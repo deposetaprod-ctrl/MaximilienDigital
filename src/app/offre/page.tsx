@@ -2,15 +2,16 @@ import type { Metadata } from "next";
 import OffreClient from "./OffreClient";
 
 export const metadata: Metadata = {
-  title: "Offre Spéciale : Votre Projet Digital à Prix Bas | Maximilien Digital",
+  title: "Offre MVP Gratuit & Application à partir de 1000€ | Maximilien Digital",
   description:
-    "Profitez de l'offre limitée de Maximilien Digital : prototype gratuit, nom de domaine offert et tarifs ultra-compétitifs pour votre SaaS, application mobile ou site web.",
+    "Lancement spécial : Votre MVP gratuit immédiatement, application ou site web à partir de 1000€. Livraison sous 30 jours. Profitez de l'expertise de Maximilien Digital.",
   keywords: [
-    "offre spéciale développement",
-    "création site internet pas cher",
-    "développement SaaS prix bas",
-    "application mobile prototype gratuit",
-    "nom de domaine offert",
+    "MVP gratuit",
+    "application mobile 1000€",
+    "développement SaaS pas cher",
+    "aperçu immédiat projet digital",
+    "développeur freelance 1000€",
+    "création MVP rapide",
   ],
 };
 
