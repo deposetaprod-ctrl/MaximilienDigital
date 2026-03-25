@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist } from "next/font/google";
 import { Navigation } from "@/components/Navigation";
 import { LanguageProvider } from "@/context/LanguageContext";
+import { Analytics } from "@vercel/analytics/next";
 import Script from "next/script";
 import "./globals.css";
 
@@ -149,6 +150,7 @@ export default function RootLayout({
           <Navigation />
           {children}
         </LanguageProvider>
+        <Analytics />
       </body>
     </html>
   );
