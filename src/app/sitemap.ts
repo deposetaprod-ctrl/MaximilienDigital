@@ -9,6 +9,7 @@ const pages = [
   { path: "/offre", priority: 1 as const, changeFrequency: "always" as const },
   { path: "/blog", priority: 0.8 as const, changeFrequency: "weekly" as const },
   { path: "/blog/comment-creer-un-mvp", priority: 0.7 as const, changeFrequency: "monthly" as const },
+  { path: "/blog/mvp-gratuit-strategie-lancement", priority: 0.7 as const, changeFrequency: "monthly" as const },
   { path: "/financement", priority: 0.5 as const, changeFrequency: "monthly" as const },
 ];
 

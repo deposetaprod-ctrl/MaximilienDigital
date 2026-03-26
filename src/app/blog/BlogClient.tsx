@@ -18,6 +18,14 @@ export default function BlogClient() {
       readTime: "5 min",
       category: "Stratégie",
     },
+    {
+      slug: "mvp-gratuit-strategie-lancement",
+      title: t("article_free_mvp_title"),
+      description: t("article_free_mvp_description"),
+      date: t("article_free_mvp_date"),
+      readTime: "4 min",
+      category: "Offre",
+    },
   ];
 
   const containerVariants = {

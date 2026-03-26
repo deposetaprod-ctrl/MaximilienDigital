@@ -305,6 +305,39 @@ export const translations = {
       <h2 class="text-2xl font-bold mt-16 mb-6">Conclusion : Itérer ou pivoter</h2>
       <p>Si la fonctionnalité essentielle attire des clients, doublez la mise : améliorez l'expérience et ajoutez des features. Sinon ? Vous avez économisé des mois de développement et des milliers d'euros. Vous pouvez maintenant pivoter sereinement vers une meilleure idée.</p>
     `,
+
+    // Article: Free MVP
+    article_free_mvp_title: "MVP Gratuit : La meilleure stratégie pour lancer votre business",
+    article_free_mvp_description: "Comment nous vous accompagnons de l'idée au premier paiement client, sans barrière financière.",
+    article_free_mvp_date: "27 Mars 2026",
+    article_free_mvp_content: `
+      <p>Lancer une startup ou un nouveau produit digital est souvent freiné par deux obstacles majeurs : le <strong>coût de développement</strong> et l'<strong>incertitude du marché</strong>. Chez Maximilien Digital, nous avons supprimé ces barrières avec une approche radicale : nous créons votre MVP gratuitement.</p>
+
+      <div class="my-12 p-8 rounded-3xl bg-primary/5 border border-primary/10">
+        <h2 class="text-2xl font-bold mb-4">1. Un MVP créé gratuitement</h2>
+        <p>Pourquoi ? Parce que nous croyons en la puissance de la validation par l'usage. Nous développons le cœur de votre produit sans frais initiaux pour vous permettre de le mettre entre les mains de vos utilisateurs le plus vite possible.</p>
+      </div>
+
+      <div class="my-12 p-8 rounded-3xl bg-secondary/5 border border-secondary/10">
+        <h2 class="text-2xl font-bold mb-4">2. On vous trouve le financement</h2>
+        <p>Vous n'avez pas les fonds pour passer à l'échelle supérieure ? Pas de panique. Si votre MVP montre des signes de traction, nous vous accompagnons dans la recherche de financements externes pour financer le développement de la version complète.</p>
+      </div>
+
+      <div class="my-12 p-8 rounded-3xl bg-primary/5 border border-primary/10">
+        <h2 class="text-2xl font-bold mb-4 italic">3. Vitesse éclair : 2 mois max</h2>
+        <p>Le temps est votre ressource la plus précieuse. Notre processus est optimisé pour passer de l'idée au produit fonctionnel en <strong>moins de 8 semaines</strong>. C'est le délai idéal pour garder le momentum et tester votre marché en temps réel.</p>
+      </div>
+
+      <div class="my-12 p-8 rounded-3xl bg-secondary/10 border border-secondary/20 text-center">
+        <h3 class="text-xl font-bold mb-4">Bonus : On vous offre le nom de domaine</h3>
+        <p>Pour tout lancement d'un MVP gratuit, nous vous offrons votre nom de domaine pour la première année. Un détail qui compte pour démarrer sans aucun frais.</p>
+      </div>
+
+      <h2 class="text-2xl font-bold mt-16 mb-6">Accompagnement jusqu'au succès</h2>
+      <p>Notre engagement ne s'arrête pas au code. Nous restons à vos côtés et vous coachons jusqu'à ce que vous receviez votre <strong>premier paiement client</strong>. C'est pour nous la seule et unique preuve que votre business est sur les bons rails.</p>
+      
+      <p><strong>C'est, selon nous, le meilleur moyen de vérifier si une idée fonctionne avant de s'engager sur le long terme.</strong></p>
+    `,
   },
 
   en: {
@@ -609,6 +642,39 @@ export const translations = {
 
       <h2 class="text-2xl font-bold mt-16 mb-6">Conclusion: Iterate or Pivot</h2>
       <p>If the core feature attracts customers, double down: improve the experience and add features. If not? You've saved months of development and thousands of euros. You can now pivot calmly to a better idea.</p>
+    `,
+
+    // Article: Free MVP
+    article_free_mvp_title: "Free MVP: The Best Strategy to Launch Your Business",
+    article_free_mvp_description: "How we support you from idea to first customer payment, without financial barriers.",
+    article_free_mvp_date: "March 27, 2026",
+    article_free_mvp_content: `
+      <p>Launching a startup or a new digital product is often slowed down by two major obstacles: <strong>development cost</strong> and <strong>market uncertainty</strong>. At Maximilien Digital, we've removed these barriers with a radical approach: we create your MVP for free.</p>
+
+      <div class="my-12 p-8 rounded-3xl bg-primary/5 border border-primary/10">
+        <h2 class="text-2xl font-bold mb-4">1. A Free MVP Creation</h2>
+        <p>Why? Because we believe in the power of validation through usage. We develop the core of your product with no initial fees to allow you to put it in your users' hands as quickly as possible.</p>
+      </div>
+
+      <div class="my-12 p-8 rounded-3xl bg-secondary/5 border border-secondary/10">
+        <h2 class="text-2xl font-bold mb-4">2. We Find Your Financing</h2>
+        <p>Don't have the funds to scale up? Don't panic. If your MVP shows signs of traction, we assist you in finding external financing to fund the development of the full version.</p>
+      </div>
+
+      <div class="my-12 p-8 rounded-3xl bg-primary/5 border border-primary/10">
+        <h2 class="text-2xl font-bold mb-4 italic">3. Lightning Speed: 2 Months Max</h2>
+        <p>Time is your most precious resource. Our process is optimized to go from idea to functional product in <strong>less than 8 weeks</strong>. It's the perfect timeframe to keep the momentum and test your market in real-time.</p>
+      </div>
+
+      <div class="my-12 p-8 rounded-3xl bg-secondary/10 border border-secondary/20 text-center">
+        <h3 class="text-xl font-bold mb-4">Bonus: Free Domain Name</h3>
+        <p>For every free MVP launch, we offer your domain name for the first year. A detail that matters to start with zero costs.</p>
+      </div>
+
+      <h2 class="text-2xl font-bold mt-16 mb-6">Support Until Success</h2>
+      <p>Our commitment doesn't end with code. We stay by your side and coach you until you receive your <strong>first customer payment</strong>. For us, this is the one and only proof that your business is on the right track.</p>
+      
+      <p><strong>In our view, this is the best way to verify if an idea works before committing for the long term.</strong></p>
     `,
   },
 } as const;

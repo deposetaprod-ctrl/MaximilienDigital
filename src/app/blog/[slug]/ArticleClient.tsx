@@ -13,9 +13,10 @@ export default function ArticleClient({ slug }: { slug: string }) {
   const { t } = useLanguage();
   const [contactOpen, setContactOpen] = useState(false);
 
-  // In a real app, we'd fetch the article based on slug.
-  // For now, we only have one article.
-  if (slug !== "comment-creer-un-mvp") {
+  const isMVParticle = slug === "comment-creer-un-mvp";
+  const isFreeMVParticle = slug === "mvp-gratuit-strategie-lancement";
+
+  if (!isMVParticle && !isFreeMVParticle) {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
@@ -26,10 +27,24 @@ export default function ArticleClient({ slug }: { slug: string }) {
     );
   }
 
+  const articleData = isMVParticle ? {
+    title: t("article_mvp_title"),
+    date: t("article_mvp_date"),
+    content: t("article_mvp_content"),
+    image: "/images/blog/mvp-hero.png",
+    category: "Stratégie"
+  } : {
+    title: t("article_free_mvp_title"),
+    date: t("article_free_mvp_date"),
+    content: t("article_free_mvp_content"),
+    image: "/images/blog/free-mvp-hero.png",
+    category: "Offre"
+  };
+
   const handleShare = () => {
     if (navigator.share) {
       navigator.share({
-        title: t("article_mvp_title"),
+        title: articleData.title,
         url: window.location.href,
       });
     } else {
@@ -64,10 +79,10 @@ export default function ArticleClient({ slug }: { slug: string }) {
               animate={{ opacity: 1, y: 0 }}
               className="flex items-center gap-4 text-xs font-bold uppercase tracking-widest text-primary mb-6"
             >
-              <span className="px-3 py-1 rounded-full bg-primary/10 border border-primary/20">Stratégie</span>
+              <span className="px-3 py-1 rounded-full bg-primary/10 border border-primary/20">{articleData.category}</span>
               <div className="flex items-center gap-2 text-muted-foreground">
                 <Calendar size={14} className="text-primary/60" />
-                <span>{t("article_mvp_date")}</span>
+                <span>{articleData.date}</span>
               </div>
               <div className="flex items-center gap-2 text-muted-foreground border-l border-border pl-4">
                 <Clock size={14} className="text-primary/60" />
@@ -81,7 +96,7 @@ export default function ArticleClient({ slug }: { slug: string }) {
               transition={{ delay: 0.1 }}
               className="text-4xl md:text-6xl font-extrabold mb-10 leading-[1.1] tracking-tight bg-clip-text text-transparent bg-gradient-to-b from-foreground to-foreground/70"
             >
-              {t("article_mvp_title")}
+              {articleData.title}
             </motion.h1>
 
             {/* Author & Share */}
@@ -120,8 +135,8 @@ export default function ArticleClient({ slug }: { slug: string }) {
             className="mb-20 rounded-[3rem] overflow-hidden aspect-[16/9] relative border border-border group"
           >
             <Image 
-              src="/images/blog/mvp-hero.png" 
-              alt={t("article_mvp_title")}
+              src={articleData.image} 
+              alt={articleData.title}
               fill
               className="object-cover group-hover:scale-105 transition-transform duration-700"
               priority
@@ -140,7 +155,7 @@ export default function ArticleClient({ slug }: { slug: string }) {
               prose-strong:text-foreground prose-strong:font-bold
               prose-em:text-primary prose-em:not-italic prose-em:font-medium
               prose-div:my-16 prose-div:p-10 prose-div:transition-all"
-            dangerouslySetInnerHTML={{ __html: t("article_mvp_content") }}
+            dangerouslySetInnerHTML={{ __html: articleData.content }}
           />
 
           {/* CTA footer */}

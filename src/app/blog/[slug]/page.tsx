@@ -16,6 +16,18 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       },
     };
   }
+
+  if (slug === "mvp-gratuit-strategie-lancement") {
+    return {
+      title: translations.fr.article_free_mvp_title + " | Blog Maximilien Digital",
+      description: translations.fr.article_free_mvp_description,
+      openGraph: {
+        title: translations.fr.article_free_mvp_title,
+        description: translations.fr.article_free_mvp_description,
+        images: ["/images/blog/free-mvp-hero.png"],
+      },
+    };
+  }
   return {
     title: "Article | Maximilien Digital",
   };
