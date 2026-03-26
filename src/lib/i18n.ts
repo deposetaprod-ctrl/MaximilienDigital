@@ -8,6 +8,7 @@ export const translations = {
     nav_saas: "SaaS",
     nav_financement: "Financement",
     nav_offer: "Offre",
+    nav_blog: "Blog",
 
     // Hero
     hero_tagline: "Développeur SaaS · Mobile · IA",
@@ -269,6 +270,36 @@ export const translations = {
     off_saas_link: "Développement SaaS",
     off_mobile_link: "Applications Mobiles",
     off_web_link: "Sites Internet Vitrine",
+
+    // Blog
+    blog_title: "Le Blog Digital",
+    blog_subtitle: "Conseils, stratégies et retours d'expérience pour réussir votre produit digital.",
+    blog_read_more: "Lire l'article",
+    blog_back: "Retour au blog",
+
+    // Article: MVP
+    article_mvp_title: "Comment créer un MVP (Minimum Viable Product)",
+    article_mvp_description: "La méthode pour valider votre idée sans gaspiller de ressources et s'assurer d'un marché.",
+    article_mvp_date: "26 Mars 2026",
+    article_mvp_content: `
+      <h2>Qu'est-ce qu'un MVP ?</h2>
+      <p>Un MVP, ou Produit Minimum Viable, est la version la plus simplifiée de votre application. Son but n'est pas d'être parfait, de rapporter massivement de l'argent ou d'avoir toutes les fonctionnalités imaginées au départ. Son rôle unique est de <strong>vérifier si votre idée répond à un vrai besoin</strong>.</p>
+
+      <h2>Étape 1 : Déterminer la fonctionnalité essentielle</h2>
+      <p>Posez-vous cette question : "Sans quelle fonctionnalité mon application ne fonctionne-t-elle pas ?" C'est votre cœur de produit. Avec cette seule fonctionnalité, l'application doit déjà se suffire à elle-même pour résoudre le problème principal de l'utilisateur.</p>
+
+      <h2>Étape 2 : Simplifier pour vérifier</h2>
+      <p>Une fois l'essentiel identifié, demandez-vous comment vérifier sa pertinence sur le marché avec le moins d'efforts possible. Par exemple, si vous voulez vendre des services, une simple page de vente avec un bouton "Acheter" (même s'il ne mène nulle part au début) permet de mesurer l'intérêt réel avant de coder tout le tunnel de paiement.</p>
+
+      <h2>La validation ultime : Le passage à l'action</h2>
+      <p>Un MVP est réellement validé quand un utilisateur est prêt à effectuer une action concrète, comme laisser ses coordonnées ou, mieux encore, sortir sa carte bancaire. C'est à ce moment-là que l'on sait si l'idée est rentable.</p>
+
+      <h2>Et après ?</h2>
+      <p>Si la fonctionnalité essentielle attire des clients, alors on peut passer au développement supérieur et ajouter des options pour enrichir l'expérience. Mais si le cœur n'intéresse personne, inutile d'ajouter des fonctionnalités coûteuses : il faut pivoter ou retravailler l'offre.</p>
+
+      <h2>Combien coûte un MVP ?</h2>
+      <p>Les prix peuvent varier. Chez Maximilien Digital, nous proposons une offre gratuite pour un premier aperçu (offre MVP), mais un projet plus complet peut aller de 1 000 € à 2 000 € selon la complexité technique.</p>
+    `,
   },
 
   en: {
@@ -278,6 +309,7 @@ export const translations = {
     nav_saas: "SaaS",
     nav_financement: "Funding",
     nav_offer: "Offer",
+    nav_blog: "Blog",
 
     // Hero
     hero_tagline: "SaaS · Mobile · AI Developer",
@@ -538,6 +570,36 @@ export const translations = {
     off_saas_link: "SaaS Development",
     off_mobile_link: "Mobile Applications",
     off_web_link: "Showcase Websites",
+
+    // Blog
+    blog_title: "Digital Blog",
+    blog_subtitle: "Advice, strategies, and feedback to make your digital product a success.",
+    blog_read_more: "Read article",
+    blog_back: "Back to blog",
+
+    // Article: MVP
+    article_mvp_title: "How to Create an MVP (Minimum Viable Product)",
+    article_mvp_description: "The method to validate your idea without wasting resources and ensuring a market fit.",
+    article_mvp_date: "March 26, 2026",
+    article_mvp_content: `
+      <h2>What is an MVP?</h2>
+      <p>An MVP, or Minimum Viable Product, is the simplest version of your application. Its goal is not to be perfect, to make massive amounts of money, or to have all the features imagined at the start. Its sole role is to <strong>verify if your idea meets a real need</strong>.</p>
+
+      <h2>Step 1: Determine the essential functionality</h2>
+      <p>Ask yourself: "Without which functionality does my application not work?" This is your core product. With this single feature, the application must already be self-sufficient to solve the user's main problem.</p>
+
+      <h2>Step 2: Simplify to verify</h2>
+      <p>Once the essential is identified, ask yourself how to verify its market relevance with the least effort. For example, if you want to sell services, a simple sales page with a "Buy" button (even if it leads nowhere at first) allows you to measure real interest before coding the entire payment tunnel.</p>
+
+      <h2>The ultimate validation: Taking action</h2>
+      <p>An MVP is truly validated when a user is ready to take a concrete action, such as leaving their contact details or, even better, taking out their credit card. That's when you know if the idea is profitable.</p>
+
+      <h2>What next?</h2>
+      <p>If the essential functionality attracts customers, then we can move on to further development and add options to enrich the experience. But if the core doesn't interest anyone, there's no point in adding expensive features: you need to pivot or rework the offer.</p>
+
+      <h2>How much does an MVP cost?</h2>
+      <p>Prices can vary. At Maximilien Digital, we offer a free preview (MVP offer), but a more complete project can range from €1,000 to €2,000 depending on technical complexity.</p>
+    `,
   },
 } as const;
 
