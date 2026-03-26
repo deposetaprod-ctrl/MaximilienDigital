@@ -62,10 +62,10 @@ export const translations = {
     testimonials_based_on: "Basé sur plus de 10 avis 5 étoiles",
 
     // Final CTA section
-    finalcta_title: "Prêt à concrétiser votre projet ?",
+    finalcta_title: "Nous parler de votre projet",
     finalcta_subtitle:
-      "Discutons ensemble de votre idée. Je vous accompagne de la conception au lancement de votre produit digital.",
-    finalcta_cta: "Discutons ensemble",
+      "Décrivez-nous votre idée en quelques mots. Nous vous recontactons pour concrétiser votre vision digitale.",
+    finalcta_cta: "Nous parler de votre projet",
 
     // Footer
     footer_rights: "Tous droits réservés.",
@@ -278,27 +278,32 @@ export const translations = {
     blog_back: "Retour au blog",
 
     // Article: MVP
-    article_mvp_title: "Comment créer un MVP (Minimum Viable Product)",
-    article_mvp_description: "La méthode pour valider votre idée sans gaspiller de ressources et s'assurer d'un marché.",
+    article_mvp_title: "Comment créer un MVP en 3 étapes",
+    article_mvp_description: "La méthode pour valider votre idée sans gaspiller de ressources et s'assurer d'un marché dynamique.",
     article_mvp_date: "26 Mars 2026",
     article_mvp_content: `
-      <h2>Qu'est-ce qu'un MVP ?</h2>
-      <p>Un MVP, ou Produit Minimum Viable, est la version la plus simplifiée de votre application. Son but n'est pas d'être parfait, de rapporter massivement de l'argent ou d'avoir toutes les fonctionnalités imaginées au départ. Son rôle unique est de <strong>vérifier si votre idée répond à un vrai besoin</strong>.</p>
+      <p>Un MVP, ou <strong>Produit Minimum Viable</strong>, n'est pas une version "dégradée" de votre vision. C'est l'outil le plus puissant pour transformer une intuition en un produit que les gens achètent réellement. Son rôle unique ? Vérifier si votre idée répond à un vrai besoin avant d'investir massivement.</p>
 
-      <h2>Étape 1 : Déterminer la fonctionnalité essentielle</h2>
-      <p>Posez-vous cette question : "Sans quelle fonctionnalité mon application ne fonctionne-t-elle pas ?" C'est votre cœur de produit. Avec cette seule fonctionnalité, l'application doit déjà se suffire à elle-même pour résoudre le problème principal de l'utilisateur.</p>
+      <div class="my-12 p-8 rounded-3xl bg-primary/5 border border-primary/10">
+        <h2 class="text-2xl font-bold mb-4">Étape 1 : Identifier la fonctionnalité "cœur"</h2>
+        <p>Posez-vous la question fatidique : <em>"Sans quelle fonctionnalité mon application perd-elle tout son sens ?"</em></p>
+        <p>C'est votre cœur de produit. Avec cette seule fonctionnalité, l'application doit déjà résoudre le problème principal de l'utilisateur. Tout le reste (design ultra-poussé, options de personnalisation, parrainage) n'est que du bruit à ce stade.</p>
+      </div>
 
-      <h2>Étape 2 : Simplifier pour vérifier</h2>
-      <p>Une fois l'essentiel identifié, demandez-vous comment vérifier sa pertinence sur le marché avec le moins d'efforts possible. Par exemple, si vous voulez vendre des services, une simple page de vente avec un bouton "Acheter" (même s'il ne mène nulle part au début) permet de mesurer l'intérêt réel avant de coder tout le tunnel de paiement.</p>
+      <div class="my-12 p-8 rounded-3xl bg-secondary/5 border border-secondary/10">
+        <h2 class="text-2xl font-bold mb-4">Étape 2 : Simplifier pour vérifier le marché</h2>
+        <p>Une fois l'essentiel identifié, demandez-vous comment vérifier sa pertinence avec le moins d'efforts possible. L'objectif est d'obtenir un signal clair du marché.</p>
+        <p><strong>Exemple :</strong> Vous voulez lancer un service de conciergerie ? Créez une simple page de vente (Landing Page) expliquant votre offre avec un bouton "Acheter". Même si le bouton mène à une liste d'attente, le nombre de clics est une preuve de marché bien plus réelle que n'importe quelle étude théorique.</p>
+      </div>
 
-      <h2>La validation ultime : Le passage à l'action</h2>
-      <p>Un MVP est réellement validé quand un utilisateur est prêt à effectuer une action concrète, comme laisser ses coordonnées ou, mieux encore, sortir sa carte bancaire. C'est à ce moment-là que l'on sait si l'idée est rentable.</p>
+      <div class="my-12 p-8 rounded-3xl bg-primary/5 border border-primary/10 text-center">
+        <h2 class="text-2xl font-bold mb-4 italic">Étape 3 : Valider par l'action (le paiement)</h2>
+        <p>Un MVP est réellement validé quand un utilisateur effectue une action concrète et "coûteuse" : laisser son email, son numéro, ou mieux encore, <strong>sortir sa carte bancaire</strong>.</p>
+        <p>C'est à ce moment précis que l'on sait si l'idée est rentable. Si personne n'est prêt à payer pour le cœur de votre produit, ajouter des options secondaires ne changera rien au résultat.</p>
+      </div>
 
-      <h2>Et après ?</h2>
-      <p>Si la fonctionnalité essentielle attire des clients, alors on peut passer au développement supérieur et ajouter des options pour enrichir l'expérience. Mais si le cœur n'intéresse personne, inutile d'ajouter des fonctionnalités coûteuses : il faut pivoter ou retravailler l'offre.</p>
-
-      <h2>Combien coûte un MVP ?</h2>
-      <p>Les prix peuvent varier. Chez Maximilien Digital, nous proposons une offre gratuite pour un premier aperçu (offre MVP), mais un projet plus complet peut aller de 1 000 € à 2 000 € selon la complexité technique.</p>
+      <h2 class="text-2xl font-bold mt-16 mb-6">Conclusion : Itérer ou pivoter</h2>
+      <p>Si la fonctionnalité essentielle attire des clients, doublez la mise : améliorez l'expérience et ajoutez des features. Sinon ? Vous avez économisé des mois de développement et des milliers d'euros. Vous pouvez maintenant pivoter sereinement vers une meilleure idée.</p>
     `,
   },
 
@@ -363,10 +368,10 @@ export const translations = {
     testimonials_based_on: "Based on 10+ five-star reviews",
 
     // Final CTA section
-    finalcta_title: "Ready to bring your project to life?",
+    finalcta_title: "Talk to us about your project",
     finalcta_subtitle:
-      "Let's discuss your idea. I'll guide you from concept to launch of your digital product.",
-    finalcta_cta: "Let's talk",
+      "Tell us your idea in a few words. We'll get back to you to bring your digital vision to life.",
+    finalcta_cta: "Talk to us about your project",
 
     // Footer
     footer_rights: "All rights reserved.",
@@ -578,27 +583,32 @@ export const translations = {
     blog_back: "Back to blog",
 
     // Article: MVP
-    article_mvp_title: "How to Create an MVP (Minimum Viable Product)",
-    article_mvp_description: "The method to validate your idea without wasting resources and ensuring a market fit.",
+    article_mvp_title: "How to Create an MVP in 3 Steps",
+    article_mvp_description: "The method to validate your idea without wasting resources and ensuring a strong market fit.",
     article_mvp_date: "March 26, 2026",
     article_mvp_content: `
-      <h2>What is an MVP?</h2>
-      <p>An MVP, or Minimum Viable Product, is the simplest version of your application. Its goal is not to be perfect, to make massive amounts of money, or to have all the features imagined at the start. Its sole role is to <strong>verify if your idea meets a real need</strong>.</p>
+      <p>An MVP, or <strong>Minimum Viable Product</strong>, is not a "stripped-down" version of your vision. It is the most powerful tool to turn an intuition into a product people actually buy. Its sole role? To verify if your idea meets a real need before investing heavily.</p>
 
-      <h2>Step 1: Determine the essential functionality</h2>
-      <p>Ask yourself: "Without which functionality does my application not work?" This is your core product. With this single feature, the application must already be self-sufficient to solve the user's main problem.</p>
+      <div class="my-12 p-8 rounded-3xl bg-primary/5 border border-primary/10">
+        <h2 class="text-2xl font-bold mb-4">Step 1: Identify the "Core" functionality</h2>
+        <p>Ask yourself: <em>"Which feature, if removed, would make my application completely meaningless?"</em></p>
+        <p>This is your core product. With this single feature, the app must already solve the user's primary problem. Everything else (fancy design, customization, referral systems) is just noise at this stage.</p>
+      </div>
 
-      <h2>Step 2: Simplify to verify</h2>
-      <p>Once the essential is identified, ask yourself how to verify its market relevance with the least effort. For example, if you want to sell services, a simple sales page with a "Buy" button (even if it leads nowhere at first) allows you to measure real interest before coding the entire payment tunnel.</p>
+      <div class="my-12 p-8 rounded-3xl bg-secondary/5 border border-secondary/10">
+        <h2 class="text-2xl font-bold mb-4">Step 2: Simplify to verify the market</h2>
+        <p>Once the essential is identified, ask yourself how to verify its relevance with the least effort. The goal is to get a clear signal from the market.</p>
+        <p><strong>Example:</strong> Want to launch a concierge service? Create a simple Landing Page explaining your offer with a "Buy" button. Even if it leads to a waitlist, the number of clicks is proof of market far more real than any theoretical study.</p>
+      </div>
 
-      <h2>The ultimate validation: Taking action</h2>
-      <p>An MVP is truly validated when a user is ready to take a concrete action, such as leaving their contact details or, even better, taking out their credit card. That's when you know if the idea is profitable.</p>
+      <div class="my-12 p-8 rounded-3xl bg-primary/5 border border-primary/10 text-center">
+        <h2 class="text-2xl font-bold mb-4 italic">Step 3: Validate by action (payment)</h2>
+        <p>An MVP is truly validated when a user takes a concrete and "costly" action: leaving their email, phone number, or better yet, <strong>taking out their credit card</strong>.</p>
+        <p>That's when you know if the idea is profitable. If no one is willing to pay for your core product, adding secondary features won't change the outcome.</p>
+      </div>
 
-      <h2>What next?</h2>
-      <p>If the essential functionality attracts customers, then we can move on to further development and add options to enrich the experience. But if the core doesn't interest anyone, there's no point in adding expensive features: you need to pivot or rework the offer.</p>
-
-      <h2>How much does an MVP cost?</h2>
-      <p>Prices can vary. At Maximilien Digital, we offer a free preview (MVP offer), but a more complete project can range from €1,000 to €2,000 depending on technical complexity.</p>
+      <h2 class="text-2xl font-bold mt-16 mb-6">Conclusion: Iterate or Pivot</h2>
+      <p>If the core feature attracts customers, double down: improve the experience and add features. If not? You've saved months of development and thousands of euros. You can now pivot calmly to a better idea.</p>
     `,
   },
 } as const;

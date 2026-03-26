@@ -4,11 +4,16 @@ import { translations } from "@/lib/i18n";
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
-  // Simple check for our first article
+  
   if (slug === "comment-creer-un-mvp") {
     return {
-      title: translations.fr.article_mvp_title,
+      title: translations.fr.article_mvp_title + " | Blog Maximilien Digital",
       description: translations.fr.article_mvp_description,
+      openGraph: {
+        title: translations.fr.article_mvp_title,
+        description: translations.fr.article_mvp_description,
+        images: ["/images/blog/mvp-hero.png"],
+      },
     };
   }
   return {
