@@ -20,6 +20,10 @@ export function ContactFormModal({ open, onOpenChange, initialDescription }: Con
 
   const budgetOptions = [
     { value: "", label: t("cf_budget_placeholder") },
+    { value: "500", label: t("budget_500") },
+    { value: "1000", label: t("budget_1k") },
+    { value: "2000", label: t("budget_2k") },
+    { value: "3000", label: t("budget_3k") },
     { value: "< 5k", label: t("budget_lt5k") },
     { value: "5k-10k", label: t("budget_5k10k") },
     { value: "10k-25k", label: t("budget_10k25k") },
@@ -154,7 +158,7 @@ export function ContactFormModal({ open, onOpenChange, initialDescription }: Con
                     rows={4}
                     defaultValue={initialDescription ?? ""}
                     className="w-full rounded-lg border border-input bg-background px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring/50 focus:border-primary transition-colors resize-none"
-                    placeholder="Parlez-moi de votre idée, vos objectifs, votre calendrier..."
+                    placeholder={t("cf_description_placeholder")}
                   />
                 </div>
 

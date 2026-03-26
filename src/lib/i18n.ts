@@ -91,6 +91,7 @@ export const translations = {
     cf_email: "Email",
     cf_phone: "Téléphone (optionnel)",
     cf_description: "Décrivez votre projet",
+    cf_description_placeholder: "Parlez-moi de votre idée, vos objectifs, votre calendrier...",
     cf_budget: "Budget estimé",
     cf_submit: "Envoyer ma demande",
     cf_sending: "Envoi en cours…",
@@ -100,6 +101,7 @@ export const translations = {
     cf_error: "Une erreur est survenue. Réessayez ou contactez-moi directement.",
 
     // Budget options
+    budget_500: "Moins de 1 000 €",
     budget_1k: "Environ 1 000 €",
     budget_2k: "Environ 2 000 €",
     budget_3k: "Environ 3 000 €",
@@ -359,6 +361,7 @@ export const translations = {
     cf_email: "Email",
     cf_phone: "Phone (optional)",
     cf_description: "Describe your project",
+    cf_description_placeholder: "Tell me about your idea, your goals, your timeline...",
     cf_budget: "Estimated budget",
     cf_submit: "Send my request",
     cf_sending: "Sending…",
@@ -368,6 +371,7 @@ export const translations = {
     cf_error: "Something went wrong. Please try again or contact me directly.",
 
     // Budget options
+    budget_500: "Less than €1,000",
     budget_1k: "Around €1,000",
     budget_2k: "Around €2,000",
     budget_3k: "Around €3,000",

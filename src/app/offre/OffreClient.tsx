@@ -77,7 +77,8 @@ export default function OfferPage() {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.15 }}
-            className="inline-flex items-center gap-2 px-6 py-2 rounded-2xl bg-primary text-primary-foreground font-bold text-xl mb-8 shadow-xl shadow-primary/20 rotate-1 hover:rotate-0 transition-transform cursor-default"
+            className="inline-flex items-center gap-2 px-6 py-2 rounded-2xl bg-primary text-primary-foreground font-bold text-xl mb-8 shadow-xl shadow-primary/20 rotate-1 hover:rotate-0 transition-transform cursor-pointer"
+            onClick={() => setContactOpen(true)}
           >
             <Zap className="fill-current w-5 h-5" />
             <span>MVP Gratuit & Aperçu Immédiat</span>
@@ -96,7 +97,7 @@ export default function OfferPage() {
             transition={{ delay: 0.3 }}
             className="flex flex-wrap justify-center gap-4"
           >
-            <AnimatedBaseButton onClick={() => setEstimationOpen(true)}>
+            <AnimatedBaseButton onClick={() => setContactOpen(true)}>
               {t("off_cta_main")}
               <ArrowRight className="ml-2 h-4 w-4" />
             </AnimatedBaseButton>
