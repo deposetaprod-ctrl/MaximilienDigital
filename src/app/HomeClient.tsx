@@ -6,6 +6,7 @@ import { HeroSection } from "@/components/sections/HeroSection";
 import { ServicesSection } from "@/components/sections/ServicesSection";
 import { ProjectsSection } from "@/components/sections/ProjectsSection";
 import { TeamCarousel } from "@/components/sections/TeamCarousel";
+import { BioSection } from "@/components/sections/BioSection";
 import { TestimonialsSection } from "@/components/sections/TestimonialsSection";
 import { FinalCtaSection } from "@/components/sections/FinalCtaSection";
 import { Footer } from "@/components/sections/Footer";
@@ -31,14 +32,15 @@ export default function Home() {
   return (
     <>
       <main>
+        <TeamCarousel />
         <HeroSection 
           heroRef={heroRef} 
           onCtaClick={() => setEstimationOpen(true)} 
         />
         <ServicesSection />
         <ProjectsSection />
-        <TeamCarousel />
         <TestimonialsSection />
+        <BioSection />
         <FinalCtaSection onCtaClick={() => setQuickContactOpen(true)} />
       </main>
       <Footer />
