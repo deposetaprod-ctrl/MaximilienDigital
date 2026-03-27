@@ -73,7 +73,7 @@ export const translations = {
     // Team Section
     team_title: "L'Équipe Maximilien Digital",
     team_subtitle: "Trois développeurs passionnés pour donner vie à vos idées les plus ambitieuses.",
-    team_role_architect: "Architecte Logiciel & Accompagnement Entrepreneuriat",
+    team_role_architect: "Architecte Logiciel & Accompagnateur Entrepreneurial",
     team_role_fullstack: "Ingénieur Fullstack",
     footer_reviews: "Avis ComeUp",
 
@@ -448,7 +448,7 @@ export const translations = {
     // Team Section
     team_title: "The Maximilien Digital Team",
     team_subtitle: "Three passionate developers bringing your most ambitious ideas to life.",
-    team_role_architect: "Software Architect & Entrepreneurial Support",
+    team_role_architect: "Software Architect & Entrepreneurial Coach",
     team_role_fullstack: "Fullstack Engineer",
     footer_reviews: "ComeUp Reviews",
 
