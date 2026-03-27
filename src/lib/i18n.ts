@@ -338,6 +338,36 @@ export const translations = {
       
       <p><strong>C'est, selon nous, le meilleur moyen de vérifier si une idée fonctionne avant de s'engager sur le long terme.</strong></p>
     `,
+
+    // Article: Website Creation
+    article_website_title: "Comment créer son site internet en 3 étapes",
+    article_website_description: "La méthode Maximilien Digital pour transformer votre idée en un business en ligne rentable et pérenne.",
+    article_website_date: "28 Mars 2026",
+    article_website_content: `
+      <p>Créer un site internet ne devrait pas être un saut dans l'inconnu. Chez Maximilien Digital, nous avons structuré une méthode en 3 étapes pour vous garantir un produit qui non seulement fonctionne techniquement, mais qui répond surtout à un vrai besoin du marché.</p>
+
+      <div class="my-12 p-8 rounded-3xl bg-primary/5 border border-primary/10">
+        <h2 class="text-2xl font-bold mb-4">Étape 1 : Identifier la fonctionnalité "cœur"</h2>
+        <p>Trop de projets échouent car ils veulent tout faire tout de suite. Notre première mission est de vous aider à identifier le service essentiel, celui qui apporte la plus grande valeur à vos clients.</p>
+        <p><em>Besoin d'aide pour isoler ce besoin ? Contactez-nous pour une session stratégique.</em></p>
+      </div>
+
+      <div class="my-12 p-8 rounded-3xl bg-secondary/5 border border-secondary/10">
+        <h2 class="text-2xl font-bold mb-4 font-bold">Étape 2 : Aperçu Gratuit & MVP</h2>
+        <p>Avant d'investir massivement, nous validons l'idée. Cela commence par un <strong>aperçu gratuit</strong> (notre offre phare) pour visualiser votre futur site. Ensuite, nous passons au développement du MVP (Produit Minimum Viable) à moindre coût pour tester la pertinence sur le terrain.</p>
+        <div class="mt-6">
+          <a href="/offre" class="text-primary font-bold hover:underline">Découvrir l'aperçu gratuit →</a>
+        </div>
+      </div>
+
+      <div class="my-12 p-8 rounded-3xl bg-primary/5 border border-primary/10">
+        <h2 class="text-2xl font-bold mb-4">Étape 3 : Développement, Maintenance & Croissance</h2>
+        <p>Une fois le MVP validé par vos premiers clients, nous déployons l'artillerie lourde. Développement complet, optimisation des performances, et mise en place d'une maintenance rigoureuse. Nous restons votre partenaire technique pour faire évoluer votre plateforme au rythme de votre croissance.</p>
+      </div>
+
+      <h2 class="text-2xl font-bold mt-16 mb-6">Prêt à lancer votre vision ?</h2>
+      <p>Ne laissez pas la technique freiner vos ambitions. Contactez-nous dès aujourd'hui pour faire de votre idée un succès digital concret.</p>
+    `,
   },
 
   en: {
@@ -675,6 +705,36 @@ export const translations = {
       <p>Our commitment doesn't end with code. We stay by your side and coach you until you receive your <strong>first customer payment</strong>. For us, this is the one and only proof that your business is on the right track.</p>
       
       <p><strong>In our view, this is the best way to verify if an idea works before committing for the long term.</strong></p>
+    `,
+
+    // Article: Website Creation
+    article_website_title: "How to Create Your Website in 3 Steps",
+    article_website_description: "The Maximilien Digital method to turn your idea into a profitable and sustainable online business.",
+    article_website_date: "March 28, 2026",
+    article_website_content: `
+      <p>Building a website shouldn't be a leap into the unknown. At Maximilien Digital, we've structured a 3-step method to guarantee a product that not only works technically but, above all, meets a real market need.</p>
+
+      <div class="my-12 p-8 rounded-3xl bg-primary/5 border border-primary/10">
+        <h2 class="text-2xl font-bold mb-4">Step 1: Identify the "Core" functionality</h2>
+        <p>Too many projects fail because they want to do everything at once. Our first mission is to help you identify the essential service, the one that provides the greatest value to your customers.</p>
+        <p><em>Need help isolating this need? Contact us for a strategic session.</em></p>
+      </div>
+
+      <div class="my-12 p-8 rounded-3xl bg-secondary/5 border border-secondary/10">
+        <h2 class="text-2xl font-bold mb-4">Step 2: Free Preview & MVP</h2>
+        <p>Before investing heavily, we validate the idea. This starts with a <strong>free preview</strong> (our flagship offer) to visualize your future site. Then, we move on to developing a low-cost MVP (Minimum Viable Product) to test relevance in the field.</p>
+        <div class="mt-6">
+          <a href="/offre" class="text-primary font-bold hover:underline">Discover the Free Preview →</a>
+        </div>
+      </div>
+
+      <div class="my-12 p-8 rounded-3xl bg-primary/5 border border-primary/10">
+        <h2 class="text-2xl font-bold mb-4">Step 3: Development, Maintenance & Growth</h2>
+        <p>Once the MVP is validated by your first clients, we deploy the heavy artillery. Full development, performance optimization, and rigorous maintenance. We remain your technical partner to evolve your platform at the pace of your growth.</p>
+      </div>
+
+      <h2 class="text-2xl font-bold mt-16 mb-6">Ready to launch your vision?</h2>
+      <p>Don't let technology hinder your ambitions. Contact us today to turn your idea into a concrete digital success.</p>
     `,
   },
 } as const;

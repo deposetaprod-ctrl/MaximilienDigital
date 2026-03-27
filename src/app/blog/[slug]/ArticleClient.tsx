@@ -15,8 +15,9 @@ export default function ArticleClient({ slug }: { slug: string }) {
 
   const isMVParticle = slug === "comment-creer-un-mvp";
   const isFreeMVParticle = slug === "mvp-gratuit-strategie-lancement";
+  const isWebsiteArticle = slug === "creer-son-site-internet-3-etapes";
 
-  if (!isMVParticle && !isFreeMVParticle) {
+  if (!isMVParticle && !isFreeMVParticle && !isWebsiteArticle) {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
@@ -33,12 +34,18 @@ export default function ArticleClient({ slug }: { slug: string }) {
     content: t("article_mvp_content"),
     image: "/images/blog/mvp-hero.png",
     category: "Stratégie"
-  } : {
+  } : isFreeMVParticle ? {
     title: t("article_free_mvp_title"),
     date: t("article_free_mvp_date"),
     content: t("article_free_mvp_content"),
     image: "/images/blog/free-mvp-hero.png",
     category: "Offre"
+  } : {
+    title: t("article_website_title"),
+    date: t("article_website_date"),
+    content: t("article_website_content"),
+    image: "/images/blog/website-hero.png",
+    category: "Développement"
   };
 
   const handleShare = () => {

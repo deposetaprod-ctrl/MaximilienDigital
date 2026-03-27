@@ -26,6 +26,14 @@ export default function BlogClient() {
       readTime: "4 min",
       category: "Offre",
     },
+    {
+      slug: "creer-son-site-internet-3-etapes",
+      title: t("article_website_title"),
+      description: t("article_website_description"),
+      date: t("article_website_date"),
+      readTime: "6 min",
+      category: "Développement",
+    },
   ];
 
   const containerVariants = {
