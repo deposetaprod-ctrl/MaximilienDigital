@@ -69,6 +69,13 @@ export const translations = {
 
     // Footer
     footer_rights: "Tous droits réservés.",
+
+    // Team Section
+    team_title: "L'Équipe Maximilien Digital",
+    team_subtitle: "Trois développeurs passionnés pour donner vie à vos idées les plus ambitieuses.",
+    team_role_architect: "Architecte Logiciel",
+    team_role_frontend: "Développeur Frontend",
+    team_role_backend: "Ingénieur Backend",
     footer_reviews: "Avis ComeUp",
 
     // Scroll notification popup
@@ -438,6 +445,13 @@ export const translations = {
 
     // Footer
     footer_rights: "All rights reserved.",
+
+    // Team Section
+    team_title: "The Maximilien Digital Team",
+    team_subtitle: "Three passionate developers bringing your most ambitious ideas to life.",
+    team_role_architect: "Software Architect",
+    team_role_frontend: "Frontend Developer",
+    team_role_backend: "Backend Engineer",
     footer_reviews: "ComeUp Reviews",
 
     // Scroll notification popup

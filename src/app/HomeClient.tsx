@@ -5,6 +5,7 @@ import { useScrollPastHero } from "@/hooks/useScrollPastHero";
 import { HeroSection } from "@/components/sections/HeroSection";
 import { ServicesSection } from "@/components/sections/ServicesSection";
 import { ProjectsSection } from "@/components/sections/ProjectsSection";
+import { TeamCarousel } from "@/components/sections/TeamCarousel";
 import { TestimonialsSection } from "@/components/sections/TestimonialsSection";
 import { FinalCtaSection } from "@/components/sections/FinalCtaSection";
 import { Footer } from "@/components/sections/Footer";
@@ -36,6 +37,7 @@ export default function Home() {
         />
         <ServicesSection />
         <ProjectsSection />
+        <TeamCarousel />
         <TestimonialsSection />
         <FinalCtaSection onCtaClick={() => setQuickContactOpen(true)} />
       </main>
