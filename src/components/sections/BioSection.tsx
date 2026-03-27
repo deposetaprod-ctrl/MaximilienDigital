@@ -54,7 +54,7 @@ export const BioSection = () => {
 
           {/* Info segment */}
           <div className="mt-[-1px] rounded-b-[3rem] bg-card p-8 shadow-2xl ring-1 ring-border border-t border-white/5">
-            <h3 className="text-2xl font-bold text-foreground mb-1">Maximilien</h3>
+            <h3 className="text-2xl font-bold text-foreground mb-1">Max</h3>
             <p className="text-sm text-primary font-medium mb-4">{t("hero_dev_role")}</p>
             
             <div className="flex items-center justify-between pt-4 border-t border-border/50">
