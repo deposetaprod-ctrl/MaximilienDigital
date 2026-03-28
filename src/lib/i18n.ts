@@ -54,6 +54,9 @@ export const translations = {
     project_esport_title: "EsportNews.fr",
     project_esport_desc:
       "Plateforme média dédiée à l'esport, proposant actualités, suivi des scores en direct et analyses approfondies de la scène compétitive.",
+    project_bachata_title: "Bachata Lyrics",
+    project_bachata_desc:
+      "Plateforme dédiée à la traduction de chansons de bachata (espagnol-français) pour aider les danseurs à mieux comprendre et ressentir la musique.",
 
     // Testimonials section
     testimonials_title: "Ce que disent mes clients",
@@ -73,7 +76,7 @@ export const translations = {
     // Team Section
     team_title: "L'Équipe Maximilien Digital",
     team_subtitle: "Trois développeurs passionnés pour donner vie à vos idées les plus ambitieuses.",
-    team_role_architect: "Architecte Logiciel & Accompagnateur Entrepreneurial",
+    team_role_architect: "Architecte Logiciel & Accompagnement Entrepreneuriat",
     team_role_fullstack: "Ingénieur Fullstack",
     footer_reviews: "Avis ComeUp",
 
@@ -374,6 +377,84 @@ export const translations = {
       <h2 class="text-2xl font-bold mt-16 mb-6">Prêt à lancer votre vision ?</h2>
       <p>Ne laissez pas la technique freiner vos ambitions. Contactez-nous dès aujourd'hui pour faire de votre idée un succès digital concret.</p>
     `,
+
+    // Article: Cost of Mobile App
+    article_app_cost_title: "Combien coûte une application mobile en 2026",
+    article_app_cost_description: "Découvrez pourquoi développer une application mobile (React Native / No-Code) coûte aujourd'hui entre 1 000 € et 10 000 € avec un accompagnement A à Z.",
+    article_app_cost_date: "29 Mars 2026",
+    article_app_cost_content: `
+      <p>L'époque où une application mobile coûtait systématiquement 50 000 € est révolue. En 2026, avec l'essor du No-Code, du Low-Code et des frameworks comme React Native, le développement est devenu beaucoup plus accessible et rapide.</p>
+      
+      <div class="my-12 p-8 rounded-3xl bg-primary/5 border border-primary/10">
+        <h2 class="text-2xl font-bold mb-4">Une tarification juste : de 1 000 € à 10 000 €</h2>
+        <p>En fonction de la complexité de votre projet, le coût s'adapte. Un projet simple peut démarrer à moins de 1 000 €, tandis qu'une application complexe avec de nombreuses intégrations (IA, base de données avancée, fonctionnalités en temps réel) se situera le plus souvent sous la barre des 10 000 €.</p>
+      </div>
+      
+      <div class="my-12 p-8 rounded-3xl bg-secondary/5 border border-secondary/10">
+        <h2 class="text-2xl font-bold mb-4">L'accompagnement de A à Z</h2>
+        <p>L'avantage indiscutable de faire appel à un expert plutôt qu'à une agence classique, c'est l'accompagnement personnalisé. Chez Maximilien Digital, nous vous accompagnons du premier croquis jusqu'au premier encaissement, en passant par le conseil sur la rentabilité de l'application.</p>
+      </div>
+      
+      <div class="my-12 p-8 rounded-3xl bg-primary/5 border border-primary/10 text-center">
+        <h2 class="text-2xl font-bold mb-4 italic">Le MVP Offert</h2>
+        <p>Pour réduire encore le risque financier, nous proposons la création de votre MVP (Minimum Viable Product) <strong>gratuitement</strong>. Vous validez l'idée technique et l'intérêt marché sans avancer de frais lourds avant la version finale.</p>
+      </div>
+      
+      <h2 class="text-2xl font-bold mt-16 mb-6">Conclusion : Lancez-vous sans risque</h2>
+      <p>N'attendez plus que les devis d'agences freinent votre ambition. Testez votre marché rapidement, de manière professionnelle et à moindre coût.</p>
+    `,
+
+    // Article: Quick MVP without Developer
+    article_no_code_mvp_title: "Créer un MVP rapidement sans développeur",
+    article_no_code_mvp_description: "L'essor du No-Code est indéniable, mais voici pourquoi la solution la plus rapide reste souvent de confier votre MVP gratuit à un expert.",
+    article_no_code_mvp_date: "30 Mars 2026",
+    article_no_code_mvp_content: `
+      <p>Aujourd'hui, il existe une multitude d'outils no-code (Bubble, FlutterFlow, Glide) permettant de créer des applications sans écrire de code. Mais si vous n'avez pas de background technique, est-ce vraiment la meilleure solution ?</p>
+      
+      <div class="my-12 p-8 rounded-3xl bg-primary/5 border border-primary/10">
+        <h2 class="text-2xl font-bold mb-4">Le mirage des outils Do-It-Yourself</h2>
+        <p>Créer un MVP sur un outil no-code demande du temps, de l'apprentissage et une forte capacité de maintenance. Si vous n'êtes pas développeur dans l'âme, la courbe d'apprentissage peut retarder votre vraie mission de créateur : <strong>vendre et trouver des clients</strong>.</p>
+      </div>
+      
+      <div class="my-12 p-8 rounded-3xl bg-secondary/5 border border-secondary/10">
+        <h2 class="text-2xl font-bold mb-4">La vraie solution rapide : L'Offre Maximilien Digital</h2>
+        <p>La méthode la plus performante pour tester une idée consiste en réalité à déléguer la technique à quelqu'un qui maîtrise déjà l'écosystème web et mobile. C'est pour cette raison que nous offrons un <strong>MVP gratuit et fonctionnel</strong>.</p>
+      </div>
+      
+      <div class="my-12 p-8 rounded-3xl bg-primary/5 border border-primary/10 text-center">
+        <h2 class="text-2xl font-bold mb-4 italic">Comment obtenir votre MVP gratuit ?</h2>
+        <p>C'est très simple : remplissez notre formulaire avec votre idée et laissez simplement votre numéro de téléphone. En très peu de temps, nous vous livrons un MVP exploitable et en ligne pour valider vos hypothèses auprès de vos premiers clients.</p>
+      </div>
+      
+      <h2 class="text-2xl font-bold mt-16 mb-6">Concentrez-vous sur votre business</h2>
+      <p>Gagnez de précieuses semaines et laissez les experts s'occuper de la technique. Votre priorité doit impérativement rester la validation de votre marché cible.</p>
+    `,
+
+    // Article: Accounting Digitalization
+    article_accounting_digital_title: "Pourquoi les experts-comptables doivent digitaliser",
+    article_accounting_digital_description: "La digitalisation des cabinets comptables : gagner du temps, arrêter la saisie manuelle et intégrer les factures électroniques intelligemment.",
+    article_accounting_digital_date: "31 Mars 2026",
+    article_accounting_digital_content: `
+      <p>Le métier d'expert-comptable est en pleine mutation. La digitalisation de votre fonctionnement interne et externe n'est plus une option facultative, c'est devenu une question de survie, de compétitivité et de confort de travail.</p>
+      
+      <div class="my-12 p-8 rounded-3xl bg-primary/5 border border-primary/10">
+        <h2 class="text-2xl font-bold mb-4">Gagner un temps précieux</h2>
+        <p>La récupération, le tri et la saisie des factures sont des processus extrêmement chronophages. Mettre en place un logiciel intelligent de lecture OCR et d'automatisation libère un temps considérable pour vos collaborateurs. L'objectif ? Se recentrer sur l'essentiel : le <strong>conseil personnalisé aux clients</strong>.</p>
+      </div>
+      
+      <div class="my-12 p-8 rounded-3xl bg-secondary/5 border border-secondary/10">
+        <h2 class="text-2xl font-bold mb-4">La facturation électronique</h2>
+        <p>Avec l'arrivée inévitable des obligations de facturation électronique (e-invoicing), les flux de données transigeront de manière totalement différente. S'équiper des bons outils digitaux et des bonnes API (PDP/PPF) dès aujourd'hui permet d'anticiper très sereinement cette transition majeure.</p>
+      </div>
+      
+      <div class="my-12 p-8 rounded-3xl bg-primary/5 border border-primary/10 text-center">
+        <h2 class="text-2xl font-bold mb-4 italic">La fin de la saisie manuelle</h2>
+        <p>Soyons honnêtes : plus aucun collaborateur social ou comptable n'aime faire de la saisie manuelle à longueur de journée. Utiliser des portails collaboratifs et intégrer l'intelligence artificielle pour la pré-imputation rendra le travail bien plus gratifiant, précis et attractif pour vos équipes.</p>
+      </div>
+      
+      <h2 class="text-2xl font-bold mt-16 mb-6">Faites le pas vers une automatisation sur mesure</h2>
+      <p>L'expertise comptable de demain s'appuie sur la technologie. Avec l'expérience de Maximilien Digital dans la digitalisation avancée de documents administratifs, nous pouvons vous accompagner pour créer les outils internes d'automatisation qui feront décoller votre cabinet.</p>
+    `,
   },
 
   en: {
@@ -429,6 +510,9 @@ export const translations = {
     project_esport_title: "EsportNews.fr",
     project_esport_desc:
       "A media platform dedicated to esports, featuring news, live score tracking, and in-depth competitive analysis.",
+    project_bachata_title: "Bachata Lyrics",
+    project_bachata_desc:
+      "A platform dedicated to translating bachata songs (Spanish-French) to help dancers better understand and feel the music.",
 
     // Testimonials section
     testimonials_title: "What my clients say",
@@ -448,7 +532,7 @@ export const translations = {
     // Team Section
     team_title: "The Maximilien Digital Team",
     team_subtitle: "Three passionate developers bringing your most ambitious ideas to life.",
-    team_role_architect: "Software Architect & Entrepreneurial Coach",
+    team_role_architect: "Software Architect & Entrepreneurial Support",
     team_role_fullstack: "Fullstack Engineer",
     footer_reviews: "ComeUp Reviews",
 
@@ -747,6 +831,84 @@ export const translations = {
 
       <h2 class="text-2xl font-bold mt-16 mb-6">Ready to launch your vision?</h2>
       <p>Don't let technology hinder your ambitions. Contact us today to turn your idea into a concrete digital success.</p>
+    `,
+
+    // Article: Cost of Mobile App
+    article_app_cost_title: "How much does a mobile app cost in 2026",
+    article_app_cost_description: "Discover why developing a mobile app (React Native / No-Code) costs today between €1,000 and €10,000 with end-to-end support.",
+    article_app_cost_date: "March 29, 2026",
+    article_app_cost_content: `
+      <p>The era where a mobile app systematically cost €50,000 is over. In 2026, with the boom of No-Code, Low-Code, and modern frameworks like React Native, mobile development has become much more accessible and fast.</p>
+      
+      <div class="my-12 p-8 rounded-3xl bg-primary/5 border border-primary/10">
+        <h2 class="text-2xl font-bold mb-4">Fair Pricing: €1,000 to €10,000</h2>
+        <p>The cost adapts precisely to the complexity of your project. A simple validated app project can start at less than €1,000, while a complex application with deep integrations (AI, advanced databases, real-time features) will most often stay below the €10,000 mark.</p>
+      </div>
+      
+      <div class="my-12 p-8 rounded-3xl bg-secondary/5 border border-secondary/10">
+        <h2 class="text-2xl font-bold mb-4">A to Z Guidance</h2>
+        <p>The undeniable advantage of using an independent expert over a classic huge agency is the personalized guidance. At Maximilien Digital, we accompany you closely from the first sketch directly to the first cash flow of your business, providing valuable advice on the product's profitability constraints.</p>
+      </div>
+      
+      <div class="my-12 p-8 rounded-3xl bg-primary/5 border border-primary/10 text-center">
+        <h2 class="text-2xl font-bold mb-4 italic">The Free MVP</h2>
+        <p>To reduce your financial risk even further, we offer the creation of your MVP (Minimum Viable Product) <strong>for free</strong>. You can validate the technical idea and initial market interest without advancing heavy fees immediately.</p>
+      </div>
+      
+      <h2 class="text-2xl font-bold mt-16 mb-6">Conclusion: Launch without risk</h2>
+      <p>Do not wait for agency quotes to curb your ambitious vision anymore. Test your actual business logic market fast, professionally, and cheaply today.</p>
+    `,
+
+    // Article: Quick MVP without Developer
+    article_no_code_mvp_title: "Create an MVP quickly without a developer",
+    article_no_code_mvp_description: "The rise of No-Code is undeniable, but discover why the fastest solution is still delegating your free MVP to an expert.",
+    article_no_code_mvp_date: "March 30, 2026",
+    article_no_code_mvp_content: `
+      <p>Today, there is a multitude of no-code tools (Bubble, FlutterFlow, Glide) that allow someone to build applications without writing a real single line of code. But if you do not have a robust technical background, is it really the ultimate solution?</p>
+      
+      <div class="my-12 p-8 rounded-3xl bg-primary/5 border border-primary/10">
+        <h2 class="text-2xl font-bold mb-4">The mirage of Do-It-Yourself tools</h2>
+        <p>Creating a highly functional MVP on a no-code tool actually takes vast amounts of time, stressful learning curves, and constant capacity for maintenance. If you are not a developer at heart, this will seriously delay your true mission as an entrepreneur: <strong>selling and finding users</strong>.</p>
+      </div>
+      
+      <div class="my-12 p-8 rounded-3xl bg-secondary/5 border border-secondary/10">
+        <h2 class="text-2xl font-bold mb-4">The real fast solution: Maximilien Digital Offer</h2>
+        <p>The best and most performant process for validating a product idea in reality is to delegate all the technical architecture to somebody who already masters the modern app landscape. This is strictly why we actively offer a <strong>free and functional MVP</strong> creation.</p>
+      </div>
+      
+      <div class="my-12 p-8 rounded-3xl bg-primary/5 border border-primary/10 text-center">
+        <h2 class="text-2xl font-bold mb-4 italic">How can I acquire a free MVP?</h2>
+        <p>It is as easy as filling our quick web form with an idea explanation and leaving simply your phone number. Much faster than developing it using tools yourself, we deliver an online, usable MVP meant exactly to test assumptions with your early adopters.</p>
+      </div>
+      
+      <h2 class="text-2xl font-bold mt-16 mb-6">Focus specifically on your business</h2>
+      <p>Save weeks of your valuable time and let real experts handle the complete technical setup. Your main priority absolutely must remain validating the viability of your target buyer base.</p>
+    `,
+
+    // Article: Accounting Digitalization
+    article_accounting_digital_title: "Why accounting firms must digitalize",
+    article_accounting_digital_description: "Digital transformation for accounting firms: saving time, stopping manual data entry, and integrating smart e-invoicing pipelines.",
+    article_accounting_digital_date: "March 31, 2026",
+    article_accounting_digital_content: `
+      <p>The work of chartered accountants and traditional accounting bodies is currently under massive transformation worldwide. Digitalizing entirely both the internal workflows and external client interactions is not merely optional, it is increasingly a major matter of corporate survival, firm competitiveness, and comfortable working conditions.</p>
+      
+      <div class="my-12 p-8 rounded-3xl bg-primary/5 border border-primary/10">
+        <h2 class="text-2xl font-bold mb-4">Saving highly precious time</h2>
+        <p>The repetitive cycle of acquiring, categorizing, and continuously doing data entry for customer invoices is incredibly time-consuming. Using intelligent smart software equipped with advanced OCR document reading automates this, thus unlocking great amounts of time for all your employees. The fundamental goal? Re-focusing their skill sets exactly on what truly matters: <strong>personalized actionable advice for clients</strong>.</p>
+      </div>
+      
+      <div class="my-12 p-8 rounded-3xl bg-secondary/5 border border-secondary/10">
+        <h2 class="text-2xl font-bold mb-4">Electronic Invoicing and E-Reporting</h2>
+        <p>With newly mandated modern e-invoicing laws inevitably rolling in, structured data flows will happen fully differently than PDF attachments via emails. Providing your particular firm with the necessary secure digital pipeline endpoints right now makes overcoming this monumental transition surprisingly peaceful and totally prepared.</p>
+      </div>
+      
+      <div class="my-12 p-8 rounded-3xl bg-primary/5 border border-primary/10 text-center">
+        <h2 class="text-2xl font-bold mb-4 italic">The true end to all manual typing</h2>
+        <p>Let us all be candid: basically no accounting assistant fundamentally enjoys undertaking pure repetitive manual data entry all day long. Actually adopting smart collaborative portals and tightly integrating AI algorithms for clever pre-accounting will confidently make the collective work deeply more reliable, modern, and engaging for your capable teams in the long haul.</p>
+      </div>
+      
+      <h2 class="text-2xl font-bold mt-16 mb-6">Fully step into bespoke automation</h2>
+      <p>Great accounting practices of the impending future strongly utilize cutting-edge technology as their spine. Through the very proven experience of Maximilien Digital building highly advanced systems handling automated administrative documents directly via AI, our solid consulting can heavily assist you in producing custom in-house tools tailored beautifully for causing your specific accounting firm growth today.</p>
     `,
   },
 } as const;

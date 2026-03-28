@@ -40,6 +40,13 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    title: "Bachata Lyrics",
+    description:
+      "Plateforme dédiée à la traduction de chansons de bachata (espagnol-français) pour aider les danseurs à mieux comprendre et ressentir la musique.",
+    tags: ["Musique", "Traduction", "Bachata", "Next.js"],
+    image: "/bachatalyrics.png",
+  },
+  {
     title: "EsportNews.fr",
     description:
       "Plateforme média dédiée à l'esport, proposant actualités, suivi des scores en direct et analyses approfondies de la scène compétitive.",

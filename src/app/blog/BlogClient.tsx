@@ -34,7 +34,32 @@ export default function BlogClient() {
       readTime: "6 min",
       category: "Développement",
     },
+    {
+      slug: "combien-coute-application-mobile-2026",
+      title: t("article_app_cost_title"),
+      description: t("article_app_cost_description"),
+      date: t("article_app_cost_date"),
+      readTime: "4 min",
+      category: "Mobile",
+    },
+    {
+      slug: "creer-mvp-rapidement-sans-developpeur",
+      title: t("article_no_code_mvp_title"),
+      description: t("article_no_code_mvp_description"),
+      date: t("article_no_code_mvp_date"),
+      readTime: "3 min",
+      category: "Stratégie",
+    },
+    {
+      slug: "pourquoi-experts-comptables-doivent-digitaliser",
+      title: t("article_accounting_digital_title"),
+      description: t("article_accounting_digital_description"),
+      date: t("article_accounting_digital_date"),
+      readTime: "4 min",
+      category: "SaaS & IA",
+    },
   ];
+
 
   const containerVariants = {
     hidden: { opacity: 0 },

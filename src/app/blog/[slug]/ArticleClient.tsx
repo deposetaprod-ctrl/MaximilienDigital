@@ -16,8 +16,11 @@ export default function ArticleClient({ slug }: { slug: string }) {
   const isMVParticle = slug === "comment-creer-un-mvp";
   const isFreeMVParticle = slug === "mvp-gratuit-strategie-lancement";
   const isWebsiteArticle = slug === "creer-son-site-internet-3-etapes";
+  const isAppCostArticle = slug === "combien-coute-application-mobile-2026";
+  const isNoCodeArticle = slug === "creer-mvp-rapidement-sans-developpeur";
+  const isAccountingArticle = slug === "pourquoi-experts-comptables-doivent-digitaliser";
 
-  if (!isMVParticle && !isFreeMVParticle && !isWebsiteArticle) {
+  if (!isMVParticle && !isFreeMVParticle && !isWebsiteArticle && !isAppCostArticle && !isNoCodeArticle && !isAccountingArticle) {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
@@ -40,12 +43,30 @@ export default function ArticleClient({ slug }: { slug: string }) {
     content: t("article_free_mvp_content"),
     image: "/images/blog/free-mvp-hero.png",
     category: "Offre"
-  } : {
+  } : isWebsiteArticle ? {
     title: t("article_website_title"),
     date: t("article_website_date"),
     content: t("article_website_content"),
     image: "/images/blog/website-hero.png",
     category: "Développement"
+  } : isAppCostArticle ? {
+    title: t("article_app_cost_title"),
+    date: t("article_app_cost_date"),
+    content: t("article_app_cost_content"),
+    image: "/images/blog/mvp-hero.png",
+    category: "Mobile"
+  } : isNoCodeArticle ? {
+    title: t("article_no_code_mvp_title"),
+    date: t("article_no_code_mvp_date"),
+    content: t("article_no_code_mvp_content"),
+    image: "/images/blog/free-mvp-hero.png",
+    category: "Stratégie"
+  } : {
+    title: t("article_accounting_digital_title"),
+    date: t("article_accounting_digital_date"),
+    content: t("article_accounting_digital_content"),
+    image: "/images/blog/website-hero.png",
+    category: "SaaS & IA"
   };
 
   const handleShare = () => {

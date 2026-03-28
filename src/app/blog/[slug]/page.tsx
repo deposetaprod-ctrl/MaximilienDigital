@@ -40,6 +40,43 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       },
     };
   }
+
+  if (slug === "combien-coute-application-mobile-2026") {
+    return {
+      title: translations.fr.article_app_cost_title + " | Blog Maximilien Digital",
+      description: translations.fr.article_app_cost_description,
+      openGraph: {
+        title: translations.fr.article_app_cost_title,
+        description: translations.fr.article_app_cost_description,
+        images: ["/images/blog/mvp-hero.png"],
+      },
+    };
+  }
+
+  if (slug === "creer-mvp-rapidement-sans-developpeur") {
+    return {
+      title: translations.fr.article_no_code_mvp_title + " | Blog Maximilien Digital",
+      description: translations.fr.article_no_code_mvp_description,
+      openGraph: {
+        title: translations.fr.article_no_code_mvp_title,
+        description: translations.fr.article_no_code_mvp_description,
+        images: ["/images/blog/free-mvp-hero.png"],
+      },
+    };
+  }
+
+  if (slug === "pourquoi-experts-comptables-doivent-digitaliser") {
+    return {
+      title: translations.fr.article_accounting_digital_title + " | Blog Maximilien Digital",
+      description: translations.fr.article_accounting_digital_description,
+      openGraph: {
+        title: translations.fr.article_accounting_digital_title,
+        description: translations.fr.article_accounting_digital_description,
+        images: ["/images/blog/website-hero.png"],
+      },
+    };
+  }
+
   return {
     title: "Article | Maximilien Digital",
   };

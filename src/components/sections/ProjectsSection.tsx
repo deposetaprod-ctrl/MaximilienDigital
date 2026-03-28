@@ -18,6 +18,7 @@ const projectItems: ProjectItem[] = [
   { titleKey: "project_coach_title", descKey: "project_coach_desc", tags: ["Mobile", "SaaS", "Sport"], image: "/coach.png" },
   { titleKey: "project_invoices_title", descKey: "project_invoices_desc", tags: ["SaaS", "IA", "Automatisation"], image: "/factures.png" },
   { titleKey: "project_majordome_title", descKey: "project_majordome_desc", tags: ["Mobile", "Luxe", "UX Premium"], image: "/majordome.png" },
+  { titleKey: "project_bachata_title", descKey: "project_bachata_desc", tags: ["Musique", "Traduction", "Bachata", "Next.js"], image: "/bachatalyrics.png" },
   { titleKey: "project_esport_title", descKey: "project_esport_desc", tags: ["Média", "Esport", "Live Data"], image: "esportnews.png" },
 ];
 
