@@ -386,8 +386,8 @@ export const translations = {
       <p>L'époque où une application mobile coûtait systématiquement 50 000 € est révolue. En 2026, avec l'essor du No-Code, du Low-Code et des frameworks comme React Native, le développement est devenu beaucoup plus accessible et rapide.</p>
       
       <div class="my-12 p-8 rounded-3xl bg-primary/5 border border-primary/10">
-        <h2 class="text-2xl font-bold mb-4">Une tarification juste : de 1 000 € à 10 000 €</h2>
-        <p>En fonction de la complexité de votre projet, le coût s'adapte. Un projet simple peut démarrer à moins de 1 000 €, tandis qu'une application complexe avec de nombreuses intégrations (IA, base de données avancée, fonctionnalités en temps réel) se situera le plus souvent sous la barre des 10 000 €.</p>
+        <h2 class="text-2xl font-bold mb-4">La vraie réponse ? Ça dépend.</h2>
+        <p>Impossible de donner un prix fixe sans connaître vos besoins. En fonction de la complexité de votre projet, le coût s'adapte. Un projet simple peut démarrer à moins de 1 000 €, tandis qu'une application complexe avec de nombreuses intégrations (IA, base de données avancée, fonctionnalités en temps réel) se situera le plus souvent sous la barre des 10 000 €.</p>
       </div>
       
       <div class="my-12 p-8 rounded-3xl bg-secondary/5 border border-secondary/10">
@@ -395,9 +395,17 @@ export const translations = {
         <p>L'avantage indiscutable de faire appel à un expert plutôt qu'à une agence classique, c'est l'accompagnement personnalisé. Chez Maximilien Digital, nous vous accompagnons du premier croquis jusqu'au premier encaissement, en passant par le conseil sur la rentabilité de l'application.</p>
       </div>
       
-      <div class="my-12 p-8 rounded-3xl bg-primary/5 border border-primary/10 text-center">
-        <h2 class="text-2xl font-bold mb-4 italic">Le MVP Offert</h2>
-        <p>Pour réduire encore le risque financier, nous proposons la création de votre MVP (Minimum Viable Product) <strong>gratuitement</strong>. Vous validez l'idée technique et l'intérêt marché sans avancer de frais lourds avant la version finale.</p>
+      <div class="my-12 p-8 rounded-[3rem] bg-card border border-border hover:border-primary/50 transition-all text-center shadow-sm">
+        <h2 class="text-3xl font-bold mb-6 italic">Le MVP Offert</h2>
+        <p class="text-lg text-muted-foreground leading-relaxed">
+          Pour réduire encore le risque financier, nous proposons la création de votre MVP (Minimum Viable Product) <strong>gratuitement</strong>. Vous validez l'idée technique et l'intérêt marché sans avancer de frais lourds avant la version finale.
+        </p>
+        <div class="mt-8">
+          <a href="/offre" class="group inline-flex items-center gap-3 px-8 py-4 rounded-full bg-primary text-primary-foreground font-bold text-lg hover:scale-105 active:scale-95 transition-all shadow-xl shadow-primary/20">
+            Découvrir l'offre MVP Gratuit
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="group-hover:translate-x-1 transition-transform"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+          </a>
+        </div>
       </div>
       
       <h2 class="text-2xl font-bold mt-16 mb-6">Conclusion : Lancez-vous sans risque</h2>
@@ -859,8 +867,8 @@ export const translations = {
       <p>The era where a mobile app systematically cost €50,000 is over. In 2026, with the boom of No-Code, Low-Code, and modern frameworks like React Native, mobile development has become much more accessible and fast.</p>
       
       <div class="my-12 p-8 rounded-3xl bg-primary/5 border border-primary/10">
-        <h2 class="text-2xl font-bold mb-4">Fair Pricing: €1,000 to €10,000</h2>
-        <p>The cost adapts precisely to the complexity of your project. A simple validated app project can start at less than €1,000, while a complex application with deep integrations (AI, advanced databases, real-time features) will most often stay below the €10,000 mark.</p>
+        <h2 class="text-2xl font-bold mb-4">The real answer? It depends.</h2>
+        <p>It's impossible to give a fixed price without knowing your needs. The cost adapts precisely to the complexity of your project. A simple validated app project can start at less than €1,000, while a complex application with deep integrations (AI, advanced databases, real-time features) will most often stay below the €10,000 mark.</p>
       </div>
       
       <div class="my-12 p-8 rounded-3xl bg-secondary/5 border border-secondary/10">
@@ -868,9 +876,17 @@ export const translations = {
         <p>The undeniable advantage of using an independent expert over a classic huge agency is the personalized guidance. At Maximilien Digital, we accompany you closely from the first sketch directly to the first cash flow of your business, providing valuable advice on the product's profitability constraints.</p>
       </div>
       
-      <div class="my-12 p-8 rounded-3xl bg-primary/5 border border-primary/10 text-center">
-        <h2 class="text-2xl font-bold mb-4 italic">The Free MVP</h2>
-        <p>To reduce your financial risk even further, we offer the creation of your MVP (Minimum Viable Product) <strong>for free</strong>. You can validate the technical idea and initial market interest without advancing heavy fees immediately.</p>
+      <div class="my-12 p-8 rounded-[3rem] bg-card border border-border hover:border-primary/50 transition-all text-center shadow-sm">
+        <h2 class="text-3xl font-bold mb-6 italic">The Free MVP</h2>
+        <p class="text-lg text-muted-foreground leading-relaxed">
+          To reduce your financial risk even further, we offer the creation of your MVP (Minimum Viable Product) <strong>for free</strong>. You can validate the technical idea and initial market interest without advancing heavy fees immediately.
+        </p>
+        <div class="mt-8">
+          <a href="/offre" class="group inline-flex items-center gap-3 px-8 py-4 rounded-full bg-primary text-primary-foreground font-bold text-lg hover:scale-105 active:scale-95 transition-all shadow-xl shadow-primary/20">
+            Discover the Free MVP Offer
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="group-hover:translate-x-1 transition-transform"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+          </a>
+        </div>
       </div>
       
       <h2 class="text-2xl font-bold mt-16 mb-6">Conclusion: Launch without risk</h2>
