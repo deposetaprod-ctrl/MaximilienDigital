@@ -12,7 +12,7 @@ export const TeamCarousel = () => {
 
   const teamMembers = [
     {
-      name: "Max",
+      name: "Maximilien",
       role: t("team_role_architect"),
       image: "/max.png",
       color: "from-blue-500/20 to-cyan-500/20",
