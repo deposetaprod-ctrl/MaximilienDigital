@@ -68,12 +68,16 @@ export const metadata: Metadata = {
       "MVP livré en 30 jours. Développeur freelance spécialisé SaaS, apps mobiles et IA.",
     images: ["/og-image.png"],
   },
+  manifest: "/manifest.json",
   icons: {
     icon: [
       { url: "/icon.png" },
       { url: "/icon.png", sizes: "32x32", type: "image/png" },
+      { url: "/icon.png", sizes: "192x192", type: "image/png" },
     ],
-    apple: "/icon.png",
+    apple: [
+      { url: "/apple-icon.png" },
+    ],
   },
 };
 
