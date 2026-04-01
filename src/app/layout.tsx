@@ -5,6 +5,8 @@ import { LanguageProvider } from "@/context/LanguageContext";
 import Script from "next/script";
 import "./globals.css";
 
+const OG_IMAGE_URL = "https://maximilien.digital/og-image.png";
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -54,7 +56,7 @@ export const metadata: Metadata = {
     locale: "fr_FR",
     images: [
       {
-        url: "/og-image.png",
+        url: OG_IMAGE_URL,
         width: 1200,
         height: 630,
         alt: "Maximilien Digital — Développeur SaaS, Mobile & IA",
@@ -66,7 +68,7 @@ export const metadata: Metadata = {
     title: "Maximilien Digital | Développeur SaaS, Mobile & IA",
     description:
       "MVP livré en 30 jours. Développeur freelance spécialisé SaaS, apps mobiles et IA.",
-    images: ["/og-image.png"],
+    images: [OG_IMAGE_URL],
   },
   manifest: "/manifest.json",
   icons: {
@@ -127,6 +129,12 @@ export default function RootLayout({
 
   return (
     <html lang="fr" className="dark" suppressHydrationWarning>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <Script
         strategy="afterInteractive"
         src="https://www.googletagmanager.com/gtag/js?id=G-RZL7R8MYVS"
@@ -142,12 +150,6 @@ export default function RootLayout({
             gtag('config', 'G-RZL7R8MYVS');
           `,
         }}
-      />
-      <Script
-        id="json-ld"
-        type="application/ld+json"
-        strategy="afterInteractive"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <body
         className={`${geistSans.variable} font-sans antialiased`}

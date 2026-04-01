@@ -13,7 +13,35 @@ export const metadata: Metadata = {
     "développeur freelance 1000€",
     "création MVP rapide",
   ],
+  alternates: {
+    canonical: "https://maximilien.digital/offre",
+  },
+  openGraph: {
+    title: "MVP Gratuit — Application Mobile & SaaS",
+    description:
+      "MVP gratuit + aperçu immédiat. Lancement d'application et SaaS à partir de 1000€, livraison sous 30 jours.",
+    url: "https://maximilien.digital/offre",
+    siteName: "Maximilien Digital",
+    locale: "fr_FR",
+    type: "website",
+    images: [
+      {
+        url: "https://maximilien.digital/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Maximilien Digital — MVP Gratuit",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "MVP Gratuit Application Mobile & SaaS | Maximilien Digital",
+    description:
+      "MVP gratuit + aperçu immédiat. Apps et SaaS à partir de 1000€, livraison 30 jours.",
+    images: ["https://maximilien.digital/og-image.png"],
+  },
 };
+
 
 export default function Page() {
   return <OffreClient />;
