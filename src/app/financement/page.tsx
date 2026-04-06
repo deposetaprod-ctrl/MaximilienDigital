@@ -42,5 +42,36 @@ export const metadata: Metadata = {
 
 
 export default function Page() {
-  return <FinancementClient />;
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Accueil",
+            "item": "https://maximilien.digital/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Aides au Financement",
+            "item": "https://maximilien.digital/financement"
+          }
+        ]
+      }
+    ]
+  };
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <FinancementClient />
+    </>
+  );
 }

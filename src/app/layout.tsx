@@ -124,6 +124,17 @@ export default function RootLayout({
           ],
         },
       },
+      {
+        "@type": "WebSite",
+        "@id": "https://maximilien.digital/#website",
+        url: "https://maximilien.digital",
+        name: "Maximilien Digital",
+        description: "Développeur Freelance SaaS, Mobile & IA",
+        publisher: {
+          "@id": "https://maximilien.digital/#person"
+        },
+        inLanguage: "fr-FR"
+      }
     ],
   };
 

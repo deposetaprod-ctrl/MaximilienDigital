@@ -44,5 +44,46 @@ export const metadata: Metadata = {
 
 
 export default function Page() {
-  return <OffreClient />;
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Accueil",
+            "item": "https://maximilien.digital/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Offre MVP Gratuit",
+            "item": "https://maximilien.digital/offre"
+          }
+        ]
+      },
+      {
+        "@type": "Offer",
+        "name": "MVP Gratuit Application Mobile & SaaS",
+        "description": "Obtenez votre MVP gratuit et un aperçu immédiat de votre projet digital. Lancement d'application et SaaS à partir de 1000€.",
+        "url": "https://maximilien.digital/offre",
+        "offeredBy": {
+          "@type": "LocalBusiness",
+          "name": "Maximilien Digital"
+        }
+      }
+    ]
+  };
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <OffreClient />
+    </>
+  );
 }

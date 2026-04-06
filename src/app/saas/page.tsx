@@ -43,5 +43,46 @@ export const metadata: Metadata = {
 
 
 export default function Page() {
-  return <SaasClient />;
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Accueil",
+            "item": "https://maximilien.digital/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "SaaS",
+            "item": "https://maximilien.digital/saas"
+          }
+        ]
+      },
+      {
+        "@type": "Service",
+        "name": "Développement SaaS & Plateformes Web sur mesure",
+        "provider": {
+          "@type": "LocalBusiness",
+          "name": "Maximilien Digital"
+        },
+        "description": "Expert en développement de plateformes SaaS, logiciels web complexes et backoffice. MVP livré en 30 jours.",
+        "url": "https://maximilien.digital/saas"
+      }
+    ]
+  };
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <SaasClient />
+    </>
+  );
 }

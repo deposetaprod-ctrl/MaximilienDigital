@@ -114,30 +114,57 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
   const jsonLd = article
     ? {
         "@context": "https://schema.org",
-        "@type": "Article",
-        headline: translations.fr[article.titleKey],
-        description: translations.fr[article.descriptionKey],
-        image: `${BASE_URL}${article.image}`,
-        datePublished: article.datePublished,
-        dateModified: article.datePublished,
-        author: {
-          "@type": "Person",
-          name: "Maximilien",
-          url: BASE_URL,
-        },
-        publisher: {
-          "@type": "Organization",
-          name: "Maximilien Digital",
-          url: BASE_URL,
-          logo: {
-            "@type": "ImageObject",
-            url: `${BASE_URL}/icon.png`,
+        "@graph": [
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Accueil",
+                "item": `${BASE_URL}/`
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Blog",
+                "item": `${BASE_URL}/blog`
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": translations.fr[article.titleKey],
+                "item": `${BASE_URL}/blog/${slug}`
+              }
+            ]
           },
-        },
-        mainEntityOfPage: {
-          "@type": "WebPage",
-          "@id": `${BASE_URL}/blog/${slug}`,
-        },
+          {
+            "@type": "Article",
+            "headline": translations.fr[article.titleKey],
+            "description": translations.fr[article.descriptionKey],
+            "image": `${BASE_URL}${article.image}`,
+            "datePublished": article.datePublished,
+            "dateModified": article.datePublished,
+            "author": {
+              "@type": "Person",
+              "name": "Maximilien",
+              "url": BASE_URL,
+            },
+            "publisher": {
+              "@type": "Organization",
+              "name": "Maximilien Digital",
+              "url": BASE_URL,
+              "logo": {
+                "@type": "ImageObject",
+                "url": `${BASE_URL}/icon.png`,
+              },
+            },
+            "mainEntityOfPage": {
+              "@type": "WebPage",
+              "@id": `${BASE_URL}/blog/${slug}`,
+            },
+          }
+        ]
       }
     : null;
 

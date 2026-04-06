@@ -43,5 +43,46 @@ export const metadata: Metadata = {
 
 
 export default function Page() {
-  return <MobileClient />;
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Accueil",
+            "item": "https://maximilien.digital/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Applications Mobiles",
+            "item": "https://maximilien.digital/applications-mobiles"
+          }
+        ]
+      },
+      {
+        "@type": "Service",
+        "name": "Développement d'Applications Mobiles iOS & Android",
+        "provider": {
+          "@type": "LocalBusiness",
+          "name": "Maximilien Digital"
+        },
+        "description": "Création d'apps mobiles performantes. MVP livré en 30 jours, prêt pour l'App Store et Google Play.",
+        "url": "https://maximilien.digital/applications-mobiles"
+      }
+    ]
+  };
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <MobileClient />
+    </>
+  );
 }
