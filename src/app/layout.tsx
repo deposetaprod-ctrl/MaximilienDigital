@@ -3,6 +3,7 @@ import { Geist } from "next/font/google";
 import { Navigation } from "@/components/Navigation";
 import { LanguageProvider } from "@/context/LanguageContext";
 import Script from "next/script";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 const OG_IMAGE_URL = "https://maximilien.digital/og-image.png";
@@ -169,6 +170,7 @@ export default function RootLayout({
           <Navigation />
           {children}
         </LanguageProvider>
+        <Analytics />
       </body>
     </html>
   );
