@@ -11,15 +11,16 @@ interface ProjectItem {
   descKey: TranslationKey;
   tags: string[];
   image: string;
+  link?: string;
 }
 
 const projectItems: ProjectItem[] = [
+  { titleKey: "project_bachata_title", descKey: "project_bachata_desc", tags: ["Musique", "Traduction", "Bachata", "Next.js"], image: "/bachatalyrics.png", link: "https://bachatalyrics.com" },
+  { titleKey: "project_esport_title", descKey: "project_esport_desc", tags: ["Média", "Esport", "Live Data"], image: "esportnews.png", link: "https://esportsnews.fr" },
   { titleKey: "project_dating_title", descKey: "project_dating_desc", tags: ["Mobile", "React Native", "Dating"], image: "/rencontre.png" },
   { titleKey: "project_coach_title", descKey: "project_coach_desc", tags: ["Mobile", "SaaS", "Sport"], image: "/coach.png" },
   { titleKey: "project_invoices_title", descKey: "project_invoices_desc", tags: ["SaaS", "IA", "Automatisation"], image: "/factures.png" },
   { titleKey: "project_majordome_title", descKey: "project_majordome_desc", tags: ["Mobile", "Luxe", "UX Premium"], image: "/majordome.png" },
-  { titleKey: "project_bachata_title", descKey: "project_bachata_desc", tags: ["Musique", "Traduction", "Bachata", "Next.js"], image: "/bachatalyrics.png" },
-  { titleKey: "project_esport_title", descKey: "project_esport_desc", tags: ["Média", "Esport", "Live Data"], image: "esportnews.png" },
 ];
 
 export function ProjectsSection() {
@@ -48,15 +49,22 @@ export function ProjectsSection() {
         </motion.p>
 
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {projectItems.map((project, i) => (
-            <motion.div
-              key={project.titleKey}
-              className="rounded-xl border border-border bg-card overflow-hidden transition-[shadow,border-color] duration-200 hover:shadow-md hover:border-primary/30"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.4, delay: i * 0.08 }}
-            >
+          {projectItems.map((project, i) => {
+            const MotionTag = project.link ? motion.a : motion.div;
+            const linkProps = project.link
+              ? { href: project.link, target: "_blank", rel: "noopener noreferrer" }
+              : {};
+              
+            return (
+              <MotionTag
+                key={project.titleKey}
+                {...linkProps}
+                className={`rounded-xl border border-border bg-card overflow-hidden transition-[shadow,border-color] duration-200 hover:shadow-md hover:border-primary/30 ${project.link ? "block cursor-pointer" : ""}`}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-60px" }}
+                transition={{ duration: 0.4, delay: i * 0.08 }}
+              >
               <div className="h-48 bg-muted flex items-center justify-center relative overflow-hidden">
                 {project.image ? (
                   <Image
@@ -85,8 +93,9 @@ export function ProjectsSection() {
                   ))}
                 </div>
               </div>
-            </motion.div>
-          ))}
+              </MotionTag>
+            );
+          })}
         </div>
       </div>
     </section>
