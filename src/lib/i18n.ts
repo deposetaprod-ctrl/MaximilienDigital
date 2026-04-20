@@ -57,6 +57,9 @@ export const translations = {
     project_bachata_title: "Bachata Lyrics",
     project_bachata_desc:
       "Plateforme dédiée à la traduction de chansons de bachata (espagnol-français) pour aider les danseurs à mieux comprendre et ressentir la musique.",
+    project_bachataroyal_title: "Bachata Royal",
+    project_bachataroyal_desc:
+      "Plateforme de réservation et billetterie pour des événements et festivals de bachata, intégrant un système de paiement et de gestion des passes.",
 
     // Testimonials section
     testimonials_title: "Ce que disent mes clients",
@@ -539,6 +542,9 @@ export const translations = {
     project_bachata_title: "Bachata Lyrics",
     project_bachata_desc:
       "A platform dedicated to translating bachata songs (Spanish-French) to help dancers better understand and feel the music.",
+    project_bachataroyal_title: "Bachata Royal",
+    project_bachataroyal_desc:
+      "Booking and ticketing platform for bachata events and festivals, integrating a payment and pass management system.",
 
     // Testimonials section
     testimonials_title: "What my clients say",

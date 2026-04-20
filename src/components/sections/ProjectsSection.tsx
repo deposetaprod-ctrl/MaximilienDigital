@@ -15,6 +15,7 @@ interface ProjectItem {
 }
 
 const projectItems: ProjectItem[] = [
+  { titleKey: "project_bachataroyal_title", descKey: "project_bachataroyal_desc", tags: ["SaaS", "Billetterie", "Next.js"], image: "/bachataroyal.png", link: "https://bachataroyal.com" },
   { titleKey: "project_bachata_title", descKey: "project_bachata_desc", tags: ["Musique", "Traduction", "Bachata", "Next.js"], image: "/bachatalyrics.png", link: "https://bachatalyrics.com" },
   { titleKey: "project_esport_title", descKey: "project_esport_desc", tags: ["Média", "Esport", "Live Data"], image: "esportnews.png", link: "https://esportsnews.fr" },
   { titleKey: "project_dating_title", descKey: "project_dating_desc", tags: ["Mobile", "React Native", "Dating"], image: "/rencontre.png" },
