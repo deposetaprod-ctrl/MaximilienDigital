@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import Link from "next/link";
 import { useLanguage } from "@/context/LanguageContext";
 import { AnimatedBaseButton } from "@/components/ui/AnimatedBaseButton";
 import { ContactFormModal } from "@/components/ContactFormModal";
