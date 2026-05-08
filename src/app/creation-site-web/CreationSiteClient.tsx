@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useLanguage } from "@/context/LanguageContext";
 import { AnimatedBaseButton } from "@/components/ui/AnimatedBaseButton";
 import { ContactFormModal } from "@/components/ContactFormModal";
@@ -33,28 +33,26 @@ export default function CreationSiteClient() {
 
   // Animate on scroll
   const [visibleSections, setVisibleSections] = useState<Set<string>>(new Set());
-  const observerRef = useRef<IntersectionObserver | null>(null);
 
   useEffect(() => {
-    observerRef.current = new IntersectionObserver(
+    const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             setVisibleSections((prev) => new Set([...prev, entry.target.id]));
+            observer.unobserve(entry.target);
           }
         });
       },
-      { threshold: 0.1 }
+      { threshold: 0.05 }
     );
-    return () => observerRef.current?.disconnect();
-  }, []);
 
-  const sectionRef = (id: string) => (el: HTMLElement | null) => {
-    if (el && observerRef.current) {
-      el.id = id;
-      observerRef.current.observe(el);
-    }
-  };
+    // Query all animated sections after mount — avoids race condition with callback refs
+    const sections = document.querySelectorAll<HTMLElement>("[data-animate-section]");
+    sections.forEach((el) => observer.observe(el));
+
+    return () => observer.disconnect();
+  }, []);
 
   const isVisible = (id: string) => visibleSections.has(id);
 
@@ -190,7 +188,7 @@ export default function CreationSiteClient() {
             transition={{ delay: 0.3 }}
             className="flex flex-wrap justify-center gap-4 mb-12"
           >
-            <AnimatedBaseButton onClick={() => document.getElementById("packs")?.scrollIntoView({ behavior: "smooth" })}>
+            <AnimatedBaseButton onClick={() => document.getElementById("packs-section")?.scrollIntoView({ behavior: "smooth" })}>
               {t("web_hero_cta1")}
               <ArrowRight className="ml-2 h-4 w-4" />
             </AnimatedBaseButton>
@@ -217,7 +215,7 @@ export default function CreationSiteClient() {
       </section>
 
       {/* PROBLEM / SOLUTION */}
-      <section ref={sectionRef("problem")} className="px-4 py-16 md:py-20 border-t border-border/40">
+      <section id="problem" data-animate-section className="px-4 py-16 md:py-20 border-t border-border/40">
         <div className="mx-auto max-w-5xl">
           <h2 className="text-2xl md:text-4xl font-bold text-center mb-12">
             {t("web_problem_title")}{" "}
@@ -255,7 +253,7 @@ export default function CreationSiteClient() {
       </section>
 
       {/* USP */}
-      <section ref={sectionRef("usp")} className="px-4 py-16 md:py-20 border-t border-border/40">
+      <section id="usp" data-animate-section className="px-4 py-16 md:py-20 border-t border-border/40">
         <div className="mx-auto max-w-5xl">
           <h2 className="text-2xl md:text-4xl font-bold text-center mb-3">
             {t("web_usp_title")}{" "}
@@ -277,7 +275,7 @@ export default function CreationSiteClient() {
       </section>
 
       {/* PACKS */}
-      <section id="packs" ref={sectionRef("packs-section")} className="px-4 py-16 md:py-20 border-t border-border/40">
+      <section id="packs-section" data-animate-section className="px-4 py-16 md:py-20 border-t border-border/40">
         <div className="mx-auto max-w-6xl">
           <h2 className="text-2xl md:text-4xl font-bold text-center mb-3">
             {t("web_packs_title")}{" "}
@@ -334,7 +332,7 @@ export default function CreationSiteClient() {
       </section>
 
       {/* PROCESS */}
-      <section ref={sectionRef("process")} className="px-4 py-16 md:py-20 border-t border-border/40">
+      <section id="process" data-animate-section className="px-4 py-16 md:py-20 border-t border-border/40">
         <div className="mx-auto max-w-5xl">
           <h2 className="text-2xl md:text-4xl font-bold text-center mb-12">
             {t("web_process_title")}{" "}
@@ -355,7 +353,7 @@ export default function CreationSiteClient() {
       </section>
 
       {/* INTEGRATIONS */}
-      <section ref={sectionRef("integrations")} className="px-4 py-16 md:py-20 border-t border-border/40">
+      <section id="integrations" data-animate-section className="px-4 py-16 md:py-20 border-t border-border/40">
         <div className="mx-auto max-w-5xl">
           <h2 className="text-2xl md:text-4xl font-bold text-center mb-12">
             {t("web_integ_title")}{" "}
@@ -381,7 +379,7 @@ export default function CreationSiteClient() {
       </section>
 
       {/* FAQ */}
-      <section ref={sectionRef("faq")} className="px-4 py-16 md:py-20 border-t border-border/40">
+      <section id="faq" data-animate-section className="px-4 py-16 md:py-20 border-t border-border/40">
         <div className="mx-auto max-w-3xl">
           <h2 className="text-2xl md:text-4xl font-bold text-center mb-12">
             {t("web_faq_title")}{" "}
