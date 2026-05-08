@@ -35,6 +35,7 @@ export function Navigation() {
     { name: t("nav_home"), href: "/" },
     { name: t("nav_mobile"), href: "/applications-mobiles" },
     { name: t("nav_saas"), href: "/saas" },
+    { name: t("nav_web"), href: "/creation-site-web" },
     { name: t("nav_offer"), href: "/offre" },
     { name: t("nav_blog"), href: "/blog" },
     { name: t("nav_financement"), href: "/financement" },
