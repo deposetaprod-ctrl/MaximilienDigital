@@ -147,28 +147,31 @@ export const translations = {
     web_cta_bonus: "Offre de lancement : recevez un aperçu visuel personnalisé de votre futur site, gratuitement.",
 
     // Hero
-    hero_tagline: "Développeur SaaS · Mobile · IA",
+    hero_tagline: "Studio de Solutions IA Métier",
     hero_subtitle:
-      "Je transforme vos idées en produits digitaux performants. Applications SaaS, mobiles et solutions d'intelligence artificielle sur mesure.",
+      "J’aide les PME à automatiser leurs opérations avec des outils IA sur-mesure. Fini le chaos, les emails perdus et les tâches répétitives.",
     hero_cta: "C'est combien pour mon projet ?",
-    hero_dev_role: "Développeur SaaS · Mobile · IA",
+    hero_dev_role: "Créateur d'outils métier IA sur-mesure",
     hero_projects: "+ 30 projets",
 
     // Services section
     services_title: "Ce que je fais",
     services_subtitle:
-      "Des solutions techniques adaptées à vos besoins, de la conception au déploiement.",
+      "Des micro-outils métier, automatisations et portails sur-mesure pour remplacer vos process cassés.",
 
     // Services data
-    service_saas_title: "Développement SaaS",
-    service_saas_desc:
-      "Applications web sur mesure, performantes et scalables. De l'idée au déploiement, je construis votre plateforme SaaS avec les technologies les plus modernes.",
-    service_mobile_title: "Applications Mobiles",
-    service_mobile_desc:
-      "Applications iOS et Android intuitives et fluides. Une expérience utilisateur soignée pour fidéliser vos clients et simplifier votre activité.",
-    service_ai_title: "Solutions IA",
-    service_ai_desc:
-      "Intégration d'intelligence artificielle dans vos outils existants. Automatisation, analyse de données et chatbots intelligents pour optimiser vos processus.",
+    service_portal_title: "Portail client intelligent",
+    service_portal_desc:
+      "Espaces sur-mesure pour experts-comptables, avocats, agences et artisans. Centralisez les échanges et facilitez la vie de vos clients.",
+    service_automation_title: "Automatisation IA administrative",
+    service_automation_desc:
+      "Automatisation du traitement des mails, factures, relances, documents et OCR. Libérez du temps précieux pour votre équipe.",
+    service_mvp_title: "MVP métier en 14 jours",
+    service_mvp_desc:
+      "Lancement d'une première version fonctionnelle ultra-rapide pour entrepreneurs. Testez votre marché sans attendre des mois.",
+    service_excel_title: "Remplacement d’Excel par une vraie app",
+    service_excel_desc:
+      "Transformation de vos fichiers Excel complexes en une vraie application sécurisée, collaborative et évolutive.",
 
     // Projects section
     projects_title: "Mes réalisations",
@@ -769,28 +772,31 @@ export const translations = {
 
 
     // Hero
-    hero_tagline: "SaaS · Mobile · AI Developer",
+    hero_tagline: "Custom AI Business Tools Studio",
     hero_subtitle:
-      "I turn your ideas into high-performance digital products. Custom SaaS apps, mobile applications, and AI-powered solutions.",
+      "I help SMEs automate their operations with custom AI tools. Say goodbye to chaos, lost emails, and repetitive tasks.",
     hero_cta: "How much does my project cost?",
-    hero_dev_role: "SaaS · Mobile · AI Developer",
+    hero_dev_role: "Custom AI Business Tools Creator",
     hero_projects: "+ 30 projects",
 
     // Services section
     services_title: "What I do",
     services_subtitle:
-      "Technical solutions tailored to your needs, from design to deployment.",
+      "Micro-business tools, automations, and custom portals to replace your broken processes.",
 
     // Services data
-    service_saas_title: "SaaS Development",
-    service_saas_desc:
-      "Custom, performant, and scalable web applications. From idea to deployment, I build your SaaS platform using the most modern technologies.",
-    service_mobile_title: "Mobile Applications",
-    service_mobile_desc:
-      "Intuitive and fluid iOS & Android applications. A polished user experience to retain your customers and streamline your business.",
-    service_ai_title: "AI Solutions",
-    service_ai_desc:
-      "AI integration into your existing tools. Automation, data analysis, and smart chatbots to optimize your processes.",
+    service_portal_title: "Smart Client Portal",
+    service_portal_desc:
+      "Custom portals for accountants, lawyers, agencies, and craftsmen. Centralize exchanges and make your clients' lives easier.",
+    service_automation_title: "Administrative AI Automation",
+    service_automation_desc:
+      "Automation of email processing, invoices, reminders, documents, and OCR. Free up valuable time for your team.",
+    service_mvp_title: "Business MVP in 14 days",
+    service_mvp_desc:
+      "Ultra-fast launch of a functional first version for entrepreneurs. Test your market without waiting months.",
+    service_excel_title: "Excel Replacement with a real app",
+    service_excel_desc:
+      "Transformation of your complex Excel files into a real secure, collaborative, and scalable application.",
 
     // Projects section
     projects_title: "My work",

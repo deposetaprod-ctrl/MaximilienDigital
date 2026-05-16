@@ -17,20 +17,19 @@ const BASE_URL = "https://maximilien.digital";
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
   title: {
-    default: "Maximilien Digital | Développeur SaaS, Mobile & IA — Freelance",
+    default: "Maximilien Digital | Outils Métier & Automatisation IA sur-mesure",
     template: "%s | Maximilien Digital",
   },
   description:
-    "Développeur freelance spécialisé en SaaS, applications mobiles iOS/Android et intelligence artificielle. MVP livré en 30 jours. Basé en France.",
+    "J'aide les PME, experts-comptables et indépendants à automatiser leurs opérations avec des outils IA sur-mesure. Portail client, automatisation administrative, remplacement d'Excel.",
   keywords: [
-    "développeur freelance",
-    "développement SaaS",
-    "application mobile",
-    "React Native",
-    "Next.js",
-    "intelligence artificielle",
-    "MVP",
-    "startup",
+    "automatisation cabinet comptable",
+    "portail client expert-comptable",
+    "outil IA PME",
+    "application métier sur mesure",
+    "remplacer Excel par application",
+    "automatisation administrative IA",
+    "OCR factures IA",
     "Maximilien Digital",
   ],
   robots: {
@@ -47,9 +46,9 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Maximilien Digital | Développeur SaaS, Mobile & IA",
+    title: "Maximilien Digital | Outils Métier & Automatisation IA",
     description:
-      "MVP livré en 30 jours. Développeur freelance spécialisé SaaS, apps mobiles et IA.",
+      "J'aide les PME à automatiser leurs opérations avec des outils IA sur-mesure. MVP en 14 jours, portail client, remplacement d'Excel.",
     type: "website",
     url: BASE_URL,
     siteName: "Maximilien Digital",
@@ -59,15 +58,15 @@ export const metadata: Metadata = {
         url: OG_IMAGE_URL,
         width: 1200,
         height: 630,
-        alt: "Maximilien Digital — Développeur SaaS, Mobile & IA",
+        alt: "Maximilien Digital — Outils Métier IA sur-mesure",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Maximilien Digital | Développeur SaaS, Mobile & IA",
+    title: "Maximilien Digital | Outils Métier & Automatisation IA",
     description:
-      "MVP livré en 30 jours. Développeur freelance spécialisé SaaS, apps mobiles et IA.",
+      "J'aide les PME à automatiser leurs opérations avec des outils IA sur-mesure. MVP en 14 jours, portail client, remplacement d'Excel.",
     images: [OG_IMAGE_URL],
   },
   manifest: "/manifest.json",
@@ -96,9 +95,9 @@ export default function RootLayout({
         "@id": "https://maximilien.digital/#person",
         name: "Maximilien",
         url: "https://maximilien.digital",
-        jobTitle: "Développeur Freelance SaaS, Mobile & IA",
+        jobTitle: "Créateur d'outils métier IA sur-mesure",
         description:
-          "Développeur freelance spécialisé en SaaS, applications mobiles et intelligence artificielle. MVP livré en 30 jours.",
+          "J'aide les PME à automatiser leurs opérations avec des outils IA sur-mesure.",
         sameAs: [],
       },
       {
@@ -109,18 +108,18 @@ export default function RootLayout({
         telephone: "+33766074746",
         email: "maximilien.godeau.off@gmail.com",
         description:
-          "Développement SaaS, applications mobiles iOS/Android et solutions d'intelligence artificielle sur mesure.",
+          "Création d'outils métier IA sur-mesure, portails clients, automatisation administrative.",
         address: {
           "@type": "PostalAddress",
           addressCountry: "FR",
         },
         hasOfferCatalog: {
           "@type": "OfferCatalog",
-          name: "Services de développement",
+          name: "Services",
           itemListElement: [
-            { "@type": "Offer", itemOffered: { "@type": "Service", name: "Développement SaaS" } },
-            { "@type": "Offer", itemOffered: { "@type": "Service", name: "Applications mobiles iOS & Android" } },
-            { "@type": "Offer", itemOffered: { "@type": "Service", name: "Intégration Intelligence Artificielle" } },
+            { "@type": "Offer", itemOffered: { "@type": "Service", name: "Portail client intelligent" } },
+            { "@type": "Offer", itemOffered: { "@type": "Service", name: "Automatisation IA administrative" } },
+            { "@type": "Offer", itemOffered: { "@type": "Service", name: "Remplacement d'Excel par une app" } },
           ],
         },
       },
@@ -129,7 +128,7 @@ export default function RootLayout({
         "@id": "https://maximilien.digital/#website",
         url: "https://maximilien.digital",
         name: "Maximilien Digital",
-        description: "Développeur Freelance SaaS, Mobile & IA",
+        description: "Outils Métier & Automatisation IA sur-mesure",
         publisher: {
           "@id": "https://maximilien.digital/#person"
         },

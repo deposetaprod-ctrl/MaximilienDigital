@@ -1,20 +1,21 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Code, Smartphone, Brain } from "lucide-react";
+import { Users, Bot, Rocket, Table2 } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 import type { LucideIcon } from "lucide-react";
 
 interface ServiceItem {
   icon: LucideIcon;
-  titleKey: "service_saas_title" | "service_mobile_title" | "service_ai_title";
-  descKey: "service_saas_desc" | "service_mobile_desc" | "service_ai_desc";
+  titleKey: "service_portal_title" | "service_automation_title" | "service_mvp_title" | "service_excel_title" | any;
+  descKey: "service_portal_desc" | "service_automation_desc" | "service_mvp_desc" | "service_excel_desc" | any;
 }
 
 const serviceItems: ServiceItem[] = [
-  { icon: Code, titleKey: "service_saas_title", descKey: "service_saas_desc" },
-  { icon: Smartphone, titleKey: "service_mobile_title", descKey: "service_mobile_desc" },
-  { icon: Brain, titleKey: "service_ai_title", descKey: "service_ai_desc" },
+  { icon: Users, titleKey: "service_portal_title", descKey: "service_portal_desc" },
+  { icon: Bot, titleKey: "service_automation_title", descKey: "service_automation_desc" },
+  { icon: Rocket, titleKey: "service_mvp_title", descKey: "service_mvp_desc" },
+  { icon: Table2, titleKey: "service_excel_title", descKey: "service_excel_desc" },
 ];
 
 export function ServicesSection() {
@@ -42,7 +43,7 @@ export function ServicesSection() {
           {t("services_subtitle")}
         </motion.p>
 
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {serviceItems.map((service, i) => (
             <motion.div
               key={service.titleKey}

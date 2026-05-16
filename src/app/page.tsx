@@ -3,9 +3,9 @@ import HomeClient from "./HomeClient";
 
 export const metadata: Metadata = {
   // Title and description are inherited from layout but we can be explicit if we want to override
-  title: "Maximilien Digital | Développeur SaaS, Mobile & IA — Freelance",
+  title: "Maximilien Digital | Outils Métier & Automatisation IA sur-mesure",
   description:
-    "Développeur freelance spécialisé en SaaS, applications mobiles iOS/Android et intelligence artificielle. MVP livré en 30 jours. Basé en France.",
+    "J'aide les PME et les experts-comptables à automatiser leurs opérations avec des outils IA sur-mesure. Portail client, automatisation OCR, remplacement d'Excel.",
 };
 
 export default function Home() {
