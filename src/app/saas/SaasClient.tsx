@@ -9,8 +9,8 @@ const WHATSAPP_GROUP_URL = "https://chat.whatsapp.com/K1pakG7WODOC3tk27RQ42P?mod
 export default function SaasLandingPage() {
   const { t } = useLanguage();
 
-  const saasServiceTitle = t("service_saas_title");
-  const saasServiceDesc = t("service_saas_desc");
+  const saasServiceTitle = t("service_mvp_title");
+  const saasServiceDesc = t("service_mvp_desc");
 
   return (
     <main className="min-h-screen bg-background text-foreground">
