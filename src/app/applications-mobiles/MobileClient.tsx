@@ -16,9 +16,9 @@ interface MobileProjectItem {
 }
 
 const mobileProjectItems: MobileProjectItem[] = [
-  { titleKey: "project_dating_title", descKey: "project_dating_desc", tags: ["Mobile", "React Native", "Dating"] },
-  { titleKey: "project_coach_title", descKey: "project_coach_desc", tags: ["Mobile", "SaaS", "Sport"] },
-  { titleKey: "project_majordome_title", descKey: "project_majordome_desc", tags: ["Mobile", "Luxe", "UX Premium"] },
+  { titleKey: "project_crm_title", descKey: "project_crm_desc", tags: ["SaaS", "CRM", "Mobile"] },
+  { titleKey: "project_invoices_title", descKey: "project_invoices_desc", tags: ["PWA", "IA", "Automatisation"] },
+  { titleKey: "project_rh_title", descKey: "project_rh_desc", tags: ["Portail", "Extranet", "Mobile"] },
 ];
 
 export default function MobileAppsLandingPage() {
