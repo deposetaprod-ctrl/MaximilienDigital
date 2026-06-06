@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown, ArrowLeft, CheckCircle2, Gift } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
@@ -82,38 +83,53 @@ export function HeroDynamicForm({ onScrollDown }: HeroDynamicFormProps) {
     }
   }
 
-  const optionBtnClass = "flex items-center justify-center rounded-2xl border-2 border-border bg-background px-4 text-center font-medium transition-all hover:border-primary hover:bg-primary/5 hover:text-primary focus:outline-none";
+  const optionBtnClass = "flex items-center justify-center rounded-2xl border border-border/60 bg-white/50 dark:bg-white/5 shadow-sm px-4 text-center font-medium transition-all hover:border-amber-500/50 hover:bg-amber-500/5 hover:text-amber-600 dark:hover:text-amber-400 focus:outline-none hover:shadow-md hover:-translate-y-0.5";
 
   return (
     <section className="relative flex min-h-[100dvh] flex-col items-center justify-center px-4 py-20 bg-background text-foreground overflow-hidden">
       
       {/* Background decoration */}
-      <div className="absolute inset-0 z-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary/10 via-background to-background" />
+      <div className="absolute inset-0 z-0 bg-gradient-to-br from-amber-500/5 via-background to-rose-500/5 dark:from-amber-900/10 dark:via-background dark:to-rose-900/10" />
+      <div className="absolute top-1/4 left-1/4 h-96 w-96 rounded-full bg-amber-500/20 mix-blend-multiply blur-3xl filter dark:mix-blend-color-dodge opacity-50 animate-pulse" />
+      <div className="absolute bottom-1/4 right-1/4 h-96 w-96 rounded-full bg-rose-500/20 mix-blend-multiply blur-3xl filter dark:mix-blend-color-dodge opacity-50 animate-pulse" style={{ animationDelay: '2s' }} />
 
       <div className="relative z-10 w-full max-w-2xl mx-auto">
-        <div className="mb-8 text-center">
+        <div className="mb-10 text-center flex flex-col items-center">
+          <motion.div 
+            className="relative mb-6"
+            initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} transition={{ type: "spring", bounce: 0.5 }}
+          >
+            <Image 
+              src="/max.png" 
+              alt="Maximilien" 
+              width={80} 
+              height={80} 
+              className="rounded-full border-4 border-background shadow-xl"
+            />
+            <div className="absolute -bottom-1 -right-1 h-5 w-5 rounded-full border-2 border-background bg-green-500" />
+          </motion.div>
           <motion.p 
-            className="text-sm font-medium tracking-wide text-primary uppercase mb-2"
-            initial={{ opacity: 0 }} animate={{ opacity: 1 }}
+            className="text-sm font-bold tracking-wide text-primary uppercase mb-3"
+            initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.1 }}
           >
             {t("hero_tagline")}
           </motion.p>
           <motion.h1 
-            className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl"
-            initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}
+            className="text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl text-transparent bg-clip-text bg-gradient-to-r from-foreground to-foreground/80"
+            initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}
           >
             {t("hero_form_title")}
           </motion.h1>
           <motion.p
-            className="mt-3 text-sm text-muted-foreground flex items-center justify-center gap-2"
+            className="mt-4 text-base sm:text-lg text-muted-foreground flex items-center justify-center gap-2 max-w-lg mx-auto font-medium"
             initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.3 }}
           >
-            <Gift className="h-4 w-4 text-primary" />
+            <Gift className="h-5 w-5 text-primary" />
             <span dangerouslySetInnerHTML={{ __html: t("hero_form_gift_subtitle") }} />
           </motion.p>
         </div>
 
-        <div className="bg-card border border-border shadow-lg rounded-3xl p-6 sm:p-10 relative overflow-hidden min-h-[420px] flex flex-col justify-center">
+        <div className="bg-white/60 dark:bg-black/40 backdrop-blur-xl border border-white/40 dark:border-white/10 shadow-2xl rounded-[2rem] p-6 sm:p-12 relative overflow-hidden min-h-[420px] flex flex-col justify-center">
           
           {/* Progress bar */}
           {!isSuccess && (

@@ -17,12 +17,14 @@ const BASE_URL = "https://maximilien.digital";
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
   title: {
-    default: "Maximilien Digital | Outils Métier & Automatisation IA sur-mesure",
+    default: "Maximilien Digital | Maquette Gratuite Application Web Métier",
     template: "%s | Maximilien Digital",
   },
   description:
-    "Création d'Applications Web Métier et PWA (Progressive Web App) sur-mesure. Développement rapide, connexion API, automatisation des processus métier pour PME et experts-comptables.",
+    "Création d'Applications Web Métier et PWA (Progressive Web App) sur-mesure. Demandez votre maquette gratuite. Développement rapide, connexion API, automatisation des processus métier pour PME.",
   keywords: [
+    "maquette gratuite",
+    "application web métier",
     "application web",
     "application métier",
     "PWA",
