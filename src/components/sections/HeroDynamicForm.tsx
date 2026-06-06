@@ -92,7 +92,7 @@ export function HeroDynamicForm({ onScrollDown }: HeroDynamicFormProps) {
       <div className="absolute inset-0 z-0 bg-gradient-to-br from-amber-500/5 via-background to-rose-500/5 dark:from-amber-900/10 dark:via-background dark:to-rose-900/10" />
       
       {/* Hand-drawn chalk/brush stroke */}
-      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden flex items-center justify-center opacity-70 dark:opacity-30 mix-blend-overlay">
+      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden flex items-center justify-center opacity-100 dark:opacity-70 mix-blend-overlay">
         <svg viewBox="0 0 1200 800" className="w-full h-full object-cover min-w-[1200px]" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <filter id="chalk" x="-20%" y="-20%" width="140%" height="140%">
@@ -100,8 +100,8 @@ export function HeroDynamicForm({ onScrollDown }: HeroDynamicFormProps) {
               <feDisplacementMap in="SourceGraphic" in2="noise" scale="8" xChannelSelector="R" yChannelSelector="G" />
             </filter>
           </defs>
-          <path d="M -100 600 Q 300 200, 600 500 T 1300 300" stroke="white" strokeWidth="16" fill="none" filter="url(#chalk)" strokeLinecap="round" />
-          <path d="M -50 620 Q 320 230, 620 530 T 1350 330" stroke="white" strokeWidth="8" fill="none" filter="url(#chalk)" strokeLinecap="round" opacity="0.6" />
+          <path d="M -100 600 C 300 700, 500 700, 600 400 C 700 100, 450 150, 500 50 C 550 -50, 800 150, 1300 300" stroke="white" strokeWidth="16" fill="none" filter="url(#chalk)" strokeLinecap="round" />
+          <path d="M -50 620 C 320 720, 520 720, 620 420 C 720 120, 470 170, 520 70 C 570 -30, 820 170, 1350 320" stroke="white" strokeWidth="8" fill="none" filter="url(#chalk)" strokeLinecap="round" opacity="0.8" />
         </svg>
       </div>
 
@@ -124,13 +124,13 @@ export function HeroDynamicForm({ onScrollDown }: HeroDynamicFormProps) {
             <div className="absolute -bottom-1 -right-1 h-5 w-5 rounded-full border-2 border-background bg-green-500" />
           </motion.div>
           <motion.p 
-            className="text-sm font-bold tracking-wide text-primary uppercase mb-3"
+            className="text-sm font-bold tracking-wide text-primary uppercase mb-3 drop-shadow-md"
             initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.1 }}
           >
             {t("hero_tagline")}
           </motion.p>
           <motion.h1 
-            className="text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl text-foreground mb-2"
+            className="text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl text-foreground mb-2 drop-shadow-xl"
             initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}
             dangerouslySetInnerHTML={{ __html: t("hero_form_title") }}
           />
