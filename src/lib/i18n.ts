@@ -784,27 +784,18 @@ export const translations = {
     projects_subtitle: "A few projects I've worked on recently.",
 
     // Projects data
-    project_dating_title: "Dating App",
-    project_dating_desc:
-      "A mobile application reimagining the dating experience with a modern, intuitive interface and smart matching algorithms.",
-    project_coach_title: "Sports Coach Assistant",
-    project_coach_desc:
-      "A full platform allowing a sports coach to track clients, share training plans, and analyse their performance.",
-    project_invoices_title: "Invoice Processing",
+    project_invoices_title: "OCR Invoice Processing",
     project_invoices_desc:
       "An internal web application to automate reading, processing, and validating invoices using artificial intelligence.",
-    project_majordome_title: "Majordome App",
-    project_majordome_desc:
-      "A premium service application offering private concierge services with a very high-end interface.",
-    project_esport_title: "EsportNews.fr",
-    project_esport_desc:
-      "A media platform dedicated to esports, featuring news, live score tracking, and in-depth competitive analysis.",
-    project_bachata_title: "Bachata Lyrics",
-    project_bachata_desc:
-      "A platform dedicated to translating bachata songs (Spanish-French) to help dancers better understand and feel the music.",
-    project_bachataroyal_title: "Bachata Royal",
-    project_bachataroyal_desc:
-      "Booking and ticketing platform for bachata events and festivals, integrating a payment and pass management system.",
+    project_crm_title: "Custom CRM",
+    project_crm_desc:
+      "A bespoke SaaS CRM for sales teams. Mandate tracking, automated follow-ups, and API connection with invoicing tools.",
+    project_rh_title: "Secure Extranet Portal",
+    project_rh_desc:
+      "A custom collaborative space for secure document exchange, electronic signatures, and client file tracking.",
+    project_stock_title: "Management Dashboard & APIs",
+    project_stock_desc:
+      "A business application connected to an existing ERP to visualize stock levels in real time and generate KPI performance reports.",
 
     // Testimonials section
     testimonials_title: "What my clients say",
@@ -926,19 +917,9 @@ export const translations = {
     saas_phase3_title: "Phase 3 · Feedback & iterations",
     saas_phase3_desc:
       "Collecting user feedback, bug fixes, adding secondary features, and ongoing support.",
-    saas_formulas_title: "Packages adapted to your project's maturity",
-    saas_formula_landing_title: "MVP landing package.",
-    saas_formula_landing_desc:
-      "A sales page to test market interest before investing in the full product.",
-    saas_formula_mvp_title: "MVP SaaS package.",
-    saas_formula_mvp_desc:
-      "A simplified first version of your platform with essential features and first subscribers.",
-    saas_formula_template_title: "Template package.",
-    saas_formula_template_desc:
-      "Built on an existing template or boilerplate customised to your needs, to reduce development time.",
-    saas_formula_unlimited_title: "Unlimited package.",
-    saas_formula_unlimited_desc:
-      "More in-depth development including advanced features, automations, and business-specific integrations.",
+    saas_phase4_title: "Phase 4 · Maintenance & Evolution",
+    saas_phase4_desc:
+      "Application monitoring, bug resolution, and continuous development of new features based on your needs.",
     saas_stack:
       "Main stack: React, Next.js, Node.js / TypeScript, PostgreSQL, Redis, TailwindCSS, AI integrations (OpenAI, Azure, Google…) and optionally Bubble.io for certain modules.",
     saas_projects_title: "Projects close to a SaaS product",

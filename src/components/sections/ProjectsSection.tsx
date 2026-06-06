@@ -14,6 +14,7 @@ interface ProjectItem {
   link?: string;
 }
 
+const projectItems: ProjectItem[] = [
   { titleKey: "project_invoices_title", descKey: "project_invoices_desc", tags: ["SaaS", "IA", "Automatisation"], image: "/factures.png" },
   { titleKey: "project_crm_title", descKey: "project_crm_desc", tags: ["SaaS", "CRM", "Next.js"], image: "/crm.png" },
   { titleKey: "project_rh_title", descKey: "project_rh_desc", tags: ["Portail Web", "Extranet", "RH"], image: "/rh.png" },

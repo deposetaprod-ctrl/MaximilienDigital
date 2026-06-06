@@ -108,7 +108,8 @@ export default function SaasLandingPage() {
           <div className="flex flex-col justify-center">
             <div className="rounded-2xl bg-primary/10 p-8 border border-primary/20">
               <h3 className="text-xl font-bold text-primary mb-4">Technologies (Stack)</h3>
-            <p className="mt-4 text-xs text-muted-foreground">{t("saas_stack")}</p>
+              <p className="mt-4 text-xs text-muted-foreground">{t("saas_stack")}</p>
+            </div>
           </div>
         </div>
       </section>
