@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="fr" class="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maquette Formulaire</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            background: 'hsl(20 15% 10%)', /* Marron foncé */
+            foreground: 'hsl(30 20% 90%)', /* Beige clair */
+            primary: 'hsl(25 95% 53%)',
+            border: 'hsl(20 15% 20%)',
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <!-- Feather Icons for the gift icon -->
+  <script src="https://unpkg.com/feather-icons"></script>
+  <style>
+    body {
+      background-color: theme('colors.background');
+      color: theme('colors.foreground');
+    }
+    .animate-pulse-slow {
+      animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 0.5; }
+      50% { opacity: 0.2; }
+    }
+  </style>
+</head>
+<body class="antialiased min-h-screen relative flex flex-col items-center px-4 py-20 pb-40 overflow-y-auto overflow-x-hidden">
+
+  <!-- Background decoration (Warm) -->
+  <div class="absolute inset-0 z-0 bg-gradient-to-br from-orange-500/5 via-transparent to-rose-500/5"></div>
+  <div class="absolute top-1/4 left-1/4 h-96 w-96 rounded-full bg-orange-500/20 mix-blend-multiply blur-3xl opacity-50 animate-pulse-slow"></div>
+  <div class="absolute bottom-1/4 right-1/4 h-96 w-96 rounded-full bg-rose-500/20 mix-blend-multiply blur-3xl opacity-50 animate-pulse-slow" style="animation-delay: 2s;"></div>
+
+  <div class="relative z-10 w-full max-w-2xl mx-auto">
+    <!-- Header / Title area -->
+    <div class="mb-10 text-center flex flex-col items-center">
+      
+      <!-- Avatar -->
+      <div class="relative mb-6">
+        <img 
+          src="../public/max.png" 
+          alt="Maximilien" 
+          class="w-20 h-20 rounded-full border-4 border-background shadow-xl object-cover bg-gray-200"
+          onerror="this.src='https://ui-avatars.com/api/?name=Maximilien&background=F97316&color=fff'"
+        />
+        <div class="absolute -bottom-1 -right-1 h-5 w-5 rounded-full border-2 border-background bg-green-500"></div>
+      </div>
+
+      <p class="text-sm font-bold tracking-wide text-primary uppercase mb-3">
+        Studio de Développement
+      </p>
+
+      <h1 class="text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl text-foreground mb-2">
+        Construisons votre 
+        <strong class="bg-primary/15 border border-primary/30 text-orange-700 px-2 py-0.5 mx-1 rounded-md font-extrabold inline-block">site web</strong>
+      </h1>
+
+      <p class="mt-4 text-base sm:text-lg text-gray-300 flex items-center justify-center gap-2 max-w-lg mx-auto font-medium">
+        <i data-feather="gift" class="h-5 w-5 text-primary"></i>
+        <span>Recevez une <strong class="bg-primary/15 border border-primary/30 text-orange-400 px-2 py-0.5 mx-1 rounded-md">maquette gratuite</strong> de votre projet sous 24h par email.</span>
+      </p>
+
+    </div>
+
+    <!-- The Form Card -->
+    <div class="bg-black/30 backdrop-blur-xl border border-white/10 shadow-2xl rounded-[2rem] p-6 sm:p-12 relative overflow-hidden min-h-[420px] flex flex-col justify-center">
+      
+      <!-- Progress bar -->
+      <div class="absolute top-0 left-0 w-full h-1.5 bg-gray-800">
+        <div class="h-full bg-primary transition-all duration-500 ease-out" style="width: 16.66%;"></div>
+      </div>
+
+      <!-- Step 1 Content -->
+      <div class="flex flex-col w-full h-full justify-center">
+        <h2 class="text-xl sm:text-2xl font-bold text-center mb-8 text-foreground">
+          Quel type d'application souhaitez-vous créer ?
+        </h2>
+        
+        <div class="grid gap-4 sm:grid-cols-2">
+          <!-- Option 1 -->
+          <button class="flex items-center justify-center rounded-2xl border border-white/10 bg-white/5 shadow-sm px-4 py-4 text-center font-medium transition-all hover:border-orange-500/50 hover:bg-orange-500/10 hover:text-orange-400 focus:outline-none hover:shadow-md hover:-translate-y-0.5 text-foreground cursor-pointer">
+            Application Web / PWA
+          </button>
+          <!-- Option 2 -->
+          <button class="flex items-center justify-center rounded-2xl border border-white/10 bg-white/5 shadow-sm px-4 py-4 text-center font-medium transition-all hover:border-orange-500/50 hover:bg-orange-500/10 hover:text-orange-400 focus:outline-none hover:shadow-md hover:-translate-y-0.5 text-foreground cursor-pointer">
+            Application Mobile Native
+          </button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+  <script>
+    feather.replace();
+  </script>
+</body>
+</html>

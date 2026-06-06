@@ -90,6 +90,21 @@ export function HeroDynamicForm({ onScrollDown }: HeroDynamicFormProps) {
       
       {/* Background decoration */}
       <div className="absolute inset-0 z-0 bg-gradient-to-br from-amber-500/5 via-background to-rose-500/5 dark:from-amber-900/10 dark:via-background dark:to-rose-900/10" />
+      
+      {/* Hand-drawn chalk/brush stroke */}
+      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden flex items-center justify-center opacity-70 dark:opacity-30 mix-blend-overlay">
+        <svg viewBox="0 0 1200 800" className="w-full h-full object-cover min-w-[1200px]" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <filter id="chalk" x="-20%" y="-20%" width="140%" height="140%">
+              <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="3" result="noise" />
+              <feDisplacementMap in="SourceGraphic" in2="noise" scale="8" xChannelSelector="R" yChannelSelector="G" />
+            </filter>
+          </defs>
+          <path d="M -100 600 Q 300 200, 600 500 T 1300 300" stroke="white" strokeWidth="16" fill="none" filter="url(#chalk)" strokeLinecap="round" />
+          <path d="M -50 620 Q 320 230, 620 530 T 1350 330" stroke="white" strokeWidth="8" fill="none" filter="url(#chalk)" strokeLinecap="round" opacity="0.6" />
+        </svg>
+      </div>
+
       <div className="absolute top-1/4 left-1/4 h-96 w-96 rounded-full bg-amber-500/20 mix-blend-multiply blur-3xl filter dark:mix-blend-color-dodge opacity-50 animate-pulse" />
       <div className="absolute bottom-1/4 right-1/4 h-96 w-96 rounded-full bg-rose-500/20 mix-blend-multiply blur-3xl filter dark:mix-blend-color-dodge opacity-50 animate-pulse" style={{ animationDelay: '2s' }} />
 
