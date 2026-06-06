@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronDown, ArrowRight, ArrowLeft, CheckCircle2 } from "lucide-react";
+import { ChevronDown, ArrowLeft, CheckCircle2, Gift } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext";
 
 interface HeroDynamicFormProps {
   onScrollDown: () => void;
@@ -13,28 +14,35 @@ type FormData = {
   target: string;
   sector: string;
   budget: string;
+  description: string;
   email: string;
   phone: string;
 };
 
+const TOTAL_STEPS = 6;
+
 export function HeroDynamicForm({ onScrollDown }: HeroDynamicFormProps) {
+  const { t } = useLanguage();
   const [step, setStep] = useState(1);
   const [data, setData] = useState<FormData>({
     appType: "",
     target: "",
     sector: "",
     budget: "",
+    description: "",
     email: "",
     phone: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
 
-  function updateData(field: keyof FormData, value: string) {
+  function selectOption(field: keyof FormData, value: string) {
     setData((prev) => ({ ...prev, [field]: value }));
-    if (field !== "email" && field !== "phone") {
-      setTimeout(() => setStep((s) => s + 1), 300);
-    }
+    setTimeout(() => setStep((s) => s + 1), 300);
+  }
+
+  function updateField(field: keyof FormData, value: string) {
+    setData((prev) => ({ ...prev, [field]: value }));
   }
 
   async function handleSubmit(e: React.FormEvent) {
@@ -56,7 +64,8 @@ export function HeroDynamicForm({ onScrollDown }: HeroDynamicFormProps) {
           sector: data.sector,
           timeline: data.budget,
           email: data.email,
-          phone: data.phone
+          phone: data.phone,
+          description: data.description,
         }),
       });
 
@@ -73,6 +82,8 @@ export function HeroDynamicForm({ onScrollDown }: HeroDynamicFormProps) {
     }
   }
 
+  const optionBtnClass = "flex items-center justify-center rounded-2xl border-2 border-border bg-background px-4 text-center font-medium transition-all hover:border-primary hover:bg-primary/5 hover:text-primary focus:outline-none";
+
   return (
     <section className="relative flex min-h-[100dvh] flex-col items-center justify-center px-4 py-20 bg-background text-foreground overflow-hidden">
       
@@ -85,24 +96,31 @@ export function HeroDynamicForm({ onScrollDown }: HeroDynamicFormProps) {
             className="text-sm font-medium tracking-wide text-primary uppercase mb-2"
             initial={{ opacity: 0 }} animate={{ opacity: 1 }}
           >
-            Studio de Développement
+            {t("hero_tagline")}
           </motion.p>
           <motion.h1 
             className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl"
             initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}
           >
-            Construisons votre produit web.
+            {t("hero_form_title")}
           </motion.h1>
+          <motion.p
+            className="mt-3 text-sm text-muted-foreground flex items-center justify-center gap-2"
+            initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.3 }}
+          >
+            <Gift className="h-4 w-4 text-primary" />
+            <span dangerouslySetInnerHTML={{ __html: t("hero_form_gift_subtitle") }} />
+          </motion.p>
         </div>
 
-        <div className="bg-card border border-border shadow-lg rounded-3xl p-6 sm:p-10 relative overflow-hidden min-h-[400px] flex flex-col justify-center">
+        <div className="bg-card border border-border shadow-lg rounded-3xl p-6 sm:p-10 relative overflow-hidden min-h-[420px] flex flex-col justify-center">
           
           {/* Progress bar */}
           {!isSuccess && (
             <div className="absolute top-0 left-0 w-full h-1.5 bg-secondary">
               <div 
                 className="h-full bg-primary transition-all duration-500 ease-out" 
-                style={{ width: `${(step / 5) * 100}%` }}
+                style={{ width: `${(step / TOTAL_STEPS) * 100}%` }}
               />
             </div>
           )}
@@ -118,15 +136,19 @@ export function HeroDynamicForm({ onScrollDown }: HeroDynamicFormProps) {
                 <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-green-500/10 mb-6">
                   <CheckCircle2 className="h-8 w-8 text-green-500" />
                 </div>
-                <h2 className="text-2xl font-bold mb-4">Demande envoyée !</h2>
-                <p className="text-muted-foreground mb-8">
-                  Je vous recontacte dans les plus brefs délais pour discuter de votre projet.
+                <h2 className="text-2xl font-bold mb-2">{t("hero_form_success_title")}</h2>
+                <p className="text-lg font-semibold text-primary mb-2">
+                  {t("hero_form_success_sub")}
                 </p>
+                <p 
+                  className="text-muted-foreground mb-8 max-w-sm mx-auto"
+                  dangerouslySetInnerHTML={{ __html: t("hero_form_success_desc") }}
+                />
                 <button
                   onClick={onScrollDown}
                   className="rounded-full bg-secondary px-6 py-3 text-sm font-semibold text-secondary-foreground hover:bg-secondary/80 transition-colors"
                 >
-                  Découvrir l'agence
+                  {t("hero_form_success_btn")}
                 </button>
               </motion.div>
             ) : (
@@ -138,20 +160,21 @@ export function HeroDynamicForm({ onScrollDown }: HeroDynamicFormProps) {
                 transition={{ duration: 0.3 }}
                 className="flex flex-col h-full justify-center"
               >
+                {/* Step 1: App type */}
                 {step === 1 && (
                   <>
                     <h2 className="text-xl sm:text-2xl font-bold text-center mb-8">
-                      Quel type d'application souhaitez-vous créer ?
+                      {t("hero_form_step1_q")}
                     </h2>
                     <div className="grid gap-4 sm:grid-cols-2">
                       {[
-                        "Application Web / PWA",
-                        "Application Mobile Native",
+                        t("hero_form_step1_opt1"),
+                        t("hero_form_step1_opt2"),
                       ].map((item) => (
                         <button
                           key={item}
-                          onClick={() => updateData("appType", item)}
-                          className="flex h-24 items-center justify-center rounded-2xl border-2 border-border bg-background p-4 text-center font-medium transition-all hover:border-primary hover:bg-primary/5 hover:text-primary focus:outline-none"
+                          onClick={() => selectOption("appType", item)}
+                          className={`${optionBtnClass} h-24`}
                         >
                           {item}
                         </button>
@@ -160,20 +183,21 @@ export function HeroDynamicForm({ onScrollDown }: HeroDynamicFormProps) {
                   </>
                 )}
 
+                {/* Step 2: Target */}
                 {step === 2 && (
                   <>
                     <h2 className="text-xl sm:text-2xl font-bold text-center mb-8">
-                      À qui se destine cet outil ?
+                      {t("hero_form_step2_q")}
                     </h2>
                     <div className="grid gap-4 sm:grid-cols-2">
                       {[
-                        "Grand public (B2C)",
-                        "Outil interne / B2B",
+                        t("hero_form_step2_opt1"),
+                        t("hero_form_step2_opt2"),
                       ].map((item) => (
                         <button
                           key={item}
-                          onClick={() => updateData("target", item)}
-                          className="flex h-24 items-center justify-center rounded-2xl border-2 border-border bg-background p-4 text-center font-medium transition-all hover:border-primary hover:bg-primary/5 hover:text-primary focus:outline-none"
+                          onClick={() => selectOption("target", item)}
+                          className={`${optionBtnClass} h-24`}
                         >
                           {item}
                         </button>
@@ -182,23 +206,24 @@ export function HeroDynamicForm({ onScrollDown }: HeroDynamicFormProps) {
                   </>
                 )}
 
+                {/* Step 3: Sector */}
                 {step === 3 && (
                   <>
                     <h2 className="text-xl sm:text-2xl font-bold text-center mb-8">
-                      Quel est votre secteur d'activité ?
+                      {t("hero_form_step3_q")}
                     </h2>
                     <div className="grid gap-3 sm:grid-cols-2">
                       {[
-                        "Experts-Comptables / Finance",
-                        "Commerçants / E-commerce",
-                        "Services B2B",
-                        "Artisanat / BTP",
-                        "Autre",
+                        t("hero_form_step3_opt1"),
+                        t("hero_form_step3_opt2"),
+                        t("hero_form_step3_opt3"),
+                        t("hero_form_step3_opt4"),
+                        t("hero_form_step3_opt5"),
                       ].map((item) => (
                         <button
                           key={item}
-                          onClick={() => updateData("sector", item)}
-                          className="flex h-16 items-center justify-center rounded-2xl border-2 border-border bg-background px-4 text-center text-sm font-medium transition-all hover:border-primary hover:bg-primary/5 hover:text-primary focus:outline-none"
+                          onClick={() => selectOption("sector", item)}
+                          className={`${optionBtnClass} h-16 text-sm`}
                         >
                           {item}
                         </button>
@@ -207,21 +232,24 @@ export function HeroDynamicForm({ onScrollDown }: HeroDynamicFormProps) {
                   </>
                 )}
 
+                {/* Step 4: Budget */}
                 {step === 4 && (
                   <>
                     <h2 className="text-xl sm:text-2xl font-bold text-center mb-8">
-                      Quel est votre budget estimé ?
+                      {t("hero_form_step4_q")}
                     </h2>
                     <div className="grid gap-3 sm:grid-cols-1 max-w-md mx-auto w-full">
                       {[
-                        "Moins de 5 000 €",
-                        "Entre 5 000 € et 15 000 €",
-                        "Plus de 15 000 €",
+                        t("hero_form_step4_opt1"),
+                        t("hero_form_step4_opt2"),
+                        t("hero_form_step4_opt3"),
+                        t("hero_form_step4_opt4"),
+                        t("hero_form_step4_opt5"),
                       ].map((item) => (
                         <button
                           key={item}
-                          onClick={() => updateData("budget", item)}
-                          className="flex h-16 w-full items-center justify-center rounded-2xl border-2 border-border bg-background px-4 text-center font-medium transition-all hover:border-primary hover:bg-primary/5 hover:text-primary focus:outline-none"
+                          onClick={() => selectOption("budget", item)}
+                          className={`${optionBtnClass} h-14 w-full`}
                         >
                           {item}
                         </button>
@@ -230,34 +258,66 @@ export function HeroDynamicForm({ onScrollDown }: HeroDynamicFormProps) {
                   </>
                 )}
 
+                {/* Step 5: Project description */}
                 {step === 5 && (
-                  <form onSubmit={handleSubmit} className="flex flex-col gap-5 max-w-md mx-auto w-full">
-                    <h2 className="text-xl sm:text-2xl font-bold text-center mb-4">
-                      Où puis-je vous recontacter ?
+                  <div className="flex flex-col gap-5 max-w-md mx-auto w-full">
+                    <h2 className="text-xl sm:text-2xl font-bold text-center mb-2">
+                      {t("hero_form_step5_q")}
                     </h2>
+                    <p className="text-sm text-muted-foreground text-center mb-2">
+                      {t("hero_form_step5_sub")}
+                    </p>
+                    <textarea
+                      id="description"
+                      rows={5}
+                      value={data.description}
+                      onChange={(e) => updateField("description", e.target.value)}
+                      className="w-full rounded-xl border border-input bg-background px-4 py-3 text-sm ring-offset-background focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all resize-none"
+                      placeholder={t("hero_form_step5_ph")}
+                    />
+                    <button
+                      onClick={() => setStep(6)}
+                      disabled={!data.description.trim()}
+                      className="mt-2 flex w-full items-center justify-center rounded-xl bg-primary px-4 py-3.5 text-sm font-semibold text-primary-foreground transition-all hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                    >
+                      {t("hero_form_step5_btn")}
+                    </button>
+                  </div>
+                )}
+
+                {/* Step 6: Contact info */}
+                {step === 6 && (
+                  <form onSubmit={handleSubmit} className="flex flex-col gap-5 max-w-md mx-auto w-full">
+                    <h2 className="text-xl sm:text-2xl font-bold text-center mb-1">
+                      {t("hero_form_step6_q")}
+                    </h2>
+                    <p className="text-sm text-muted-foreground text-center mb-2 flex items-center justify-center gap-1.5">
+                      <Gift className="h-4 w-4 text-primary" />
+                      {t("hero_form_step6_sub")}
+                    </p>
                     <div>
                       <label htmlFor="email" className="mb-1 block text-sm font-medium text-foreground">
-                        Email professionnel
+                        {t("hero_form_step6_email")}
                       </label>
                       <input
                         id="email"
                         type="email"
                         required
                         value={data.email}
-                        onChange={(e) => updateData("email", e.target.value)}
+                        onChange={(e) => updateField("email", e.target.value)}
                         className="w-full rounded-xl border border-input bg-background px-4 py-3 text-sm ring-offset-background focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
                         placeholder="jean@entreprise.com"
                       />
                     </div>
                     <div>
                       <label htmlFor="phone" className="mb-1 block text-sm font-medium text-foreground">
-                        Numéro de téléphone (optionnel)
+                        {t("hero_form_step6_phone")}
                       </label>
                       <input
                         id="phone"
                         type="tel"
                         value={data.phone}
-                        onChange={(e) => updateData("phone", e.target.value)}
+                        onChange={(e) => updateField("phone", e.target.value)}
                         className="w-full rounded-xl border border-input bg-background px-4 py-3 text-sm ring-offset-background focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
                         placeholder="+33 6 12 34 56 78"
                       />
@@ -265,9 +325,9 @@ export function HeroDynamicForm({ onScrollDown }: HeroDynamicFormProps) {
                     <button
                       type="submit"
                       disabled={isSubmitting || !data.email}
-                      className="mt-4 flex w-full items-center justify-center rounded-xl bg-primary px-4 py-3.5 text-sm font-semibold text-primary-foreground transition-all hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                      className="mt-2 flex w-full items-center justify-center rounded-xl bg-primary px-4 py-3.5 text-sm font-semibold text-primary-foreground transition-all hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
                     >
-                      {isSubmitting ? "Envoi en cours..." : "Envoyer ma demande"}
+                      {isSubmitting ? t("hero_form_sending") : t("hero_form_submit_btn")}
                     </button>
                   </form>
                 )}
@@ -282,7 +342,7 @@ export function HeroDynamicForm({ onScrollDown }: HeroDynamicFormProps) {
               className="absolute left-6 bottom-6 flex items-center text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
             >
               <ArrowLeft className="mr-1 h-4 w-4" />
-              Retour
+              {t("hero_form_back")}
             </button>
           )}
         </div>
@@ -294,7 +354,7 @@ export function HeroDynamicForm({ onScrollDown }: HeroDynamicFormProps) {
           onClick={onScrollDown}
           className="flex flex-col items-center text-muted-foreground hover:text-foreground transition-colors group"
         >
-          <span className="text-sm font-medium mb-2">Plus d'informations</span>
+          <span className="text-sm font-medium mb-2">{t("hero_form_scroll")}</span>
           <div className="flex h-10 w-10 items-center justify-center rounded-full border border-border bg-card group-hover:border-primary/50 transition-colors">
             <ChevronDown className="h-5 w-5 animate-bounce" />
           </div>
