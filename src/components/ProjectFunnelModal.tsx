@@ -150,10 +150,11 @@ export function ProjectFunnelModal({ open, onOpenChange }: ProjectFunnelModalPro
                       Quel est votre besoin principal ?
                     </h3>
                     {[
-                      "Gestion des stocks / Logistique",
-                      "Portail client (Extranet)",
-                      "Remplacer des fichiers Excel complexes",
-                      "Autre"
+                      "Création d'un CRM / ERP sur-mesure",
+                      "Tableau de bord & KPIs",
+                      "Application de gestion (Stocks, Planning...)",
+                      "Formulaire automatisé & Connexion API",
+                      "Autre outil métier"
                     ].map((option) => (
                       <button
                         key={option}
@@ -177,9 +178,9 @@ export function ProjectFunnelModal({ open, onOpenChange }: ProjectFunnelModalPro
                       Pour quel secteur d'activité ?
                     </h3>
                     {[
-                      "Distribution & Vente en gros",
+                      "Experts-Comptables / Finance",
+                      "Commerçants / Équipementiers",
                       "Services B2B",
-                      "Médical / Santé",
                       "Artisanat / BTP",
                       "Autre"
                     ].map((option) => (

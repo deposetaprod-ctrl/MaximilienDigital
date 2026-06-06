@@ -147,31 +147,31 @@ export const translations = {
     web_cta_bonus: "Offre de lancement : recevez un aperçu visuel personnalisé de votre futur site, gratuitement.",
 
     // Hero
-    hero_tagline: "Studio de Solutions IA Métier",
+    hero_tagline: "Studio de Développement PWA & Applications Métiers",
     hero_subtitle:
-      "J’aide les PME à automatiser leurs opérations avec des outils IA sur-mesure. Fini le chaos, les emails perdus et les tâches répétitives.",
-    hero_cta: "C'est combien pour mon projet ?",
-    hero_dev_role: "Créateur d'outils métier IA sur-mesure",
-    hero_projects: "+ 30 projets",
+      "Je développe des Applications Web Métier (PWA), Tableaux de bord et CRM sur-mesure pour PME, Experts-Comptables et Commerçants. Automatisation de vos processus complexes et connexion API.",
+    hero_cta: "Estimer le coût de mon application",
+    hero_dev_role: "Créateur d'Applications Web Métier & PWA",
+    hero_projects: "+ 30 applications",
 
     // Services section
-    services_title: "Ce que je fais",
+    services_title: "Mes spécialités métier",
     services_subtitle:
-      "Des micro-outils métier, automatisations et portails sur-mesure pour remplacer vos process cassés.",
+      "Des applications de gestion (PWA), connexions API et portails sur-mesure pour fluidifier et automatiser votre activité.",
 
     // Services data
-    service_portal_title: "Portail client intelligent",
+    service_portal_title: "Tableau de Bord & KPIs",
     service_portal_desc:
-      "Espaces sur-mesure pour experts-comptables, avocats, agences et artisans. Centralisez les échanges et facilitez la vie de vos clients.",
-    service_automation_title: "Automatisation IA administrative",
+      "Visualisez en temps réel l'état de votre activité. Idéal pour les commerçants ou la direction, avec centralisation des données.",
+    service_automation_title: "CRM & Gestion de la Clientèle",
     service_automation_desc:
-      "Automatisation du traitement des mails, factures, relances, documents et OCR. Libérez du temps précieux pour votre équipe.",
-    service_mvp_title: "MVP métier en 14 jours",
+      "Oubliez les fichiers Excel éparpillés. Un outil métier dédié pour gérer vos clients, suivre les interactions et automatiser vos emails.",
+    service_mvp_title: "Formulaires Dynamiques & API",
     service_mvp_desc:
-      "Lancement d'une première version fonctionnelle ultra-rapide pour entrepreneurs. Testez votre marché sans attendre des mois.",
-    service_excel_title: "Remplacement d’Excel par une vraie app",
+      "Formulaires intelligents qui envoient des emails automatisés, génèrent des devis et se connectent via API à vos autres logiciels.",
+    service_excel_title: "Portail Client (Extranet)",
     service_excel_desc:
-      "Transformation de vos fichiers Excel complexes en une vraie application sécurisée, collaborative et évolutive.",
+      "Espaces sécurisés pour que vos clients puissent consulter leurs documents, factures, et échanger avec votre équipe en toute simplicité.",
 
     // Projects section
     projects_title: "Mes réalisations",
