@@ -71,6 +71,10 @@ export default function SaasLandingPage() {
                 <p className="font-medium text-foreground">{t("saas_step3_title")}</p>
                 <p className="text-xs text-muted-foreground">{t("saas_step3_desc")}</p>
               </div>
+              <div className="rounded-lg border border-border bg-background px-3 py-2.5">
+                <p className="font-medium text-foreground">{t("saas_phase4_title")}</p>
+                <p className="text-xs text-muted-foreground">{t("saas_phase4_desc")}</p>
+              </div>
             </div>
           </div>
         </div>
@@ -95,28 +99,15 @@ export default function SaasLandingPage() {
                 <p className="font-medium text-foreground">{t("saas_phase3_title")}</p>
                 <p className="text-xs text-muted-foreground">{t("saas_phase3_desc")}</p>
               </div>
+              <div>
+                <p className="font-medium text-foreground">{t("saas_phase4_title")}</p>
+                <p className="text-xs text-muted-foreground">{t("saas_phase4_desc")}</p>
+              </div>
             </div>
           </div>
-          <div>
-            <h3 className="text-sm font-semibold text-foreground">{t("saas_formulas_title")}</h3>
-            <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
-              <li>
-                <span className="font-medium text-foreground">{t("saas_formula_landing_title")}</span>{" "}
-                {t("saas_formula_landing_desc")}
-              </li>
-              <li>
-                <span className="font-medium text-foreground">{t("saas_formula_mvp_title")}</span>{" "}
-                {t("saas_formula_mvp_desc")}
-              </li>
-              <li>
-                <span className="font-medium text-foreground">{t("saas_formula_template_title")}</span>{" "}
-                {t("saas_formula_template_desc")}
-              </li>
-              <li>
-                <span className="font-medium text-foreground">{t("saas_formula_unlimited_title")}</span>{" "}
-                {t("saas_formula_unlimited_desc")}
-              </li>
-            </ul>
+          <div className="flex flex-col justify-center">
+            <div className="rounded-2xl bg-primary/10 p-8 border border-primary/20">
+              <h3 className="text-xl font-bold text-primary mb-4">Technologies (Stack)</h3>
             <p className="mt-4 text-xs text-muted-foreground">{t("saas_stack")}</p>
           </div>
         </div>

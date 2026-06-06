@@ -178,27 +178,18 @@ export const translations = {
     projects_subtitle: "Quelques projets sur lesquels j'ai travaillé récemment.",
 
     // Projects data
-    project_dating_title: "Application de rencontre",
-    project_dating_desc:
-      "Une application mobile repensant l'expérience de dating avec une interface moderne, intuitive et des algorithmes de connexion.",
-    project_coach_title: "Assistant pour coach sportif",
-    project_coach_desc:
-      "Une plateforme complète permettant à un coach sportif de suivre ses élèves, partager des plans d'entrainement et analyser leurs performances.",
-    project_invoices_title: "Traitement de factures",
+    project_invoices_title: "Traitement de factures OCR",
     project_invoices_desc:
       "Une application web interne pour automatiser la lecture, le traitement et la validation de factures grâce à l'intelligence artificielle.",
-    project_majordome_title: "Application Majordome",
-    project_majordome_desc:
-      "Une application de service haut de gamme offrant des prestations de conciergerie privée, avec une interface très premium.",
-    project_esport_title: "EsportNews.fr",
-    project_esport_desc:
-      "Plateforme média dédiée à l'esport, proposant actualités, suivi des scores en direct et analyses approfondies de la scène compétitive.",
-    project_bachata_title: "Bachata Lyrics",
-    project_bachata_desc:
-      "Plateforme dédiée à la traduction de chansons de bachata (espagnol-français) pour aider les danseurs à mieux comprendre et ressentir la musique.",
-    project_bachataroyal_title: "Bachata Royal",
-    project_bachataroyal_desc:
-      "Plateforme de réservation et billetterie pour des événements et festivals de bachata, intégrant un système de paiement et de gestion des passes.",
+    project_crm_title: "CRM Sur-Mesure",
+    project_crm_desc:
+      "Un logiciel SaaS de gestion de la relation client adapté aux commerciaux. Suivi des mandats, relances automatisées, et connexion API avec les outils de facturation.",
+    project_rh_title: "Portail Extranet Sécurisé",
+    project_rh_desc:
+      "Espace collaboratif sur-mesure permettant l'échange sécurisé de documents sensibles, la signature électronique et le suivi de dossiers clients.",
+    project_stock_title: "Dashboard de Gestion & APIs",
+    project_stock_desc:
+      "Application métier connectée à un ERP existant pour visualiser l'état des stocks en temps réel et générer des rapports de performance (KPIs).",
 
     // Testimonials section
     testimonials_title: "Ce que disent mes clients",
@@ -321,19 +312,9 @@ export const translations = {
     saas_phase3_title: "Phase 3 · Retours & itérations",
     saas_phase3_desc:
       "Recueil des retours utilisateurs, corrections, ajout de fonctionnalités secondaires et accompagnement sur la suite.",
-    saas_formulas_title: "Des formules adaptées à la maturité de votre projet",
-    saas_formula_landing_title: "Formule MVP landing.",
-    saas_formula_landing_desc:
-      "Une page de vente pour tester l'intérêt du marché avant d'investir dans tout le produit.",
-    saas_formula_mvp_title: "Formule MVP SaaS.",
-    saas_formula_mvp_desc:
-      "Première version simplifiée de votre plateforme avec les fonctionnalités essentielles et les premiers abonnés.",
-    saas_formula_template_title: "Formule template.",
-    saas_formula_template_desc:
-      "Basée sur une base existante (template ou boilerplate) personnalisée pour vos besoins, pour limiter le temps de développement.",
-    saas_formula_unlimited_title: "Formule illimitée.",
-    saas_formula_unlimited_desc:
-      "Développement plus poussé, incluant fonctionnalités avancées, automatisations et intégrations spécifiques à votre métier.",
+    saas_phase4_title: "Phase 4 · Maintenance & Évolution",
+    saas_phase4_desc:
+      "Surveillance de l'application, résolution de bugs et développement continu de nouvelles fonctionnalités selon vos besoins.",
     saas_stack:
       "Stack principale : React, Next.js, Node.js / TypeScript, PostgreSQL, Redis, TailwindCSS, intégrations IA (OpenAI, Azure, Google…) et éventuellement Bubble.io pour certains modules.",
     saas_projects_title: "Projets proches d'un produit SaaS",

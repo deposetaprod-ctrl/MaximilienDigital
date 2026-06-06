@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { useScrollPastHero } from "@/hooks/useScrollPastHero";
+import { HeroDynamicForm } from "@/components/sections/HeroDynamicForm";
 import { HeroSection } from "@/components/sections/HeroSection";
 import { ServicesSection } from "@/components/sections/ServicesSection";
 import { ProjectsSection } from "@/components/sections/ProjectsSection";
@@ -24,6 +25,12 @@ export default function Home() {
   const [contactInitialDescription, setContactInitialDescription] = useState<string | null>(null);
   const { heroRef, hasScrolledPast } = useScrollPastHero();
 
+  const restOfSiteRef = useRef<HTMLDivElement>(null);
+
+  function scrollToRestOfSite() {
+    restOfSiteRef.current?.scrollIntoView({ behavior: "smooth" });
+  }
+
   function handleRequestContact(projectSummary: string, _developer: string) {
     setContactInitialDescription(projectSummary);
     setContactOpen(true);
@@ -32,16 +39,20 @@ export default function Home() {
   return (
     <>
       <main>
-        <TeamCarousel />
-        <HeroSection 
-          heroRef={heroRef} 
-          onCtaClick={() => setFunnelOpen(true)} 
-        />
-        <ServicesSection />
-        <ProjectsSection />
-        <TestimonialsSection />
-        <BioSection />
-        <FinalCtaSection onCtaClick={() => setQuickContactOpen(true)} />
+        <HeroDynamicForm onScrollDown={scrollToRestOfSite} />
+        
+        <div ref={restOfSiteRef}>
+          <TeamCarousel />
+          <HeroSection 
+            heroRef={heroRef} 
+            onCtaClick={() => setFunnelOpen(true)} 
+          />
+          <ServicesSection />
+          <ProjectsSection />
+          <TestimonialsSection />
+          <BioSection />
+          <FinalCtaSection onCtaClick={() => setQuickContactOpen(true)} />
+        </div>
       </main>
       <Footer />
       <ProjectFunnelModal
