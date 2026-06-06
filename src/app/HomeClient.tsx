@@ -11,14 +11,14 @@ import { TestimonialsSection } from "@/components/sections/TestimonialsSection";
 import { FinalCtaSection } from "@/components/sections/FinalCtaSection";
 import { Footer } from "@/components/sections/Footer";
 import { ContactFormModal } from "@/components/ContactFormModal";
-import { EstimationModal } from "@/components/EstimationModal";
+import { ProjectFunnelModal } from "@/components/ProjectFunnelModal";
 import { ScrollNotificationPopup } from "@/components/ScrollNotificationPopup";
 import { QuickContactModal } from "@/components/QuickContactModal";
 
 const WHATSAPP_GROUP_URL = "https://chat.whatsapp.com/K1pakG7WODOC3tk27RQ42P?mode=gi_t";
 
 export default function Home() {
-  const [estimationOpen, setEstimationOpen] = useState(false);
+  const [funnelOpen, setFunnelOpen] = useState(false);
   const [contactOpen, setContactOpen] = useState(false);
   const [quickContactOpen, setQuickContactOpen] = useState(false);
   const [contactInitialDescription, setContactInitialDescription] = useState<string | null>(null);
@@ -35,7 +35,7 @@ export default function Home() {
         <TeamCarousel />
         <HeroSection 
           heroRef={heroRef} 
-          onCtaClick={() => setEstimationOpen(true)} 
+          onCtaClick={() => setFunnelOpen(true)} 
         />
         <ServicesSection />
         <ProjectsSection />
@@ -44,10 +44,9 @@ export default function Home() {
         <FinalCtaSection onCtaClick={() => setQuickContactOpen(true)} />
       </main>
       <Footer />
-      <EstimationModal
-        open={estimationOpen}
-        onOpenChange={setEstimationOpen}
-        onRequestContact={handleRequestContact}
+      <ProjectFunnelModal
+        open={funnelOpen}
+        onOpenChange={setFunnelOpen}
       />
       <QuickContactModal open={quickContactOpen} onOpenChange={setQuickContactOpen} />
       <ContactFormModal
