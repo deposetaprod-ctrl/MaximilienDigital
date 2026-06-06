@@ -149,7 +149,7 @@ export const translations = {
     // Hero
     hero_tagline: "Studio de Développement",
     hero_form_title: "Construisons votre produit web.",
-    hero_form_gift_subtitle: "Recevez une <strong class=\"text-primary\">maquette gratuite</strong> de votre projet sous 24h par email.",
+    hero_form_gift_subtitle: "Recevez une <strong class=\"bg-primary/15 border border-primary/30 text-amber-700 dark:text-amber-400 px-2 py-0.5 mx-1 rounded-md\">maquette gratuite</strong> de votre projet sous 24h par email.",
     hero_form_success_title: "C'est parti ! 🎉",
     hero_form_success_sub: "Votre maquette gratuite est en préparation.",
     hero_form_success_desc: "Vous recevrez un lien vers votre maquette personnalisée directement par email sous <strong class=\"text-foreground\">24 heures</strong>.",
@@ -791,7 +791,7 @@ export const translations = {
     // Hero
     hero_tagline: "Development Studio",
     hero_form_title: "Let's build your web product.",
-    hero_form_gift_subtitle: "Receive a <strong class=\"text-primary\">free mockup</strong> of your project by email within 24h.",
+    hero_form_gift_subtitle: "Receive a <strong class=\"bg-primary/15 border border-primary/30 text-amber-700 dark:text-amber-400 px-2 py-0.5 mx-1 rounded-md\">free mockup</strong> of your project by email within 24h.",
     hero_form_success_title: "Here we go! 🎉",
     hero_form_success_sub: "Your free mockup is being prepared.",
     hero_form_success_desc: "You will receive a link to your personalized mockup directly by email within <strong class=\"text-foreground\">24 hours</strong>.",
