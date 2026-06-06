@@ -97,6 +97,8 @@ export function HeroDynamicForm({ onScrollDown }: HeroDynamicFormProps) {
             <filter id="paint" x="-20%" y="-20%" width="140%" height="140%">
               <feTurbulence type="fractalNoise" baseFrequency="0.08" numOctaves="3" result="noise" />
               <feDisplacementMap in="SourceGraphic" in2="noise" scale="4" xChannelSelector="R" yChannelSelector="G" />
+            </filter>
+          </defs>
           <path d="M 20 80 Q 30 30, 50 10 L 100 90 L 150 10 Q 160 50, 170 80 C 175 95, 190 90, 195 70" stroke="white" strokeWidth="10" fill="none" filter="url(#paint)" strokeLinecap="round" strokeLinejoin="round" />
           <path d="M 20 80 Q 30 30, 50 10 L 100 90 L 150 10 Q 160 50, 170 80 C 175 95, 190 90, 195 70" stroke="white" strokeWidth="4" fill="none" filter="url(#paint)" strokeLinecap="round" strokeLinejoin="round" opacity="0.9" />
         </svg>
