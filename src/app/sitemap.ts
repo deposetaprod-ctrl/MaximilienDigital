@@ -11,6 +11,7 @@ const pages = [
   { path: "/blog/combien-coute-application-mobile-2026", priority: 0.7 as const, changeFrequency: "monthly" as const, lastModified: "2026-03-25" },
   { path: "/blog/creer-mvp-rapidement-sans-developpeur", priority: 0.7 as const, changeFrequency: "monthly" as const, lastModified: "2026-03-28" },
   { path: "/blog/pourquoi-experts-comptables-doivent-digitaliser", priority: 0.7 as const, changeFrequency: "monthly" as const, lastModified: "2026-03-28" },
+  { path: "/developpement-pwa", priority: 0.9 as const, changeFrequency: "weekly" as const, lastModified: "2026-06-06" },
   { path: "/financement", priority: 0.5 as const, changeFrequency: "monthly" as const, lastModified: "2026-03-10" },
 ];
 
