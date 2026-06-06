@@ -91,16 +91,16 @@ export function HeroDynamicForm({ onScrollDown }: HeroDynamicFormProps) {
       {/* Background decoration */}
       <div className="absolute inset-0 z-0 bg-gradient-to-br from-amber-500/5 via-background to-rose-500/5 dark:from-amber-900/10 dark:via-background dark:to-rose-900/10" />
       
-      <div className="absolute top-10 right-10 md:top-24 md:right-24 z-0 pointer-events-none w-32 h-16 md:w-48 md:h-24 opacity-100 rotate-[-10deg]">
-        <svg viewBox="0 0 200 100" className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+      <div className="absolute top-10 right-10 md:top-24 md:right-24 z-0 pointer-events-none w-32 h-20 md:w-48 md:h-28 opacity-100 rotate-[-5deg]">
+        <svg viewBox="0 0 200 120" className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <filter id="paint" x="-20%" y="-20%" width="140%" height="140%">
               <feTurbulence type="fractalNoise" baseFrequency="0.08" numOctaves="3" result="noise" />
               <feDisplacementMap in="SourceGraphic" in2="noise" scale="4" xChannelSelector="R" yChannelSelector="G" />
             </filter>
           </defs>
-          <path d="M 10 50 Q 100 20, 190 60" stroke="white" strokeWidth="24" fill="none" filter="url(#paint)" strokeLinecap="round" />
-          <path d="M 20 60 Q 110 30, 180 70" stroke="white" strokeWidth="12" fill="none" filter="url(#paint)" strokeLinecap="round" opacity="0.9" />
+          <path d="M 20 100 C 40 -10, 80 10, 100 80 C 120 10, 160 -10, 180 90 C 185 100, 195 90, 190 70" stroke="white" strokeWidth="12" fill="none" filter="url(#paint)" strokeLinecap="round" strokeLinejoin="round" />
+          <path d="M 20 100 C 40 -10, 80 10, 100 80 C 120 10, 160 -10, 180 90 C 185 100, 195 90, 190 70" stroke="white" strokeWidth="6" fill="none" filter="url(#paint)" strokeLinecap="round" strokeLinejoin="round" opacity="0.9" />
         </svg>
       </div>
 
