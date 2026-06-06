@@ -99,8 +99,8 @@ export function HeroDynamicForm({ onScrollDown }: HeroDynamicFormProps) {
               <feDisplacementMap in="SourceGraphic" in2="noise" scale="4" xChannelSelector="R" yChannelSelector="G" />
             </filter>
           </defs>
-          <path d="M 20 40 C 10 20, 30 10, 40 20 C 50 30, 40 70, 40 90 C 40 50, 60 20, 90 20 C 110 20, 100 60, 100 90 C 100 50, 120 20, 150 20 C 170 20, 160 60, 160 80 C 160 100, 180 90, 190 70" stroke="white" strokeWidth="4" fill="none" filter="url(#paint)" strokeLinecap="round" strokeLinejoin="round" />
-          <path d="M 20 40 C 10 20, 30 10, 40 20 C 50 30, 40 70, 40 90 C 40 50, 60 20, 90 20 C 110 20, 100 60, 100 90 C 100 50, 120 20, 150 20 C 170 20, 160 60, 160 80 C 160 100, 180 90, 190 70" stroke="white" strokeWidth="2" fill="none" filter="url(#paint)" strokeLinecap="round" strokeLinejoin="round" opacity="0.9" />
+          <path d="M 50 30 C 30 10, 10 50, 20 80 C 30 110, 60 110, 70 80 Q 80 50, 100 20 L 130 100 L 160 20 Q 170 90, 190 80" stroke="white" strokeWidth="4" fill="none" filter="url(#paint)" strokeLinecap="round" strokeLinejoin="round" />
+          <path d="M 50 30 C 30 10, 10 50, 20 80 C 30 110, 60 110, 70 80 Q 80 50, 100 20 L 130 100 L 160 20 Q 170 90, 190 80" stroke="white" strokeWidth="2" fill="none" filter="url(#paint)" strokeLinecap="round" strokeLinejoin="round" opacity="0.9" />
         </svg>
       </div>
 
