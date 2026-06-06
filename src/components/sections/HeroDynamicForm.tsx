@@ -115,11 +115,10 @@ export function HeroDynamicForm({ onScrollDown }: HeroDynamicFormProps) {
             {t("hero_tagline")}
           </motion.p>
           <motion.h1 
-            className="text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl text-transparent bg-clip-text bg-gradient-to-r from-foreground to-foreground/80"
+            className="text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl text-foreground mb-2"
             initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}
-          >
-            {t("hero_form_title")}
-          </motion.h1>
+            dangerouslySetInnerHTML={{ __html: t("hero_form_title") }}
+          />
           <motion.p
             className="mt-4 text-base sm:text-lg text-muted-foreground flex items-center justify-center gap-2 max-w-lg mx-auto font-medium"
             initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.3 }}
