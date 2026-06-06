@@ -21,15 +21,20 @@ export const metadata: Metadata = {
     template: "%s | Maximilien Digital",
   },
   description:
-    "J'aide les PME, experts-comptables et indépendants à automatiser leurs opérations avec des outils IA sur-mesure. Portail client, automatisation administrative, remplacement d'Excel.",
+    "Création d'Applications Web Métier et PWA (Progressive Web App) sur-mesure. Développement rapide, connexion API, automatisation des processus métier pour PME et experts-comptables.",
   keywords: [
-    "automatisation cabinet comptable",
-    "portail client expert-comptable",
-    "outil IA PME",
-    "application métier sur mesure",
-    "remplacer Excel par application",
-    "automatisation administrative IA",
-    "OCR factures IA",
+    "application web",
+    "application métier",
+    "PWA",
+    "progressive web app",
+    "développement d'applications web",
+    "connexion API",
+    "automatisation",
+    "processus métier",
+    "rapidité d'exécution",
+    "efficacité",
+    "PWA rapide",
+    "PWA pas cher",
     "Maximilien Digital",
   ],
   robots: {
@@ -46,9 +51,9 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Maximilien Digital | Outils Métier & Automatisation IA",
+    title: "Maximilien Digital | Applications Web Métier & PWA",
     description:
-      "J'aide les PME à automatiser leurs opérations avec des outils IA sur-mesure. MVP en 14 jours, portail client, remplacement d'Excel.",
+      "Création d'Applications Web Métier et PWA sur-mesure. Développement rapide, connexion API, automatisation des processus métier.",
     type: "website",
     url: BASE_URL,
     siteName: "Maximilien Digital",
@@ -58,15 +63,15 @@ export const metadata: Metadata = {
         url: OG_IMAGE_URL,
         width: 1200,
         height: 630,
-        alt: "Maximilien Digital — Outils Métier IA sur-mesure",
+        alt: "Maximilien Digital — Applications Web Métier & PWA",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Maximilien Digital | Outils Métier & Automatisation IA",
+    title: "Maximilien Digital | Applications Web Métier & PWA",
     description:
-      "J'aide les PME à automatiser leurs opérations avec des outils IA sur-mesure. MVP en 14 jours, portail client, remplacement d'Excel.",
+      "Création d'Applications Web Métier et PWA sur-mesure. Développement rapide, connexion API, automatisation des processus métier.",
     images: [OG_IMAGE_URL],
   },
   manifest: "/manifest.json",
@@ -95,9 +100,9 @@ export default function RootLayout({
         "@id": "https://maximilien.digital/#person",
         name: "Maximilien",
         url: "https://maximilien.digital",
-        jobTitle: "Créateur d'outils métier IA sur-mesure",
+        jobTitle: "Développeur d'Applications Web Métier & PWA",
         description:
-          "J'aide les PME à automatiser leurs opérations avec des outils IA sur-mesure.",
+          "Création d'Applications Web Métier et PWA sur-mesure pour automatiser les processus d'entreprise.",
         sameAs: [],
       },
       {
@@ -108,7 +113,7 @@ export default function RootLayout({
         telephone: "+33766074746",
         email: "maximilien.godeau.off@gmail.com",
         description:
-          "Création d'outils métier IA sur-mesure, portails clients, automatisation administrative.",
+          "Studio de développement d'applications web métier, PWA, connexion API et automatisation de processus.",
         address: {
           "@type": "PostalAddress",
           addressCountry: "FR",
@@ -117,9 +122,9 @@ export default function RootLayout({
           "@type": "OfferCatalog",
           name: "Services",
           itemListElement: [
-            { "@type": "Offer", itemOffered: { "@type": "Service", name: "Portail client intelligent" } },
-            { "@type": "Offer", itemOffered: { "@type": "Service", name: "Automatisation IA administrative" } },
-            { "@type": "Offer", itemOffered: { "@type": "Service", name: "Remplacement d'Excel par une app" } },
+            { "@type": "Offer", itemOffered: { "@type": "Service", name: "Développement d'Application Web Métier" } },
+            { "@type": "Offer", itemOffered: { "@type": "Service", name: "Création de Progressive Web App (PWA)" } },
+            { "@type": "Offer", itemOffered: { "@type": "Service", name: "Connexion API et Automatisation" } },
           ],
         },
       },
@@ -128,7 +133,7 @@ export default function RootLayout({
         "@id": "https://maximilien.digital/#website",
         url: "https://maximilien.digital",
         name: "Maximilien Digital",
-        description: "Outils Métier & Automatisation IA sur-mesure",
+        description: "Applications Web Métier, PWA & Automatisation",
         publisher: {
           "@id": "https://maximilien.digital/#person"
         },
