@@ -91,8 +91,8 @@ export function HeroDynamicForm({ onScrollDown }: HeroDynamicFormProps) {
       {/* Background decoration */}
       <div className="absolute inset-0 z-0 bg-gradient-to-br from-amber-500/5 via-background to-rose-500/5 dark:from-amber-900/10 dark:via-background dark:to-rose-900/10" />
       
-      <div className="absolute top-8 right-8 md:top-16 md:right-16 z-0 pointer-events-none w-32 h-32 md:w-56 md:h-56 opacity-90 rotate-[-5deg] mix-blend-screen">
-        <Image src="/m_signature.png" alt="Signature" fill className="object-contain opacity-90" priority />
+      <div className="absolute top-8 right-8 md:top-16 md:right-16 z-0 pointer-events-none w-32 h-32 md:w-56 md:h-56 rotate-[-5deg] mix-blend-screen">
+        <Image src="/m_signature.png" alt="Signature" fill className="object-contain" style={{ filter: 'grayscale(100%) contrast(400%) brightness(60%)' }} priority />
       </div>
 
       <div className="absolute top-1/4 left-1/4 h-96 w-96 rounded-full bg-amber-500/20 mix-blend-multiply blur-3xl filter dark:mix-blend-color-dodge opacity-50 animate-pulse" />
