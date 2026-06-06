@@ -91,17 +91,8 @@ export function HeroDynamicForm({ onScrollDown }: HeroDynamicFormProps) {
       {/* Background decoration */}
       <div className="absolute inset-0 z-0 bg-gradient-to-br from-amber-500/5 via-background to-rose-500/5 dark:from-amber-900/10 dark:via-background dark:to-rose-900/10" />
       
-      <div className="absolute top-10 right-10 md:top-24 md:right-24 z-0 pointer-events-none w-32 h-20 md:w-48 md:h-28 opacity-100 rotate-[-5deg]">
-        <svg viewBox="0 0 200 120" className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <filter id="paint" x="-20%" y="-20%" width="140%" height="140%">
-              <feTurbulence type="fractalNoise" baseFrequency="0.08" numOctaves="3" result="noise" />
-              <feDisplacementMap in="SourceGraphic" in2="noise" scale="4" xChannelSelector="R" yChannelSelector="G" />
-            </filter>
-          </defs>
-          <path d="M 50 30 C 30 10, 10 50, 20 80 C 30 110, 60 110, 70 80 Q 80 50, 100 20 L 130 100 L 160 20 Q 170 90, 190 80" stroke="white" strokeWidth="4" fill="none" filter="url(#paint)" strokeLinecap="round" strokeLinejoin="round" />
-          <path d="M 50 30 C 30 10, 10 50, 20 80 C 30 110, 60 110, 70 80 Q 80 50, 100 20 L 130 100 L 160 20 Q 170 90, 190 80" stroke="white" strokeWidth="2" fill="none" filter="url(#paint)" strokeLinecap="round" strokeLinejoin="round" opacity="0.9" />
-        </svg>
+      <div className="absolute top-8 right-8 md:top-16 md:right-16 z-0 pointer-events-none w-32 h-32 md:w-56 md:h-56 opacity-90 rotate-[-5deg] mix-blend-screen">
+        <Image src="/m_signature.png" alt="Signature" fill className="object-contain opacity-90" priority />
       </div>
 
       <div className="absolute top-1/4 left-1/4 h-96 w-96 rounded-full bg-amber-500/20 mix-blend-multiply blur-3xl filter dark:mix-blend-color-dodge opacity-50 animate-pulse" />
