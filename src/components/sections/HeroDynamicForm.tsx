@@ -105,12 +105,12 @@ export function HeroDynamicForm({ onScrollDown }: HeroDynamicFormProps) {
   const optionBtnClass = "flex items-center justify-center rounded-2xl border border-border/60 bg-white/50 dark:bg-white/5 shadow-sm px-4 text-center font-medium transition-all hover:border-amber-500/50 hover:bg-amber-500/5 hover:text-amber-600 dark:hover:text-amber-400 focus:outline-none hover:shadow-md hover:-translate-y-0.5";
 
   return (
-    <section className="relative flex min-h-[100dvh] flex-col items-center justify-center px-4 pt-24 pb-12 bg-background text-foreground overflow-hidden">
+    <section className="relative flex min-h-[100dvh] flex-col items-center justify-center px-4 pt-12 md:pt-24 pb-6 md:pb-12 bg-background text-foreground overflow-hidden">
       
       {/* Background decoration */}
       <div className="absolute inset-0 z-0 bg-gradient-to-br from-amber-500/5 via-background to-rose-500/5 dark:from-amber-900/10 dark:via-background dark:to-rose-900/10" />
       
-      <div className="absolute top-8 right-8 md:top-16 md:right-16 z-0 pointer-events-none w-32 h-32 md:w-56 md:h-56 rotate-[-5deg] mix-blend-screen">
+      <div className="absolute top-8 right-8 md:top-16 md:right-16 z-0 pointer-events-none w-32 h-32 md:w-56 md:h-56 rotate-[-5deg] mix-blend-screen hidden md:block">
         <Image src="/m_signature.png" alt="Signature" fill className="object-contain" style={{ filter: 'grayscale(100%) contrast(400%) brightness(60%)' }} priority />
       </div>
 
@@ -120,10 +120,10 @@ export function HeroDynamicForm({ onScrollDown }: HeroDynamicFormProps) {
       <div className="relative z-10 w-full max-w-2xl mx-auto">
         <div className="mb-6 text-center flex flex-col items-center">
           <motion.div 
-            className="flex items-center gap-3 mb-4"
+            className="flex items-center gap-2 md:gap-3 mb-2 md:mb-4"
             initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} transition={{ type: "spring", bounce: 0.5 }}
           >
-            <div className="relative">
+            <div className="relative hidden sm:block">
               <Image 
                 src="/max.png" 
                 alt="Maximilien" 
@@ -133,13 +133,13 @@ export function HeroDynamicForm({ onScrollDown }: HeroDynamicFormProps) {
               />
               <div className="absolute -bottom-0.5 -right-0.5 h-3 w-3 rounded-full border-2 border-background bg-green-500" />
             </div>
-            <p className="text-sm font-bold tracking-wide text-primary uppercase drop-shadow-md text-left leading-tight">
+            <p className="text-xs sm:text-sm font-bold tracking-wide text-primary uppercase drop-shadow-md text-left leading-tight">
               {t("hero_tagline")}
             </p>
           </motion.div>
           
           <motion.h1 
-            className="text-3xl font-extrabold tracking-tight sm:text-4xl md:text-5xl leading-snug sm:leading-snug md:leading-snug text-foreground mb-4 drop-shadow-xl"
+            className="text-2xl sm:text-3xl md:text-5xl font-extrabold tracking-tight leading-snug sm:leading-snug md:leading-snug text-foreground mb-2 md:mb-4 drop-shadow-xl"
             initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}
             dangerouslySetInnerHTML={{ __html: t("hero_form_title") }}
           />
@@ -152,7 +152,7 @@ export function HeroDynamicForm({ onScrollDown }: HeroDynamicFormProps) {
           </motion.p>
         </div>
 
-        <div className="bg-white/60 dark:bg-black/40 backdrop-blur-xl border border-white/40 dark:border-white/10 shadow-2xl rounded-[2rem] p-6 sm:p-12 relative overflow-hidden min-h-[420px] flex flex-col justify-center">
+        <div className="bg-white/95 dark:bg-black/60 backdrop-blur-xl border border-white/40 dark:border-white/10 shadow-2xl rounded-[2rem] p-5 sm:p-12 relative overflow-hidden min-h-[350px] md:min-h-[420px] flex flex-col justify-center mt-2 md:mt-0">
           
           {/* Progress bar */}
           {!isSuccess && (

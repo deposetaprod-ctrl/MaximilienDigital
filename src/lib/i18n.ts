@@ -147,8 +147,16 @@ export const translations = {
     web_cta_bonus: "Offre de lancement : recevez un aperçu visuel personnalisé de votre futur site, gratuitement.",
 
     // Hero
-    hero_tagline: "Studio de Développement",
+    hero_tagline: "Développeur IA (Claude)",
     hero_form_title: "Recevez une <strong class=\"inline-block bg-primary/15 border border-primary/30 text-amber-700 dark:text-amber-400 px-2 py-0.5 mx-1 rounded-md font-extrabold\">maquette gratuite</strong>",
+
+    // AI Section
+    ai_section_badge: "Propulsé par l'Intelligence Artificielle",
+    ai_section_title: "L'IA code vite. Moi, je construis l'architecture.",
+    ai_section_desc1: "Aujourd'hui, tout le monde sait que les IA comme <strong>Claude, OpenAI ou Gemini</strong> sont incroyablement performantes pour écrire du code. C'est vrai, et je les utilise quotidiennement.",
+    ai_section_desc2: "Cependant, <strong>générer du code ne suffit pas pour créer une application métier viable et sécurisée</strong>. Il faut maîtriser l'architecture des systèmes d'information, connecter des bases de données complexes, gérer l'authentification, les déploiements serveurs et corriger les bugs critiques que l'IA ne comprend pas dans leur globalité.",
+    ai_section_desc3: "<strong>C'est là qu'est ma vraie valeur :</strong> je suis le chef d'orchestre. L'IA me permet de vous livrer 3x plus vite et pour beaucoup moins cher. Mais mon expertise d'ingénieur garantit que votre produit final vous appartient à 100%, et qu'il est solide, sécurisé et prêt pour la production.",
+    ai_section_cta: "Obtenir ma maquette gratuite",
     hero_form_gift_subtitle: "Répondez au formulaire ci-dessous.",
     hero_form_success_title: "C'est parti ! 🎉",
     hero_form_success_sub: "Votre maquette gratuite est en préparation.",
