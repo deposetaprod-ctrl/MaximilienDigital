@@ -6,6 +6,14 @@ const BASE_URL = "https://maximilien.digital";
 
 const BLOG_ARTICLES = [
   {
+    slug: "developper-application-sur-mesure-avec-claude",
+    titleKey: "article_claude_dev_title" as const,
+    descriptionKey: "article_claude_dev_description" as const,
+    image: "/images/blog/website-hero.png",
+    datePublished: "2026-06-07",
+    category: "IA & Développement",
+  },
+  {
     slug: "comment-creer-un-mvp",
     titleKey: "article_mvp_title" as const,
     descriptionKey: "article_mvp_description" as const,

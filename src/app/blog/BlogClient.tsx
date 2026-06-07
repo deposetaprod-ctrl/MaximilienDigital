@@ -11,6 +11,14 @@ export default function BlogClient() {
 
   const articles = [
     {
+      slug: "developper-application-sur-mesure-avec-claude",
+      title: t("article_claude_dev_title"),
+      description: t("article_claude_dev_description"),
+      date: t("article_claude_dev_date"),
+      readTime: "6 min",
+      category: "IA & Développement",
+    },
+    {
       slug: "comment-creer-un-mvp",
       title: t("article_mvp_title"),
       description: t("article_mvp_description"),

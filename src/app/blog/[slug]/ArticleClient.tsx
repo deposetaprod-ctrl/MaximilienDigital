@@ -19,8 +19,9 @@ export default function ArticleClient({ slug }: { slug: string }) {
   const isAppCostArticle = slug === "combien-coute-application-mobile-2026";
   const isNoCodeArticle = slug === "creer-mvp-rapidement-sans-developpeur";
   const isAccountingArticle = slug === "pourquoi-experts-comptables-doivent-digitaliser";
+  const isClaudeArticle = slug === "developper-application-sur-mesure-avec-claude";
 
-  if (!isMVParticle && !isFreeMVParticle && !isWebsiteArticle && !isAppCostArticle && !isNoCodeArticle && !isAccountingArticle) {
+  if (!isMVParticle && !isFreeMVParticle && !isWebsiteArticle && !isAppCostArticle && !isNoCodeArticle && !isAccountingArticle && !isClaudeArticle) {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
@@ -31,7 +32,13 @@ export default function ArticleClient({ slug }: { slug: string }) {
     );
   }
 
-  const articleData = isMVParticle ? {
+  const articleData = isClaudeArticle ? {
+    title: t("article_claude_dev_title"),
+    date: t("article_claude_dev_date"),
+    content: t("article_claude_dev_content"),
+    image: "/images/blog/website-hero.png",
+    category: "IA & Développement"
+  } : isMVParticle ? {
     title: t("article_mvp_title"),
     date: t("article_mvp_date"),
     content: t("article_mvp_content"),

@@ -5,6 +5,7 @@ const BASE_URL = "https://maximilien.digital";
 const pages = [
   { path: "", priority: 1 as const, changeFrequency: "monthly" as const, lastModified: "2026-03-30" },
   { path: "/blog", priority: 0.8 as const, changeFrequency: "weekly" as const, lastModified: "2026-03-28" },
+  { path: "/blog/developper-application-sur-mesure-avec-claude", priority: 0.8 as const, changeFrequency: "monthly" as const, lastModified: "2026-06-07" },
   { path: "/blog/comment-creer-un-mvp", priority: 0.7 as const, changeFrequency: "monthly" as const, lastModified: "2026-03-15" },
   { path: "/blog/mvp-gratuit-strategie-lancement", priority: 0.7 as const, changeFrequency: "monthly" as const, lastModified: "2026-03-16" },
   { path: "/blog/creer-son-site-internet-3-etapes", priority: 0.7 as const, changeFrequency: "monthly" as const, lastModified: "2026-03-20" },
