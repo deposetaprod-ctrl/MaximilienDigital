@@ -3,7 +3,7 @@ import { supabase } from "@/lib/supabase";
 
 export async function POST(request: Request) {
   try {
-    const { step } = await request.json();
+    const { step, sessionId, action } = await request.json();
 
     if (!step) {
       return NextResponse.json({ error: "Step is required" }, { status: 400 });
@@ -14,10 +14,10 @@ export async function POST(request: Request) {
       return NextResponse.json({ success: true, message: "Skipped tracking (no supabase credentials)" });
     }
 
-    // Insert the drop-off step into the funnel_events table
+    // Insert the tracking event into the funnel_events table
     const { error } = await supabase
       .from("funnel_events")
-      .insert([{ step }]);
+      .insert([{ step, session_id: sessionId || "unknown", action: action || "view" }]);
 
     if (error) {
       console.error("Supabase insert error:", error);

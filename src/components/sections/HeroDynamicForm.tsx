@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown, ArrowLeft, CheckCircle2, Gift } from "lucide-react";
@@ -36,9 +36,28 @@ export function HeroDynamicForm({ onScrollDown }: HeroDynamicFormProps) {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [sessionId, setSessionId] = useState<string>("");
+
+  useEffect(() => {
+    const id = typeof crypto !== "undefined" && crypto.randomUUID ? crypto.randomUUID() : Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+    setSessionId(id);
+    
+    fetch("/api/track-funnel", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ step: "page_view", sessionId: id, action: "Ouverture de la page" }),
+    }).catch(console.error);
+  }, []);
 
   function selectOption(field: keyof FormData, value: string) {
     setData((prev) => ({ ...prev, [field]: value }));
+    
+    fetch("/api/track-funnel", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ step: `step_${step}`, sessionId, action: value }),
+    }).catch(console.error);
+
     setTimeout(() => setStep((s) => s + 1), 300);
   }
 
@@ -54,7 +73,7 @@ export function HeroDynamicForm({ onScrollDown }: HeroDynamicFormProps) {
       await fetch("/api/track-funnel", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ step: "completed_hero_form" }),
+        body: JSON.stringify({ step: "completed", sessionId, action: "Formulaire soumis" }),
       });
 
       const res = await fetch("/api/submit-funnel", {
