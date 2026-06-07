@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Users, Bot, Rocket, Table2 } from "lucide-react";
+import { Users, Bot, Rocket, Table2, Code2 } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 import type { LucideIcon } from "lucide-react";
 
@@ -63,6 +63,29 @@ export function ServicesSection() {
             </motion.div>
           ))}
         </div>
+
+        <motion.div
+          className="mt-6 rounded-xl border-2 border-primary/20 bg-primary/5 p-8 sm:p-10 transition-[shadow,border-color] duration-300 hover:shadow-lg hover:border-primary/40 relative overflow-hidden group"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+        >
+          <div className="absolute -top-10 -right-10 p-4 opacity-5 group-hover:opacity-10 transition-opacity duration-500 rotate-12">
+            <Code2 className="w-64 h-64 text-primary" />
+          </div>
+          <div className="relative z-10 max-w-3xl">
+            <div className="inline-flex items-center justify-center rounded-lg bg-primary/10 p-3 mb-5">
+              <Code2 className="h-8 w-8 text-primary" />
+            </div>
+            <h3 className="text-2xl sm:text-3xl font-bold text-foreground mb-4">
+              {t("service_custom_title")}
+            </h3>
+            <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
+              {t("service_custom_desc")}
+            </p>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

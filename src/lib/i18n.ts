@@ -208,6 +208,9 @@ export const translations = {
     service_excel_title: "Portail Client (Extranet)",
     service_excel_desc:
       "Espaces sécurisés pour que vos clients puissent consulter leurs documents, factures, et échanger avec votre équipe en toute simplicité.",
+    service_custom_title: "Application Métier 100% Personnalisée",
+    service_custom_desc:
+      "Peu importe votre besoin du moment (gestion de stocks, portail administratif, connexions complexes, produit inédit). Je suis à votre écoute, j'utilise les technologies les plus puissantes, et je ne lâche rien tant que votre outil n'est pas parfaitement fonctionnel et viable.",
 
     // Projects section
     projects_title: "Mes réalisations",
@@ -849,7 +852,10 @@ export const translations = {
       "Ultra-fast launch of a functional first version for entrepreneurs. Test your market without waiting months.",
     service_excel_title: "Excel Replacement with a real app",
     service_excel_desc:
-      "Transformation of your complex Excel files into a real secure, collaborative, and scalable application.",
+      "Modern tools to extract your Excel data and automate your processes, creating a dedicated workspace to manage everything seamlessly.",
+    service_custom_title: "100% Custom Business Application",
+    service_custom_desc:
+      "Whatever your current need (inventory management, admin portal, complex API connections, brand new product). I listen to you, I use the most powerful technologies, and I don't give up until your tool is perfectly functional and viable.",
 
     // Projects section
     projects_title: "My work",
