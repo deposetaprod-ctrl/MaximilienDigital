@@ -800,8 +800,17 @@ export const translations = {
 
 
     // Hero
-    hero_tagline: "Development Studio",
-    hero_form_title: "Let's build your <strong class=\"bg-primary/15 border border-primary/30 text-amber-700 dark:text-amber-400 px-2 py-0.5 mx-1 rounded-md font-extrabold\">website</strong>",
+    hero_tagline: "AI Developer (Claude)",
+    hero_form_title: "Let's build your <strong class=\"inline-block bg-primary/15 border border-primary/30 text-amber-700 dark:text-amber-400 px-2 py-0.5 mx-1 rounded-md font-extrabold\">website</strong>",
+
+    // AI Section
+    ai_section_badge: "Powered by Artificial Intelligence",
+    ai_section_title: "AI writes code fast. I build the architecture.",
+    ai_section_desc1: "Today, everyone knows that AI like <strong>Claude, OpenAI or Gemini</strong> are incredibly powerful for writing code. That's true, and I use them daily.",
+    ai_section_desc2: "However, <strong>generating code is not enough to create a viable and secure business application</strong>. You need to master information system architecture, connect complex databases, handle authentication, server deployments, and fix critical bugs that AI doesn't understand in their entirety.",
+    ai_section_desc3: "<strong>That's where my real value lies:</strong> I am the orchestrator. AI allows me to deliver 3x faster and for much less. But my engineering expertise guarantees that your final product belongs 100% to you, and that it is solid, secure, and production-ready.",
+    ai_section_cta: "Get my free mockup",
+
     hero_form_gift_subtitle: "Receive a <strong class=\"bg-primary/15 border border-primary/30 text-amber-700 dark:text-amber-400 px-2 py-0.5 mx-1 rounded-md\">free mockup</strong> of your project by email within 24h.",
     hero_form_success_title: "Here we go! 🎉",
     hero_form_success_sub: "Your free mockup is being prepared.",
