@@ -33,7 +33,7 @@ export async function POST(request: Request) {
     // Send email to the admin
     await resend.emails.send({
       from: "Contact PWA <onboarding@resend.dev>", // Replace with verified domain in production if possible
-      to: "maximilien.girard1@gmail.com", // Assuming this is Maximilien's email, or update to the generic one he uses. I'll use the default email or ask him. Using a placeholder for now, but he can change it. Let's use maximilien.girard@gmail.com or hello@maximilien.digital. Wait, in contact it's usually sent to him. I'll just put his email or a placeholder he needs to update.
+      to: "maximilien.godeau@gmail.com", // Ton adresse de réception (à modifier si besoin)
       subject: `🔥 Nouveau prospect App - ${sector}`,
       html: `
         <h2>Nouvelle demande de projet Web App / PWA</h2>

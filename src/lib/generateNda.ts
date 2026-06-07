@@ -67,7 +67,7 @@ Toutes les informations et données partagées par le Client restent sa proprié
   doc.setFont("times", "italic");
   doc.setFontSize(16);
   doc.setTextColor(23, 37, 84); // dark blue signature
-  doc.text("Maximilien Girard", 135, 255);
+  doc.text("Maximilien Godeau", 135, 255);
   
   // Generate PDF and trigger download
   const safeProjectName = projectName ? projectName.replace(/[^a-z0-9]/gi, '_').toLowerCase() : 'projet';
