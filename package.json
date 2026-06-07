@@ -14,6 +14,7 @@
     "@upstash/redis": "^1.34.3",
     "clsx": "^2.1.1",
     "framer-motion": "^12.31.1",
+    "jspdf": "^2.5.1",
     "lucide-react": "^0.563.0",
     "next": "16.1.6",
     "resend": "^4.0.0",

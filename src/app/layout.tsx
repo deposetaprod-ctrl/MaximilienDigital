@@ -17,11 +17,11 @@ const BASE_URL = "https://maximilien.digital";
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
   title: {
-    default: "Développeur IA (Claude) | Maquette Gratuite Application Web Métier",
+    default: "Développeur IA Claude | Application Web & Maquette Gratuite",
     template: "%s | Maximilien Digital",
   },
   description:
-    "Création d'Applications Web Métier sur-mesure propulsée par l'IA (Claude, OpenAI). Demandez votre maquette gratuite. Développement ultra-rapide, connexion API, et code 100% propriétaire.",
+    "Développeur IA expert Claude. Création d'applications web sur mesure. Obtenez votre maquette gratuite et propulsez votre métier grâce à l'Intelligence Artificielle.",
   keywords: [
     "développeur IA",
     "développeur claude",

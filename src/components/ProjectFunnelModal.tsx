@@ -12,7 +12,8 @@ interface ProjectFunnelModalProps {
 type FunnelData = {
   need: string;
   sector: string;
-  timeline: string;
+  description: string;
+  dataLink: string;
   email: string;
   phone: string;
 };
@@ -22,7 +23,8 @@ export function ProjectFunnelModal({ open, onOpenChange }: ProjectFunnelModalPro
   const [data, setData] = useState<FunnelData>({
     need: "",
     sector: "",
-    timeline: "",
+    description: "",
+    dataLink: "",
     email: "",
     phone: "",
   });
@@ -46,7 +48,7 @@ export function ProjectFunnelModal({ open, onOpenChange }: ProjectFunnelModalPro
       setTimeout(() => {
         setStep(1);
         setIsSuccess(false);
-        setData({ need: "", sector: "", timeline: "", email: "", phone: "" });
+        setData({ need: "", sector: "", description: "", dataLink: "", email: "", phone: "" });
       }, 300);
     }
     onOpenChange(isOpen);
@@ -198,29 +200,59 @@ export function ProjectFunnelModal({ open, onOpenChange }: ProjectFunnelModalPro
                   </div>
                 )}
 
-                {/* Step 3: Timeline */}
+                {/* Step 3: Project description & NDA & Data Link */}
                 {step === 3 && (
-                  <div className="space-y-4 animate-fade-in">
-                    <h3 className="text-xl font-bold text-foreground mb-4 flex items-center gap-2">
-                      <Clock className="h-5 w-5 text-primary" />
-                      Quel est votre délai souhaité ?
+                  <div className="space-y-4 animate-fade-in flex flex-col gap-4">
+                    <h3 className="text-xl font-bold text-foreground flex items-center gap-2">
+                      <Rocket className="h-5 w-5 text-primary" />
+                      Votre Projet & Données
                     </h3>
-                    {[
-                      "Le plus tôt possible",
-                      "Dans les 1 à 3 mois",
-                      "Pas d'urgence (Exploration)"
-                    ].map((option) => (
+                    <p className="text-sm text-muted-foreground">
+                      Décrivez brièvement votre projet et fournissez un lien vers vos données (Excel, Google Sheets) si vous en avez.
+                    </p>
+                    <textarea
+                      rows={3}
+                      value={data.description}
+                      onChange={(e) => updateData("description", e.target.value)}
+                      className="w-full rounded-xl border border-input bg-background px-4 py-3 text-sm ring-offset-background focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all resize-none"
+                      placeholder="Ex: Un dashboard pour suivre mes ventes..."
+                    />
+
+                    {/* NDA Section */}
+                    <div className="p-3 rounded-xl border border-primary/20 bg-primary/5 flex flex-col gap-2">
+                      <p className="text-sm font-semibold text-foreground flex items-center gap-2">
+                        🔒 Accord de confidentialité
+                      </p>
                       <button
-                        key={option}
-                        onClick={() => { updateData("timeline", option); nextStep(); }}
-                        className={`w-full text-left p-4 rounded-xl border-2 transition-all flex justify-between items-center ${
-                          data.timeline === option ? "border-primary bg-primary/5" : "border-border hover:border-primary/50"
-                        }`}
+                        type="button"
+                        onClick={async () => {
+                          const projectName = window.prompt("Nom de votre projet :");
+                          if (projectName) {
+                            const { generateNda } = await import("@/lib/generateNda");
+                            generateNda(projectName);
+                          }
+                        }}
+                        className="text-xs font-medium px-3 py-2 bg-background border border-border rounded-lg shadow-sm hover:bg-muted transition-colors w-fit"
                       >
-                        <span className="font-medium text-foreground">{option}</span>
-                        <ChevronRight className="h-5 w-5 text-muted-foreground" />
+                        Télécharger mon NDA (PDF)
                       </button>
-                    ))}
+                    </div>
+
+                    <input
+                      type="url"
+                      value={data.dataLink}
+                      onChange={(e) => updateData("dataLink", e.target.value)}
+                      className="w-full rounded-xl border border-input bg-background px-4 py-3 text-sm ring-offset-background focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+                      placeholder="Lien vers votre Google Sheet, Excel (Optionnel)"
+                    />
+
+                    <button
+                      onClick={() => nextStep()}
+                      disabled={!data.description.trim()}
+                      className="mt-2 flex w-full items-center justify-center rounded-xl bg-primary px-4 py-3 text-sm font-semibold text-primary-foreground transition-all hover:bg-primary/90 focus:outline-none disabled:opacity-50"
+                    >
+                      Continuer
+                    </button>
                   </div>
                 )}
 

@@ -14,8 +14,8 @@ type FormData = {
   appType: string;
   target: string;
   sector: string;
-  budget: string;
   description: string;
+  dataLink: string;
   email: string;
   phone: string;
 };
@@ -29,8 +29,8 @@ export function HeroDynamicForm({ onScrollDown }: HeroDynamicFormProps) {
     appType: "",
     target: "",
     sector: "",
-    budget: "",
     description: "",
+    dataLink: "",
     email: "",
     phone: "",
   });
@@ -82,7 +82,8 @@ export function HeroDynamicForm({ onScrollDown }: HeroDynamicFormProps) {
         body: JSON.stringify({
           need: `${data.appType} - ${data.target}`,
           sector: data.sector,
-          timeline: data.budget,
+          description: data.description,
+          dataLink: data.dataLink,
           email: data.email,
           phone: data.phone,
           description: data.description,
@@ -271,53 +272,93 @@ export function HeroDynamicForm({ onScrollDown }: HeroDynamicFormProps) {
                   </>
                 )}
 
-                {/* Step 4: Budget */}
+                {/* Step 4: Project description & NDA */}
                 {step === 4 && (
-                  <>
-                    <h2 className="text-xl sm:text-2xl font-bold text-center mb-8">
+                  <div className="flex flex-col gap-5 max-w-md mx-auto w-full">
+                    <h2 className="text-xl sm:text-2xl font-bold text-center mb-2">
                       {t("hero_form_step4_q")}
                     </h2>
-                    <div className="grid gap-3 sm:grid-cols-1 max-w-md mx-auto w-full">
-                      {[
-                        t("hero_form_step4_opt1"),
-                        t("hero_form_step4_opt2"),
-                        t("hero_form_step4_opt3"),
-                        t("hero_form_step4_opt4"),
-                        t("hero_form_step4_opt5"),
-                      ].map((item) => (
-                        <button
-                          key={item}
-                          onClick={() => selectOption("budget", item)}
-                          className={`${optionBtnClass} h-14 w-full`}
-                        >
-                          {item}
-                        </button>
-                      ))}
+                    <p className="text-sm text-muted-foreground text-center mb-4">
+                      {t("hero_form_step4_sub")}
+                    </p>
+                    <textarea
+                      id="description"
+                      rows={4}
+                      value={data.description}
+                      onChange={(e) => updateField("description", e.target.value)}
+                      className="w-full rounded-xl border border-input bg-background px-4 py-3 text-sm ring-offset-background focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all resize-none"
+                      placeholder={t("hero_form_step4_ph")}
+                    />
+                    
+                    {/* NDA Section */}
+                    <div className="mt-2 p-4 rounded-xl border border-primary/20 bg-primary/5 flex flex-col gap-3">
+                      <p className="text-sm font-semibold text-foreground flex items-center justify-center gap-2">
+                        {t("hero_form_nda_btn")}
+                      </p>
+                      <p className="text-xs text-muted-foreground text-center">
+                        {t("hero_form_nda_desc")}
+                      </p>
+                      <button
+                        type="button"
+                        onClick={async () => {
+                          const projectName = window.prompt(t("hero_form_nda_ph"));
+                          if (projectName) {
+                            const { generateNda } = await import("@/lib/generateNda");
+                            generateNda(projectName);
+                          }
+                        }}
+                        className="text-xs font-medium px-3 py-2 bg-background border border-border rounded-lg shadow-sm hover:bg-muted transition-colors mx-auto"
+                      >
+                        {t("hero_form_nda_generate")}
+                      </button>
                     </div>
-                  </>
+
+                    <button
+                      onClick={() => {
+                        if(data.description.trim()) {
+                          fetch("/api/track-funnel", {
+                            method: "POST",
+                            headers: { "Content-Type": "application/json" },
+                            body: JSON.stringify({ step: "step_4", sessionId, action: "Description filled" }),
+                          }).catch(console.error);
+                          setStep(5);
+                        }
+                      }}
+                      disabled={!data.description.trim()}
+                      className="mt-2 flex w-full items-center justify-center rounded-xl bg-primary px-4 py-3.5 text-sm font-semibold text-primary-foreground transition-all hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                    >
+                      {t("hero_form_step4_btn")}
+                    </button>
+                  </div>
                 )}
 
-                {/* Step 5: Project description */}
+                {/* Step 5: Data Link */}
                 {step === 5 && (
                   <div className="flex flex-col gap-5 max-w-md mx-auto w-full">
                     <h2 className="text-xl sm:text-2xl font-bold text-center mb-2">
                       {t("hero_form_step5_q")}
                     </h2>
-                    <p className="text-sm text-muted-foreground text-center mb-2">
+                    <p className="text-sm text-muted-foreground text-center mb-4">
                       {t("hero_form_step5_sub")}
                     </p>
-                    <textarea
-                      id="description"
-                      rows={5}
-                      value={data.description}
-                      onChange={(e) => updateField("description", e.target.value)}
-                      className="w-full rounded-xl border border-input bg-background px-4 py-3 text-sm ring-offset-background focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all resize-none"
+                    <input
+                      id="dataLink"
+                      type="url"
+                      value={data.dataLink}
+                      onChange={(e) => updateField("dataLink", e.target.value)}
+                      className="w-full rounded-xl border border-input bg-background px-4 py-3 text-sm ring-offset-background focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
                       placeholder={t("hero_form_step5_ph")}
                     />
                     <button
-                      onClick={() => setStep(6)}
-                      disabled={!data.description.trim()}
-                      className="mt-2 flex w-full items-center justify-center rounded-xl bg-primary px-4 py-3.5 text-sm font-semibold text-primary-foreground transition-all hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                      onClick={() => {
+                        fetch("/api/track-funnel", {
+                          method: "POST",
+                          headers: { "Content-Type": "application/json" },
+                          body: JSON.stringify({ step: "step_5", sessionId, action: "DataLink filled" }),
+                        }).catch(console.error);
+                        setStep(6);
+                      }}
+                      className="mt-2 flex w-full items-center justify-center rounded-xl bg-primary px-4 py-3.5 text-sm font-semibold text-primary-foreground transition-all hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
                     >
                       {t("hero_form_step5_btn")}
                     </button>

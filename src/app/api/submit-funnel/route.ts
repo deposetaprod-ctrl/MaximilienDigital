@@ -7,7 +7,7 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 export async function POST(request: Request) {
   try {
     const data = await request.json();
-    const { need, sector, timeline, email, phone } = data;
+    const { need, sector, description, dataLink, email, phone } = data;
 
     if (!email) {
       return NextResponse.json({ error: "Email is required" }, { status: 400 });
@@ -17,7 +17,7 @@ export async function POST(request: Request) {
     if (process.env.NEXT_PUBLIC_SUPABASE_URL) {
       const { error } = await supabase
         .from("funnel_leads")
-        .insert([{ need, sector, timeline, email, phone }]);
+        .insert([{ need, sector, timeline: dataLink || "Non renseigné", email, phone }]);
 
       if (error) {
         console.error("Supabase insert lead error:", error);
@@ -34,12 +34,17 @@ export async function POST(request: Request) {
     await resend.emails.send({
       from: "Contact PWA <onboarding@resend.dev>", // Replace with verified domain in production if possible
       to: "maximilien.girard1@gmail.com", // Assuming this is Maximilien's email, or update to the generic one he uses. I'll use the default email or ask him. Using a placeholder for now, but he can change it. Let's use maximilien.girard@gmail.com or hello@maximilien.digital. Wait, in contact it's usually sent to him. I'll just put his email or a placeholder he needs to update.
-      subject: `🔥 Nouveau prospect PWA - ${sector}`,
+      subject: `🔥 Nouveau prospect App - ${sector}`,
       html: `
         <h2>Nouvelle demande de projet Web App / PWA</h2>
-        <p><strong>Besoin :</strong> ${need}</p>
+        <p><strong>Besoin global :</strong> ${need}</p>
         <p><strong>Secteur :</strong> ${sector}</p>
-        <p><strong>Délai :</strong> ${timeline}</p>
+        <br/>
+        <h3>📝 Description détaillée :</h3>
+        <p>${description ? description.replace(/\n/g, '<br/>') : "Non renseignée"}</p>
+        <br/>
+        <h3>💾 Données fournies :</h3>
+        <p><strong>Lien :</strong> ${dataLink ? `<a href="${dataLink}">${dataLink}</a>` : "Aucun lien fourni"}</p>
         <br/>
         <h3>Coordonnées du prospect :</h3>
         <p><strong>Email :</strong> ${email}</p>
