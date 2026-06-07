@@ -102,7 +102,7 @@ export function HeroDynamicForm({ onScrollDown }: HeroDynamicFormProps) {
     }
   }
 
-  const optionBtnClass = "flex items-center justify-center rounded-2xl border border-border/60 bg-white/50 dark:bg-white/5 shadow-sm px-4 text-center font-medium transition-all hover:border-amber-500/50 hover:bg-amber-500/5 hover:text-amber-600 dark:hover:text-amber-400 focus:outline-none hover:shadow-md hover:-translate-y-0.5";
+  const optionBtnClass = "flex items-center justify-center rounded-2xl border border-border/60 bg-background/50 shadow-sm px-4 py-4 min-h-[60px] text-center font-medium transition-all hover:border-amber-500/50 hover:bg-amber-500/5 hover:text-amber-600 dark:hover:text-amber-400 focus:outline-none hover:shadow-md hover:-translate-y-0.5";
 
   return (
     <section className="relative flex min-h-[100dvh] flex-col items-center justify-center px-4 pt-12 md:pt-24 pb-6 md:pb-12 bg-background text-foreground overflow-hidden">
@@ -152,7 +152,7 @@ export function HeroDynamicForm({ onScrollDown }: HeroDynamicFormProps) {
           </motion.p>
         </div>
 
-        <div className="bg-white/95 dark:bg-black/60 backdrop-blur-xl border border-white/40 dark:border-white/10 shadow-2xl rounded-[2rem] p-5 sm:p-12 relative overflow-hidden min-h-[350px] md:min-h-[420px] flex flex-col justify-center mt-2 md:mt-0">
+        <div className="bg-card/95 backdrop-blur-xl border border-border shadow-2xl rounded-[2rem] p-5 sm:p-12 relative overflow-hidden min-h-[350px] md:min-h-[420px] flex flex-col justify-center mt-2 md:mt-0">
           
           {/* Progress bar */}
           {!isSuccess && (
