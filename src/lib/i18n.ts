@@ -152,10 +152,10 @@ export const translations = {
 
     // AI Section
     ai_section_badge: "Propulsé par l'Intelligence Artificielle",
-    ai_section_title: "L'IA code vite. Moi, je construis l'architecture.",
+    ai_section_title: "L'IA code très vite, je construis l'architecture.",
     ai_section_desc1: "Aujourd'hui, tout le monde sait que les IA comme <strong>Claude, OpenAI ou Gemini</strong> sont incroyablement performantes pour écrire du code. C'est vrai, et je les utilise quotidiennement.",
-    ai_section_desc2: "Cependant, <strong>générer du code ne suffit pas pour créer une application métier viable et sécurisée</strong>. Il faut maîtriser l'architecture des systèmes d'information, connecter des bases de données complexes, gérer l'authentification, les déploiements serveurs et corriger les bugs critiques que l'IA ne comprend pas dans leur globalité.",
-    ai_section_desc3: "<strong>C'est là qu'est ma vraie valeur :</strong> je suis le chef d'orchestre. L'IA me permet de vous livrer 3x plus vite et pour beaucoup moins cher. Mais mon expertise d'ingénieur garantit que votre produit final vous appartient à 100%, et qu'il est solide, sécurisé et prêt pour la production.",
+    ai_section_desc2: "Cependant, <strong>générer du code ne suffit pas pour créer une application métier viable et sécurisée</strong>. Il faut maîtriser l'architecture des systèmes d'information, connecter des bases de données complexes, gérer l'authentification, les API, les déploiements serveurs et corriger les subtilités qui font que votre application fait la différence.",
+    ai_section_desc3: "<strong>C'est là qu'est notre vraie valeur :</strong> nous sommes les chefs d'orchestre. L'IA permet de vous livrer 3x plus vite et pour beaucoup moins cher. Mais mon expertise garantit que le produit final vous appartient à 100%, et qu'il est solide, sécurisé et connecté.",
     ai_section_cta: "Obtenir ma maquette gratuite",
     hero_form_gift_subtitle: "Répondez au formulaire ci-dessous.",
     hero_form_success_title: "C'est parti ! 🎉",
@@ -675,7 +675,7 @@ export const translations = {
 
       <h2 class="text-2xl font-bold mt-12 mb-6">Le rôle crucial de l'Architecte / Développeur IA</h2>
       <p>C'est là que ma méthodologie intervient. En tant que <strong>Développeur spécialisé IA</strong>, je n'écris plus chaque ligne de code à la main. Je suis le "Chef d'Orchestre" qui pilote l'IA.</p>
-      <p>J'utilise un écosystème de pointe combinant l'intelligence artificielle et l'ingénierie moderne : je pilote la rédaction du code avec des outils comme <strong>Antigravity</strong> ou l'éditeur <strong>Cursor.ia</strong> propulsé par <em>Claude</em>, je déploie votre application sur des serveurs haute performance via <strong>Vercel</strong>, et je structure vos données sécurisées avec <strong>Supabase</strong>. J'interviens sur tout ce que l'IA ne peut pas gérer seule : l'architecture globale, la sécurité, et la mise en production technique de bout en bout.</p>
+      <p>J'utilise un écosystème de pointe combinant l'intelligence artificielle et l'ingénierie moderne : je pilote la rédaction du code avec des outils comme <strong>Antigravity</strong> ou l'éditeur <strong>Cursor.sh</strong> propulsé par <em>Claude</em>, je déploie votre application sur des serveurs haute performance via <strong>Vercel</strong>, et je structure vos données sécurisées avec <strong>Supabase</strong>. J'interviens sur tout ce que l'IA ne peut pas gérer seule : l'architecture globale, la sécurité, et la mise en production technique de bout en bout.</p>
 
       <div class="my-12 p-8 rounded-3xl bg-secondary/5 border border-secondary/10">
         <h2 class="text-xl font-bold mb-4">Les 3 avantages majeurs de cette méthode :</h2>
@@ -843,10 +843,10 @@ export const translations = {
 
     // AI Section
     ai_section_badge: "Powered by Artificial Intelligence",
-    ai_section_title: "AI writes code fast. I build the architecture.",
-    ai_section_desc1: "Today, everyone knows that AI like <strong>Claude, OpenAI or Gemini</strong> are incredibly powerful for writing code. That's true, and I use them daily.",
-    ai_section_desc2: "However, <strong>generating code is not enough to create a viable and secure business application</strong>. You need to master information system architecture, connect complex databases, handle authentication, server deployments, and fix critical bugs that AI doesn't understand in their entirety.",
-    ai_section_desc3: "<strong>That's where my real value lies:</strong> I am the orchestrator. AI allows me to deliver 3x faster and for much less. But my engineering expertise guarantees that your final product belongs 100% to you, and that it is solid, secure, and production-ready.",
+    ai_section_title: "AI codes very fast, I build the architecture.",
+    ai_section_desc1: "Today, everyone knows that AIs like <strong>Claude, OpenAI, or Gemini</strong> are incredibly powerful at writing code. It's true, and I use them daily.",
+    ai_section_desc2: "However, <strong>generating code is not enough to create a viable and secure business application</strong>. It requires mastering information systems architecture, connecting complex databases, managing authentication, APIs, server deployments, and fixing the subtleties that make your application stand out.",
+    ai_section_desc3: "<strong>This is where our true value lies:</strong> we are the conductors. AI allows us to deliver 3x faster and for much less. But my expertise guarantees that the final product belongs 100% to you, and that it is solid, secure, and connected.",
     ai_section_cta: "Get my free mockup",
 
     hero_form_gift_subtitle: "Receive a <strong class=\"bg-primary/15 border border-primary/30 text-amber-700 dark:text-amber-400 px-2 py-0.5 mx-1 rounded-md\">free mockup</strong> of your project by email within 24h.",
@@ -1366,7 +1366,7 @@ export const translations = {
 
       <h2 class="text-2xl font-bold mt-12 mb-6">The crucial role of the AI Architect / Developer</h2>
       <p>This is where my methodology comes in. As an <strong>AI-specialized Developer</strong>, I no longer write every line of code by hand. I am the "Conductor" who orchestrates the AI.</p>
-      <p>I use a cutting-edge ecosystem combining artificial intelligence and modern engineering: I pilot the code writing with tools like <strong>Antigravity</strong> or the <strong>Cursor.ia</strong> editor powered by <em>Claude</em>, I deploy your application on high-performance servers via <strong>Vercel</strong>, and I structure your data with <strong>Supabase</strong>. I intervene on everything AI cannot handle alone: overall architecture, security, and end-to-end technical production.</p>
+      <p>I use a cutting-edge ecosystem combining artificial intelligence and modern engineering: I pilot the code writing with tools like <strong>Antigravity</strong> or the <strong>Cursor.sh</strong> editor powered by <em>Claude</em>, I deploy your application on high-performance servers via <strong>Vercel</strong>, and I structure your data with <strong>Supabase</strong>. I intervene on everything AI cannot handle alone: overall architecture, security, and end-to-end technical production.</p>
 
       <div class="my-12 p-8 rounded-3xl bg-secondary/5 border border-secondary/10">
         <h2 class="text-xl font-bold mb-4">The 3 major advantages of this method:</h2>

@@ -83,14 +83,15 @@ export function AiPoweredSection({ onCtaClick }: AiPoweredSectionProps) {
                 </div>
 
                 {/* Connection lines */}
-                <div className="flex justify-center space-x-8">
+                <div className="flex justify-center space-x-4 sm:space-x-12">
+                  <div className="w-0.5 h-6 bg-gradient-to-b from-primary/50 to-border" />
                   <div className="w-0.5 h-6 bg-gradient-to-b from-primary/50 to-border" />
                   <div className="w-0.5 h-6 bg-gradient-to-b from-primary/50 to-border hidden sm:block" />
                   <div className="w-0.5 h-6 bg-gradient-to-b from-primary/50 to-border hidden sm:block" />
                 </div>
 
                 {/* Human Expertise Layer */}
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
                   <div className="flex flex-col items-center p-3 bg-background rounded-lg border border-border shadow-sm">
                     <Database className="w-6 h-6 text-blue-500 mb-2" />
                     <span className="text-xs font-semibold text-center">Bases de données</span>
@@ -102,6 +103,10 @@ export function AiPoweredSection({ onCtaClick }: AiPoweredSectionProps) {
                   <div className="flex flex-col items-center p-3 bg-background rounded-lg border border-border shadow-sm">
                     <Server className="w-6 h-6 text-purple-500 mb-2" />
                     <span className="text-xs font-semibold text-center">Déploiement</span>
+                  </div>
+                  <div className="flex flex-col items-center p-3 bg-background rounded-lg border border-border shadow-sm">
+                    <Zap className="w-6 h-6 text-amber-500 mb-2" />
+                    <span className="text-xs font-semibold text-center">Connexions API</span>
                   </div>
                 </div>
 
