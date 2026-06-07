@@ -11,9 +11,16 @@ export function Footer() {
   return (
     <footer className="border-t border-border px-4 py-8">
       <div className="mx-auto max-w-6xl flex flex-col items-center gap-6 sm:flex-row sm:justify-between">
-        <p className="text-sm text-muted-foreground">
-          &copy; {year} Maximilien Digital. {t("footer_rights")}
-        </p>
+        <div className="flex flex-col gap-2 text-center sm:text-left">
+          <p className="text-sm text-muted-foreground">
+            &copy; {year} Maximilien Digital. {t("footer_rights")}
+          </p>
+          <div className="flex items-center gap-3 text-xs text-muted-foreground justify-center sm:justify-start">
+            <a href="/logiciel-expert-comptable" className="hover:text-primary transition-colors">Logiciel Expert-Comptable</a>
+            <span>•</span>
+            <a href="/portail-client-expert-comptable" className="hover:text-primary transition-colors">Portail Client Expert-Comptable</a>
+          </div>
+        </div>
         <div className="flex items-center gap-4">
           <a
             href={contactInfo.comeup}
