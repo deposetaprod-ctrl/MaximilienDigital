@@ -86,7 +86,6 @@ export function HeroDynamicForm({ onScrollDown }: HeroDynamicFormProps) {
           dataLink: data.dataLink,
           email: data.email,
           phone: data.phone,
-          description: data.description,
         }),
       });
 
