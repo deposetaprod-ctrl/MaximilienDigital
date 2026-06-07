@@ -139,7 +139,7 @@ export function HeroDynamicForm({ onScrollDown }: HeroDynamicFormProps) {
           </motion.div>
           
           <motion.h1 
-            className="text-3xl font-extrabold tracking-tight sm:text-4xl md:text-5xl text-foreground mb-2 drop-shadow-xl"
+            className="text-3xl font-extrabold tracking-tight sm:text-4xl md:text-5xl leading-snug sm:leading-snug md:leading-snug text-foreground mb-4 drop-shadow-xl"
             initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}
             dangerouslySetInnerHTML={{ __html: t("hero_form_title") }}
           />

@@ -148,7 +148,7 @@ export const translations = {
 
     // Hero
     hero_tagline: "Studio de Développement",
-    hero_form_title: "Recevez une <strong class=\"bg-primary/15 border border-primary/30 text-amber-700 dark:text-amber-400 px-2 py-0.5 mx-1 rounded-md font-extrabold\">maquette gratuite</strong>",
+    hero_form_title: "Recevez une <strong class=\"inline-block bg-primary/15 border border-primary/30 text-amber-700 dark:text-amber-400 px-2 py-0.5 mx-1 rounded-md font-extrabold\">maquette gratuite</strong>",
     hero_form_gift_subtitle: "Répondez au formulaire ci-dessous.",
     hero_form_success_title: "C'est parti ! 🎉",
     hero_form_success_sub: "Votre maquette gratuite est en préparation.",
