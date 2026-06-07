@@ -228,7 +228,10 @@ export const translations = {
       "Formulaires intelligents qui envoient des emails automatisés, génèrent des devis et se connectent via API à vos autres logiciels.",
     service_excel_title: "Portail Client (Extranet)",
     service_excel_desc:
-      "Espaces sécurisés pour que vos clients puissent consulter leurs documents, factures, et échanger avec votre équipe en toute simplicité.",
+      "Un espace sécurisé pour vos clients, avec gestion des documents, factures et suivi de projet.",
+    service_accounting_title: "Comptabilité & Finance",
+    service_accounting_desc:
+      "Solutions dédiées pour les cabinets : automatisation, relances, et outils internes sur-mesure.",
     service_custom_title: "Application Métier 100% Personnalisée",
     service_custom_desc:
       "Peu importe votre besoin du moment (gestion de stocks, portail administratif, connexions complexes, produit inédit). Je suis à votre écoute, j'utilise les technologies les plus puissantes, et je ne lâche rien tant que votre outil n'est pas parfaitement fonctionnel et viable.",
