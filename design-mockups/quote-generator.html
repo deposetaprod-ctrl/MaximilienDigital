@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Générateur de Devis - Maximilien DIGITAL</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#f97316', // Orange-500
+                        secondary: '#1e293b', // Slate-800
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @media print {
+            .no-print { display: none !important; }
+            body { background: white; margin: 0; padding: 0; }
+            #preview-container { padding: 0 !important; box-shadow: none !important; max-width: 100% !important; }
+            .print-break-inside-avoid { break-inside: avoid; }
+        }
+        .a4-paper {
+            width: 210mm;
+            min-height: 297mm;
+            background: white;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            margin: 0 auto;
+            padding: 20mm;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 h-screen flex flex-col md:flex-row overflow-hidden">
+
+    <!-- Left Panel: Form (no-print) -->
+    <div class="no-print w-full md:w-1/3 bg-white border-r border-slate-200 flex flex-col h-full shadow-lg z-10 overflow-y-auto">
+        <div class="p-6 bg-slate-800 text-white sticky top-0 z-20">
+            <h1 class="text-2xl font-bold flex items-center gap-2">
+                <i data-lucide="file-text"></i>
+                Générateur de Devis
+            </h1>
+            <p class="text-sm text-slate-300 mt-1">Créez des propositions irrésistibles</p>
+        </div>
+
+        <div class="p-6 space-y-6 flex-1">
+            <!-- Informations Client -->
+            <div class="space-y-4">
+                <h2 class="text-lg font-semibold border-b pb-2 flex items-center gap-2 text-slate-700">
+                    <i data-lucide="user" class="w-5 h-5 text-primary"></i> Client & Projet
+                </h2>
+                <div>
+                    <label class="block text-sm font-medium mb-1">Nom du client</label>
+                    <input type="text" id="clientName" value="Amara Toure" class="w-full border rounded-md px-3 py-2 text-sm focus:ring-2 focus:ring-primary outline-none">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium mb-1">Titre du projet</label>
+                    <input type="text" id="projectTitle" value="Application de Commande sur Table via QR Code" class="w-full border rounded-md px-3 py-2 text-sm focus:ring-2 focus:ring-primary outline-none">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium mb-1">Description du besoin</label>
+                    <textarea id="projectDesc" rows="4" class="w-full border rounded-md px-3 py-2 text-sm focus:ring-2 focus:ring-primary outline-none">Application permettant aux clients de scanner un QR Code, rejoindre une table, commander et payer leur part. Le restaurateur peut gérer les tables, le menu et voir les paiements en direct.</textarea>
+                </div>
+            </div>
+
+            <!-- Choix du Pack -->
+            <div class="space-y-4">
+                <h2 class="text-lg font-semibold border-b pb-2 flex items-center gap-2 text-slate-700">
+                    <i data-lucide="package" class="w-5 h-5 text-primary"></i> Solution & Pack
+                </h2>
+                <div>
+                    <label class="block text-sm font-medium mb-1">Pack recommandé</label>
+                    <select id="packChoice" class="w-full border rounded-md px-3 py-2 text-sm focus:ring-2 focus:ring-primary outline-none">
+                        <option value="starter" selected>Pack Starter (Prototype & Validation)</option>
+                        <option value="pro">Pack Pro (Solution Complète ⭐)</option>
+                        <option value="business">Pack Business (Robuste & Évolutif)</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium mb-1">Prix proposé (€)</label>
+                    <input type="number" id="price" value="1200" class="w-full border rounded-md px-3 py-2 text-sm focus:ring-2 focus:ring-primary outline-none">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium mb-1">Délai estimé</label>
+                    <input type="text" id="delay" value="30 jours" class="w-full border rounded-md px-3 py-2 text-sm focus:ring-2 focus:ring-primary outline-none">
+                </div>
+            </div>
+
+            <!-- Fonctionnalités -->
+            <div class="space-y-4">
+                <h2 class="text-lg font-semibold border-b pb-2 flex items-center gap-2 text-slate-700">
+                    <i data-lucide="layers" class="w-5 h-5 text-primary"></i> Fonctionnalités clés
+                </h2>
+                <div class="space-y-2 text-sm" id="featuresList">
+                    <label class="flex items-center gap-2"><input type="checkbox" checked value="Génération et scan de QR Code par table"> Génération et scan de QR Code</label>
+                    <label class="flex items-center gap-2"><input type="checkbox" checked value="Système de groupe temporaire par table"> Système de groupe par table</label>
+                    <label class="flex items-center gap-2"><input type="checkbox" checked value="Prise de commande individuelle"> Prise de commande individuelle</label>
+                    <label class="flex items-center gap-2"><input type="checkbox" checked value="Paiement partagé (Stripe, Apple/Google Pay, Espèces)"> Paiement partagé & en ligne</label>
+                    <label class="flex items-center gap-2"><input type="checkbox" checked value="Dashboard restaurateur en temps réel"> Dashboard restaurateur temps réel</label>
+                    <label class="flex items-center gap-2"><input type="checkbox" value="Notifications Push / In-App"> Notifications Push</label>
+                    <label class="flex items-center gap-2"><input type="checkbox" value="Module d'Intelligence Artificielle (Chatbot/Recommandation)"> IA / Recommandation</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="p-4 bg-slate-50 border-t flex gap-2">
+            <button onclick="generateQuote()" class="flex-1 bg-primary text-white py-2 px-4 rounded-md font-medium hover:bg-orange-600 transition flex items-center justify-center gap-2">
+                <i data-lucide="refresh-cw" class="w-4 h-4"></i> Mettre à jour
+            </button>
+            <button onclick="downloadPDF()" class="bg-slate-800 text-white py-2 px-4 rounded-md font-medium hover:bg-slate-700 transition flex items-center justify-center gap-2">
+                <i data-lucide="download" class="w-4 h-4"></i> Télécharger PDF
+            </button>
+        </div>
+    </div>
+
+    <!-- Right Panel: Preview -->
+    <div class="w-full md:w-2/3 bg-slate-200 h-full overflow-y-auto p-4 md:p-8" id="preview-container">
+        
+        <!-- The A4 Document -->
+        <div class="a4-paper relative text-slate-800 text-sm leading-relaxed" id="quote-document">
+            
+            <!-- Header -->
+            <header class="flex justify-between items-start border-b-2 border-primary pb-6 mb-8">
+                <div>
+                    <h1 class="text-3xl font-bold text-slate-900 tracking-tight">PROPOSITION COMMERCIALE</h1>
+                    <p class="text-primary font-semibold mt-1">VOTRE APPLICATION SUR-MESURE</p>
+                </div>
+                <div class="text-right">
+                    <p class="font-bold text-lg">Maximilien</p>
+                    <p class="text-slate-500">Expert Développement & Stratégie</p>
+                    <p class="text-slate-500">contact@maximilien.digital</p>
+                    <p class="text-slate-400 text-xs mt-2">Date: <span id="outDate"></span></p>
+                </div>
+            </header>
+
+            <!-- Intro -->
+            <section class="mb-8 print-break-inside-avoid">
+                <p class="mb-4">Bonjour <strong><span id="outClientName"></span></strong>,</p>
+                <p class="mb-4">
+                    Suite à votre demande de devis, voici ma proposition pour le projet : <strong class="text-primary"><span id="outProjectTitle"></span></strong>.
+                </p>
+                <p class="italic text-slate-600 border-l-4 border-slate-300 pl-4 py-1">
+                    Mon objectif est simple : transformer votre idée en application fonctionnelle, clé en main et exploitable, sans exploser votre budget, et en vous livrant le code source.
+                </p>
+            </section>
+
+            <!-- Compréhension du besoin -->
+            <section class="mb-8 print-break-inside-avoid bg-slate-50 p-6 rounded-lg border border-slate-100">
+                <h2 class="text-xl font-bold text-slate-800 mb-4 flex items-center gap-2">
+                    <i data-lucide="target" class="w-5 h-5 text-primary"></i> 1. Compréhension de votre besoin
+                </h2>
+                <p class="whitespace-pre-line" id="outProjectDesc"></p>
+                
+                <div class="mt-4 grid grid-cols-2 gap-4">
+                    <div class="bg-white p-3 rounded border border-slate-200 shadow-sm">
+                        <h4 class="font-bold text-sm text-slate-700">Côté Client</h4>
+                        <ul class="list-disc pl-4 text-xs text-slate-600 mt-2 space-y-1">
+                            <li>Scan QR et accès sans installation (PWA)</li>
+                            <li>Groupe temporaire par table</li>
+                            <li>Commande et partage d'addition fluides</li>
+                        </ul>
+                    </div>
+                    <div class="bg-white p-3 rounded border border-slate-200 shadow-sm">
+                        <h4 class="font-bold text-sm text-slate-700">Côté Restaurateur</h4>
+                        <ul class="list-disc pl-4 text-xs text-slate-600 mt-2 space-y-1">
+                            <li>Dashboard en temps réel</li>
+                            <li>Gestion des tables et validation des paiements</li>
+                            <li>Vision claire des encaissements</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Solution -->
+            <section class="mb-8 print-break-inside-avoid">
+                <h2 class="text-xl font-bold text-slate-800 mb-4 flex items-center gap-2">
+                    <i data-lucide="cpu" class="w-5 h-5 text-primary"></i> 2. La Solution technique : <span id="outPackName" class="text-primary"></span>
+                </h2>
+                <p class="mb-4">Pour répondre parfaitement à cet enjeu qui nécessite du temps réel, une expérience fluide sur mobile et un dashboard d'administration, je vous propose une <strong>Application Web App / PWA</strong> (Progressive Web App).</p>
+                
+                <div class="border rounded-lg overflow-hidden">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="bg-slate-800 text-white">
+                                <th class="py-2 px-4">Périmètre d'intervention inclus</th>
+                                <th class="py-2 px-4 w-24 text-center">Inclus</th>
+                            </tr>
+                        </thead>
+                        <tbody id="outFeaturesTable">
+                            <!-- Injected via JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Les Engagements -->
+            <section class="mb-8 print-break-inside-avoid">
+                <h2 class="text-xl font-bold text-slate-800 mb-4 flex items-center gap-2">
+                    <i data-lucide="shield-check" class="w-5 h-5 text-primary"></i> 3. Mes Engagements
+                </h2>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="flex items-start gap-2">
+                        <i data-lucide="check-circle" class="w-5 h-5 text-green-500 shrink-0"></i>
+                        <p><strong>Code source 100% à vous</strong><br><span class="text-xs text-slate-500">Pas d'abonnement caché, pas de dépendance.</span></p>
+                    </div>
+                    <div class="flex items-start gap-2">
+                        <i data-lucide="check-circle" class="w-5 h-5 text-green-500 shrink-0"></i>
+                        <p><strong>Développement Rapide & IA</strong><br><span class="text-xs text-slate-500">Outils de pointe pour un rendu professionnel rapide.</span></p>
+                    </div>
+                    <div class="flex items-start gap-2">
+                        <i data-lucide="check-circle" class="w-5 h-5 text-green-500 shrink-0"></i>
+                        <p><strong>Transfert de compétences</strong><br><span class="text-xs text-slate-500">Je vous explique comment j'ai fait pour vous rendre autonome.</span></p>
+                    </div>
+                    <div class="flex items-start gap-2">
+                        <i data-lucide="check-circle" class="w-5 h-5 text-green-500 shrink-0"></i>
+                        <p><strong>Conseil Stratégique</strong><br><span class="text-xs text-slate-500">Expertise business et modélisation en plus du code.</span></p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tarification -->
+            <section class="mb-8 print-break-inside-avoid">
+                <h2 class="text-xl font-bold text-slate-800 mb-4 flex items-center gap-2">
+                    <i data-lucide="credit-card" class="w-5 h-5 text-primary"></i> 4. Investissement & Délais
+                </h2>
+                
+                <div class="bg-slate-800 text-white rounded-xl p-6 flex items-center justify-between shadow-lg">
+                    <div>
+                        <h3 class="text-lg font-bold text-primary mb-1">Développement complet clé en main</h3>
+                        <p class="text-sm text-slate-300">Livraison estimée : <strong><span id="outDelay"></span></strong></p>
+                        <p class="text-xs text-slate-400 mt-2">*Hébergement cloud à la charge du client (env. 5-10€/mois), je vous accompagne pour la configuration.</p>
+                    </div>
+                    <div class="text-right">
+                        <p class="text-3xl font-black"><span id="outPrice"></span> €</p>
+                        <p class="text-xs text-slate-300">Net de taxes</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <footer class="mt-12 text-center text-slate-500 text-sm border-t pt-6 print-break-inside-avoid">
+                <p class="font-bold text-slate-700">Comment démarrer ?</p>
+                <p>Validez cette proposition sur ComeUp et planifions notre appel de lancement pour la <strong>Phase 1 : Découverte & Maquettage</strong>.</p>
+                <p class="mt-4 italic">Au plaisir de construire ce beau projet avec vous !</p>
+            </footer>
+
+        </div>
+    </div>
+
+    <script>
+        // Initialiser Lucide icons
+        lucide.createIcons();
+
+        // Mettre la date du jour
+        document.getElementById('outDate').innerText = new Date().toLocaleDateString('fr-FR');
+
+        // Logic de mise à jour
+        function generateQuote() {
+            // Récupération des valeurs
+            const clientName = document.getElementById('clientName').value;
+            const projectTitle = document.getElementById('projectTitle').value;
+            const projectDesc = document.getElementById('projectDesc').value;
+            const packSelect = document.getElementById('packChoice');
+            const packName = packSelect.options[packSelect.selectedIndex].text;
+            const price = document.getElementById('price').value;
+            const delay = document.getElementById('delay').value;
+
+            // Update DOM
+            document.getElementById('outClientName').innerText = clientName;
+            document.getElementById('outProjectTitle').innerText = projectTitle;
+            document.getElementById('outProjectDesc').innerText = projectDesc;
+            document.getElementById('outPackName').innerText = packName;
+            document.getElementById('outPrice').innerText = new Intl.NumberFormat('fr-FR').format(price);
+            document.getElementById('outDelay').innerText = delay;
+
+            // Update Features
+            const checkboxes = document.querySelectorAll('#featuresList input[type="checkbox"]');
+            const tbody = document.getElementById('outFeaturesTable');
+            tbody.innerHTML = '';
+            
+            // Base features
+            let html = `
+                <tr class="border-b">
+                    <td class="py-2 px-4">Interface responsive (Mobile, Tablette, PC)</td>
+                    <td class="py-2 px-4 text-center text-green-500"><i data-lucide="check" class="w-4 h-4 mx-auto"></i></td>
+                </tr>
+                <tr class="border-b bg-slate-50">
+                    <td class="py-2 px-4">Design UI/UX premium & micro-animations</td>
+                    <td class="py-2 px-4 text-center text-green-500"><i data-lucide="check" class="w-4 h-4 mx-auto"></i></td>
+                </tr>
+                <tr class="border-b">
+                    <td class="py-2 px-4">Architecture Serveur / Base de données</td>
+                    <td class="py-2 px-4 text-center text-green-500"><i data-lucide="check" class="w-4 h-4 mx-auto"></i></td>
+                </tr>
+            `;
+
+            checkboxes.forEach((cb, index) => {
+                if(cb.checked) {
+                    const bgClass = index % 2 === 0 ? 'bg-slate-50' : '';
+                    html += `
+                    <tr class="border-b ${bgClass}">
+                        <td class="py-2 px-4 font-medium text-slate-700">${cb.value}</td>
+                        <td class="py-2 px-4 text-center text-green-500"><i data-lucide="check" class="w-4 h-4 mx-auto"></i></td>
+                    </tr>
+                    `;
+                }
+            });
+
+            // Delivery features
+            html += `
+                <tr class="border-b bg-primary/5">
+                    <td class="py-2 px-4 text-primary font-medium">Livraison code source complet + Droits de propriété</td>
+                    <td class="py-2 px-4 text-center text-green-500"><i data-lucide="check" class="w-4 h-4 mx-auto"></i></td>
+                </tr>
+            `;
+
+            tbody.innerHTML = html;
+            lucide.createIcons();
+        }
+
+        function downloadPDF() {
+            const element = document.getElementById('quote-document');
+            const clientName = document.getElementById('clientName').value.replace(/[^a-z0-9]/gi, '_').toLowerCase() || 'client';
+            
+            const opt = {
+                margin:       0,
+                filename:     `devis_${clientName}.pdf`,
+                image:        { type: 'jpeg', quality: 1 },
+                html2canvas:  { scale: 2, useCORS: true },
+                jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
+            };
+            
+            html2pdf().set(opt).from(element).save();
+        }
+
+        // Run on load
+        generateQuote();
+
+        // Listeners
+        document.querySelectorAll('input, select, textarea').forEach(el => {
+            el.addEventListener('input', generateQuote);
+        });
+    </script>
+</body>
+</html>

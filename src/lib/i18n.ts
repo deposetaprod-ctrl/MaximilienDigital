@@ -147,11 +147,11 @@ export const translations = {
     web_cta_bonus: "Offre de lancement : recevez un aperçu visuel personnalisé de votre futur site, gratuitement.",
 
     // Hero
-    hero_tagline: "Développeur IA (Claude)",
+    hero_tagline: "Développeur et Architecte d'Applications",
     hero_form_title: "Recevez une <strong class=\"inline-block bg-primary/15 border border-primary/30 text-amber-700 dark:text-amber-400 px-2 py-0.5 mx-1 rounded-md font-extrabold\">maquette gratuite</strong>",
 
     // AI Section
-    ai_section_badge: "Propulsé par l'Intelligence Artificielle",
+
     ai_section_title: "L'IA code très vite, je construis l'architecture.",
     ai_section_desc1: "Aujourd'hui, tout le monde sait que les IA comme <strong>Claude, OpenAI ou Gemini</strong> sont incroyablement performantes pour écrire du code. C'est vrai, et je les utilise quotidiennement.",
     ai_section_desc2: "Cependant, <strong>générer du code ne suffit pas pour créer une application métier viable et sécurisée</strong>. Il faut maîtriser l'architecture des systèmes d'information, connecter des bases de données complexes, gérer l'authentification, les API, les déploiements serveurs et corriger les subtilités qui font que votre application fait la différence.",
@@ -890,11 +890,11 @@ export const translations = {
 
 
     // Hero
-    hero_tagline: "AI Developer (Claude)",
+    hero_tagline: "Application Developer & Architect",
     hero_form_title: "Let's build your <strong class=\"inline-block bg-primary/15 border border-primary/30 text-amber-700 dark:text-amber-400 px-2 py-0.5 mx-1 rounded-md font-extrabold\">website</strong>",
 
     // AI Section
-    ai_section_badge: "Powered by Artificial Intelligence",
+
     ai_section_title: "AI codes very fast, I build the architecture.",
     ai_section_desc1: "Today, everyone knows that AIs like <strong>Claude, OpenAI, or Gemini</strong> are incredibly powerful at writing code. It's true, and I use them daily.",
     ai_section_desc2: "However, <strong>generating code is not enough to create a viable and secure business application</strong>. It requires mastering information systems architecture, connecting complex databases, managing authentication, APIs, server deployments, and fixing the subtleties that make your application stand out.",

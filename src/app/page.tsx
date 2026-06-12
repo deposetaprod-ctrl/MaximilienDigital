@@ -3,9 +3,9 @@ import HomeClient from "./HomeClient";
 
 export const metadata: Metadata = {
   // Title and description are inherited from layout but we can be explicit if we want to override
-  title: "Développeur IA Claude | Application Web & Maquette Gratuite",
+  title: "Développeur et Architecte d'Applications | Application Web & Maquette Gratuite",
   description:
-    "Développeur IA spécialisé Claude. Création d'application web sur mesure. Remplissez le formulaire et recevez une maquette gratuite de votre projet sous 24h.",
+    "Développeur et Architecte d'Applications. Création d'application web sur mesure. Remplissez le formulaire et recevez une maquette gratuite de votre projet sous 24h.",
 };
 
 export default function Home() {

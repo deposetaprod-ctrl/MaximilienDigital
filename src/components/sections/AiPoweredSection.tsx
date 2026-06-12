@@ -36,10 +36,6 @@ export function AiPoweredSection({ onCtaClick }: AiPoweredSectionProps) {
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.5 }}
             >
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 text-primary font-semibold text-sm mb-6 border border-primary/20">
-                <BrainCircuit className="w-4 h-4" />
-                {t("ai_section_badge")}
-              </div>
               
               <h2 className="text-3xl sm:text-4xl font-extrabold text-foreground mb-6 leading-tight">
                 {t("ai_section_title")}
