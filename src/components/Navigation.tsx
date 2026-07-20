@@ -35,6 +35,7 @@ export function Navigation() {
     { name: t("nav_home"), href: "/" },
     { name: t("nav_blog"), href: "/blog" },
     { name: t("nav_financement"), href: "/financement" },
+    { name: "Devis", href: "/devis" },
   ];
 
   return (
