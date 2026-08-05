@@ -33,6 +33,7 @@ export function Navigation() {
 
   const navItems = [
     { name: t("nav_home"), href: "/" },
+    { name: "App Web", href: "/application-web-sur-mesure" },
     { name: t("nav_blog"), href: "/blog" },
     { name: t("nav_financement"), href: "/financement" },
     { name: "Devis", href: "/devis" },
