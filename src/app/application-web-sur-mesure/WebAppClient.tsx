@@ -15,7 +15,7 @@ const projects = [
     icon: <Globe className="w-8 h-8 text-primary" />
   },
   {
-    title: "Outil métier connecté à Odoo",
+    title: "Outil métier connecté par API",
     desc: "Automatisation d’images et synchronisation API avec l'ERP pour accélérer les processus internes.",
     tags: ["API", "Automatisation", "Métier"],
     icon: <Database className="w-8 h-8 text-primary" />
