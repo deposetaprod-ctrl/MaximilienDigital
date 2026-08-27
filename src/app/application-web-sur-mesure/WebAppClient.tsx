@@ -170,6 +170,65 @@ export default function WebAppClient() {
           </div>
         </section>
 
+        {/* EXPERTISES AVANCEES (SEO & VALUE PROPS) */}
+        <section className="px-4 py-24 bg-background relative overflow-hidden">
+          <div className="max-w-6xl mx-auto relative z-10">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">Expertise Technique Avancée</h2>
+              <p className="text-muted-foreground max-w-2xl mx-auto text-lg">Des technologies de pointe pour rendre votre application SaaS intelligente, sécurisée et conforme.</p>
+            </div>
+            
+            <div className="grid md:grid-cols-2 gap-8">
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="bg-secondary/20 border border-border rounded-3xl p-8 shadow-sm"
+              >
+                <h3 className="text-2xl font-bold mb-3 flex items-center gap-3">
+                  <span className="bg-primary/20 p-2 rounded-xl text-primary">🤖</span>
+                  Agent IA & Automatisation
+                </h3>
+                <p className="text-muted-foreground leading-relaxed text-lg">
+                  En tant que <strong>développeur spécialiste Agent IA</strong>, j'intègre des modèles d'Intelligence Artificielle au cœur de votre SaaS (LLMs, RAG). L'objectif : automatiser vos processus complexes et doter votre outil de capacités d'analyse avancées.
+                </p>
+              </motion.div>
+
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.1 }}
+                className="bg-secondary/20 border border-border rounded-3xl p-8 shadow-sm"
+              >
+                <h3 className="text-2xl font-bold mb-3 flex items-center gap-3">
+                  <span className="bg-primary/20 p-2 rounded-xl text-primary">🔒</span>
+                  Sécurité & Hébergement RGPD
+                </h3>
+                <p className="text-muted-foreground leading-relaxed text-lg">
+                  La protection de vos données est primordiale. Hébergement sur <strong>serveur OVH en France</strong>, garantie de conformité <strong>RGPD</strong>, et systèmes d'<strong>authentification sécurisés</strong> (email, OTP) pour un accès protégé.
+                </p>
+              </motion.div>
+
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.2 }}
+                className="bg-secondary/20 border border-border rounded-3xl p-8 shadow-sm md:col-span-2"
+              >
+                <h3 className="text-2xl font-bold mb-3 flex items-center gap-3">
+                  <span className="bg-primary/20 p-2 rounded-xl text-primary">✨</span>
+                  Design 3D & Expérience Premium
+                </h3>
+                <p className="text-muted-foreground leading-relaxed text-lg">
+                  Démarquez-vous de la concurrence avec des interfaces web de nouvelle génération. J'intègre des éléments de <strong>Design 3D interactifs</strong> fluides dans le navigateur pour une expérience utilisateur (UX) haut de gamme et mémorable.
+                </p>
+              </motion.div>
+            </div>
+          </div>
+        </section>
+
         {/* CE QUI EST INCLUS & METHODE */}
         <section className="px-4 py-24 bg-foreground text-background">
           <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
