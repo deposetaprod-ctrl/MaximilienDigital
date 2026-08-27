@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { HeroDynamicForm } from "@/components/sections/HeroDynamicForm";
 import { TestimonialsSection } from "@/components/sections/TestimonialsSection";
 import { Footer } from "@/components/sections/Footer";
-import { Code2, Zap, Smartphone, Globe, Database, AppWindow, ArrowRight, CheckCircle2 } from "lucide-react";
+import { Code2, Zap, Smartphone, Globe, Database, AppWindow, ArrowRight, CheckCircle2, Cpu, ShieldCheck, Sparkles } from "lucide-react";
 
 const projects = [
   {
@@ -186,7 +186,7 @@ export default function WebAppClient() {
                 className="bg-secondary/20 border border-border rounded-3xl p-8 shadow-sm"
               >
                 <h3 className="text-2xl font-bold mb-3 flex items-center gap-3">
-                  <span className="bg-primary/20 p-2 rounded-xl text-primary">🤖</span>
+                  <span className="bg-primary/20 p-2 rounded-xl text-primary"><Cpu className="w-6 h-6" /></span>
                   Agent IA & Automatisation
                 </h3>
                 <p className="text-muted-foreground leading-relaxed text-lg">
@@ -202,7 +202,7 @@ export default function WebAppClient() {
                 className="bg-secondary/20 border border-border rounded-3xl p-8 shadow-sm"
               >
                 <h3 className="text-2xl font-bold mb-3 flex items-center gap-3">
-                  <span className="bg-primary/20 p-2 rounded-xl text-primary">🔒</span>
+                  <span className="bg-primary/20 p-2 rounded-xl text-primary"><ShieldCheck className="w-6 h-6" /></span>
                   Sécurité & Hébergement RGPD
                 </h3>
                 <p className="text-muted-foreground leading-relaxed text-lg">
@@ -218,7 +218,7 @@ export default function WebAppClient() {
                 className="bg-secondary/20 border border-border rounded-3xl p-8 shadow-sm md:col-span-2"
               >
                 <h3 className="text-2xl font-bold mb-3 flex items-center gap-3">
-                  <span className="bg-primary/20 p-2 rounded-xl text-primary">✨</span>
+                  <span className="bg-primary/20 p-2 rounded-xl text-primary"><Sparkles className="w-6 h-6" /></span>
                   Design 3D & Expérience Premium
                 </h3>
                 <p className="text-muted-foreground leading-relaxed text-lg">
