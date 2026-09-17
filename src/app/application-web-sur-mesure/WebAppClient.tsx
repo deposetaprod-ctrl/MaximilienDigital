@@ -1,7 +1,7 @@
 "use client";
 
-import { useRef } from "react";
-import { motion } from "framer-motion";
+import { useRef, useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { HeroDynamicForm } from "@/components/sections/HeroDynamicForm";
 import { TestimonialsSection } from "@/components/sections/TestimonialsSection";
 import { Footer } from "@/components/sections/Footer";
@@ -30,6 +30,19 @@ const projects = [
 
 export default function WebAppClient() {
   const formRef = useRef<HTMLDivElement>(null);
+  const [showSticky, setShowSticky] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 400) {
+        setShowSticky(true);
+      } else {
+        setShowSticky(false);
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   function scrollToForm() {
     formRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -332,6 +345,26 @@ export default function WebAppClient() {
           </div>
           <HeroDynamicForm onScrollDown={() => {}} />
         </div>
+        {/* BOUTON FLOTTANT RESPONSIVE */}
+        <AnimatePresence>
+          {showSticky && (
+            <motion.div
+              initial={{ opacity: 0, y: 50, scale: 0.9 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: 50, scale: 0.9 }}
+              className="fixed bottom-6 right-6 z-50 md:bottom-10 md:right-10"
+            >
+              <button
+                onClick={scrollToForm}
+                className="group flex items-center gap-3 bg-primary text-primary-foreground px-6 py-4 md:px-8 md:py-4 rounded-full font-bold shadow-2xl shadow-primary/40 hover:scale-105 active:scale-95 transition-all border border-primary/20 backdrop-blur-sm"
+              >
+                <span className="hidden sm:inline">Recevoir ma maquette gratuite</span>
+                <span className="sm:hidden">Maquette Gratuite</span>
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </button>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </main>
       <Footer />
     </>

@@ -96,6 +96,13 @@ export function HeroDynamicForm({ onScrollDown }: HeroDynamicFormProps) {
       });
 
       if (res.ok) {
+        if (typeof window !== 'undefined' && typeof (window as any).gtag === 'function') {
+          (window as any).gtag('event', 'conversion', {
+            'send_to': 'AW-11307841019/iCzOCKjzlvscEPvr_48q',
+            'value': 1.0,
+            'currency': 'EUR'
+          });
+        }
         setIsSuccess(true);
       } else {
         alert("Une erreur est survenue. Veuillez réessayer.");
