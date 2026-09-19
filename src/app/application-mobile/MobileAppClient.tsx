@@ -343,7 +343,7 @@ export default function MobileAppClient() {
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Parlez-moi de votre application</h2>
             <p className="text-muted-foreground text-lg mb-8">Remplissez le formulaire ci-dessous pour recevoir une maquette et un devis.</p>
           </div>
-          <HeroDynamicForm onScrollDown={() => {}} />
+          <HeroDynamicForm onScrollDown={() => window.location.href = "/"} />
         </div>
         
         {/* BOUTON FLOTTANT RESPONSIVE */}

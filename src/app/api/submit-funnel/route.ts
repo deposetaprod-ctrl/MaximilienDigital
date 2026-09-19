@@ -33,7 +33,7 @@ export async function POST(request: Request) {
     // Send email to the admin
     await resend.emails.send({
       from: "Contact PWA <onboarding@resend.dev>", // Replace with verified domain in production if possible
-      to: "maximilien.godeau@gmail.com", // Ton adresse de réception (à modifier si besoin)
+      to: "maximilien.godeau.off@gmail.com", // Ton adresse de réception (à modifier si besoin)
       subject: `🔥 Nouveau prospect App - ${sector}`,
       html: `
         <h2>Nouvelle demande de projet Web App / PWA</h2>

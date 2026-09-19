@@ -343,7 +343,7 @@ export default function WebAppClient() {
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Prêt à démarrer ?</h2>
             <p className="text-muted-foreground text-lg mb-8">Remplissez le formulaire ci-dessous pour recevoir votre maquette gratuite.</p>
           </div>
-          <HeroDynamicForm onScrollDown={() => {}} />
+          <HeroDynamicForm onScrollDown={() => window.location.href = "/"} />
         </div>
         {/* BOUTON FLOTTANT RESPONSIVE */}
         <AnimatePresence>
