@@ -101,9 +101,9 @@ export default function RootLayout({
         "@id": "https://maximilien.digital/#person",
         name: "Maximilien",
         url: "https://maximilien.digital",
-        jobTitle: "Développeur d'Applications Web Métier & PWA",
+        jobTitle: "Développeur d'Applications Web & Mobile",
         description:
-          "Création d'Applications Web Métier et PWA sur-mesure pour automatiser les processus d'entreprise.",
+          "Création d'applications web et mobile sur mesure. Développement de PWA, d'applications iOS & Android et d'agents IA pour automatiser les processus d'entreprise.",
         sameAs: [],
       },
       {
@@ -114,7 +114,7 @@ export default function RootLayout({
         telephone: "+33766074746",
         email: "maximilien.godeau.off@gmail.com",
         description:
-          "Studio de développement d'applications web métier, PWA, connexion API et automatisation de processus.",
+          "Studio de développement d'applications web et mobile sur mesure. Création d'apps iOS & Android, PWA, SaaS, agents IA, connexion API et automatisation de processus.",
         address: {
           "@type": "PostalAddress",
           addressCountry: "FR",
@@ -123,8 +123,10 @@ export default function RootLayout({
           "@type": "OfferCatalog",
           name: "Services",
           itemListElement: [
-            { "@type": "Offer", itemOffered: { "@type": "Service", name: "Développement d'Application Web Métier" } },
+            { "@type": "Offer", itemOffered: { "@type": "Service", name: "Développement d'Application Web sur mesure" } },
+            { "@type": "Offer", itemOffered: { "@type": "Service", name: "Création d'Application Mobile iOS & Android" } },
             { "@type": "Offer", itemOffered: { "@type": "Service", name: "Création de Progressive Web App (PWA)" } },
+            { "@type": "Offer", itemOffered: { "@type": "Service", name: "Développement SaaS & Agents IA" } },
             { "@type": "Offer", itemOffered: { "@type": "Service", name: "Connexion API et Automatisation" } },
           ],
         },
@@ -134,7 +136,7 @@ export default function RootLayout({
         "@id": "https://maximilien.digital/#website",
         url: "https://maximilien.digital",
         name: "Maximilien Digital",
-        description: "Applications Web Métier, PWA & Automatisation",
+        description: "Création d'applications web et mobile sur mesure, PWA, SaaS & Automatisation IA",
         publisher: {
           "@id": "https://maximilien.digital/#person"
         },

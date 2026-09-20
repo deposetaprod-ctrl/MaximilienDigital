@@ -157,7 +157,7 @@ export default function MobileAppClient() {
           <div className="max-w-6xl mx-auto relative z-10">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">Notre Stratégie de Lancement Évolutive</h2>
-              <p className="text-muted-foreground max-w-3xl mx-auto text-lg">Chaque projet est unique : nous adaptons cette approche en fonction de vos objectifs pour vous accompagner de la meilleure façon possible.</p>
+              <p className="text-muted-foreground max-w-3xl mx-auto text-lg">Chaque projet d&apos;application mobile native est unique : nous adaptons cette approche en fonction de vos objectifs pour créer l&apos;app mobile qui correspond parfaitement à votre activité.</p>
             </div>
             
             <div className="grid md:grid-cols-3 gap-8 relative">
