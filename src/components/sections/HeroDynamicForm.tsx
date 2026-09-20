@@ -5,6 +5,7 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown, ArrowLeft, CheckCircle2, Gift, UploadCloud } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
+import { trackClick } from "@/lib/analytics";
 
 interface HeroDynamicFormProps {
   onScrollDown: () => void;
@@ -220,14 +221,22 @@ export function HeroDynamicForm({ onScrollDown }: HeroDynamicFormProps) {
                     </h2>
                     <div className="grid gap-4 sm:grid-cols-2">
                       <button
-                        onClick={() => { updateField("flow", "upload"); setStep(1); }}
+                        onClick={() => { 
+                          updateField("flow", "upload"); 
+                          setStep(1); 
+                          trackClick("click_maquette_gratuite_upload"); 
+                        }}
                         className={`${optionBtnClass} h-24 flex-col gap-2`}
                       >
                         <UploadCloud className="h-6 w-6 text-primary" />
                         <span>{t("hero_form_branch_opt_upload")}</span>
                       </button>
                       <button
-                        onClick={() => { updateField("flow", "guided"); setStep(1); }}
+                        onClick={() => { 
+                          updateField("flow", "guided"); 
+                          setStep(1); 
+                          trackClick("click_maquette_gratuite_guided"); 
+                        }}
                         className={`${optionBtnClass} h-24 flex-col gap-2`}
                       >
                         <span>{t("hero_form_branch_opt_guide")}</span>

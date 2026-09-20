@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { BrainCircuit, Database, Lock, Server, TerminalSquare, Zap } from "lucide-react";
+import { BrainCircuit, Database, Lock, Server, TerminalSquare, Zap, Code2 } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 
 interface AiPoweredSectionProps {
@@ -73,9 +73,9 @@ export function AiPoweredSection({ onCtaClick }: AiPoweredSectionProps) {
               <div className="space-y-6 relative z-10">
                 {/* AI Layer */}
                 <div className="flex flex-col items-center p-4 bg-gradient-to-br from-amber-500/10 to-rose-500/10 rounded-xl border border-primary/20">
-                  <BrainCircuit className="w-10 h-10 text-primary mb-2" />
-                  <span className="font-bold text-foreground">Génération IA (Claude 3.5)</span>
-                  <span className="text-xs text-muted-foreground mt-1">Vitesse & Code brut</span>
+                  <Code2 className="w-10 h-10 text-primary mb-2" />
+                  <span className="font-bold text-foreground">{t("ai_schema_top_title")}</span>
+                  <span className="text-xs text-muted-foreground mt-1">{t("ai_schema_top_desc")}</span>
                 </div>
 
                 {/* Connection lines */}
@@ -90,27 +90,27 @@ export function AiPoweredSection({ onCtaClick }: AiPoweredSectionProps) {
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
                   <div className="flex flex-col items-center p-3 bg-background rounded-lg border border-border shadow-sm">
                     <Database className="w-6 h-6 text-blue-500 mb-2" />
-                    <span className="text-xs font-semibold text-center">Bases de données</span>
+                    <span className="text-xs font-semibold text-center">{t("ai_schema_mid_db")}</span>
                   </div>
                   <div className="flex flex-col items-center p-3 bg-background rounded-lg border border-border shadow-sm">
                     <Lock className="w-6 h-6 text-green-500 mb-2" />
-                    <span className="text-xs font-semibold text-center">Sécurité & Auth</span>
+                    <span className="text-xs font-semibold text-center">{t("ai_schema_mid_auth")}</span>
                   </div>
                   <div className="flex flex-col items-center p-3 bg-background rounded-lg border border-border shadow-sm">
                     <Server className="w-6 h-6 text-purple-500 mb-2" />
-                    <span className="text-xs font-semibold text-center">Déploiement</span>
+                    <span className="text-xs font-semibold text-center">{t("ai_schema_mid_deploy")}</span>
                   </div>
                   <div className="flex flex-col items-center p-3 bg-background rounded-lg border border-border shadow-sm">
                     <Zap className="w-6 h-6 text-amber-500 mb-2" />
-                    <span className="text-xs font-semibold text-center">Connexions API</span>
+                    <span className="text-xs font-semibold text-center">{t("ai_schema_mid_api")}</span>
                   </div>
                 </div>
 
                 {/* Final Product */}
                 <div className="mt-4 flex flex-col items-center p-5 bg-foreground text-background rounded-xl shadow-xl">
                   <TerminalSquare className="w-8 h-8 mb-2" />
-                  <span className="font-bold text-lg text-center">Application 100% à Vous</span>
-                  <span className="text-xs opacity-70 text-center mt-1">Fonctionnelle, Scalable, Propriétaire</span>
+                  <span className="font-bold text-lg text-center">{t("ai_schema_bot_title")}</span>
+                  <span className="text-xs opacity-70 text-center mt-1">{t("ai_schema_bot_desc")}</span>
                 </div>
               </div>
             </motion.div>

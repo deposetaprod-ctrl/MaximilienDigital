@@ -254,11 +254,19 @@ export const translations = {
 
     // AI Section
 
-    ai_section_title: "L'IA code très vite, je construis l'architecture.",
-    ai_section_desc1: "Aujourd'hui, tout le monde sait que les IA comme <strong>Claude, OpenAI ou Gemini</strong> sont incroyablement performantes pour écrire du code. C'est vrai, et je les utilise quotidiennement.",
-    ai_section_desc2: "Cependant, <strong>générer du code ne suffit pas pour créer une application métier viable et sécurisée</strong>. Il faut maîtriser l'architecture des systèmes d'information, connecter des bases de données complexes, gérer l'authentification, les API, les déploiements serveurs et corriger les subtilités qui font que votre application fait la différence.",
-    ai_section_desc3: "<strong>C'est là qu'est notre vraie valeur :</strong> nous sommes les chefs d'orchestre. L'IA permet de vous livrer 3x plus vite et pour beaucoup moins cher. Mais mon expertise garantit que le produit final vous appartient à 100%, et qu'il est solide, sécurisé et connecté.",
+    ai_section_title: "Une architecture solide, un développement ultra-rapide.",
+    ai_section_desc1: "Aujourd'hui, pour qu'un projet réussisse, il faut allier <strong>rapidité d'exécution et fiabilité technique</strong>. J'utilise les meilleurs frameworks modernes pour développer des solutions robustes sans compromis sur la qualité.",
+    ai_section_desc2: "Cependant, <strong>écrire du code ne suffit pas pour créer une application métier viable</strong>. Il faut concevoir des architectures robustes et des bases de données conformes (RGPD, données sensibles). Il faut aussi savoir programmer des agents IA (modération, chatbots, génération d'image, contrôle des coûts), développer des tableaux de bord, optimiser le SEO et vos campagnes Google Ads, gérer les envois d'emails/SMS, publier sur les stores, et réaliser un design attrayant sur-mesure. Enfin, l'accompagnement stratégique est essentiel : définir un MVP pour tester son marché rapidement, puis intégrer des modules de paiement, de l'upsell et des abonnements.",
+    ai_section_desc3: "<strong>C'est là qu'est ma vraie valeur :</strong> je suis l'architecte et le chef d'orchestre de votre projet. Mon expertise vous garantit une livraison rapide, un produit final qui vous appartient à 100%, et une application prête à évoluer avec votre entreprise.",
     ai_section_cta: "Obtenir ma maquette gratuite",
+    ai_schema_top_title: "Développement & Conception",
+    ai_schema_top_desc: "Code optimisé & Architecture",
+    ai_schema_mid_db: "Bases de données",
+    ai_schema_mid_auth: "Sécurité & Auth",
+    ai_schema_mid_deploy: "Déploiement",
+    ai_schema_mid_api: "Connexions API",
+    ai_schema_bot_title: "Application 100% à Vous",
+    ai_schema_bot_desc: "Fonctionnelle, Scalable, Propriétaire",
     hero_form_gift_subtitle: "Répondez au formulaire ci-dessous.",
     hero_form_success_title: "C'est parti ! 🎉",
     hero_form_success_sub: "Votre maquette gratuite est en préparation.",
@@ -1099,11 +1107,19 @@ export const translations = {
 
     // AI Section
 
-    ai_section_title: "AI codes very fast, I build the architecture.",
-    ai_section_desc1: "Today, everyone knows that AIs like <strong>Claude, OpenAI, or Gemini</strong> are incredibly powerful at writing code. It's true, and I use them daily.",
-    ai_section_desc2: "However, <strong>generating code is not enough to create a viable and secure business application</strong>. It requires mastering information systems architecture, connecting complex databases, managing authentication, APIs, server deployments, and fixing the subtleties that make your application stand out.",
-    ai_section_desc3: "<strong>This is where our true value lies:</strong> we are the conductors. AI allows us to deliver 3x faster and for much less. But my expertise guarantees that the final product belongs 100% to you, and that it is solid, secure, and connected.",
+    ai_section_title: "Solid architecture, blazing-fast development.",
+    ai_section_desc1: "Today, for a project to succeed, it must combine <strong>speed of execution and technical reliability</strong>. I use the best modern frameworks to develop robust solutions without compromising on quality.",
+    ai_section_desc2: "However, <strong>writing code is not enough to create a viable business application</strong>. It requires designing robust architectures and compliant databases (GDPR, sensitive data). It also means programming AI agents (moderation, chatbots, image generation, cost control), developing admin dashboards, optimizing SEO and Google Ads campaigns, managing emails/SMS, publishing to app stores, and creating an attractive custom design. Finally, strategic guidance is essential: defining an MVP to quickly test the market, and then integrating payment modules, upsells, and subscriptions.",
+    ai_section_desc3: "<strong>This is where my true value lies:</strong> I am the architect and conductor of your project. My expertise guarantees fast delivery, a final product that belongs 100% to you, and an application ready to scale with your business.",
     ai_section_cta: "Get my free mockup",
+    ai_schema_top_title: "Development & Design",
+    ai_schema_top_desc: "Optimized Code & Architecture",
+    ai_schema_mid_db: "Databases",
+    ai_schema_mid_auth: "Security & Auth",
+    ai_schema_mid_deploy: "Deployment",
+    ai_schema_mid_api: "API Connections",
+    ai_schema_bot_title: "100% Your Application",
+    ai_schema_bot_desc: "Functional, Scalable, Proprietary",
 
     hero_form_gift_subtitle: "Receive a <strong class=\"bg-primary/15 border border-primary/30 text-amber-700 dark:text-amber-400 px-2 py-0.5 mx-1 rounded-md\">free mockup</strong> of your project by email within 24h.",
     hero_form_step4_q: "Describe your project in a few words",

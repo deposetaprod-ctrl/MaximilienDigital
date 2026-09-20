@@ -1,4 +1,4 @@
-import { streamText } from 'ai';
+import { streamText, convertToModelMessages } from 'ai';
 import { google } from '@ai-sdk/google';
 
 // Allow streaming responses up to 30 seconds
@@ -20,12 +20,12 @@ Rassure toujours le client sur la "Stratégie Évolutive" : on conseille souvent
 Si un client semble intéressé, propose-lui de scroller vers le bas de la page pour remplir le formulaire "Recevoir ma maquette gratuite" ou demande-lui son adresse e-mail pour que Maximilien puisse le recontacter.`;
 
     const result = await streamText({
-      model: google('gemini-1.5-pro-latest'),
+      model: google('gemini-flash-latest'),
       system: systemPrompt,
-      messages,
+      messages: await convertToModelMessages(messages),
     });
 
-    return result.toTextStreamResponse();
+    return result.toUIMessageStreamResponse();
   } catch (error) {
     console.error("Chatbot API Error:", error);
     return new Response("Error connecting to AI Provider", { status: 500 });

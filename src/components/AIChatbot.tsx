@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Send, Bot, User, MessageCircle, Sparkles, FileText } from "lucide-react";
 import { useChat } from "@ai-sdk/react";
+import { trackClick, trackChat } from "@/lib/analytics";
 
 type View = "closed" | "menu" | "chat";
 
@@ -12,14 +13,14 @@ export function AIChatbot() {
   const { messages, sendMessage, status, stop } = useChat();
   const [input, setInput] = useState("");
   const isLoading = status === "submitted" || status === "streaming";
+  
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => setInput(e.target.value);
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!input.trim()) return;
-    sendMessage({ role: "user", parts: [{ type: "text", text: input }] });
+    sendMessage({ role: "user", parts: [{ type: "text", text: input }] } as any);
     setInput("");
   };
-  //
 
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
@@ -28,7 +29,12 @@ export function AIChatbot() {
     if (messagesEndRef.current) {
       messagesEndRef.current.scrollIntoView({ behavior: "smooth" });
     }
-  }, [messages, isLoading]);
+    
+    // Save chat history to CRM when messages change
+    if (messages.length > 0 && status !== "streaming") {
+      trackChat(messages);
+    }
+  }, [messages, isLoading, status]);
 
   function handleScrollToForm() {
     setView("closed");
@@ -54,7 +60,10 @@ export function AIChatbot() {
             exit={{ opacity: 0, scale: 0.6 }}
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
-            onClick={() => setView("menu")}
+            onClick={() => {
+              setView("menu");
+              trackClick("open_chatbot_menu");
+            }}
             className="fixed bottom-6 right-6 z-50 flex items-center justify-center w-14 h-14 rounded-full bg-primary text-primary-foreground shadow-2xl shadow-primary/40 border border-primary/20 transition-colors"
             aria-label="Ouvrir le menu d'aide"
           >
@@ -97,7 +106,10 @@ export function AIChatbot() {
               </div>
               <div className="p-3 flex flex-col gap-2">
                 <button
-                  onClick={() => setView("chat")}
+                  onClick={() => {
+                    setView("chat");
+                    trackClick("open_chatbot_chat");
+                  }}
                   className="flex items-center gap-3 w-full p-3 rounded-xl hover:bg-secondary/60 transition-colors text-left group"
                 >
                   <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 transition-colors">
@@ -109,7 +121,10 @@ export function AIChatbot() {
                   </div>
                 </button>
                 <button
-                  onClick={handleScrollToForm}
+                  onClick={() => {
+                    handleScrollToForm();
+                    trackClick("click_chatbot_maquette_gratuite");
+                  }}
                   className="flex items-center gap-3 w-full p-3 rounded-xl hover:bg-secondary/60 transition-colors text-left group"
                 >
                   <div className="w-10 h-10 rounded-full bg-green-500/10 flex items-center justify-center flex-shrink-0 group-hover:bg-green-500/20 transition-colors">
@@ -139,8 +154,8 @@ export function AIChatbot() {
             {/* Header */}
             <div className="bg-primary px-4 py-3 flex items-center justify-between text-primary-foreground shadow-sm relative z-10">
               <div className="flex items-center gap-2">
-                <div className="bg-background/20 p-1.5 rounded-full">
-                  <Bot className="h-5 w-5" />
+                <div className="bg-background/20 p-0.5 rounded-full overflow-hidden">
+                  <img src="/max.png" alt="Maximilien" className="h-8 w-8 object-cover rounded-full" />
                 </div>
                 <div>
                   <h3 className="font-bold text-sm leading-none mb-0.5">Assistant IA</h3>
@@ -159,7 +174,7 @@ export function AIChatbot() {
             <div className="flex-1 overflow-y-auto p-4 flex flex-col gap-4 bg-secondary/10 relative">
               {messages.length === 0 && (
                 <div className="flex flex-col items-center justify-center h-full text-center opacity-70">
-                  <Bot className="h-12 w-12 text-muted-foreground mb-3" />
+                  <img src="/max.png" alt="Maximilien" className="h-16 w-16 object-cover rounded-full mb-3 shadow-md border-2 border-primary/20" />
                   <p className="text-sm font-medium text-muted-foreground max-w-[250px]">
                     Bonjour ! Je suis l&apos;assistant IA de Maximilien. Posez-moi vos questions sur nos applications Web ou Mobiles !
                   </p>
@@ -173,19 +188,19 @@ export function AIChatbot() {
                   key={m.id}
                   className={`flex items-start gap-2 max-w-[85%] ${m.role === "user" ? "ml-auto flex-row-reverse" : "mr-auto"}`}
                 >
-                  <div className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center ${m.role === "user" ? "bg-primary/20 text-primary" : "bg-primary text-primary-foreground shadow-sm"}`}>
-                    {m.role === "user" ? <User className="h-4 w-4" /> : <Bot className="h-4 w-4" />}
+                  <div className={`flex-shrink-0 w-8 h-8 rounded-full overflow-hidden flex items-center justify-center ${m.role === "user" ? "bg-primary/20 text-primary" : "bg-primary shadow-sm"}`}>
+                    {m.role === "user" ? <User className="h-4 w-4" /> : <img src="/max.png" alt="Maximilien" className="h-full w-full object-cover" />}
                   </div>
                   <div className={`p-3 text-sm rounded-2xl ${m.role === "user" ? "bg-primary/10 text-foreground border border-primary/20 rounded-tr-sm" : "bg-card border border-border shadow-sm rounded-tl-sm text-card-foreground whitespace-pre-wrap"}`}>
-                    {(m as any).content || (m.parts && m.parts.map((p: any) => p.type === "text" ? p.text : "").join(""))}
+                    {m.parts?.filter((p: any) => p.type === "text").map((p: any) => p.text).join("") || (m as any).content || ""}
                   </div>
                 </motion.div>
               ))}
 
               {isLoading && (
                 <div className="flex items-start gap-2 max-w-[85%] mr-auto">
-                  <div className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center bg-primary text-primary-foreground shadow-sm">
-                    <Bot className="h-4 w-4" />
+                  <div className="flex-shrink-0 w-8 h-8 rounded-full overflow-hidden flex items-center justify-center bg-primary shadow-sm">
+                    <img src="/max.png" alt="Maximilien" className="h-full w-full object-cover" />
                   </div>
                   <div className="p-4 rounded-2xl bg-card border border-border shadow-sm rounded-tl-sm flex items-center gap-1.5">
                     <motion.div animate={{ scale: [1, 1.2, 1] }} transition={{ repeat: Infinity, duration: 1 }} className="w-1.5 h-1.5 bg-muted-foreground rounded-full" />

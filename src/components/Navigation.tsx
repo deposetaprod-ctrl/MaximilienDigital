@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 
 import { Link, usePathname, useRouter } from "@/i18n/routing";
 import { useLanguage } from "@/context/LanguageContext";
+import { trackClick } from "@/lib/analytics";
 import { Menu, X, MessageCircle } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -61,6 +62,7 @@ export function Navigation() {
                 <Link
                   key={item.href}
                   href={item.href}
+                  onClick={() => trackClick(`nav_${item.name}`)}
                   className={`px-3 py-1.5 text-sm font-medium rounded-full transition-colors ${
                     isActive
                       ? "bg-primary text-primary-foreground"
@@ -154,6 +156,7 @@ export function Navigation() {
                   <Link
                     key={item.href}
                     href={item.href}
+                    onClick={() => trackClick(`nav_mobile_${item.name}`)}
                     className={`text-2xl font-bold transition-colors ${
                       isActive ? "text-primary" : "text-foreground/60"
                     }`}

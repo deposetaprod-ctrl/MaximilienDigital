@@ -23,6 +23,12 @@ const pages = [
 export default function sitemap(): MetadataRoute.Sitemap {
   return pages.map(({ path, priority, changeFrequency, lastModified }) => ({
     url: `${BASE_URL}${path}`,
+    alternates: {
+      languages: {
+        fr: `${BASE_URL}${path}`,
+        en: `${BASE_URL}/en${path === "/" ? "" : path}`,
+      },
+    },
     lastModified: new Date(lastModified),
     changeFrequency,
     priority,
