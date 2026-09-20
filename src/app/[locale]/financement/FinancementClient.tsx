@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 import { useLanguage } from "@/context/LanguageContext";
 import { AnimatedBaseButton } from "@/components/ui/AnimatedBaseButton";
 

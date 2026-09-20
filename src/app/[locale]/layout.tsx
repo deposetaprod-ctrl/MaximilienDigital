@@ -3,8 +3,9 @@ import { Geist } from "next/font/google";
 import { Navigation } from "@/components/Navigation";
 import { AIChatbot } from "@/components/AIChatbot";
 import { LanguageProvider } from "@/context/LanguageContext";
+import { translations, type Locale } from "@/lib/i18n";
 import Script from "next/script";
-import "./globals.css";
+import "../globals.css";
 
 const OG_IMAGE_URL = "https://maximilien.digital/og-image.png";
 
@@ -15,84 +16,90 @@ const geistSans = Geist({
 
 const BASE_URL = "https://maximilien.digital";
 
-export const metadata: Metadata = {
-  metadataBase: new URL(BASE_URL),
-  title: {
-    default: "Développeur d'Applications Web & Mobile | Maquette Gratuite",
-    template: "%s | Maximilien Digital",
-  },
-  description:
-    "Développeur d'applications web et mobile sur mesure. Création d'application web, PWA et application mobile iOS & Android. Obtenez votre maquette gratuite et propulsez votre métier grâce à l'Intelligence Artificielle.",
-  keywords: [
-    "développeur application mobile",
-    "développeur application web",
-    "création application mobile",
-    "développeur IA",
-    "créer application avec IA",
-    "maquette gratuite",
-    "application web métier",
-    "application sur mesure",
-    "application mobile sur mesure",
-    "PWA",
-    "automatisation processus métier",
-    "connexion API",
-    "Maximilien Digital",
-  ],
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: { index: true, follow: true },
-  },
-  alternates: {
-    canonical: BASE_URL,
-    languages: {
-      fr: BASE_URL,
-      en: BASE_URL,
-      "x-default": BASE_URL,
-    },
-  },
-  openGraph: {
-    title: "Maximilien Digital | Applications Web & Mobile sur mesure",
-    description:
-      "Création d'applications web et mobile sur mesure. Développement rapide, PWA, application iOS & Android, connexion API et automatisation des processus métier.",
-    type: "website",
-    url: BASE_URL,
-    siteName: "Maximilien Digital",
-    locale: "fr_FR",
-    images: [
-      {
-        url: OG_IMAGE_URL,
-        width: 1200,
-        height: 630,
-        alt: "Maximilien Digital — Applications Web & Mobile sur mesure",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Maximilien Digital | Applications Web & Mobile sur mesure",
-    description:
-      "Création d'applications web et mobile sur mesure. Développement rapide, PWA, application iOS & Android, connexion API et automatisation des processus métier.",
-    images: [OG_IMAGE_URL],
-  },
-  manifest: "/manifest.json",
-  icons: {
-    icon: [
-      { url: "/icon.png" },
-      { url: "/icon.png", sizes: "32x32", type: "image/png" },
-      { url: "/icon.png", sizes: "192x192", type: "image/png" },
-    ],
-    apple: [
-      { url: "/apple-icon.png" },
-    ],
-  },
-};
+export async function generateMetadata(props: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await props.params;
+  const t = (key: string) => (translations as any)[locale]?.[key] || key;
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+  return {
+    metadataBase: new URL(BASE_URL),
+    title: {
+      default: t("seo_title_default") || "Développeur d'Applications Web & Mobile | Maquette Gratuite",
+      template: "%s | Maximilien Digital",
+    },
+    description: t("seo_desc") || "Développeur d'applications web et mobile sur mesure.",
+    keywords: [
+      "développeur application mobile",
+      "développeur application web",
+      "création application mobile",
+      "développeur IA",
+      "créer application avec IA",
+      "maquette gratuite",
+      "application web métier",
+      "application sur mesure",
+      "application mobile sur mesure",
+      "PWA",
+      "automatisation processus métier",
+      "connexion API",
+      "Maximilien Digital",
+    ],
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: { index: true, follow: true },
+    },
+    alternates: {
+      canonical: BASE_URL,
+      languages: {
+        fr: BASE_URL,
+        en: BASE_URL + "/en",
+        "x-default": BASE_URL,
+      },
+    },
+    openGraph: {
+      title: "Maximilien Digital | Applications Web & Mobile sur mesure",
+      description: "Création d'applications web et mobile sur mesure. Développement rapide, PWA, application iOS & Android, connexion API et automatisation des processus métier.",
+      type: "website",
+      url: BASE_URL,
+      siteName: "Maximilien Digital",
+      locale: locale === 'en' ? "en_US" : "fr_FR",
+      images: [
+        {
+          url: OG_IMAGE_URL,
+          width: 1200,
+          height: 630,
+          alt: "Maximilien Digital — Applications Web & Mobile sur mesure",
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: "Maximilien Digital | Applications Web & Mobile sur mesure",
+      description: "Création d'applications web et mobile sur mesure. Développement rapide, PWA, application iOS & Android, connexion API et automatisation des processus métier.",
+      images: [OG_IMAGE_URL],
+    },
+    manifest: "/manifest.json",
+    icons: {
+      icon: [
+        { url: "/icon.png" },
+        { url: "/icon.png", sizes: "32x32", type: "image/png" },
+        { url: "/icon.png", sizes: "192x192", type: "image/png" },
+      ],
+      apple: [
+        { url: "/apple-icon.png" },
+      ],
+    },
+  };
+}
+
+export default async function RootLayout(
+  props: Readonly<{
+    children: React.ReactNode;
+    params: Promise<{ locale: string }>;
+  }>
+) {
+  const { children, params } = props;
+  const { locale } = await params;
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
@@ -146,7 +153,7 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="fr" className="dark" suppressHydrationWarning>
+    <html lang={locale} className="dark" suppressHydrationWarning>
       <head>
         <script
           type="application/ld+json"
@@ -173,7 +180,8 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} font-sans antialiased`}
       >
-        <LanguageProvider>
+        {/* @ts-ignore */}
+        <LanguageProvider initialLocale={locale}>
           <Navigation />
           {children}
           <AIChatbot />

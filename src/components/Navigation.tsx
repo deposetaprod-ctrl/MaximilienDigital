@@ -1,8 +1,8 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+
+import { Link, usePathname, useRouter } from "@/i18n/routing";
 import { useLanguage } from "@/context/LanguageContext";
 import { Menu, X, MessageCircle } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -12,6 +12,12 @@ const WHATSAPP_GROUP_URL = "https://chat.whatsapp.com/K1pakG7WODOC3tk27RQ42P?mod
 export function Navigation() {
   const pathname = usePathname();
   const { locale, setLocale, t } = useLanguage();
+  const router = useRouter();
+
+  const handleLocaleChange = (newLocale) => {
+    setLocale(newLocale);
+    router.replace(pathname, { locale: newLocale });
+  };
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   // Close menu when route changes
@@ -80,7 +86,7 @@ export function Navigation() {
           {/* Language Toggle (Always visible) */}
           <div className="flex items-center gap-0.5 rounded-full bg-secondary/50 p-0.5">
             <button
-              onClick={() => setLocale("fr")}
+              onClick={() => handleLocaleChange("fr")}
               className={`px-2.5 py-1 text-[10px] sm:text-xs font-semibold rounded-full transition-all cursor-pointer ${
                 locale === "fr"
                   ? "bg-primary text-primary-foreground shadow-sm"
@@ -91,7 +97,7 @@ export function Navigation() {
               FR
             </button>
             <button
-              onClick={() => setLocale("en")}
+              onClick={() => handleLocaleChange("en")}
               className={`px-2.5 py-1 text-[10px] sm:text-xs font-semibold rounded-full transition-all cursor-pointer ${
                 locale === "en"
                   ? "bg-primary text-primary-foreground shadow-sm"

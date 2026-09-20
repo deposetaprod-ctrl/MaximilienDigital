@@ -6,7 +6,7 @@ import { useLanguage } from "@/context/LanguageContext";
 import type { LucideIcon } from "lucide-react";
 import { Dialog } from "@base-ui/react";
 import { useState } from "react";
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 
 interface ServiceItem {
   icon: LucideIcon;

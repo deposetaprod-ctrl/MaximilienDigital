@@ -18,8 +18,8 @@ interface LanguageContextValue {
 
 const LanguageContext = createContext<LanguageContextValue | null>(null);
 
-export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [locale, setLocaleState] = useState<Locale>("fr");
+export function LanguageProvider({ children, initialLocale = "fr" }: { children: ReactNode, initialLocale?: Locale }) {
+  const [locale, setLocaleState] = useState<Locale>(initialLocale);
 
   // Restore preference from localStorage on mount
   useEffect(() => {

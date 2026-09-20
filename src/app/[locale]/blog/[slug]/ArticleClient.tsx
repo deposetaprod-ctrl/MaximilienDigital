@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { useLanguage } from "@/context/LanguageContext";
 import { Footer } from "@/components/sections/Footer";
 import { SimplifiedContactModal } from "@/components/SimplifiedContactModal";
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 import Image from "next/image";
 import { ArrowLeft, Calendar, Clock, Share2, MessageSquare } from "lucide-react";
 

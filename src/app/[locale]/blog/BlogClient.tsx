@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { useLanguage } from "@/context/LanguageContext";
 import { Footer } from "@/components/sections/Footer";
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 import { ArrowRight, BookOpen, Calendar, Clock } from "lucide-react";
 
 export default function BlogClient() {

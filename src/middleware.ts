@@ -1,5 +1,9 @@
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
+import createMiddleware from 'next-intl/middleware'
+import { routing } from './i18n/routing'
+
+const intlMiddleware = createMiddleware(routing)
 
 export function middleware(req: NextRequest) {
   // Only protect /admin routes
@@ -17,6 +21,8 @@ export function middleware(req: NextRequest) {
       const validPassword = adminPassword || 'admin'
 
       if (user === 'admin' && pwd === validPassword) {
+        // Continue to the next-intl middleware even for admin if needed, 
+        // but /admin is probably not localized.
         return NextResponse.next()
       }
     }
@@ -30,9 +36,11 @@ export function middleware(req: NextRequest) {
     })
   }
 
-  return NextResponse.next()
+  // Handle i18n routing
+  return intlMiddleware(req)
 }
 
 export const config = {
-  matcher: ['/admin/:path*'],
+  // Skip all paths that should not be internationalized
+  matcher: ['/((?!api|_next|_vercel|.*\\..*).*)']
 }
