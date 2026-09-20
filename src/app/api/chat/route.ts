@@ -20,7 +20,7 @@ Rassure toujours le client sur la "Stratégie Évolutive" : on conseille souvent
 Si un client semble intéressé, propose-lui de scroller vers le bas de la page pour remplir le formulaire "Recevoir ma maquette gratuite" ou demande-lui son adresse e-mail pour que Maximilien puisse le recontacter.`;
 
     const result = await streamText({
-      model: google('gemini-1.5-flash'),
+      model: google('gemini-3.8-flash'),
       system: systemPrompt,
       messages: await convertToModelMessages(messages),
     });

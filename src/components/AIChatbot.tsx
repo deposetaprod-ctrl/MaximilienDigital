@@ -18,8 +18,8 @@ export function AIChatbot() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!input.trim()) return;
-    // Vercel AI SDK 4 uses standard message format with content
-    sendMessage({ role: "user", content: input } as any);
+    // Vercel AI SDK 4 uses standard message format with parts
+    sendMessage({ role: "user", parts: [{ type: "text", text: input }] } as any);
     setInput("");
   };
   const messagesEndRef = useRef<HTMLDivElement>(null);
