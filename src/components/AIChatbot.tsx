@@ -10,8 +10,18 @@ type View = "closed" | "menu" | "chat";
 
 export function AIChatbot() {
   const [view, setView] = useState<View>("closed");
-  const { messages, input, handleInputChange, handleSubmit, status, stop } = useChat();
+  const { messages, sendMessage, status, stop } = useChat();
+  const [input, setInput] = useState("");
   const isLoading = status === "submitted" || status === "streaming";
+  
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => setInput(e.target.value);
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!input.trim()) return;
+    // Vercel AI SDK 4 uses standard message format with content
+    sendMessage({ role: "user", content: input } as any);
+    setInput("");
+  };
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
