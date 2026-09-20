@@ -300,7 +300,7 @@ export default function WebAppClient() {
                   "Architecture de base de données robuste",
                   "Connexion avec vos API existantes",
                   "Mise en ligne et configuration serveur",
-                  "Propriété intégrale : {t("webapp_trust_code")}"
+                  "Propriété intégrale : " + t("webapp_trust_code")
                 ].map((item, i) => (
                   <li key={i} className="flex items-center gap-4">
                     <div className="bg-primary/20 p-2 rounded-full flex-shrink-0">

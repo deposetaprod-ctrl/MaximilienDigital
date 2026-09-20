@@ -305,8 +305,8 @@ export default function MobileAppClient() {
                   "Design UI/UX Mobile sur mesure",
                   "Développement iOS et Android simultané",
                   "Mise en place de l'API et Base de données",
-                  "{t("mobapp_trust_store")}",
-                  "Propriété intégrale : {t("mobapp_trust_code")}"
+                  t("mobapp_trust_store"),
+                  "Propriété intégrale : " + t("mobapp_trust_code")
                 ].map((item, i) => (
                   <li key={i} className="flex items-center gap-4">
                     <div className="bg-primary/20 p-2 rounded-full flex-shrink-0">
