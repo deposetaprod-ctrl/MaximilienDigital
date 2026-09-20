@@ -3,6 +3,7 @@ import { Geist } from "next/font/google";
 import { Navigation } from "@/components/Navigation";
 import { AIChatbot } from "@/components/AIChatbot";
 import { LanguageProvider } from "@/context/LanguageContext";
+import { NextIntlClientProvider } from "next-intl";
 import { translations, type Locale } from "@/lib/i18n";
 import Script from "next/script";
 import "../globals.css";
@@ -180,12 +181,14 @@ export default async function RootLayout(
       <body
         className={`${geistSans.variable} font-sans antialiased`}
       >
-        {/* @ts-ignore */}
-        <LanguageProvider initialLocale={locale}>
+        <NextIntlClientProvider locale={locale} messages={{}}>
+          {/* @ts-ignore */}
+          <LanguageProvider initialLocale={locale}>
           <Navigation />
           {children}
           <AIChatbot />
         </LanguageProvider>
+        </NextIntlClientProvider>
       </body>
     </html>
   );
