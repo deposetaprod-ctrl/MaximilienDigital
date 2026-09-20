@@ -14,7 +14,7 @@ export function Navigation() {
   const { locale, setLocale, t } = useLanguage();
   const router = useRouter();
 
-  const handleLocaleChange = (newLocale: string) => {
+  const handleLocaleChange = (newLocale: "fr" | "en") => {
     setLocale(newLocale);
     router.replace(pathname, { locale: newLocale });
   };
