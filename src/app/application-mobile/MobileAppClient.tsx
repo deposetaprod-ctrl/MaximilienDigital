@@ -6,35 +6,38 @@ import { HeroDynamicForm } from "@/components/sections/HeroDynamicForm";
 import { TestimonialsSection } from "@/components/sections/TestimonialsSection";
 import { Footer } from "@/components/sections/Footer";
 import { Code2, Zap, Smartphone, Globe, Database, AppWindow, ArrowRight, CheckCircle2, Cpu, ShieldCheck, Sparkles, BellRing, Rocket, Bot } from "lucide-react";
-
-const projects = [
-  {
-    title: "Application E-Commerce",
-    desc: "Boutique en ligne avec paiement intégré, notifications push de promotions et suivi de livraison en temps réel.",
-    tags: ["iOS & Android", "Paiement", "B2C"],
-    icon: <Smartphone className="w-8 h-8 text-primary" />
-  },
-  {
-    title: "Outil pour équipe sur le terrain",
-    desc: "Application hors-ligne pour les techniciens, scan de QR codes, signature électronique et synchronisation Cloud.",
-    tags: ["Mode Hors-ligne", "B2B", "API"],
-    icon: <Database className="w-8 h-8 text-primary" />
-  },
-  {
-    title: "Réseau Social de Niche",
-    desc: "Profils utilisateurs, messagerie instantanée, flux d'actualités et géolocalisation pour connecter une communauté.",
-    tags: ["Temps réel", "Messagerie", "Communauté"],
-    icon: <Globe className="w-8 h-8 text-primary" />
-  },
-  {
-    title: "Application avec Agents IA",
-    desc: "Intégration d'IA pour modération, suivi financier, envois d'upsell automatisés et SMS programmés, avec une base de données 100% RGPD.",
-    tags: ["Intelligence Artificielle", "Automatisation", "RGPD"],
-    icon: <Bot className="w-8 h-8 text-primary" />
-  }
-];
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function MobileAppClient() {
+  const { t } = useLanguage();
+
+  const projects = [
+    {
+      title: t("mobapp_proj_1_title"),
+      desc: t("mobapp_proj_1_desc"),
+      tags: ["iOS & Android", "Paiement", "B2C"],
+      icon: <Smartphone className="w-8 h-8 text-primary" />
+    },
+    {
+      title: t("mobapp_proj_2_title"),
+      desc: t("mobapp_proj_2_desc"),
+      tags: ["Mode Hors-ligne", "B2B", "API"],
+      icon: <Database className="w-8 h-8 text-primary" />
+    },
+    {
+      title: t("mobapp_proj_3_title"),
+      desc: t("mobapp_proj_3_desc"),
+      tags: ["Temps réel", "Messagerie", "Communauté"],
+      icon: <Globe className="w-8 h-8 text-primary" />
+    },
+    {
+      title: t("mobapp_proj_4_title"),
+      desc: t("mobapp_proj_4_desc"),
+      tags: ["Intelligence Artificielle", "Automatisation", "RGPD"],
+      icon: <Bot className="w-8 h-8 text-primary" />
+    }
+  ];
+
   const formRef = useRef<HTMLDivElement>(null);
   const [showSticky, setShowSticky] = useState(false);
 
@@ -68,7 +71,7 @@ export default function MobileAppClient() {
               animate={{ opacity: 1, y: 0 }}
               className="inline-flex items-center gap-2 px-4 py-1.5 mb-8 rounded-full bg-primary/10 border border-primary/20 text-primary font-bold text-sm shadow-sm"
             >
-              <Smartphone className="w-4 h-4" /> Création d'Application Mobile sur Mesure
+              <Smartphone className="w-4 h-4" /> {t("mobapp_hero_badge")}
             </motion.div>
             
             <motion.h1 
@@ -77,9 +80,9 @@ export default function MobileAppClient() {
               transition={{ delay: 0.1 }}
               className="text-4xl md:text-6xl font-extrabold tracking-tight text-foreground mb-6 leading-[1.1]"
             >
-              Votre application mobile, <br className="hidden md:block"/>
+              {t("mobapp_hero_title")} <br className="hidden md:block"/>
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-amber-500">
-                présente dans la poche de vos clients
+                {t("mobapp_hero_title_gradient")}
               </span>
             </motion.h1>
             
@@ -89,7 +92,7 @@ export default function MobileAppClient() {
               transition={{ delay: 0.2 }}
               className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl font-medium"
             >
-              Lancez une application iOS et Android native pour fidéliser vos utilisateurs, envoyer des notifications push et inspirer confiance grâce à votre présence sur l'App Store et Google Play.
+              {t("mobapp_hero_sub")}
             </motion.p>
             
             <motion.div
@@ -98,11 +101,11 @@ export default function MobileAppClient() {
               transition={{ delay: 0.3 }}
               className="flex flex-col sm:flex-row items-center justify-center gap-4 text-sm font-bold text-foreground/80 mb-10 w-full"
             >
-              <span className="flex items-center gap-2"><CheckCircle2 className="w-5 h-5 text-primary" /> Publication App Store & Google Play</span>
+              <span className="flex items-center gap-2"><CheckCircle2 className="w-5 h-5 text-primary" /> {t("mobapp_trust_store")}</span>
               <span className="hidden sm:inline text-muted-foreground">•</span>
-              <span className="flex items-center gap-2"><CheckCircle2 className="w-5 h-5 text-primary" /> Maquette gratuite</span>
+              <span className="flex items-center gap-2"><CheckCircle2 className="w-5 h-5 text-primary" /> {t("mobapp_trust_mockup")}</span>
               <span className="hidden sm:inline text-muted-foreground">•</span>
-              <span className="flex items-center gap-2"><CheckCircle2 className="w-5 h-5 text-primary" /> Code source livré</span>
+              <span className="flex items-center gap-2"><CheckCircle2 className="w-5 h-5 text-primary" /> {t("mobapp_trust_code")}</span>
             </motion.div>
             
             <motion.button
@@ -112,7 +115,7 @@ export default function MobileAppClient() {
               onClick={scrollToForm}
               className="group relative inline-flex items-center justify-center gap-3 px-8 py-4 bg-primary text-primary-foreground rounded-full font-bold text-lg overflow-hidden transition-all hover:scale-105 active:scale-95 shadow-xl shadow-primary/25"
             >
-              Recevoir ma maquette gratuite
+              {t("mobapp_hero_cta")}
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </motion.button>
           </div>
@@ -123,15 +126,15 @@ export default function MobileAppClient() {
           <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border to-transparent"></div>
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">Pourquoi créer une application mobile ?</h2>
-              <p className="text-muted-foreground max-w-2xl mx-auto text-lg">Offrez une expérience inégalée à vos utilisateurs et augmentez considérablement leur engagement grâce aux fonctionnalités natives.</p>
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">{t("mobapp_why_title")}</h2>
+              <p className="text-muted-foreground max-w-2xl mx-auto text-lg">{t("mobapp_why_sub")}</p>
             </div>
             
             <div className="grid md:grid-cols-3 gap-8">
               {[
-                { icon: <BellRing className="w-8 h-8 text-amber-500" />, title: "Fidélisation Maximale", desc: "Envoyez des notifications push directement sur l'écran d'accueil pour réengager vos utilisateurs à tout moment." },
-                { icon: <Zap className="w-8 h-8 text-blue-500" />, title: "Expérience Premium", desc: "Une fluidité exceptionnelle, des animations fluides et l'accès aux capteurs du téléphone (Caméra, GPS, Bluetooth)." },
-                { icon: <Rocket className="w-8 h-8 text-green-500" />, title: "Visibilité sur les Stores", desc: "Profitez du trafic naturel de l'App Store et Google Play pour acquérir de nouveaux clients quotidiennement." }
+                { icon: <BellRing className="w-8 h-8 text-amber-500" />, title: t("mobapp_why_1_title"), desc: t("mobapp_why_1_desc") },
+                { icon: <Zap className="w-8 h-8 text-blue-500" />, title: t("mobapp_why_2_title"), desc: t("mobapp_why_2_desc") },
+                { icon: <Rocket className="w-8 h-8 text-green-500" />, title: t("mobapp_why_3_title"), desc: t("mobapp_why_3_desc") }
               ].map((feature, i) => (
                 <motion.div 
                   key={i}
@@ -156,8 +159,8 @@ export default function MobileAppClient() {
         <section className="px-4 py-24 relative overflow-hidden bg-background">
           <div className="max-w-6xl mx-auto relative z-10">
             <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">Notre Stratégie de Lancement Évolutive</h2>
-              <p className="text-muted-foreground max-w-3xl mx-auto text-lg">Chaque projet d&apos;application mobile native est unique : nous adaptons cette approche en fonction de vos objectifs pour créer l&apos;app mobile qui correspond parfaitement à votre activité.</p>
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">{t("mobapp_strategy_title")}</h2>
+              <p className="text-muted-foreground max-w-3xl mx-auto text-lg">{t("mobapp_strategy_sub")}</p>
             </div>
             
             <div className="grid md:grid-cols-3 gap-8 relative">
@@ -165,9 +168,9 @@ export default function MobileAppClient() {
               <div className="hidden md:block absolute top-12 left-10 right-10 h-0.5 bg-border z-0"></div>
               
               {[
-                { step: "01", title: "Le Lancement Rapide", subtitle: "(Web App / MVP)", desc: "On commence par une version accessible sur navigateur. C'est le moyen le plus rapide de tester votre idée et d'acquérir vos premiers clients en quelques semaines." },
-                { step: "02", title: "L'Installation Simple", subtitle: "(PWA)", desc: "Votre site web se transforme en application installable d'un simple clic sur l'écran d'accueil du téléphone de vos clients, sans passer par les Stores." },
-                { step: "03", title: "La Consécration", subtitle: "(App Store & Google Play)", desc: "Une fois le concept validé et rentable, nous publions officiellement votre application sur iOS et Android pour inspirer une confiance absolue." }
+                { step: "01", title: t("mobapp_strat_1_title"), subtitle: t("mobapp_strat_1_sub"), desc: t("mobapp_strat_1_desc") },
+                { step: "02", title: t("mobapp_strat_2_title"), subtitle: t("mobapp_strat_2_sub"), desc: t("mobapp_strat_2_desc") },
+                { step: "03", title: t("mobapp_strat_3_title"), subtitle: t("mobapp_strat_3_sub"), desc: t("mobapp_strat_3_desc") }
               ].map((item, i) => (
                 <motion.div 
                   key={i}
@@ -193,8 +196,8 @@ export default function MobileAppClient() {
         <section className="px-4 py-24 relative overflow-hidden">
           <div className="max-w-6xl mx-auto relative z-10">
             <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">Exemples d'Applications Mobiles</h2>
-              <p className="text-muted-foreground max-w-2xl mx-auto text-lg">Des applications iOS & Android conçues pour offrir la meilleure expérience utilisateur possible.</p>
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">{t("mobapp_projects_title")}</h2>
+              <p className="text-muted-foreground max-w-2xl mx-auto text-lg">{t("mobapp_projects_sub")}</p>
             </div>
 
             <div className="grid md:grid-cols-2 gap-6">
@@ -230,8 +233,8 @@ export default function MobileAppClient() {
         <section className="px-4 py-24 bg-background relative overflow-hidden">
           <div className="max-w-6xl mx-auto relative z-10">
             <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">Expertise Technique Mobile</h2>
-              <p className="text-muted-foreground max-w-2xl mx-auto text-lg">Développement multi-plateforme performant et intégration de fonctionnalités avancées.</p>
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">{t("mobapp_expertise_title")}</h2>
+              <p className="text-muted-foreground max-w-2xl mx-auto text-lg">{t("mobapp_expertise_sub")}</p>
             </div>
             
             <div className="grid md:grid-cols-2 gap-8">
@@ -243,10 +246,10 @@ export default function MobileAppClient() {
               >
                 <h3 className="text-2xl font-bold mb-3 flex items-center gap-3">
                   <span className="bg-primary/20 p-2 rounded-xl text-primary"><Cpu className="w-6 h-6" /></span>
-                  Code Unique (React Native / Flutter)
+                  {t("mobapp_exp_1_title")}
                 </h3>
                 <p className="text-muted-foreground leading-relaxed text-lg">
-                  Je développe avec des technologies modernes permettant de créer <strong>une seule application compatible iOS et Android</strong> simultanément. Cela divise par deux les coûts et les temps de développement par rapport à du code natif séparé.
+                  {/* @ts-ignore */} <span dangerouslySetInnerHTML={{ __html: t("mobapp_exp_1_desc") }} />
                 </p>
               </motion.div>
 
@@ -302,8 +305,8 @@ export default function MobileAppClient() {
                   "Design UI/UX Mobile sur mesure",
                   "Développement iOS et Android simultané",
                   "Mise en place de l'API et Base de données",
-                  "Publication App Store & Google Play",
-                  "Propriété intégrale : Code source livré"
+                  "{t("mobapp_trust_store")}",
+                  "Propriété intégrale : {t("mobapp_trust_code")}"
                 ].map((item, i) => (
                   <li key={i} className="flex items-center gap-4">
                     <div className="bg-primary/20 p-2 rounded-full flex-shrink-0">

@@ -6,29 +6,32 @@ import { HeroDynamicForm } from "@/components/sections/HeroDynamicForm";
 import { TestimonialsSection } from "@/components/sections/TestimonialsSection";
 import { Footer } from "@/components/sections/Footer";
 import { Code2, Zap, Smartphone, Globe, Database, AppWindow, ArrowRight, CheckCircle2, Cpu, ShieldCheck, Sparkles } from "lucide-react";
-
-const projects = [
-  {
-    title: "Plateforme de suivi étudiant",
-    desc: "Planning, QCM, messagerie et espaces étudiants/tuteurs. Centralisation de toute l'expérience éducative.",
-    tags: ["Portail Web", "SaaS", "Dashboard"],
-    icon: <Globe className="w-8 h-8 text-primary" />
-  },
-  {
-    title: "Outil métier connecté par API",
-    desc: "Automatisation d’images et synchronisation API avec l'ERP pour accélérer les processus internes.",
-    tags: ["API", "Automatisation", "Métier"],
-    icon: <Database className="w-8 h-8 text-primary" />
-  },
-  {
-    title: "Application de mise en relation",
-    desc: "Profils, abonnements, carte interactive et notifications en temps réel pour connecter les utilisateurs.",
-    tags: ["Web App", "PWA", "Temps réel"],
-    icon: <Smartphone className="w-8 h-8 text-primary" />
-  }
-];
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function WebAppClient() {
+  const { t } = useLanguage();
+
+  const projects = [
+    {
+      title: t("webapp_proj_1_title"),
+      desc: t("webapp_proj_1_desc"),
+      tags: ["Portail Web", "SaaS", "Dashboard"],
+      icon: <Globe className="w-8 h-8 text-primary" />
+    },
+    {
+      title: t("webapp_proj_2_title"),
+      desc: t("webapp_proj_2_desc"),
+      tags: ["API", "Automatisation", "Métier"],
+      icon: <Database className="w-8 h-8 text-primary" />
+    },
+    {
+      title: t("webapp_proj_3_title"),
+      desc: t("webapp_proj_3_desc"),
+      tags: ["Web App", "PWA", "Temps réel"],
+      icon: <Smartphone className="w-8 h-8 text-primary" />
+    }
+  ];
+
   const formRef = useRef<HTMLDivElement>(null);
   const [showSticky, setShowSticky] = useState(false);
 
@@ -62,7 +65,7 @@ export default function WebAppClient() {
               animate={{ opacity: 1, y: 0 }}
               className="inline-flex items-center gap-2 px-4 py-1.5 mb-8 rounded-full bg-primary/10 border border-primary/20 text-primary font-bold text-sm shadow-sm"
             >
-              <Code2 className="w-4 h-4" /> Création d'Application Web sur Mesure
+              <Code2 className="w-4 h-4" /> {t("webapp_hero_badge")}
             </motion.div>
             
             <motion.h1 
@@ -71,9 +74,9 @@ export default function WebAppClient() {
               transition={{ delay: 0.1 }}
               className="text-4xl md:text-6xl font-extrabold tracking-tight text-foreground mb-6 leading-[1.1]"
             >
-              Votre application web sur mesure, <br className="hidden md:block"/>
+              {t("webapp_hero_title")} <br className="hidden md:block"/>
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-amber-500">
-                prête à être testée rapidement
+                {t("webapp_hero_title_gradient")}
               </span>
             </motion.h1>
             
@@ -83,7 +86,7 @@ export default function WebAppClient() {
               transition={{ delay: 0.2 }}
               className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl font-medium"
             >
-              Lancez une application responsive accessible sur ordinateur, tablette et mobile, sans passer immédiatement par l'App Store ou Google Play.
+              {t("webapp_hero_sub")}
             </motion.p>
             
             <motion.div
@@ -92,11 +95,11 @@ export default function WebAppClient() {
               transition={{ delay: 0.3 }}
               className="flex flex-col sm:flex-row items-center justify-center gap-4 text-sm font-bold text-foreground/80 mb-10 w-full"
             >
-              <span className="flex items-center gap-2"><CheckCircle2 className="w-5 h-5 text-primary" /> Code source livré</span>
+              <span className="flex items-center gap-2"><CheckCircle2 className="w-5 h-5 text-primary" /> {t("webapp_trust_code")}</span>
               <span className="hidden sm:inline text-muted-foreground">•</span>
-              <span className="flex items-center gap-2"><CheckCircle2 className="w-5 h-5 text-primary" /> Maquette gratuite</span>
+              <span className="flex items-center gap-2"><CheckCircle2 className="w-5 h-5 text-primary" /> {t("webapp_trust_mockup")}</span>
               <span className="hidden sm:inline text-muted-foreground">•</span>
-              <span className="flex items-center gap-2"><CheckCircle2 className="w-5 h-5 text-primary" /> Accompagnement A à Z</span>
+              <span className="flex items-center gap-2"><CheckCircle2 className="w-5 h-5 text-primary" /> {t("webapp_trust_support")}</span>
             </motion.div>
             
             <motion.button
@@ -106,7 +109,7 @@ export default function WebAppClient() {
               onClick={scrollToForm}
               className="group relative inline-flex items-center justify-center gap-3 px-8 py-4 bg-primary text-primary-foreground rounded-full font-bold text-lg overflow-hidden transition-all hover:scale-105 active:scale-95 shadow-xl shadow-primary/25"
             >
-              Recevoir ma maquette gratuite
+              {t("webapp_hero_cta")}
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </motion.button>
           </div>
@@ -117,15 +120,15 @@ export default function WebAppClient() {
           <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border to-transparent"></div>
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">Pourquoi commencer par une application web ?</h2>
-              <p className="text-muted-foreground max-w-2xl mx-auto text-lg">L'approche la plus intelligente pour tester votre marché et générer vos premiers revenus sans attendre des mois de validation.</p>
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">{t("webapp_why_title")}</h2>
+              <p className="text-muted-foreground max-w-2xl mx-auto text-lg">{t("webapp_why_sub")}</p>
             </div>
             
             <div className="grid md:grid-cols-3 gap-8">
               {[
-                { icon: <Zap className="w-8 h-8 text-amber-500" />, title: "Plus rapide à lancer", desc: "Pas de délai de validation par Apple ou Google. Votre application est en ligne dès qu'elle est prête." },
-                { icon: <Globe className="w-8 h-8 text-blue-500" />, title: "Accessible sans installation", desc: "Vos utilisateurs accèdent à votre service via une simple URL, depuis n'importe quel appareil (PC, Mac, iOS, Android)." },
-                { icon: <AppWindow className="w-8 h-8 text-green-500" />, title: "Plus simple à tester", desc: "Les mises à jour sont instantanées pour tous vos utilisateurs. Idéal pour itérer rapidement selon les retours." }
+                { icon: <Zap className="w-8 h-8 text-amber-500" />, title: t("webapp_why_1_title"), desc: t("webapp_why_1_desc") },
+                { icon: <Globe className="w-8 h-8 text-blue-500" />, title: t("webapp_why_2_title"), desc: t("webapp_why_2_desc") },
+                { icon: <AppWindow className="w-8 h-8 text-green-500" />, title: t("webapp_why_3_title"), desc: t("webapp_why_3_desc") }
               ].map((feature, i) => (
                 <motion.div 
                   key={i}
@@ -150,8 +153,8 @@ export default function WebAppClient() {
         <section className="px-4 py-24 relative overflow-hidden bg-background">
           <div className="max-w-6xl mx-auto relative z-10">
             <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">Notre Stratégie de Lancement Évolutive</h2>
-              <p className="text-muted-foreground max-w-3xl mx-auto text-lg">Votre application web grandit avec votre activité. Nous commençons par l&apos;essentiel, puis nous enrichissons selon vos besoins.</p>
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">{t("webapp_strategy_title")}</h2>
+              <p className="text-muted-foreground max-w-3xl mx-auto text-lg">{t("webapp_strategy_sub")}</p>
             </div>
             
             <div className="grid md:grid-cols-3 gap-8 relative">
@@ -159,9 +162,9 @@ export default function WebAppClient() {
               <div className="hidden md:block absolute top-12 left-10 right-10 h-0.5 bg-border z-0"></div>
               
               {[
-                { step: "01", title: "Le Lancement Rapide", subtitle: "(Web App / MVP)", desc: "On développe votre application web sur mesure, accessible depuis n'importe quel navigateur. C'est le moyen le plus rapide de valider votre idée et d'acquérir vos premiers clients." },
-                { step: "02", title: "L'Expérience Enrichie", subtitle: "(PWA — optionnel)", desc: "Si vous le souhaitez, votre application web se transforme en PWA : installable sur téléphone d'un simple clic, utilisable hors-ligne et capable d'envoyer des notifications." },
-                { step: "03", title: "L'Écosystème Complet", subtitle: "(App Mobile — optionnel)", desc: "Si c'est pertinent pour votre activité, nous ajoutons une application mobile native sur les Stores qui communique avec votre web app, pour offrir un écosystème complet à vos utilisateurs." }
+                { step: "01", title: t("webapp_strat_1_title"), subtitle: t("webapp_strat_1_sub"), desc: t("webapp_strat_1_desc") },
+                { step: "02", title: t("webapp_strat_2_title"), subtitle: t("webapp_strat_2_sub"), desc: t("webapp_strat_2_desc") },
+                { step: "03", title: t("webapp_strat_3_title"), subtitle: t("webapp_strat_3_sub"), desc: t("webapp_strat_3_desc") }
               ].map((item, i) => (
                 <motion.div 
                   key={i}
@@ -187,8 +190,8 @@ export default function WebAppClient() {
         <section className="px-4 py-24 relative overflow-hidden">
           <div className="max-w-6xl mx-auto relative z-10">
             <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">Exemples de projets</h2>
-              <p className="text-muted-foreground max-w-2xl mx-auto text-lg">Des outils métiers concrets, conçus pour automatiser des tâches complexes et faciliter la croissance.</p>
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">{t("webapp_projects_title")}</h2>
+              <p className="text-muted-foreground max-w-2xl mx-auto text-lg">{t("webapp_projects_sub")}</p>
             </div>
 
             <div className="grid md:grid-cols-3 gap-6">
@@ -224,8 +227,8 @@ export default function WebAppClient() {
         <section className="px-4 py-24 bg-background relative overflow-hidden">
           <div className="max-w-6xl mx-auto relative z-10">
             <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">Expertise Technique Avancée</h2>
-              <p className="text-muted-foreground max-w-2xl mx-auto text-lg">Des technologies de pointe pour rendre votre application SaaS intelligente, sécurisée et conforme.</p>
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">{t("webapp_expertise_title")}</h2>
+              <p className="text-muted-foreground max-w-2xl mx-auto text-lg">{t("webapp_expertise_sub")}</p>
             </div>
             
             <div className="grid md:grid-cols-2 gap-8">
@@ -237,10 +240,10 @@ export default function WebAppClient() {
               >
                 <h3 className="text-2xl font-bold mb-3 flex items-center gap-3">
                   <span className="bg-primary/20 p-2 rounded-xl text-primary"><Cpu className="w-6 h-6" /></span>
-                  Agent IA & Automatisation
+                  {t("webapp_exp_1_title")}
                 </h3>
                 <p className="text-muted-foreground leading-relaxed text-lg">
-                  En tant que <strong>développeur spécialiste Agent IA</strong>, j'intègre des modèles d'Intelligence Artificielle au cœur de votre SaaS (LLMs, RAG). L'objectif : automatiser vos processus complexes et doter votre outil de capacités d'analyse avancées.
+                  {/* @ts-ignore */} <span dangerouslySetInnerHTML={{ __html: t("webapp_exp_1_desc") }} />
                 </p>
               </motion.div>
 
@@ -297,7 +300,7 @@ export default function WebAppClient() {
                   "Architecture de base de données robuste",
                   "Connexion avec vos API existantes",
                   "Mise en ligne et configuration serveur",
-                  "Propriété intégrale : Code source livré"
+                  "Propriété intégrale : {t("webapp_trust_code")}"
                 ].map((item, i) => (
                   <li key={i} className="flex items-center gap-4">
                     <div className="bg-primary/20 p-2 rounded-full flex-shrink-0">
