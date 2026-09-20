@@ -146,6 +146,43 @@ export default function WebAppClient() {
           </div>
         </section>
 
+        {/* L'APPROCHE EVOLUTIVE */}
+        <section className="px-4 py-24 relative overflow-hidden bg-background">
+          <div className="max-w-6xl mx-auto relative z-10">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">Notre Stratégie de Lancement Évolutive</h2>
+              <p className="text-muted-foreground max-w-3xl mx-auto text-lg">Votre application web grandit avec votre activité. Nous commençons par l&apos;essentiel, puis nous enrichissons selon vos besoins.</p>
+            </div>
+            
+            <div className="grid md:grid-cols-3 gap-8 relative">
+              {/* Ligne de connexion (desktop) */}
+              <div className="hidden md:block absolute top-12 left-10 right-10 h-0.5 bg-border z-0"></div>
+              
+              {[
+                { step: "01", title: "Le Lancement Rapide", subtitle: "(Web App / MVP)", desc: "On développe votre application web sur mesure, accessible depuis n'importe quel navigateur. C'est le moyen le plus rapide de valider votre idée et d'acquérir vos premiers clients." },
+                { step: "02", title: "L'Expérience Enrichie", subtitle: "(PWA — optionnel)", desc: "Si vous le souhaitez, votre application web se transforme en PWA : installable sur téléphone d'un simple clic, utilisable hors-ligne et capable d'envoyer des notifications." },
+                { step: "03", title: "L'Écosystème Complet", subtitle: "(App Mobile — optionnel)", desc: "Si c'est pertinent pour votre activité, nous ajoutons une application mobile native sur les Stores qui communique avec votre web app, pour offrir un écosystème complet à vos utilisateurs." }
+              ].map((item, i) => (
+                <motion.div 
+                  key={i}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ delay: i * 0.2 }}
+                  className="bg-card border border-border rounded-3xl p-8 relative z-10 shadow-sm hover:shadow-md transition-shadow"
+                >
+                  <div className="bg-primary text-primary-foreground w-12 h-12 rounded-full flex items-center justify-center font-bold text-xl mb-6 shadow-md border-4 border-background relative z-10">
+                    {item.step}
+                  </div>
+                  <h3 className="text-xl font-bold mb-1">{item.title}</h3>
+                  <p className="text-primary font-semibold text-sm mb-4">{item.subtitle}</p>
+                  <p className="text-muted-foreground leading-relaxed">{item.desc}</p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* EXEMPLES DE PROJETS */}
         <section className="px-4 py-24 relative overflow-hidden">
           <div className="max-w-6xl mx-auto relative z-10">
@@ -345,26 +382,6 @@ export default function WebAppClient() {
           </div>
           <HeroDynamicForm onScrollDown={() => window.location.href = "/"} />
         </div>
-        {/* BOUTON FLOTTANT RESPONSIVE */}
-        <AnimatePresence>
-          {showSticky && (
-            <motion.div
-              initial={{ opacity: 0, y: 50, scale: 0.9 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, y: 50, scale: 0.9 }}
-              className="fixed bottom-6 right-6 z-50 md:bottom-10 md:right-10"
-            >
-              <button
-                onClick={scrollToForm}
-                className="group flex items-center gap-3 bg-primary text-primary-foreground px-6 py-4 md:px-8 md:py-4 rounded-full font-bold shadow-2xl shadow-primary/40 hover:scale-105 active:scale-95 transition-all border border-primary/20 backdrop-blur-sm"
-              >
-                <span className="hidden sm:inline">Recevoir ma maquette gratuite</span>
-                <span className="sm:hidden">Maquette Gratuite</span>
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </button>
-            </motion.div>
-          )}
-        </AnimatePresence>
       </main>
       <Footer />
     </>

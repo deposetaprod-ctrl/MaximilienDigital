@@ -210,7 +210,7 @@ export function HeroDynamicForm({ onScrollDown }: HeroDynamicFormProps) {
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -20 }}
                 transition={{ duration: 0.3 }}
-                className="flex flex-col h-full justify-center"
+                className="flex flex-col h-full justify-center pb-12 sm:pb-0"
               >
                 {/* Step 0: Branch */}
                 {step === 0 && (
@@ -563,7 +563,7 @@ export function HeroDynamicForm({ onScrollDown }: HeroDynamicFormProps) {
           {step > 0 && !isSuccess && (
             <button
               onClick={() => setStep(s => (data.flow === "upload" && s === 6) ? 1 : s - 1)}
-              className="absolute left-6 bottom-6 flex items-center text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+              className="absolute left-5 bottom-4 sm:left-6 sm:bottom-6 flex items-center text-sm font-medium text-muted-foreground hover:text-foreground transition-colors z-10 bg-background/80 sm:bg-transparent px-2 py-1 sm:p-0 rounded-md sm:rounded-none"
             >
               <ArrowLeft className="mr-1 h-4 w-4" />
               {t("hero_form_back")}

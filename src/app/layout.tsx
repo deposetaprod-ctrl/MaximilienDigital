@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist } from "next/font/google";
 import { Navigation } from "@/components/Navigation";
+import { AIChatbot } from "@/components/AIChatbot";
 import { LanguageProvider } from "@/context/LanguageContext";
 import Script from "next/script";
 import "./globals.css";
@@ -17,19 +18,21 @@ const BASE_URL = "https://maximilien.digital";
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
   title: {
-    default: "Développeur et Architecte d'Applications | Application Web & Maquette Gratuite",
+    default: "Développeur d'Applications Web & Mobile | Maquette Gratuite",
     template: "%s | Maximilien Digital",
   },
   description:
-    "Développeur et Architecte d'Applications. Création d'applications web sur mesure. Obtenez votre maquette gratuite et propulsez votre métier grâce à l'Intelligence Artificielle.",
+    "Développeur d'applications web et mobile sur mesure. Création d'application web, PWA et application mobile iOS & Android. Obtenez votre maquette gratuite et propulsez votre métier grâce à l'Intelligence Artificielle.",
   keywords: [
+    "développeur application mobile",
+    "développeur application web",
+    "création application mobile",
     "développeur IA",
-    "développeur claude",
     "créer application avec IA",
-    "développement avec claude",
     "maquette gratuite",
     "application web métier",
     "application sur mesure",
+    "application mobile sur mesure",
     "PWA",
     "automatisation processus métier",
     "connexion API",
@@ -49,9 +52,9 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Maximilien Digital | Applications Web Métier & PWA",
+    title: "Maximilien Digital | Applications Web & Mobile sur mesure",
     description:
-      "Création d'Applications Web Métier et PWA sur-mesure. Développement rapide, connexion API, automatisation des processus métier.",
+      "Création d'applications web et mobile sur mesure. Développement rapide, PWA, application iOS & Android, connexion API et automatisation des processus métier.",
     type: "website",
     url: BASE_URL,
     siteName: "Maximilien Digital",
@@ -61,15 +64,15 @@ export const metadata: Metadata = {
         url: OG_IMAGE_URL,
         width: 1200,
         height: 630,
-        alt: "Maximilien Digital — Applications Web Métier & PWA",
+        alt: "Maximilien Digital — Applications Web & Mobile sur mesure",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Maximilien Digital | Applications Web Métier & PWA",
+    title: "Maximilien Digital | Applications Web & Mobile sur mesure",
     description:
-      "Création d'Applications Web Métier et PWA sur-mesure. Développement rapide, connexion API, automatisation des processus métier.",
+      "Création d'applications web et mobile sur mesure. Développement rapide, PWA, application iOS & Android, connexion API et automatisation des processus métier.",
     images: [OG_IMAGE_URL],
   },
   manifest: "/manifest.json",
@@ -171,6 +174,7 @@ export default function RootLayout({
         <LanguageProvider>
           <Navigation />
           {children}
+          <AIChatbot />
         </LanguageProvider>
       </body>
     </html>
