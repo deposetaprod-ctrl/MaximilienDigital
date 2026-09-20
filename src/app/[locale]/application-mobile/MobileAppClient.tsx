@@ -66,9 +66,25 @@ export default function MobileAppClient() {
           <div className="absolute inset-0 z-0 bg-[radial-gradient(circle_at_top,_var(--tw-gradient-stops))] from-primary/15 via-background to-background"></div>
           
           <div className="relative z-10 max-w-4xl mx-auto flex flex-col items-center">
+            
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              className="mb-8 relative group cursor-pointer"
+            >
+              <div className="w-24 h-24 md:w-28 md:h-28 rounded-full border-4 border-background shadow-2xl overflow-hidden relative z-10 mx-auto bg-primary/10">
+                <img src="/max.png" alt="Maximilien" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+              </div>
+              <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 bg-foreground text-background text-[11px] font-extrabold uppercase tracking-widest px-4 py-1.5 rounded-full shadow-xl z-20 whitespace-nowrap flex items-center gap-1.5">
+                <div className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
+                Maximilien Godeau
+              </div>
+            </motion.div>
+
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1 }}
               className="inline-flex items-center gap-2 px-4 py-1.5 mb-8 rounded-full bg-primary/10 border border-primary/20 text-primary font-bold text-sm shadow-sm"
             >
               <Smartphone className="w-4 h-4" /> {t("mobapp_hero_badge")}
