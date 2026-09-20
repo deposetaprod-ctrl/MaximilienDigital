@@ -9,9 +9,18 @@ type View = "closed" | "menu" | "chat";
 
 export function AIChatbot() {
   const [view, setView] = useState<View>("closed");
-  const { messages, input, handleInputChange, handleSubmit, isLoading } = useChat({
-    api: "/api/chat",
-  });
+  const { messages, sendMessage, status, stop } = useChat();
+  const [input, setInput] = useState("");
+  const isLoading = status === "submitted" || status === "streaming";
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => setInput(e.target.value);
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!input.trim()) return;
+    sendMessage({ role: "user", parts: [{ type: "text", text: input }] });
+    setInput("");
+  };
+  //
+
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
@@ -168,7 +177,7 @@ export function AIChatbot() {
                     {m.role === "user" ? <User className="h-4 w-4" /> : <Bot className="h-4 w-4" />}
                   </div>
                   <div className={`p-3 text-sm rounded-2xl ${m.role === "user" ? "bg-primary/10 text-foreground border border-primary/20 rounded-tr-sm" : "bg-card border border-border shadow-sm rounded-tl-sm text-card-foreground whitespace-pre-wrap"}`}>
-                    {m.content}
+                    {(m as any).content || (m.parts && m.parts.map((p: any) => p.type === "text" ? p.text : "").join(""))}
                   </div>
                 </motion.div>
               ))}

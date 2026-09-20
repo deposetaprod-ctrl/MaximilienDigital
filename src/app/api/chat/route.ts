@@ -25,7 +25,7 @@ Si un client semble intéressé, propose-lui de scroller vers le bas de la page 
       messages,
     });
 
-    return result.toDataStreamResponse();
+    return result.toTextStreamResponse();
   } catch (error) {
     console.error("Chatbot API Error:", error);
     return new Response("Error connecting to AI Provider", { status: 500 });
