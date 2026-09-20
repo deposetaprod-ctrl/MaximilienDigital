@@ -137,6 +137,78 @@ export default function MobileAppClient() {
           </div>
         </section>
 
+        {/* LATEST WORK HIGHLIGHT: EVEN CLOCK */}
+        <section className="px-4 py-20 bg-background relative overflow-hidden">
+          <div className="absolute inset-0 z-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary/10 via-background to-background"></div>
+          <div className="max-w-6xl mx-auto relative z-10">
+            <motion.div 
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              className="bg-card/30 backdrop-blur-xl border border-primary/20 rounded-[2.5rem] p-8 md:p-12 shadow-2xl overflow-hidden flex flex-col md:flex-row items-center gap-12"
+            >
+              {/* Text content */}
+              <div className="flex-1 text-center md:text-left">
+                <div className="inline-flex items-center gap-2 px-4 py-1.5 mb-6 rounded-full bg-primary/10 border border-primary/20 text-primary font-bold text-sm shadow-sm">
+                  <Sparkles className="w-4 h-4" /> Notre dernière réalisation
+                </div>
+                <h2 className="text-4xl md:text-5xl font-extrabold mb-4 tracking-tight">
+                  Even Clock
+                </h2>
+                <p className="text-lg md:text-xl text-muted-foreground mb-8 font-medium">
+                  Votre poids, comme une horloge. Une application mobile native <strong>iOS & Android</strong> développée de A à Z par nos soins. Interface moderne, animations fluides et suivi intelligent.
+                </p>
+                <a 
+                  href="/evenclock.html"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group relative inline-flex items-center justify-center gap-3 px-8 py-4 bg-foreground text-background rounded-full font-bold text-lg overflow-hidden transition-all hover:scale-105 active:scale-95 shadow-xl"
+                >
+                  Découvrir l'App
+                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </a>
+              </div>
+              
+              {/* Images / Mockups */}
+              <div className="flex-1 w-full relative min-h-[400px] flex items-center justify-center">
+                <div className="absolute inset-0 bg-primary/10 blur-[80px] rounded-full"></div>
+                
+                {/* Images envoyées par le client (générées via shots.so avec cadres intégrés) */}
+                <div className="relative z-10 w-full max-w-[280px] md:max-w-sm mx-auto group perspective-1000">
+                  
+                  {/* Image principale (Premier plan) */}
+                  <motion.div 
+                    initial={{ rotateY: 15, rotateX: 5, rotateZ: -5 }}
+                    whileHover={{ rotateY: 0, rotateX: 0, rotateZ: 0, scale: 1.05 }}
+                    transition={{ duration: 0.5, ease: "easeOut" }}
+                    className="relative z-20 w-full shadow-2xl rounded-3xl overflow-hidden cursor-pointer"
+                  >
+                    <img 
+                      src="/286shots_so.png" 
+                      alt="Even Clock Dashboard" 
+                      className="w-full h-auto object-contain"
+                    />
+                  </motion.div>
+                  
+                  {/* Image secondaire (Arrière plan flottant) */}
+                  <motion.div 
+                    initial={{ x: 60, y: -40, rotateZ: 10, scale: 0.85, opacity: 0.6 }}
+                    whileHover={{ x: 80, y: -60, rotateZ: 15, scale: 0.9, opacity: 0.9 }}
+                    transition={{ duration: 0.5, ease: "easeOut" }}
+                    className="absolute top-0 right-0 -z-10 w-full shadow-xl rounded-3xl overflow-hidden pointer-events-none"
+                  >
+                    <img 
+                      src="/641shots_so.png" 
+                      alt="Even Clock History" 
+                      className="w-full h-auto object-contain"
+                    />
+                  </motion.div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </section>
+
         {/* WHY START WITH MOBILE APP */}
         <section className="px-4 py-24 bg-secondary/30 relative">
           <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border to-transparent"></div>
