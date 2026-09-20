@@ -149,12 +149,15 @@ export default function MobileAppClient() {
             >
               {/* Text content */}
               <div className="flex-1 text-center md:text-left">
-                <div className="inline-flex items-center gap-2 px-4 py-1.5 mb-6 rounded-full bg-primary/10 border border-primary/20 text-primary font-bold text-sm shadow-sm">
-                  <Sparkles className="w-4 h-4" /> Notre dernière réalisation
+                <div className="inline-flex items-center gap-2 px-4 py-1.5 mb-6 rounded-full bg-primary/10 border border-primary/20 text-primary font-bold text-sm shadow-sm uppercase tracking-widest">
+                  <Sparkles className="w-4 h-4" /> Portfolio
                 </div>
-                <h2 className="text-4xl md:text-5xl font-extrabold mb-4 tracking-tight">
-                  Even Clock
+                <h2 className="text-4xl md:text-5xl font-extrabold mb-4 tracking-tight uppercase">
+                  Notre dernière réalisation
                 </h2>
+                <h3 className="text-2xl font-bold text-primary mb-6">
+                  Even Clock
+                </h3>
                 <p className="text-lg md:text-xl text-muted-foreground mb-8 font-medium">
                   Votre poids, comme une horloge. Une application mobile native <strong>iOS & Android</strong> développée de A à Z par nos soins. Interface moderne, animations fluides et suivi intelligent.
                 </p>
