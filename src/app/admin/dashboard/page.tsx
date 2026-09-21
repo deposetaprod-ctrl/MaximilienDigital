@@ -1,11 +1,15 @@
 import { supabase } from "@/lib/supabase";
+import { 
+  MessageSquare, MousePointer, Clock, User, MessageCircle, 
+  ChevronDown, Activity, Users, Target, CheckCircle2, AlertTriangle, FileText, Briefcase
+} from "lucide-react";
 
 export const dynamic = "force-dynamic";
 
 export default async function AdminDashboardPage() {
   let stats: Record<string, number> = {};
   let leads: any[] = [];
-  let sessions: { id: string; events: any[]; latest: string }[] = [];
+  let sessions: { id: string; events: any[]; latest: string; messages: any[] }[] = [];
   let errorMsg = null;
 
   try {
@@ -29,9 +33,23 @@ export default async function AdminDashboardPage() {
         .order("created_at", { ascending: false })
         .limit(1000);
 
-      if (eventsError && eventsError.code !== '42703') { // Ignore missing column error for now if they haven't run SQL
+      if (eventsError && eventsError.code !== '42703') { 
         console.error("events error", eventsError);
       }
+
+      // 3. Fetch all chats to join with sessions
+      const { data: chatsData, error: chatsError } = await supabase
+        .from("chatbot_conversations")
+        .select("*");
+        
+      if (chatsError) {
+        console.error("chats error", chatsError);
+      }
+      
+      const chatsMap = new Map<string, any[]>();
+      (chatsData || []).forEach((chat) => {
+        chatsMap.set(chat.session_id, chat.messages || []);
+      });
 
       const rawEvents = eventsData || [];
       const sessionMap = new Map<string, any[]>();
@@ -55,7 +73,12 @@ export default async function AdminDashboardPage() {
         evs.sort((a, b) => new Date(a.created_at).getTime() - new Date(b.created_at).getTime());
         // session latest activity time is the last event
         const latest = evs[evs.length - 1].created_at;
-        return { id, events: evs, latest };
+        return { 
+          id, 
+          events: evs, 
+          latest,
+          messages: chatsMap.get(id) || []
+        };
       });
       
       // Sort sessions by newest first
@@ -74,120 +97,216 @@ export default async function AdminDashboardPage() {
   const conversionRate = step1Count > 0 ? Math.round((completedCount / step1Count) * 100) : 0;
 
   return (
-    <div className="min-h-screen bg-gray-50 p-8 text-black">
-      <div className="max-w-6xl mx-auto">
-        <h1 className="text-3xl font-bold mb-8">Tableau de bord : Suivi des Sessions</h1>
+    <div className="min-h-screen bg-slate-50/50 p-4 md:p-8 text-slate-900 font-sans">
+      <div className="max-w-7xl mx-auto space-y-8">
+        
+        {/* Header */}
+        <div>
+          <h1 className="text-3xl font-bold tracking-tight text-slate-900">CRM & Tracking</h1>
+          <p className="text-slate-500 mt-1">Suivez l'activité de vos visiteurs et gérez vos leads.</p>
+        </div>
         
         {errorMsg && (
-          <div className="bg-red-100 text-red-800 p-4 rounded-lg mb-8 border border-red-200">
-            <p className="font-bold mb-2">Attention : {errorMsg}</p>
-            <p className="text-sm">Si l'erreur indique que la colonne `session_id` n'existe pas, veuillez exécuter la commande SQL fournie par l'assistant dans l'interface Supabase.</p>
+          <div className="bg-red-50 text-red-800 p-4 rounded-xl border border-red-200 flex gap-3 items-start shadow-sm">
+            <AlertTriangle className="text-red-500 shrink-0 mt-0.5" size={20} />
+            <div>
+              <p className="font-semibold mb-1">Attention : {errorMsg}</p>
+              <p className="text-sm text-red-700/80">Si l'erreur indique que la colonne `session_id` n'existe pas, veuillez exécuter la commande SQL fournie par l'assistant dans l'interface Supabase.</p>
+            </div>
           </div>
         )}
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-          <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
-            <h3 className="text-sm font-medium text-gray-500 mb-1">Total Visites (Ouvertures)</h3>
-            <p className="text-4xl font-bold text-blue-600">{step1Count}</p>
+        {/* KPIs */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 flex items-center gap-4 hover:shadow-md transition-shadow">
+            <div className="w-14 h-14 rounded-full bg-blue-50 flex items-center justify-center text-blue-600 shrink-0">
+              <Users size={28} strokeWidth={1.5} />
+            </div>
+            <div>
+              <h3 className="text-sm font-medium text-slate-500">Total Visites</h3>
+              <p className="text-3xl font-bold text-slate-900">{step1Count}</p>
+            </div>
           </div>
-          <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
-            <h3 className="text-sm font-medium text-gray-500 mb-1">Leads Complétés</h3>
-            <p className="text-4xl font-bold text-green-600">{completedCount}</p>
+          <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 flex items-center gap-4 hover:shadow-md transition-shadow">
+            <div className="w-14 h-14 rounded-full bg-emerald-50 flex items-center justify-center text-emerald-600 shrink-0">
+              <CheckCircle2 size={28} strokeWidth={1.5} />
+            </div>
+            <div>
+              <h3 className="text-sm font-medium text-slate-500">Leads Complétés</h3>
+              <p className="text-3xl font-bold text-slate-900">{completedCount}</p>
+            </div>
           </div>
-          <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
-            <h3 className="text-sm font-medium text-gray-500 mb-1">Taux de Conversion</h3>
-            <p className="text-4xl font-bold text-purple-600">{conversionRate}%</p>
+          <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 flex items-center gap-4 hover:shadow-md transition-shadow">
+            <div className="w-14 h-14 rounded-full bg-indigo-50 flex items-center justify-center text-indigo-600 shrink-0">
+              <Target size={28} strokeWidth={1.5} />
+            </div>
+            <div>
+              <h3 className="text-sm font-medium text-slate-500">Taux de Conversion</h3>
+              <p className="text-3xl font-bold text-slate-900">{conversionRate}%</p>
+            </div>
           </div>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 xl:grid-cols-2 gap-8">
           {/* Timeline of Sessions */}
-          <div className="lg:col-span-1 bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden flex flex-col h-[800px]">
-            <div className="p-6 border-b border-gray-100 bg-white sticky top-0 z-10">
-              <h2 className="text-xl font-bold text-gray-900">Activité des Visiteurs</h2>
-              <p className="text-xs text-gray-500 mt-1">Cliquez sur une session pour voir l'historique</p>
+          <div className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden flex flex-col h-[800px]">
+            <div className="p-6 border-b border-slate-100 bg-white/80 backdrop-blur-sm sticky top-0 z-10 flex justify-between items-center">
+              <div>
+                <h2 className="text-lg font-bold text-slate-900">Activité des Visiteurs</h2>
+                <p className="text-sm text-slate-500 mt-1">Historique des sessions et conversations</p>
+              </div>
+              <Activity className="text-slate-400" size={20} />
             </div>
-            <div className="overflow-y-auto p-4 space-y-3 flex-1">
+            
+            <div className="overflow-y-auto p-4 space-y-4 flex-1 bg-slate-50/50">
               {sessions.length > 0 ? sessions.slice(0, 30).map((session, i) => (
-                <details key={i} className="group bg-gray-50 rounded-lg border border-gray-100 overflow-hidden">
-                  <summary className="p-3 cursor-pointer select-none hover:bg-gray-100 transition-colors flex flex-col">
-                    <div className="flex justify-between items-center w-full">
-                      <span className="font-semibold text-sm text-gray-800">
-                        {session.id === "Anonyme" ? "Ancienne Session" : `Visiteur ${session.id.substring(0, 5)}...`}
-                      </span>
-                      <span className="text-xs text-gray-500 bg-white px-2 py-0.5 rounded-full shadow-sm border border-gray-100">
+                <details key={i} className="group bg-white rounded-xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-md transition-all">
+                  <summary className="p-4 cursor-pointer select-none hover:bg-slate-50 transition-colors flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-600 flex-shrink-0">
+                        <User size={20} />
+                      </div>
+                      <div>
+                        <h3 className="font-semibold text-slate-900">
+                          {session.id === "Anonyme" ? "Ancienne Session" : `Visiteur ${session.id.substring(0, 8)}...`}
+                        </h3>
+                        <p className="text-xs text-slate-500 flex items-center gap-1 mt-0.5">
+                          <Clock size={12} />
+                          {new Date(session.latest).toLocaleString("fr-FR", { dateStyle: 'medium', timeStyle: 'short' })}
+                        </p>
+                      </div>
+                    </div>
+                    
+                    <div className="flex items-center gap-2 flex-wrap">
+                      {session.messages && session.messages.length > 0 && (
+                        <span className="flex items-center gap-1 text-xs font-medium text-emerald-700 bg-emerald-50 px-2 py-1 rounded-md border border-emerald-100">
+                          <MessageCircle size={14} />
+                          {session.messages.length} msg(s)
+                        </span>
+                      )}
+                      <span className="flex items-center gap-1 text-xs font-medium text-blue-700 bg-blue-50 px-2 py-1 rounded-md border border-blue-100">
+                        <MousePointer size={14} />
                         {session.events.length} evt(s)
                       </span>
+                      <ChevronDown size={20} className="text-slate-400 group-open:rotate-180 transition-transform ml-2" />
                     </div>
-                    <span className="text-[10px] text-gray-400 mt-1">
-                      {new Date(session.latest).toLocaleString("fr-FR")}
-                    </span>
                   </summary>
-                  <div className="p-3 bg-white border-t border-gray-100">
-                    <ol className="relative border-l border-gray-200 ml-2 space-y-4">
-                      {session.events.map((ev: any, j: number) => (
-                        <li key={j} className="ml-4">
-                          <div className="absolute w-2 h-2 bg-blue-500 rounded-full mt-1.5 -left-[5px] border border-white"></div>
-                          <p className="text-xs font-semibold text-gray-800">{ev.action || ev.step}</p>
-                          <time className="text-[10px] text-gray-400 leading-none">{new Date(ev.created_at).toLocaleTimeString("fr-FR")}</time>
-                        </li>
-                      ))}
-                    </ol>
+                  
+                  <div className="p-0 bg-slate-50 border-t border-slate-200 flex flex-col md:flex-row divide-y md:divide-y-0 md:divide-x divide-slate-200">
+                    {/* Events Timeline */}
+                    <div className={`p-5 flex-1 ${session.messages && session.messages.length > 0 ? 'md:w-1/2' : 'w-full'}`}>
+                      <h4 className="text-sm font-semibold text-slate-900 mb-5 flex items-center gap-2">
+                        <Activity size={16} className="text-blue-500" />
+                        Parcours
+                      </h4>
+                      <ol className="relative border-l border-slate-300 ml-3 space-y-6">
+                        {session.events.map((ev: any, j: number) => (
+                          <li key={j} className="ml-5">
+                            <div className="absolute w-3 h-3 bg-blue-500 rounded-full mt-1.5 -left-[6.5px] border-2 border-slate-50"></div>
+                            <div className="bg-white px-4 py-3 rounded-lg border border-slate-200 shadow-sm">
+                              <p className="text-sm font-medium text-slate-800 break-words">{ev.action || ev.step}</p>
+                              <time className="text-xs text-slate-400 mt-1.5 flex items-center gap-1 font-mono">
+                                <Clock size={12} />
+                                {new Date(ev.created_at).toLocaleTimeString("fr-FR")}
+                              </time>
+                            </div>
+                          </li>
+                        ))}
+                      </ol>
+                    </div>
+
+                    {/* Messages Chat Log */}
+                    {session.messages && session.messages.length > 0 && (
+                      <div className="p-5 flex-1 md:w-1/2 bg-white">
+                        <h4 className="text-sm font-semibold text-slate-900 mb-5 flex items-center gap-2">
+                          <MessageSquare size={16} className="text-emerald-500" />
+                          Conversation
+                        </h4>
+                        <div className="space-y-4 max-h-[400px] overflow-y-auto pr-2">
+                          {session.messages.filter((m: any) => m.role !== 'system').map((msg: any, mIdx: number) => (
+                            <div key={mIdx} className={`flex flex-col ${msg.role === 'user' ? 'items-end' : 'items-start'}`}>
+                              <div className={`max-w-[90%] p-3 text-sm shadow-sm ${
+                                msg.role === 'user' 
+                                  ? 'bg-blue-600 text-white rounded-2xl rounded-br-sm' 
+                                  : 'bg-slate-100 text-slate-800 rounded-2xl rounded-bl-sm border border-slate-200'
+                              }`}>
+                                {msg.content}
+                              </div>
+                              <span className="text-[10px] text-slate-400 mt-1 px-1">
+                                {msg.role === 'user' ? 'Visiteur' : 'Assistant'}
+                              </span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
                   </div>
                 </details>
               )) : (
-                <div className="p-4 text-center text-sm text-gray-500">Aucune session enregistrée.</div>
+                <div className="flex flex-col items-center justify-center py-20 text-slate-400">
+                  <Activity size={48} className="mb-4 opacity-20" />
+                  <p>Aucune session enregistrée.</p>
+                </div>
               )}
             </div>
           </div>
 
           {/* Latest Leads Table */}
-          <div className="lg:col-span-2 bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
-            <div className="p-6 border-b border-gray-100">
-              <h2 className="text-xl font-bold">Derniers prospects qualifiés</h2>
+          <div className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden flex flex-col h-[800px]">
+            <div className="p-6 border-b border-slate-100 bg-white/80 backdrop-blur-sm sticky top-0 z-10 flex justify-between items-center">
+              <div>
+                <h2 className="text-lg font-bold text-slate-900">Derniers Prospects</h2>
+                <p className="text-sm text-slate-500 mt-1">Leads qualifiés depuis le formulaire</p>
+              </div>
+              <FileText className="text-slate-400" size={20} />
             </div>
-            <div className="overflow-x-auto">
+            
+            <div className="overflow-x-auto flex-1 p-4 bg-slate-50/50">
               {leads.length > 0 ? (
-                <table className="w-full text-left">
-                  <thead className="bg-gray-50">
-                    <tr>
-                      <th className="px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider">Date</th>
-                      <th className="px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider">Contact</th>
-                      <th className="px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider">Détails du Projet</th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y divide-gray-100">
-                    {leads.map((lead) => (
-                      <tr key={lead.id} className="hover:bg-gray-50 align-top">
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                          {new Date(lead.created_at).toLocaleDateString("fr-FR")}
-                        </td>
-                        <td className="px-6 py-4 whitespace-nowrap">
-                          <div className="text-sm font-bold text-gray-900">{lead.email}</div>
-                          {lead.phone && <div className="text-xs text-gray-500 mt-0.5">{lead.phone}</div>}
-                        </td>
-                        <td className="px-6 py-4 text-sm text-gray-700 min-w-[300px]">
-                          <div className="flex flex-wrap gap-2 mb-2">
-                            <span className="px-2 py-0.5 bg-blue-50 text-blue-700 border border-blue-100 rounded text-xs font-medium">{lead.need}</span>
-                            <span className="px-2 py-0.5 bg-gray-100 text-gray-700 border border-gray-200 rounded text-xs font-medium">{lead.sector}</span>
-                            <span className="px-2 py-0.5 bg-purple-50 text-purple-700 border border-purple-100 rounded text-xs font-medium">Délai : {lead.timeline}</span>
+                <div className="space-y-4">
+                  {leads.map((lead) => (
+                    <div key={lead.id} className="bg-white p-5 rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+                      <div className="flex justify-between items-start mb-4">
+                        <div className="flex items-center gap-3">
+                          <div className="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-600">
+                            <Briefcase size={18} />
                           </div>
-                          {lead.description ? (
-                            <div className="mt-3 p-3 bg-white border border-gray-200 rounded-md shadow-sm">
-                              <span className="block text-xs font-bold text-gray-500 mb-1 uppercase tracking-wider">Résumé du projet :</span>
-                              <p className="text-sm text-gray-800 whitespace-pre-wrap">{lead.description}</p>
-                            </div>
-                          ) : (
-                            <div className="mt-2 text-xs text-gray-400 italic">Aucune description fournie.</div>
-                          )}
-                        </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
+                          <div>
+                            <div className="text-sm font-bold text-slate-900">{lead.email}</div>
+                            {lead.phone && <div className="text-xs text-slate-500 mt-0.5">{lead.phone}</div>}
+                          </div>
+                        </div>
+                        <div className="text-xs text-slate-400 font-mono bg-slate-100 px-2 py-1 rounded">
+                          {new Date(lead.created_at).toLocaleDateString("fr-FR")}
+                        </div>
+                      </div>
+                      
+                      <div className="flex flex-wrap gap-2 mb-4">
+                        <span className="px-2.5 py-1 bg-indigo-50 text-indigo-700 border border-indigo-100 rounded-md text-xs font-medium">
+                          {lead.need}
+                        </span>
+                        <span className="px-2.5 py-1 bg-slate-100 text-slate-700 border border-slate-200 rounded-md text-xs font-medium">
+                          {lead.sector}
+                        </span>
+                        <span className="px-2.5 py-1 bg-orange-50 text-orange-700 border border-orange-100 rounded-md text-xs font-medium flex items-center gap-1">
+                          <Clock size={12} />
+                          {lead.timeline}
+                        </span>
+                      </div>
+                      
+                      {lead.description && (
+                        <div className="p-3 bg-slate-50 rounded-lg border border-slate-100">
+                          <span className="block text-xs font-bold text-slate-500 mb-1.5 uppercase tracking-wider">Projet :</span>
+                          <p className="text-sm text-slate-700 whitespace-pre-wrap">{lead.description}</p>
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                </div>
               ) : (
-                <div className="p-8 text-center text-gray-500">
-                  Aucun prospect enregistré pour le moment.
+                <div className="flex flex-col items-center justify-center py-20 text-slate-400">
+                  <FileText size={48} className="mb-4 opacity-20" />
+                  <p>Aucun prospect enregistré pour le moment.</p>
                 </div>
               )}
             </div>
