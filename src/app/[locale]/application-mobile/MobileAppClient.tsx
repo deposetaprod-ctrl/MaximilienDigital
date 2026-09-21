@@ -111,10 +111,21 @@ export default function MobileAppClient() {
               {t("mobapp_hero_sub")}
             </motion.p>
             
-            <motion.div
+            <motion.button
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
+              onClick={scrollToForm}
+              className="group relative inline-flex items-center justify-center gap-3 px-8 py-4 bg-primary text-primary-foreground rounded-full font-bold text-lg overflow-hidden transition-all hover:scale-105 active:scale-95 shadow-xl shadow-primary/25 mb-8"
+            >
+              {t("mobapp_hero_cta")}
+              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            </motion.button>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4 }}
               className="flex flex-col sm:flex-row items-center justify-center gap-4 text-sm font-bold text-foreground/80 mb-10 w-full"
             >
               <span className="flex items-center gap-2"><CheckCircle2 className="w-5 h-5 text-primary" /> {t("mobapp_trust_store")}</span>
@@ -123,17 +134,6 @@ export default function MobileAppClient() {
               <span className="hidden sm:inline text-muted-foreground">•</span>
               <span className="flex items-center gap-2"><CheckCircle2 className="w-5 h-5 text-primary" /> {t("mobapp_trust_code")}</span>
             </motion.div>
-            
-            <motion.button
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4 }}
-              onClick={scrollToForm}
-              className="group relative inline-flex items-center justify-center gap-3 px-8 py-4 bg-primary text-primary-foreground rounded-full font-bold text-lg overflow-hidden transition-all hover:scale-105 active:scale-95 shadow-xl shadow-primary/25"
-            >
-              {t("mobapp_hero_cta")}
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </motion.button>
           </div>
         </section>
 

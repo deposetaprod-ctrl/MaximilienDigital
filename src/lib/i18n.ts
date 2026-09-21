@@ -4,9 +4,9 @@ export const translations = {
   fr: {
     // MobileApp Page
     mobapp_hero_badge: "Création d'Application Mobile sur Mesure",
-    mobapp_hero_title: "Votre application mobile,",
-    mobapp_hero_title_gradient: "présente dans la poche de vos clients",
-    mobapp_hero_sub: "Lancez une application iOS et Android native pour fidéliser vos utilisateurs, envoyer des notifications push et inspirer confiance grâce à votre présence sur l'App Store et Google Play.",
+    mobapp_hero_title: "Créer une application mobile",
+    mobapp_hero_title_gradient: "et gagner de l'argent",
+    mobapp_hero_sub: "Lancez une application iOS et Android native pour fidéliser vos utilisateurs, rentabiliser votre idée et générer de vrais revenus grâce à votre présence sur l'App Store et Google Play.",
     mobapp_trust_store: "Publication App Store & Google Play",
     mobapp_trust_mockup: "Maquette gratuite",
     mobapp_trust_code: "Code source livré",
@@ -56,9 +56,9 @@ export const translations = {
     mobapp_final_cta: "Recevoir ma maquette",
     // WebApp Page
     webapp_hero_badge: "Création d'Application Web sur Mesure",
-    webapp_hero_title: "Votre application web sur mesure,",
-    webapp_hero_title_gradient: "prête à être testée rapidement",
-    webapp_hero_sub: "Lancez une application responsive accessible sur ordinateur, tablette et mobile, sans passer immédiatement par l'App Store ou Google Play.",
+    webapp_hero_title: "Créer une application web",
+    webapp_hero_title_gradient: "et gagner de l'argent",
+    webapp_hero_sub: "Lancez une plateforme web responsive prête à vous rapporter de l'argent et générer des revenus dès le premier jour, sans passer par les Stores.",
     webapp_trust_code: "Code source livré",
     webapp_trust_mockup: "Maquette gratuite",
     webapp_trust_support: "Accompagnement A à Z",
