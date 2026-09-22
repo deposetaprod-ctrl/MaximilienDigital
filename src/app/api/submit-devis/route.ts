@@ -23,7 +23,7 @@ export async function POST(request: Request) {
       : "<li>Aucune fonctionnalité spécifiée</li>";
 
     // Send email to the admin
-    await resend.emails.send({
+    const { data: emailData, error } = await resend.emails.send({
       from: "Contact App <onboarding@resend.dev>", // Replace with verified domain in production if possible
       to: "maximilien.godeau.off@gmail.com", // Destination email
       subject: `🔥 Nouvelle demande de Devis : ${projectTitle || "Projet"}`,
@@ -48,7 +48,12 @@ export async function POST(request: Request) {
       `,
     });
 
-    return NextResponse.json({ success: true });
+    if (error) {
+      console.error("Resend API error:", error);
+      return NextResponse.json({ error: error.message }, { status: 400 });
+    }
+
+    return NextResponse.json({ success: true, data: emailData });
   } catch (error) {
     console.error("Failed to submit devis lead:", error);
     return NextResponse.json({ error: "Internal Server Error" }, { status: 500 });
