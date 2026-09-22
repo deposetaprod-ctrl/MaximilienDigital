@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import WebAppClient from "./WebAppClient";
 
 export const metadata: Metadata = {
-  title: "Création d'Application Web & SaaS | Développeur Agent IA | Maquette Gratuite",
+  title: "Agence Web : Création Site Internet, Web App & SaaS | Maquette Gratuite",
   description:
-    "Développeur d'application web sur mesure et SaaS. Intégration d'Agent IA, conformité RGPD, hébergement France (OVH), Design 3D et sécurisation. Recevez une maquette gratuite.",
+    "Votre Agence web de confiance pour la création de site internet premium, d'application web (SaaS) et PWA sur mesure. Obtenez une maquette gratuite pour valider votre projet.",
   keywords: ["développeur Agent IA", "SaaS Agent IA", "application web sur mesure", "automatisation IA", "développeur web RGPD", "hébergement OVH France", "développement SaaS", "authentification sécurisée", "design 3D web"],
 };
 

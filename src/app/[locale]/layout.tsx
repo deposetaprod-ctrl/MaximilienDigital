@@ -67,8 +67,8 @@ export async function generateMetadata(props: { params: Promise<{ locale: string
       },
     },
     openGraph: {
-      title: "Maximilien Digital | Applications Web & Mobile sur mesure",
-      description: "Création d'applications web et mobile sur mesure. Développement rapide, PWA, application iOS & Android, connexion API et automatisation des processus métier.",
+      title: "Agence Web Maximilien Digital | Création Site Internet & App Mobile",
+      description: "Agence de développement web experte en création de sites internet et applications mobile sur mesure. Développement rapide, PWA, application iOS & Android, et automatisation.",
       type: "website",
       url: BASE_URL,
       siteName: "Maximilien Digital",
@@ -84,8 +84,8 @@ export async function generateMetadata(props: { params: Promise<{ locale: string
     },
     twitter: {
       card: "summary_large_image",
-      title: "Maximilien Digital | Applications Web & Mobile sur mesure",
-      description: "Création d'applications web et mobile sur mesure. Développement rapide, PWA, application iOS & Android, connexion API et automatisation des processus métier.",
+      title: "Agence Web Maximilien Digital | Création Site Internet & App Mobile",
+      description: "Agence de développement web experte en création de sites internet et applications mobile sur mesure. Développement rapide, PWA, application iOS & Android, et automatisation.",
       images: [OG_IMAGE_URL],
     },
     manifest: "/manifest.json",
