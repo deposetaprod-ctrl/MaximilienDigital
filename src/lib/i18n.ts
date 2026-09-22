@@ -851,6 +851,41 @@ export const translations = {
       <h2 class="text-2xl font-bold mt-12 mb-6">Passez de l'idée à la maquette en 24h</h2>
       <p>Mon processus commence toujours par une compréhension profonde de vos besoins métier. Racontez-moi votre problématique de gestion interne, votre projet de SaaS, ou votre besoin d'interface client. Je me chargerai de traduire cela en langage technique, et de piloter l'Intelligence Artificielle pour construire l'outil dont vous êtes le seul propriétaire.</p>
     `,
+    // ComeUp Integration
+    comeup_founder_badge: "Le Fondateur",
+    comeup_founder_title: "Pourquoi me choisir",
+    comeup_founder_title_gradient: "plutôt qu'un autre ?",
+    comeup_founder_subtitle: "Je ne suis pas uniquement développeur : je suis aussi entrepreneur. Cela me permet de comprendre les enjeux d’un projet au-delà du simple développement technique.",
+    comeup_founder_p1: "J’ai travaillé sur de nombreux projets digitaux et je m’appuie également sur un réseau d’ingénieurs et de spécialistes lorsque cela est nécessaire. Mon objectif n’est pas seulement de créer une application, mais de vous aider à construire un produit utile, viable et évolutif.",
+    comeup_founder_p2: "Avant de développer, je prends le temps de comprendre votre besoin afin de vous orienter vers la solution la plus adaptée : application web, mobile, SaaS ou outil métier.",
+    comeup_founder_highlight: "👉 Je ne code pas juste une app. Je vous aide à construire un produit viable et exploitable.",
+    comeup_founder_p3: "Grâce à mon expertise en entrepreneuriat, en finance et en intelligence artificielle, je challenge votre projet pour maximiser vos chances de succès.",
+    
+    comeup_method_badge: "La Méthode",
+    comeup_method_title: "Comment ça se passe",
+    comeup_method_title_gradient: "concrètement ?",
+    comeup_method_step1_title: "Phase 1 : Découverte & Cadrage",
+    comeup_method_step1_desc: "Vous me présentez votre idée et on en discute. On définit ensemble les fonctionnalités essentielles à développer dans une première version.",
+    comeup_method_step2_title: "Phase 2 : Maquette & Conception",
+    comeup_method_step2_desc: "Je modélise votre application avant de coder. Vous validez les écrans et les fonctionnalités avant le développement. Pas de mauvaises surprises.",
+    comeup_method_step3_title: "Phase 3 : Développement",
+    comeup_method_step3_desc: "Votre application prend vie rapidement. Nous échangeons régulièrement pour rester alignés avec votre vision.",
+    comeup_method_step4_title: "Phase 4 : Livraison",
+    comeup_method_step4_desc: "Je vous transfère le code source complet, les accès administrateur, et un document signé vous livrant les droits. Vous êtes totalement autonome et propriétaire.",
+    
+    comeup_faq_badge: "FAQ",
+    comeup_faq_title: "Questions",
+    comeup_faq_title_gradient: "fréquentes",
+    comeup_faq_1_q: "Combien ça coûte après la livraison ?",
+    comeup_faq_1_a: "Rien de ma part. L'application est 100% à vous. Les seuls frais récurrents sont l'hébergement (à partir de 5€/mois selon la solution choisie). Je vous guide gratuitement dans le choix du meilleur hébergeur.",
+    comeup_faq_2_q: "Quelle est la différence entre une Web App, une PWA et une app native ?",
+    comeup_faq_2_a: "Web App : accessible via un navigateur. PWA : s'installe comme une app sur mobile, sans passer par les stores. App native : publiée sur App Store / Google Play, expérience mobile optimale. Je vous conseille la solution la plus adaptée.",
+    comeup_faq_3_q: "Quelle est la différence avec une solution no-code (Bubble, Adalo...) ?",
+    comeup_faq_3_a: "Une application codée sur mesure est plus rapide, plus flexible et vous appartient réellement. Pas de dépendance à une plateforme, pas de limitations techniques, et des performances bien supérieures.",
+    comeup_faq_4_q: "Comment s’effectue la transmission de la propriété ?",
+    comeup_faq_4_a: "À la fin du projet, je vous envoie le dossier du code avec un document signé attestant de la cession totale de la propriété intellectuelle.",
+    comeup_faq_5_q: "Est-ce que je peux faire évoluer mon application après la livraison ?",
+    comeup_faq_5_a: "Oui. Vous recevez le code source complet, propre et documenté. Vous pouvez le faire évoluer vous-même ou me recontacter pour de nouvelles fonctionnalités.",
   },
 
   en: {
@@ -1705,6 +1740,41 @@ export const translations = {
       <h2 class="text-2xl font-bold mt-12 mb-6">Go from idea to mockup in 24h</h2>
       <p>My process always starts with a deep understanding of your business needs. Tell me about your internal management problem, your SaaS project, or your client interface need. I will translate this into technical language, and orchestrate Artificial Intelligence to build the tool you solely own.</p>
     `,
+    // ComeUp Integration
+    comeup_founder_badge: "The Founder",
+    comeup_founder_title: "Why choose me",
+    comeup_founder_title_gradient: "over another?",
+    comeup_founder_subtitle: "I am not just a developer: I am also an entrepreneur. This allows me to understand the stakes of a project beyond simple technical development.",
+    comeup_founder_p1: "I have worked on many digital projects and I also rely on a network of engineers and specialists when necessary. My goal is not only to create an application, but to help you build a useful, viable and scalable product.",
+    comeup_founder_p2: "Before developing, I take the time to understand your needs to guide you to the most suitable solution: web application, mobile, SaaS or business tool.",
+    comeup_founder_highlight: "👉 I don't just code an app. I help you build a viable and exploitable product.",
+    comeup_founder_p3: "Thanks to my expertise in entrepreneurship, finance, and artificial intelligence, I challenge your project to maximize your chances of success.",
+    
+    comeup_method_badge: "Methodology",
+    comeup_method_title: "How does it work",
+    comeup_method_title_gradient: "in practice?",
+    comeup_method_step1_title: "Phase 1: Discovery & Scoping",
+    comeup_method_step1_desc: "You present your idea to me and we discuss it. We define together the essential features to develop in a first version.",
+    comeup_method_step2_title: "Phase 2: Mockup & Design",
+    comeup_method_step2_desc: "I model your application before coding. You validate the screens and features before development. No bad surprises.",
+    comeup_method_step3_title: "Phase 3: Development",
+    comeup_method_step3_desc: "Your application comes to life quickly. We communicate regularly to stay aligned with your vision.",
+    comeup_method_step4_title: "Phase 4: Delivery",
+    comeup_method_step4_desc: "I transfer the complete source code, administrator access, and a signed document transferring the rights to you. You are completely autonomous and the owner.",
+    
+    comeup_faq_badge: "FAQ",
+    comeup_faq_title: "Frequently",
+    comeup_faq_title_gradient: "Asked Questions",
+    comeup_faq_1_q: "How much does it cost after delivery?",
+    comeup_faq_1_a: "Nothing from me. The application is 100% yours. The only recurring costs are hosting (from €5/month depending on the solution chosen). I guide you for free in choosing the best host.",
+    comeup_faq_2_q: "What is the difference between a Web App, a PWA and a native app?",
+    comeup_faq_2_a: "Web App: accessible via a browser. PWA: installs like an app on mobile, without going through the stores. Native app: published on App Store / Google Play, optimal mobile experience. I advise you on the most suitable solution.",
+    comeup_faq_3_q: "What is the difference with a no-code solution (Bubble, Adalo...)?",
+    comeup_faq_3_a: "A custom coded application is faster, more flexible and truly belongs to you. No dependence on a platform, no technical limitations, and much higher performance.",
+    comeup_faq_4_q: "How is ownership transferred?",
+    comeup_faq_4_a: "At the end of the project, I send you the code folder with a signed document attesting to the total transfer of intellectual property.",
+    comeup_faq_5_q: "Can I evolve my application after delivery?",
+    comeup_faq_5_a: "Yes. You receive the complete, clean and documented source code. You can evolve it yourself or contact me again for new features.",
   },
 } as const;
 

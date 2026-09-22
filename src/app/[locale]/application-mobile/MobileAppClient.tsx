@@ -5,6 +5,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { HeroDynamicForm } from "@/components/sections/HeroDynamicForm";
 import { TestimonialsSection } from "@/components/sections/TestimonialsSection";
 import { Footer } from "@/components/sections/Footer";
+import { FounderSection } from "@/components/sections/FounderSection";
+import { FaqSection } from "@/components/sections/FaqSection";
 import { Code2, Zap, Smartphone, Globe, Database, AppWindow, ArrowRight, CheckCircle2, Cpu, ShieldCheck, Sparkles, BellRing, Rocket, Bot } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 
@@ -211,6 +213,9 @@ export default function MobileAppClient() {
             </motion.div>
           </div>
         </section>
+
+        {/* FOUNDER SECTION */}
+        <FounderSection />
 
         {/* WHY START WITH MOBILE APP */}
         <section className="px-4 py-24 bg-secondary/30 relative">
@@ -443,36 +448,7 @@ export default function MobileAppClient() {
         <TestimonialsSection />
 
         {/* FAQ */}
-        <section className="px-4 py-24 bg-secondary/30 relative">
-          <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border to-transparent"></div>
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">Questions fréquentes</h2>
-            </div>
-            
-            <div className="space-y-6">
-              {[
-                { q: "Faut-il payer deux fois pour iOS et Android ?", a: "Non, grâce aux technologies modernes (React Native, Flutter), un seul code est écrit pour générer une application fonctionnant à la fois sur iPhone et sur Android. Vous ne payez le développement qu'une seule fois." },
-                { q: "Combien de temps prend la publication sur les stores ?", a: "La validation par Google (Play Store) prend généralement entre 3 et 7 jours. La validation par Apple (App Store) est souvent un peu plus stricte et peut prendre entre 3 et 10 jours ouvrés." },
-                { q: "Est-ce qu'Apple et Google prennent une commission ?", a: "Oui, si vous vendez des biens virtuels, abonnements digitaux ou services in-app, Apple et Google prélèvent entre 15% et 30% de commission. Si vous vendez des biens physiques (ex: vêtements) ou des services hors de l'application, aucune commission n'est prise." },
-                { q: "Qui sera propriétaire du compte Apple Developer et Google Play ?", a: "C'est votre entreprise. Je vous accompagnerai pour créer vos propres comptes (99$/an pour Apple, 25$ à vie pour Google). Ainsi, l'application vous appartient totalement." },
-                { q: "Dois-je d'abord faire une Web App ou une App Mobile ?", a: "Si votre objectif est l'acquisition rapide de clients ou le test d'une idée, une Web App (accessible par navigateur) est plus rapide à lancer. Si votre priorité est la fidélisation, l'utilisation fréquente et l'envoi de notifications, l'application Mobile est le meilleur choix. J'ajoute aussi que l'App Store et même le Google Play inspirent confiance et sont davantage une preuve d'autorité." }
-              ].map((faq, i) => (
-                <motion.div 
-                  key={i}
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.1 }}
-                  className="bg-card border border-border p-8 rounded-3xl shadow-sm"
-                >
-                  <h3 className="font-bold text-xl mb-3">{faq.q}</h3>
-                  <p className="text-muted-foreground font-medium leading-relaxed">{faq.a}</p>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
+        <FaqSection />
 
         {/* FORMULAIRE (using HeroDynamicForm) */}
         <div ref={formRef} className="scroll-m-20 py-16 bg-background relative z-20">

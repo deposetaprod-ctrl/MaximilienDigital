@@ -5,6 +5,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { HeroDynamicForm } from "@/components/sections/HeroDynamicForm";
 import { TestimonialsSection } from "@/components/sections/TestimonialsSection";
 import { Footer } from "@/components/sections/Footer";
+import { FounderSection } from "@/components/sections/FounderSection";
+import { FaqSection } from "@/components/sections/FaqSection";
 import { Code2, Zap, Smartphone, Globe, Database, AppWindow, ArrowRight, CheckCircle2, Cpu, ShieldCheck, Sparkles } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 
@@ -130,6 +132,9 @@ export default function WebAppClient() {
             </motion.div>
           </div>
         </section>
+
+        {/* FOUNDER SECTION */}
+        <FounderSection />
 
         {/* WHY START WITH WEB APP */}
         <section className="px-4 py-24 bg-secondary/30 relative">
@@ -362,36 +367,7 @@ export default function WebAppClient() {
         <TestimonialsSection />
 
         {/* FAQ */}
-        <section className="px-4 py-24 bg-secondary/30 relative">
-          <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border to-transparent"></div>
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">Questions fréquentes</h2>
-            </div>
-            
-            <div className="space-y-6">
-              {[
-                { q: "Combien coûte une application web sur mesure ?", a: "Le prix varie selon la complexité, mais l'objectif est toujours de créer un outil qui vous fera gagner du temps ou de l'argent, rentabilisant rapidement l'investissement." },
-                { q: "Quels sont les délais de création ?", a: "Entre 2 et 6 semaines selon l'envergure du projet. La méthode de travail itérative vous permet d'avoir accès à une première version testable très rapidement." },
-                { q: "Serais-je propriétaire de mon application ?", a: "Oui, à 100%. Le code source vous est entièrement livré à la fin du projet. Vous n'êtes pas lié par un abonnement mensuel contraignant." },
-                { q: "Assurez-vous la maintenance ?", a: "Oui, je propose des forfaits de maintenance pour m'assurer que votre application reste sécurisée et évolue avec vos besoins. Mais vous êtes libre de confier ce code à un autre développeur si vous le souhaitez." },
-                { q: "Pourra-t-on la transformer en application mobile plus tard ?", a: "Absolument. Les applications web (spécialement les PWA) sont un excellent point de départ. L'architecture backend (API, base de données) sera déjà prête si vous décidez de développer une version iOS/Android native par la suite." }
-              ].map((faq, i) => (
-                <motion.div 
-                  key={i}
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.1 }}
-                  className="bg-card border border-border p-8 rounded-3xl shadow-sm"
-                >
-                  <h3 className="font-bold text-xl mb-3">{faq.q}</h3>
-                  <p className="text-muted-foreground font-medium leading-relaxed">{faq.a}</p>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
+        <FaqSection />
 
         {/* FORMULAIRE (using HeroDynamicForm from the original site) */}
         <div ref={formRef} className="scroll-m-20 py-16 bg-background relative z-20">
