@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Users, Bot, Rocket, Code2, Building2, ChevronRight, X } from "lucide-react";
+import { Users, Bot, Rocket, Code2, Building2, ChevronRight, X, ShieldCheck, UserCheck, Smartphone, Mail, Network, CreditCard } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 import type { LucideIcon } from "lucide-react";
 import { Dialog } from "@base-ui/react";
@@ -95,6 +95,32 @@ export function ServicesSection() {
             <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
               {t("service_custom_desc")}
             </p>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-3.5 py-1.5 text-sm font-medium text-primary border border-primary/20 shadow-sm">
+                <UserCheck size={16} /> Freelance
+              </span>
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-3.5 py-1.5 text-sm font-medium text-primary border border-primary/20 shadow-sm">
+                <Smartphone size={16} /> Apps iOS & Android
+              </span>
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-3.5 py-1.5 text-sm font-medium text-primary border border-primary/20 shadow-sm">
+                <Bot size={16} /> Agents IA
+              </span>
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-3.5 py-1.5 text-sm font-medium text-primary border border-primary/20 shadow-sm">
+                <ShieldCheck size={16} /> Conformité RGPD
+              </span>
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-3.5 py-1.5 text-sm font-medium text-primary border border-primary/20 shadow-sm">
+                <Code2 size={16} /> Sur-mesure
+              </span>
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-3.5 py-1.5 text-sm font-medium text-primary border border-primary/20 shadow-sm">
+                <Mail size={16} /> Envoi Mail & SMS
+              </span>
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-3.5 py-1.5 text-sm font-medium text-primary border border-primary/20 shadow-sm">
+                <Network size={16} /> Intégration API
+              </span>
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-3.5 py-1.5 text-sm font-medium text-primary border border-primary/20 shadow-sm">
+                <CreditCard size={16} /> Paiement (Stripe)
+              </span>
+            </div>
           </div>
         </motion.div>
       </div>
