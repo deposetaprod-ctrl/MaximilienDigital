@@ -40,7 +40,7 @@ export function Navigation() {
 
   const navItems = [
     { name: t("nav_home"), href: "/" },
-    { name: "App Web", href: "/application-web-sur-mesure" },
+    { name: "Site & Web App", href: "/application-web-sur-mesure" },
     { name: "App Mobile", href: "/application-mobile" },
     { name: "Devis", href: "/devis" },
   ];
