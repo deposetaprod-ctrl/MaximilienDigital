@@ -3,7 +3,7 @@
 import { useState, useRef } from "react";
 import { HeroDynamicForm } from "@/components/sections/HeroDynamicForm";
 import { ServicesSection } from "@/components/sections/ServicesSection";
-import { TeamCarousel } from "@/components/sections/TeamCarousel";
+import { VideoSection } from "@/components/sections/VideoSection";
 import { TestimonialsSection } from "@/components/sections/TestimonialsSection";
 import { FinalCtaSection } from "@/components/sections/FinalCtaSection";
 import { Footer } from "@/components/sections/Footer";
@@ -33,12 +33,12 @@ export default function Home() {
         <FounderSection />
         
         <div ref={restOfSiteRef}>
-          <TeamCarousel />
+          <VideoSection />
           <ServicesSection />
           <MethodologySection />
           <TestimonialsSection />
           <FaqSection />
-          <FinalCtaSection onCtaClick={scrollToRestOfSite} />
+          <FinalCtaSection onCtaClick={scrollToTop} />
         </div>
       </main>
       <Footer />

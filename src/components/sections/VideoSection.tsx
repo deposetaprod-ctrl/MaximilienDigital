@@ -29,7 +29,7 @@ export const VideoSection = () => {
             transition={{ delay: 0.1 }}
             className="text-3xl md:text-5xl font-extrabold mb-4 tracking-tight"
           >
-            Découvrez mon approche
+            Découvrez mes réalisations
           </motion.h2>
           
           <motion.p 
@@ -39,7 +39,7 @@ export const VideoSection = () => {
             transition={{ delay: 0.2 }}
             className="text-muted-foreground max-w-2xl mx-auto text-lg"
           >
-            Une courte présentation de ma vision, de mon expertise et de la manière dont j'accompagne mes clients.
+            Aperçu en vidéo de quelques applications mobiles et web sur-mesure développées pour mes clients.
           </motion.p>
         </div>
         

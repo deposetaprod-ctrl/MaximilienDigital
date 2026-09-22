@@ -25,7 +25,7 @@ export async function POST(request: Request) {
     // Send email to the admin
     await resend.emails.send({
       from: "Contact App <onboarding@resend.dev>", // Replace with verified domain in production if possible
-      to: "maximilien.godeau@gmail.com", // Destination email
+      to: "maximilien.godeau.off@gmail.com", // Destination email
       subject: `🔥 Nouvelle demande de Devis : ${projectTitle || "Projet"}`,
       html: `
         <h2>Nouvelle proposition de projet / Devis</h2>
