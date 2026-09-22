@@ -133,6 +133,44 @@ export default function WebAppClient() {
           </div>
         </section>
 
+
+        {/* EXEMPLES DE PROJETS */}
+        <section className="px-4 py-24 relative overflow-hidden">
+          <div className="max-w-6xl mx-auto relative z-10">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">{t("webapp_projects_title")}</h2>
+              <p className="text-muted-foreground max-w-2xl mx-auto text-lg">{t("webapp_projects_sub")}</p>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-6">
+              {projects.map((project, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ delay: i * 0.1 }}
+                  className="group rounded-3xl border border-border bg-card p-8 hover:border-primary/50 transition-all duration-300 shadow-sm hover:shadow-md flex flex-col h-full relative overflow-hidden"
+                >
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-bl-[100px] -z-10 transition-transform group-hover:scale-110"></div>
+                  <div className="mb-6 bg-primary/10 w-16 h-16 rounded-2xl flex items-center justify-center">
+                    {project.icon}
+                  </div>
+                  <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors">{project.title}</h3>
+                  <p className="text-muted-foreground leading-relaxed mb-6 flex-grow">{project.desc}</p>
+                  <div className="flex flex-wrap gap-2 mt-auto">
+                    {project.tags.map(tag => (
+                      <span key={tag} className="px-3 py-1 bg-secondary text-secondary-foreground text-xs font-bold rounded-full border border-border/50">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* FOUNDER SECTION */}
         <FounderSection />
 
@@ -201,43 +239,6 @@ export default function WebAppClient() {
                   <h3 className="text-xl font-bold mb-1">{item.title}</h3>
                   <p className="text-primary font-semibold text-sm mb-4">{item.subtitle}</p>
                   <p className="text-muted-foreground leading-relaxed">{item.desc}</p>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* EXEMPLES DE PROJETS */}
-        <section className="px-4 py-24 relative overflow-hidden">
-          <div className="max-w-6xl mx-auto relative z-10">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">{t("webapp_projects_title")}</h2>
-              <p className="text-muted-foreground max-w-2xl mx-auto text-lg">{t("webapp_projects_sub")}</p>
-            </div>
-
-            <div className="grid md:grid-cols-3 gap-6">
-              {projects.map((project, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true, margin: "-50px" }}
-                  transition={{ delay: i * 0.1 }}
-                  className="group rounded-3xl border border-border bg-card p-8 hover:border-primary/50 transition-all duration-300 shadow-sm hover:shadow-md flex flex-col h-full relative overflow-hidden"
-                >
-                  <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-bl-[100px] -z-10 transition-transform group-hover:scale-110"></div>
-                  <div className="mb-6 bg-primary/10 w-16 h-16 rounded-2xl flex items-center justify-center">
-                    {project.icon}
-                  </div>
-                  <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors">{project.title}</h3>
-                  <p className="text-muted-foreground leading-relaxed mb-6 flex-grow">{project.desc}</p>
-                  <div className="flex flex-wrap gap-2 mt-auto">
-                    {project.tags.map(tag => (
-                      <span key={tag} className="px-3 py-1 bg-secondary text-secondary-foreground text-xs font-bold rounded-full border border-border/50">
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
                 </motion.div>
               ))}
             </div>

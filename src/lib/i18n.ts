@@ -1138,7 +1138,7 @@ export const translations = {
 
     // Hero
     hero_tagline: "Application Developer & Architect",
-    hero_form_title: "Let's build your <strong class=\"inline-block bg-primary/15 border border-primary/30 text-amber-700 dark:text-amber-400 px-2 py-0.5 mx-1 rounded-md font-extrabold\">website</strong>",
+    hero_form_title: "Let's build your <strong class=\"inline-block bg-primary/15 border border-primary/30 text-amber-700 dark:text-amber-400 px-2 py-0.5 mx-1 rounded-md font-extrabold\">custom app</strong>",
 
     // AI Section
 
