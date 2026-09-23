@@ -97,7 +97,7 @@ export function Navigation() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="fixed inset-0 z-40 bg-[#171411]/95 backdrop-blur-lg pt-32 px-6 flex flex-col gap-8 md:hidden"
+            className="fixed inset-0 z-40 bg-[#171411]/95 backdrop-blur-lg pt-32 px-6 flex flex-col gap-8"
             style={{ position: "fixed", top: 0, left: 0, right: 0, bottom: 0, zIndex: 40 }}
           >
             <nav className="flex flex-col gap-6">
