@@ -40,7 +40,7 @@ export function PremiumBriefDialog() {
 
   useEffect(() => {
     const handleOpen = (e: MouseEvent) => {
-      const target = (e.target as HTMLElement).closest('.open-brief');
+      const target = (e.target as HTMLElement).closest('.open-brief, .premium-open-brief, .nav-cta');
       if (target) {
         e.preventDefault();
         dialogRef.current?.showModal();

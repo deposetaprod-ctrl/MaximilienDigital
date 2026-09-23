@@ -85,39 +85,34 @@ export function Navigation() {
         </nav>
       </header>
 
-      {/* MOBILE MENU OVERLAY (Framer Motion) */}
+      {/* MOBILE MENU DROPDOWN (Framer Motion) */}
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
+            initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className="fixed inset-0 z-40 bg-[#171411]/95 backdrop-blur-lg pt-32 px-6 flex flex-col gap-8"
-            style={{ position: "fixed", top: 0, left: 0, right: 0, bottom: 0, zIndex: 40 }}
+            exit={{ opacity: 0, y: -10 }}
+            style={{ position: "fixed", top: "75px", left: 0, right: 0, zIndex: 40 }}
           >
-            <nav className="flex flex-col gap-6">
+            <nav id="mobile-nav">
               {navItems.map((item) => {
                 const isActive = pathname === item.href || (item.href !== "/" && pathname?.startsWith(item.href));
                 return (
                   <Link
                     key={item.href}
                     href={item.href}
-                    onClick={() => trackClick(`nav_mobile_${item.name}`)}
-                    style={{ fontSize: "24px", fontWeight: "600", color: isActive ? "#ff702d" : "#e0d4c8", textDecoration: "none" }}
+                    onClick={() => {
+                      trackClick(`nav_mobile_${item.name}`);
+                      setIsMenuOpen(false);
+                    }}
+                    aria-current={isActive ? "page" : undefined}
+                    style={{ textDecoration: "none" }}
                   >
                     {item.name}
                   </Link>
                 );
               })}
             </nav>
-            
-            <button 
-              className="nav-cta" 
-              style={{ marginTop: "20px", padding: "16px", width: "100%", fontSize: "16px", borderRadius: "30px" }}
-             
-            >
-              Recevoir ma maquette
-            </button>
           </motion.div>
         )}
       </AnimatePresence>

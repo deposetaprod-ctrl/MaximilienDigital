@@ -37,14 +37,8 @@ export function AIChatbot() {
 
   function handleScrollToForm() {
     setView("closed");
-    // Try to find the form section on the page
-    const formEl = document.getElementById("contact-form") || document.querySelector("form");
-    if (formEl) {
-      formEl.scrollIntoView({ behavior: "smooth", block: "center" });
-    } else {
-      // Fallback: scroll to top where the hero form is
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }
+    const dialog = document.getElementById("brief") as HTMLDialogElement;
+    if (dialog) dialog.showModal();
   }
 
   return (

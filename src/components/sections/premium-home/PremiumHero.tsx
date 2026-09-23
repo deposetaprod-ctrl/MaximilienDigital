@@ -71,7 +71,7 @@ export function PremiumHero({ onCtaClick }: { onCtaClick?: () => void }) {
         </div>
         
         <div className="stage-foot">
-          <span>Design + Développement + Accompagnement</span><span>Explorer la suite ↓&#xFE0E;</span>
+          <span>Design + Développement + Accompagnement</span><span>Explorer la suite <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ display: 'inline-block', verticalAlign: 'middle', marginLeft: '3px' }}><path d="M12 5v14M19 12l-7 7-7-7"/></svg></span>
         </div>
       </section>
 
