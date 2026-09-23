@@ -32,7 +32,7 @@ export function Navigation() {
     { name: "Sites & Web Apps", href: "/application-web-sur-mesure" },
     { name: "Apps mobiles", href: "/application-mobile" },
     { name: "Formation", href: "/formation" },
-    { name: "Avis clients", href: "#avis" },
+    { name: "Avis clients", href: "/#avis" },
     { name: "Devis", href: "/devis" },
   ];
 
