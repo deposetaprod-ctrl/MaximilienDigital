@@ -390,7 +390,7 @@ export default function DevisClient() {
                   <Download className="w-4 h-4" /> Télécharger PDF
                 </button>
               ) : (
-                <button onClick={submitDevis} disabled={isSending || isSent} className="flex-1 bg-orange-600 text-white py-3 px-4 rounded-md font-medium hover:bg-orange-700 disabled:bg-slate-400 transition flex items-center justify-center gap-2">
+                <button onClick={submitDevis} disabled={isSending || isSent} className="flex-1 bg-primary text-primary-foreground py-3 px-4 rounded-md font-medium hover:brightness-110 disabled:opacity-50 transition flex items-center justify-center gap-2">
                   {isSending ? "Envoi en cours..." : isSent ? "Demande Envoyée !" : <><Send className="w-4 h-4" /> Envoyer ma demande</>}
                 </button>
               )}
@@ -398,7 +398,7 @@ export default function DevisClient() {
           </div>
 
           {/* Right Panel: Preview */}
-          <div className="w-full md:w-2/3 bg-black/10 dark:bg-white/5 rounded-xl border border-border overflow-y-auto p-4 md:p-8 flex items-start justify-center">
+          <div className="hidden md:flex w-full md:w-2/3 bg-black/10 dark:bg-white/5 rounded-xl border border-border overflow-y-auto p-4 md:p-8 items-start justify-center">
             <div className="shadow-2xl">
               <QuoteDocument />
             </div>

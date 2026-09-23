@@ -25,7 +25,7 @@ export function PremiumWebHero() {
         </div>
         
         <div className="stage" aria-label="Illustrations d’interfaces : tableau de bord, application mobile et livraison" role="img">
-          <span className="float-label">Pensé pour vous. Et vos utilisateurs.</span>
+
           <div className="mock desktop" data-move="-0.12">
             <div className="browser">
               <i></i><i></i><i></i><small>votre-projet.app</small>

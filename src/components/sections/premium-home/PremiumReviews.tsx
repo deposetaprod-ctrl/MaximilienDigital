@@ -130,9 +130,20 @@ export function PremiumReviews() {
         </figure>
       </div>
       
-      <div className="shell review-bottom">
-        <span>Vos projets. Leurs expériences.</span>
-        <span className="review-counter">11 retours clients</span>
+      <div className="shell review-bottom" style={{ display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "space-between", gap: "20px" }}>
+        <div>
+          <span style={{ display: "block" }}>Vos projets. Leurs expériences.</span>
+          <span className="review-counter" style={{ display: "block", marginTop: "5px" }}>11 retours clients</span>
+        </div>
+        <a 
+          href="https://comeup.com/fr/service/382688/vous-developper-une-application-mobile-saas-avec-ou-sans-intelligence-artificielle"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="button"
+          style={{ width: "auto", minWidth: 0, padding: "14px 24px", fontSize: "14px", margin: 0 }}
+        >
+          Voir plus d'avis <span>↗&#xFE0E;&#xFE0E;</span>
+        </a>
       </div>
     </section>
   );

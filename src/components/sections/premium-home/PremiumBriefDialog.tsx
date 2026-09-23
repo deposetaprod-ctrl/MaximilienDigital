@@ -1,8 +1,9 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { CheckCircle2, UploadCloud } from "lucide-react";
+import { CheckCircle2, UploadCloud, Smartphone, Laptop, Settings, Download } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
+import { generateNda } from "@/lib/generateNda";
 
 interface PremiumBriefDialogProps {
   isOpen: boolean;
@@ -22,8 +23,9 @@ export function PremiumBriefDialog() {
   const [data, setData] = useState({
     fileUrl: "",
     note: "",
-    idea: "",
-    features: "",
+    projectType: "",
+    sector: "",
+    details: "",
     name: "",
     email: "",
     phone: "",
@@ -35,7 +37,7 @@ export function PremiumBriefDialog() {
     setStep(0);
     setFlow("");
     setIsSuccess(false);
-    setData({ fileUrl: "", note: "", idea: "", features: "", name: "", email: "", phone: "" });
+    setData({ fileUrl: "", note: "", projectType: "", sector: "", details: "", name: "", email: "", phone: "" });
   };
 
   useEffect(() => {
@@ -116,11 +118,11 @@ export function PremiumBriefDialog() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          need: flow === "document" ? "Upload de CDC" : "Projet guidé (Idée)",
-          sector: "N/A",
+          need: flow === "document" ? "Upload de CDC" : `Projet: ${data.projectType}`,
+          sector: flow === "document" ? "N/A" : data.sector,
           description: flow === "document" 
             ? `Note: ${data.note || "Aucune"}` 
-            : `Idée: ${data.idea}\nFonctionnalités: ${data.features}`,
+            : `Détails: ${data.details || "Aucun"}`,
           dataLink: data.fileUrl,
           email: data.email,
           phone: data.phone,
@@ -157,8 +159,8 @@ export function PremiumBriefDialog() {
       if (step === 1) return data.fileUrl !== "";
       if (step === 2) return data.name && data.email;
     } else {
-      if (step === 1) return data.idea.trim() !== "";
-      if (step === 2) return data.features.trim() !== "";
+      if (step === 1) return data.projectType !== "";
+      if (step === 2) return data.sector !== "";
       if (step === 3) return data.name && data.email;
     }
     return false;
@@ -217,33 +219,81 @@ export function PremiumBriefDialog() {
                 <legend>Votre projet, noir sur blanc.</legend>
                 <label className="upload-zone" htmlFor="brief-file" style={{ borderColor: data.fileUrl ? "var(--lime)" : "", backgroundColor: data.fileUrl ? "rgba(189,255,0,0.05)" : "" }}>
                   <span aria-hidden="true" style={{ color: data.fileUrl ? "var(--lime)" : "" }}>{data.fileUrl ? "✓\uFE0E" : "↑"}</span>
-                  <strong>{isSubmitting ? "Upload en cours..." : (data.fileUrl ? "Fichier ajouté !" : "Choisir mon cahier des charges")}</strong>
+                  <strong>{isSubmitting ? "Upload en cours..." : (data.fileUrl ? "Fichier ajouté !" : "Importer mon cahier des charges")}</strong>
                   <small>PDF, Word ou texte · 10 Mo maximum</small>
                   <input type="file" id="brief-file" accept=".pdf,.doc,.docx,.txt" required disabled={isSubmitting || !!data.fileUrl} onChange={handleFileUpload} />
                 </label>
-                <p id="brief-file-status" role="status">Le document est envoyé en toute sécurité sur nos serveurs.</p>
+                <div style={{ marginTop: "15px", marginBottom: "25px", textAlign: "center" }}>
+                  <button type="button" onClick={() => generateNda(data.projectType || "Votre Projet")} style={{ display: "inline-flex", alignItems: "center", gap: "8px", padding: "12px 20px", borderRadius: "10px", border: "1px solid #59402f", backgroundColor: "#211a16", color: "#ffbf3f", cursor: "pointer", fontSize: "13px", margin: "0 auto", transition: "all 0.2s" }} onMouseOver={(e) => e.currentTarget.style.borderColor = "#ff702d"} onMouseOut={(e) => e.currentTarget.style.borderColor = "#59402f"}>
+                    <Download size={16} /> Télécharger le modèle d'accord de confidentialité (NDA)
+                  </button>
+                </div>
                 <label htmlFor="brief-note">Une précision à ajouter ? <span>(facultatif)</span></label>
                 <textarea id="brief-note" rows={3} placeholder="Vos priorités, une référence, un point important…" value={data.note} onChange={(e) => updateField("note", e.target.value)}></textarea>
               </fieldset>
             )}
 
-            {/* STEP 1 (Guided) : Idée */}
+            {/* STEP 1 (Guided) : Type de solution */}
             {step === 1 && flow === "guided" && (
               <fieldset data-panel="idea">
-                <legend>Que souhaitez-vous créer ou simplifier ?</legend>
-                <label htmlFor="brief-idea">Racontez-moi votre idée</label>
-                <textarea id="brief-idea" rows={5} required maxLength={5000} placeholder="J’aimerais une application pour permettre à mes clients de réserver leurs séances…" value={data.idea} onChange={(e) => updateField("idea", e.target.value)}></textarea>
-                <p style={{ marginTop: "10px", fontSize: "14px", color: "var(--color-dim)" }}>Pas besoin de termes techniques. Expliquez simplement à quoi votre outil doit servir.</p>
+                <legend>Quel type de solution envisagez-vous ?</legend>
+                <div className="brief-choices" style={{ gridTemplateColumns: "1fr", gap: "10px" }}>
+                  {[
+                    { id: "Mobile & PWA", title: "Application Mobile & PWA", icon: <Smartphone size={24} color="var(--lime)" />, desc: "Pour iOS, Android ou le web mobile" },
+                    { id: "Web & SaaS", title: "Plateforme Web & SaaS", icon: <Laptop size={24} color="var(--lime)" />, desc: "Logiciel en ligne, marketplace, portail" },
+                    { id: "Outil Métier", title: "Outil métier / Automatisation", icon: <Settings size={24} color="var(--lime)" />, desc: "CRM sur mesure, gestion interne, flux" }
+                  ].map(opt => (
+                    <button 
+                      key={opt.id} 
+                      type="button" 
+                      className={`brief-choice ${data.projectType === opt.id ? "selected" : ""}`} 
+                      onClick={() => updateField("projectType", opt.id)}
+                      style={{ padding: "16px", flexDirection: "row", alignItems: "center", gap: "20px" }}
+                    >
+                      <span className="choice-icon" aria-hidden="true" style={{ fontSize: 0, color: "var(--lime)" }}>{opt.icon}</span>
+                      <div style={{ flex: 1, textAlign: "left" }}>
+                        <strong style={{ display: "block", marginBottom: "4px" }}>{opt.title}</strong>
+                        <span style={{ fontSize: "12px", color: "var(--color-dim)" }}>{opt.desc}</span>
+                      </div>
+                      <div style={{ opacity: data.projectType === opt.id ? 1 : 0, transition: "opacity 0.2s" }}>
+                        <CheckCircle2 size={22} color="var(--lime)" />
+                      </div>
+                    </button>
+                  ))}
+                </div>
               </fieldset>
             )}
 
-            {/* STEP 2 (Guided) : Features */}
+            {/* STEP 2 (Guided) : Secteur et précisions */}
             {step === 2 && flow === "guided" && (
               <fieldset data-panel="features">
-                <legend>Qu’est-ce qui compte le plus ?</legend>
-                <label htmlFor="brief-features">Les fonctionnalités essentielles</label>
-                <textarea id="brief-features" rows={4} required maxLength={5000} placeholder="Par exemple : réservation, paiement en ligne, espace client…" value={data.features} onChange={(e) => updateField("features", e.target.value)}></textarea>
-                <p style={{ marginTop: "10px", fontSize: "14px", color: "var(--color-dim)" }}>Si vous hésitez, indiquez simplement « À définir ensemble ».</p>
+                <legend>Votre domaine d'activité</legend>
+                <div className="brief-choices" style={{ gridTemplateColumns: "1fr 1fr", gap: "10px", marginBottom: "25px" }}>
+                  {[
+                    "Comptabilité / Expertise",
+                    "Immobilier / PropTech",
+                    "Santé / MedTech",
+                    "E-commerce / Retail",
+                    "Finance / FinTech",
+                    "Éducation / EdTech",
+                    "Artisanat / Services",
+                    "Autre secteur"
+                  ].map(sec => (
+                    <button
+                      key={sec}
+                      type="button"
+                      className={`brief-choice ${data.sector === sec ? "selected" : ""}`}
+                      onClick={() => updateField("sector", sec)}
+                      style={{ padding: "12px 14px", minHeight: "0", flexDirection: "row", alignItems: "center", justifyContent: "space-between", gap: "10px" }}
+                    >
+                      <strong style={{ fontSize: "13px", margin: 0, fontWeight: data.sector === sec ? 600 : 400 }}>{sec}</strong>
+                      <div style={{ width: "16px", height: "16px", borderRadius: "50%", border: data.sector === sec ? "5px solid var(--lime)" : "1px solid var(--border)", transition: "all 0.2s", background: data.sector === sec ? "var(--bg-input)" : "transparent" }} />
+                    </button>
+                  ))}
+                </div>
+
+                <label htmlFor="brief-details">Quelques précisions ? <span>(facultatif)</span></label>
+                <textarea id="brief-details" rows={4} maxLength={5000} placeholder="Vos objectifs, un concurrent que vous aimez, une contrainte spécifique…" value={data.details} onChange={(e) => updateField("details", e.target.value)}></textarea>
               </fieldset>
             )}
 

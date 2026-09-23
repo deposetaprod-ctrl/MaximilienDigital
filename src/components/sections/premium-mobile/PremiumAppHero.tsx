@@ -11,7 +11,7 @@ export function PremiumAppHero() {
         <p className="lead">
           Une application que l’on aime ouvrir.<br />Je vous accompagne du premier écran à la publication sur l’App Store et Google Play.
         </p>
-        <button className="button open-brief">
+        <button className="button open-brief" style={{ position: "relative", zIndex: 10 }}>
           Recevoir ma maquette gratuite <span>↗&#xFE0E;&#xFE0E;</span>
         </button>
         <div className="hero-assurances">
