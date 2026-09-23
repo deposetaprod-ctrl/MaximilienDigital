@@ -33,7 +33,7 @@ export default function WebAppClient() {
 
       {/* Pop-up de contact globale */}
       {isDialogOpen && (
-        <PremiumBriefDialog onClose={() => setIsDialogOpen(false)} />
+        <PremiumBriefDialog isOpen={isDialogOpen} onClose={() => setIsDialogOpen(false)} />
       )}
     </>
   );
