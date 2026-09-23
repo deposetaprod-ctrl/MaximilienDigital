@@ -46,7 +46,7 @@ export function Navigation() {
           
           {/* LOGO */}
           <Link href="/" className="brand" onClick={() => trackClick("nav_logo")} style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-            <img src="/new_max_rounded.png" alt="Maximilien" style={{ width: '32px', height: '32px', borderRadius: '50%', objectFit: 'cover', border: '1px solid #46362c' }} />
+            <img src="/cellequejeprefere_rounded.png" alt="Maximilien" style={{ width: '32px', height: '32px', borderRadius: '50%', objectFit: 'cover', border: '1px solid #46362c' }} />
             <div>maximilien<span>.digital</span></div>
           </Link>
 
