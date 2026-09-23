@@ -96,12 +96,12 @@ export async function generateMetadata(props: { params: Promise<{ locale: string
     manifest: "/manifest.json",
     icons: {
       icon: [
-        { url: "/new_max.png" },
-        { url: "/new_max.png", sizes: "32x32", type: "image/png" },
-        { url: "/new_max.png", sizes: "192x192", type: "image/png" },
+        { url: "/new_max_rounded.png" },
+        { url: "/new_max_rounded.png", sizes: "32x32", type: "image/png" },
+        { url: "/new_max_rounded.png", sizes: "192x192", type: "image/png" },
       ],
       apple: [
-        { url: "/new_max.png" },
+        { url: "/new_max_rounded.png" },
       ],
     },
   };
