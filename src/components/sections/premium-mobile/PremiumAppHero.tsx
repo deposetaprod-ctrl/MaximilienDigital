@@ -36,11 +36,11 @@ export function PremiumAppHero() {
             <small>DESIGN + DÉVELOPPEMENT</small>Du beau. Et du fonctionnel.
           </div>
           <div className="floating-chip right" data-move="2.5">
-            <small>UNE RÉALISATION CONCRÈTE</small>Even Clock ↗
+            <small>LANCEMENT SUR LES STORES</small>Votre application en ligne
           </div>
         </div>
         <div className="small-caption">
-          Even Clock · Une application développée par Maximilien Digital
+          Illustrations d'interfaces · Votre projet aura son propre design
         </div>
       </section>
       <div className="shell intro-bar">

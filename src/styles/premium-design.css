@@ -60,6 +60,6 @@ dialog{background:#29211c;color:#f1eee8;border:1px solid #5a4030;margin:auto;max
 @media(max-width:760px){
   .landing-hero .stage{margin-top:40px;height:370px;margin-bottom:-135px}
 }
-@media(max-width:420px){
+@media(max-width:600px){
   .landing-hero .stage{transform:scale(.49);margin-bottom:-175px}
 }
