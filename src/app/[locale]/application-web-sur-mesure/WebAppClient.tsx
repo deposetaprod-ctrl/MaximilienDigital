@@ -7,7 +7,7 @@ import { PremiumWebEditorial } from "@/components/sections/premium-webapp/Premiu
 import { PremiumMethod } from "@/components/sections/premium-home/PremiumMethod";
 import { PremiumReviews } from "@/components/sections/premium-home/PremiumReviews";
 import { PremiumFaq } from "@/components/sections/premium-home/PremiumFaq";
-import { PremiumBriefDialog } from "@/components/sections/premium-home/PremiumBriefDialog";
+
 import { Footer } from "@/components/sections/Footer";
 import { usePremiumAnimations } from "@/hooks/usePremiumAnimations";
 
@@ -31,10 +31,8 @@ export default function WebAppClient() {
       {/* Footer standard qui s'intègre bien au design */}
       <Footer />
 
-      {/* Pop-up de contact globale */}
-      {isDialogOpen && (
-        <PremiumBriefDialog isOpen={isDialogOpen} onClose={() => setIsDialogOpen(false)} />
       )}
+
     </>
   );
 }

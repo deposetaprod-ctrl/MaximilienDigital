@@ -8,6 +8,7 @@ import { translations, type Locale } from "@/lib/i18n";
 import Script from "next/script";
 import "../globals.css";
 import "../../styles/premium-design.css";
+import { PremiumBriefDialog } from "@/components/sections/premium-home/PremiumBriefDialog";
 
 const OG_IMAGE_URL = "https://maximilien.digital/og-image.png";
 
@@ -217,6 +218,7 @@ export default async function RootLayout(
           <AIChatbot />
         </LanguageProvider>
         </NextIntlClientProvider>
+        <PremiumBriefDialog />
       </body>
     </html>
   );

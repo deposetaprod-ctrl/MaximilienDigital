@@ -1,10 +1,7 @@
 "use client";
 
 export function PremiumWebEditorial() {
-  const onCtaClick = () => {
-    const dialog = document.getElementById("brief") as HTMLDialogElement;
-    if (dialog) dialog.showModal();
-  };
+  
 
   return (
     <div className="shell">
@@ -20,7 +17,7 @@ export function PremiumWebEditorial() {
             <span>API</span>
             <span>Agents IA</span>
           </div>
-          <button className="button open-brief" style={{ marginTop: "28px" }} onClick={onCtaClick}>
+          <button className="button open-brief" style={{ marginTop: "28px" }}>
             Parlons de votre outil <span>↗&#xFE0E;&#xFE0E;</span>
           </button>
         </div>

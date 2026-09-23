@@ -11,7 +11,7 @@ interface PremiumBriefDialogProps {
 
 type FlowType = "" | "document" | "guided";
 
-export function PremiumBriefDialog({ isOpen, onClose }: PremiumBriefDialogProps) {
+export function PremiumBriefDialog() {
   const dialogRef = useRef<HTMLDialogElement>(null);
   const [step, setStep] = useState(0);
   const [flow, setFlow] = useState<FlowType>("");
@@ -29,28 +29,46 @@ export function PremiumBriefDialog({ isOpen, onClose }: PremiumBriefDialogProps)
     phone: "",
   });
 
+  const closeDialog = () => {
+    dialogRef.current?.close();
+    document.body.style.overflow = "";
+    setStep(0);
+    setFlow("");
+    setIsSuccess(false);
+    setData({ fileUrl: "", note: "", idea: "", features: "", name: "", email: "", phone: "" });
+  };
+
   useEffect(() => {
-    if (isOpen) {
-      dialogRef.current?.showModal();
-      document.body.style.overflow = "hidden";
-      
-      const id = typeof crypto !== "undefined" && crypto.randomUUID ? crypto.randomUUID() : Math.random().toString(36).substring(2, 15);
-      setSessionId(id);
-      
-      fetch("/api/track-funnel", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ step: "page_view", sessionId: id, action: "Ouverture Brief Dialog" }),
-      }).catch(console.error);
-    } else {
-      dialogRef.current?.close();
-      document.body.style.overflow = "";
-      setStep(0);
-      setFlow("");
-      setIsSuccess(false);
-      setData({ fileUrl: "", note: "", idea: "", features: "", name: "", email: "", phone: "" });
+    const handleOpen = (e: MouseEvent) => {
+      const target = (e.target as HTMLElement).closest('.open-brief');
+      if (target) {
+        e.preventDefault();
+        dialogRef.current?.showModal();
+        document.body.style.overflow = "hidden";
+        
+        const id = typeof crypto !== "undefined" && crypto.randomUUID ? crypto.randomUUID() : Math.random().toString(36).substring(2, 15);
+        setSessionId(id);
+        
+        fetch("/api/track-funnel", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ step: "page_view", sessionId: id, action: "Ouverture Brief Dialog" }),
+        }).catch(console.error);
+      }
+    };
+    
+    document.addEventListener('click', handleOpen);
+    
+    const dialog = dialogRef.current;
+    if (dialog) {
+      dialog.addEventListener('close', closeDialog);
     }
-  }, [isOpen]);
+    
+    return () => {
+      document.removeEventListener('click', handleOpen);
+      if (dialog) dialog.removeEventListener('close', closeDialog);
+    };
+  }, []);
 
   const updateField = (field: keyof typeof data, value: string) => {
     setData((prev) => ({ ...prev, [field]: value }));
@@ -155,8 +173,8 @@ export function PremiumBriefDialog({ isOpen, onClose }: PremiumBriefDialogProps)
   };
 
   return (
-    <dialog ref={dialogRef} id="brief" aria-labelledby="brief-title" onCancel={onClose}>
-      <button className="close" type="button" aria-label="Fermer" onClick={onClose}>×</button>
+    <dialog ref={dialogRef} id="brief" aria-labelledby="brief-title" onCancel={closeDialog}>
+      <button className="close" type="button" aria-label="Fermer" onClick={closeDialog}>×</button>
       
       {!isSuccess ? (
         <>

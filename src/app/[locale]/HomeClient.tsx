@@ -7,7 +7,7 @@ import { PremiumMethod } from "@/components/sections/premium-home/PremiumMethod"
 import { PremiumVideo } from "@/components/sections/premium-home/PremiumVideo";
 import { PremiumReviews } from "@/components/sections/premium-home/PremiumReviews";
 import { PremiumFaq } from "@/components/sections/premium-home/PremiumFaq";
-import { PremiumBriefDialog } from "@/components/sections/premium-home/PremiumBriefDialog";
+
 import { Footer } from "@/components/sections/Footer";
 import { usePremiumAnimations } from "@/hooks/usePremiumAnimations";
 
@@ -15,17 +15,13 @@ export default function Home() {
   // Activer les animations du nouveau design
   usePremiumAnimations();
 
-  const [isDialogOpen, setIsDialogOpen] = useState(false);
 
-  function openBriefDialog() {
-    setIsDialogOpen(true);
-  }
 
   return (
     <>
       <main>
         {/* Nouveau Hero avec animation JS */}
-        <PremiumHero onCtaClick={openBriefDialog} />
+        <PremiumHero />
         
         {/* Nouvelle section Vidéo */}
         <PremiumVideo />
@@ -48,7 +44,7 @@ export default function Home() {
       <Footer />
       
       {/* Le Popup Brief (Maquette Gratuite) */}
-      <PremiumBriefDialog isOpen={isDialogOpen} onClose={() => setIsDialogOpen(false)} />
+
     </>
   );
 }

@@ -12,7 +12,7 @@ export function PremiumHero({ onCtaClick }: { onCtaClick?: () => void }) {
         <p className="hero-intro">
           Sites web, applications, outils métier.<br />Je transforme vos idées en produits qui vivent.
         </p>
-        <button className="button premium-open-brief" onClick={onCtaClick}>
+        <button className="button premium-open-brief">
           Recevoir ma maquette gratuite <span className="arrow">↗&#xFE0E;&#xFE0E;</span>
         </button>
         <p className="fine">Gratuite. Sans engagement. Pour visualiser votre projet.</p>
@@ -71,7 +71,7 @@ export function PremiumHero({ onCtaClick }: { onCtaClick?: () => void }) {
         </div>
         
         <div className="stage-foot">
-          <span>Design + Développement + Accompagnement</span><span>Explorer la suite ↓</span>
+          <span>Design + Développement + Accompagnement</span><span>Explorer la suite ↓&#xFE0E;</span>
         </div>
       </section>
 

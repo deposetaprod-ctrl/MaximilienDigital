@@ -40,7 +40,7 @@ export function FinalCtaSection({ onCtaClick }: FinalCtaSectionProps) {
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.4, delay: 0.1 }}
         >
-          <AnimatedBaseButton onClick={onCtaClick}>
+          <AnimatedBaseButton>
             {t("finalcta_cta")}
             <ArrowRight className="inline-block ml-2 h-4 w-4" />
           </AnimatedBaseButton>

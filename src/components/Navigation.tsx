@@ -35,12 +35,7 @@ export function Navigation() {
     { name: "Devis", href: "/devis" },
   ];
 
-  const onCtaClick = () => {
-    trackClick("nav_cta_open_brief");
-    const dialog = document.getElementById("brief") as HTMLDialogElement;
-    if (dialog) dialog.showModal();
-    setIsMenuOpen(false); // close mobile menu if open
-  };
+  
 
   return (
     <>
@@ -72,7 +67,7 @@ export function Navigation() {
 
           <div className="nav-actions" style={{ display: "flex", alignItems: "center", gap: "10px" }}>
             {/* CTA BUTTON */}
-            <button className="nav-cta open-brief" type="button" onClick={onCtaClick}>
+            <button className="nav-cta open-brief" type="button">
               Parlons de votre idée <span style={{ marginLeft: "8px" }}>↗&#xFE0E;&#xFE0E;</span>
             </button>
 
@@ -119,7 +114,7 @@ export function Navigation() {
             <button 
               className="nav-cta" 
               style={{ marginTop: "20px", padding: "16px", width: "100%", fontSize: "16px", borderRadius: "30px" }}
-              onClick={onCtaClick}
+             
             >
               Recevoir ma maquette
             </button>

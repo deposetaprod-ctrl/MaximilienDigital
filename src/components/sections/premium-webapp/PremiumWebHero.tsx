@@ -1,10 +1,7 @@
 "use client";
 
 export function PremiumWebHero() {
-  const onCtaClick = () => {
-    const dialog = document.getElementById("brief") as HTMLDialogElement;
-    if (dialog) dialog.showModal();
-  };
+  
 
   return (
     <>
@@ -18,7 +15,7 @@ export function PremiumWebHero() {
         <p className="lead reveal">
           Un site qui vous ressemble. Une application qui vous simplifie la vie. Je crée votre solution web sur mesure.
         </p>
-        <button className="button open-brief reveal" onClick={onCtaClick}>
+        <button className="button open-brief reveal">
           Recevoir ma maquette gratuite <span>↗&#xFE0E;&#xFE0E;</span>
         </button>
         <div className="hero-assurances reveal">
