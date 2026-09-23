@@ -2,11 +2,13 @@
 
 import { useState } from "react";
 import { PremiumHero } from "@/components/sections/premium-home/PremiumHero";
-import { PremiumExpertise } from "@/components/sections/premium-home/PremiumExpertise";
-import { PremiumMethod } from "@/components/sections/premium-home/PremiumMethod";
-import { PremiumVideo } from "@/components/sections/premium-home/PremiumVideo";
-import { PremiumReviews } from "@/components/sections/premium-home/PremiumReviews";
-import { PremiumFaq } from "@/components/sections/premium-home/PremiumFaq";
+import dynamic from "next/dynamic";
+
+const PremiumVideo = dynamic(() => import("@/components/sections/premium-home/PremiumVideo").then((mod) => mod.PremiumVideo), { ssr: true });
+const PremiumExpertise = dynamic(() => import("@/components/sections/premium-home/PremiumExpertise").then((mod) => mod.PremiumExpertise), { ssr: true });
+const PremiumMethod = dynamic(() => import("@/components/sections/premium-home/PremiumMethod").then((mod) => mod.PremiumMethod), { ssr: true });
+const PremiumReviews = dynamic(() => import("@/components/sections/premium-home/PremiumReviews").then((mod) => mod.PremiumReviews), { ssr: true });
+const PremiumFaq = dynamic(() => import("@/components/sections/premium-home/PremiumFaq").then((mod) => mod.PremiumFaq), { ssr: true });
 
 import { Footer } from "@/components/sections/Footer";
 import { usePremiumAnimations } from "@/hooks/usePremiumAnimations";

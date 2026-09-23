@@ -11,6 +11,7 @@ export function PremiumVideo() {
           style={{ width: "100%", height: "100%", border: "none" }}
           src="https://www.youtube.com/embed/35EHSl2AT2M?autoplay=0&rel=0" 
           title="Présentation Maximilien Digital" 
+          loading="lazy"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
           allowFullScreen
         ></iframe>
