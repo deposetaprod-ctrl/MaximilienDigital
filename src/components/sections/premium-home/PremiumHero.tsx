@@ -88,7 +88,7 @@ export function PremiumHero({ onCtaClick }: { onCtaClick?: () => void }) {
           <div>
             <h2>Moins de complexité.<br />Plus de <span>possibilités.</span></h2>
             <p>Vous avez une idée, un besoin, un processus à simplifier. Je conçois le bon outil, avec vous. Du premier écran à la mise en ligne.</p>
-            <a className="text-link" href="#expertises">Trouver votre solution <span>↘</span></a>
+            <a className="text-link" href="#expertises">Trouver votre solution <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ display: 'inline-block', verticalAlign: 'middle', marginLeft: '4px' }}><path d="M7 7l10 10M17 7v10H7"/></svg></a>
           </div>
         </section>
       </div>

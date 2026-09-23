@@ -112,6 +112,12 @@ export function Navigation() {
                   </Link>
                 );
               })}
+              <button 
+                className="nav-cta open-brief" 
+                style={{ marginTop: "20px", padding: "16px", width: "100%", fontSize: "16px", borderRadius: "30px", border: "none" }}
+              >
+                Recevoir ma maquette
+              </button>
             </nav>
           </motion.div>
         )}
