@@ -293,7 +293,7 @@ export function PremiumBriefDialog() {
           <p style={{ color: "var(--color-dim)", marginTop: "10px", marginBottom: "30px" }}>
             Merci pour votre confiance. Je reviens vers vous très rapidement avec votre maquette.
           </p>
-          <button className="button" onClick={onClose} style={{ width: "auto" }}>Fermer</button>
+          <button className="button" onClick={closeDialog} style={{ width: "auto" }}>Fermer</button>
         </div>
       )}
     </dialog>

@@ -31,7 +31,6 @@ export default function WebAppClient() {
       {/* Footer standard qui s'intègre bien au design */}
       <Footer />
 
-      )}
 
     </>
   );
