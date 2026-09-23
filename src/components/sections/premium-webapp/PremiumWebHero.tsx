@@ -18,7 +18,10 @@ export function PremiumWebHero() {
         <button className="button open-brief reveal">
           Recevoir ma maquette gratuite <span>↗&#xFE0E;&#xFE0E;</span>
         </button>
-        <div className="hero-assurances reveal">
+        <button className="open-existing-mockup reveal" type="button" style={{ display: "block", margin: "16px auto 0", background: "transparent", border: "none", color: "#bbaa99", textDecoration: "underline", fontSize: "13px", cursor: "pointer", transition: "color 0.2s", position: "relative", zIndex: 10 }} onMouseOver={(e) => e.currentTarget.style.color = "#ffbf3f"} onMouseOut={(e) => e.currentTarget.style.color = "#bbaa99"}>
+          J'ai déjà une maquette
+        </button>
+        <div className="hero-assurances reveal" style={{ marginTop: "24px" }}>
           <span>Design sur mesure</span>
           <span>Ordinateur, tablette et mobile</span>
           <span>Code source livré</span>

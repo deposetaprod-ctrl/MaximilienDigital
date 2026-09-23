@@ -3,8 +3,8 @@ import FormationClient from "./FormationClient";
 
 export function generateMetadata() {
   return {
-    title: "Formation Développeur Indépendant | Maximilien Digital",
-    description: "Je vous apprends tout pour développer votre propre application. Outils, bonnes pratiques, design et monétisation.",
+    title: "HTML to App : Transformez votre maquette en application | Maximilien Digital",
+    description: "Vous avez une maquette (HTML, Figma, IA) ? Je vous guide pas à pas pour développer votre application, ou je la code pour vous. Formation HTML to App.",
   };
 }
 

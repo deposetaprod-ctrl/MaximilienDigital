@@ -14,7 +14,10 @@ export function PremiumAppHero() {
         <button className="button open-brief" style={{ position: "relative", zIndex: 10 }}>
           Recevoir ma maquette gratuite <span>↗&#xFE0E;&#xFE0E;</span>
         </button>
-        <div className="hero-assurances">
+        <button className="open-existing-mockup" type="button" style={{ display: "block", margin: "16px auto 0", background: "transparent", border: "none", color: "#bbaa99", textDecoration: "underline", fontSize: "13px", cursor: "pointer", transition: "color 0.2s", position: "relative", zIndex: 10 }} onMouseOver={(e) => e.currentTarget.style.color = "#ffbf3f"} onMouseOut={(e) => e.currentTarget.style.color = "#bbaa99"}>
+          J'ai déjà une maquette
+        </button>
+        <div className="hero-assurances" style={{ marginTop: "24px" }}>
           <span>iOS & Android</span>
           <span>Accompagnement à la publication</span>
           <span>Code source livré</span>

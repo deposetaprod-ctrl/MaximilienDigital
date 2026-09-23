@@ -120,6 +120,9 @@ export function Navigation() {
               >
                 Recevoir ma maquette
               </button>
+              <button className="open-existing-mockup" type="button" style={{ display: "block", width: "100%", margin: "16px 0 0", background: "transparent", border: "none", color: "#bbaa99", textDecoration: "underline", fontSize: "13px", cursor: "pointer", textAlign: "center" }}>
+                J'ai déjà une maquette
+              </button>
             </nav>
           </motion.div>
         )}

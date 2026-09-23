@@ -29,7 +29,10 @@ export function PremiumHero({ onCtaClick }: { onCtaClick?: () => void }) {
         <button className="button premium-open-brief">
           Recevoir ma maquette gratuite <span className="arrow">↗&#xFE0E;&#xFE0E;</span>
         </button>
-        <p className="fine">Gratuite. Sans engagement. Pour visualiser votre projet.</p>
+        <button className="open-existing-mockup" type="button" style={{ display: "block", margin: "16px auto 0", background: "transparent", border: "none", color: "#bbaa99", textDecoration: "underline", fontSize: "13px", cursor: "pointer", transition: "color 0.2s" }} onMouseOver={(e) => e.currentTarget.style.color = "#ffbf3f"} onMouseOut={(e) => e.currentTarget.style.color = "#bbaa99"}>
+          J'ai déjà une maquette
+        </button>
+        <p className="fine" style={{ marginTop: "10px" }}>Gratuite. Sans engagement. Pour visualiser votre projet.</p>
         
         <div className="stage" aria-label="Illustrations d’interfaces : tableau de bord, application mobile et livraison" role="img">
 
