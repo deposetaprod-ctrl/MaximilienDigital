@@ -5,7 +5,7 @@ import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/sections/Footer";
 import { PremiumAppHero } from "@/components/sections/premium-mobile/PremiumAppHero";
 import { PremiumAppBenefits } from "@/components/sections/premium-mobile/PremiumAppBenefits";
-import { PremiumAppCase } from "@/components/sections/premium-mobile/PremiumAppCase";
+
 import { PremiumAppMethod } from "@/components/sections/premium-mobile/PremiumAppMethod";
 import { PremiumAppFaq } from "@/components/sections/premium-mobile/PremiumAppFaq";
 import { PremiumReviews } from "@/components/sections/premium-home/PremiumReviews";
@@ -19,7 +19,7 @@ export default function MobileAppClient() {
       <main>
         <PremiumAppHero />
         <PremiumAppBenefits />
-        <PremiumAppCase />
+
         <PremiumAppMethod />
         <PremiumReviews />
         <PremiumAppFaq />
@@ -27,7 +27,7 @@ export default function MobileAppClient() {
         <div className="shell">
           <div className="crosslink">
             <p>Un service accessible par un simple lien serait plus adapté ?</p>
-            <a href="/application-web-sur-mesure">Explorer les solutions web ↗</a>
+            <a href="/application-web-sur-mesure">Explorer les solutions web ↗&#xFE0E;</a>
           </div>
         </div>
         
@@ -36,7 +36,7 @@ export default function MobileAppClient() {
           <h2>Bientôt dans<br /><span className="serif">leurs mains.</span></h2>
           <p>Donnons une première forme à votre application.</p>
           <button className="button open-brief">
-            Recevoir ma maquette gratuite <span>↗</span>
+            Recevoir ma maquette gratuite <span>↗&#xFE0E;&#xFE0E;</span>
           </button>
           <p className="contact-note">Un premier aperçu gratuit, sans engagement.</p>
         </section>

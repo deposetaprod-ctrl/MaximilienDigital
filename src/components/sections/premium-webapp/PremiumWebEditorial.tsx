@@ -21,7 +21,7 @@ export function PremiumWebEditorial() {
             <span>Agents IA</span>
           </div>
           <button className="button open-brief" style={{ marginTop: "28px" }} onClick={onCtaClick}>
-            Parlons de votre outil <span>↗</span>
+            Parlons de votre outil <span>↗&#xFE0E;&#xFE0E;</span>
           </button>
         </div>
         <div className="automation-art reveal" aria-label="Exemple de processus automatisé">
@@ -30,11 +30,11 @@ export function PremiumWebEditorial() {
           </div>
           <div className="automation-line"></div>
           <div className="automation-node">
-            <span>✳</span>L’agent analyse et classe
+            <span>✳&#xFE0E;&#xFE0E;</span>L’agent analyse et classe
           </div>
           <div className="automation-line"></div>
           <div className="automation-node">
-            <span>✓</span>Votre logiciel est à jour
+            <span>✓&#xFE0E;&#xFE0E;</span>Votre logiciel est à jour
           </div>
         </div>
       </section>

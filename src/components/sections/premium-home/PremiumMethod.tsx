@@ -50,7 +50,7 @@ export function PremiumMethod() {
                 <b>Maximilien</b>
                 <small>Développeur web fullstack & entrepreneur</small>
               </div>
-              <span>↗</span>
+              <span>↗&#xFE0E;&#xFE0E;</span>
             </div>
           </div>
           <div className="reveal">
@@ -94,7 +94,7 @@ export function PremiumMethod() {
           </div>
           <div className="ownership">
             <span>Votre application vous appartient. Vous gardez la main.</span>
-            <b>100 % votre projet. ↗</b>
+            <b>100 % votre projet. ↗&#xFE0E;</b>
           </div>
         </div>
       </section>

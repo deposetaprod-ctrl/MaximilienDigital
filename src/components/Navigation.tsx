@@ -73,7 +73,7 @@ export function Navigation() {
           <div className="nav-actions" style={{ display: "flex", alignItems: "center", gap: "10px" }}>
             {/* CTA BUTTON */}
             <button className="nav-cta open-brief" type="button" onClick={onCtaClick}>
-              Parlons de votre idée <span style={{ marginLeft: "8px" }}>↗</span>
+              Parlons de votre idée <span style={{ marginLeft: "8px" }}>↗&#xFE0E;&#xFE0E;</span>
             </button>
 
             {/* MOBILE MENU BUTTON */}

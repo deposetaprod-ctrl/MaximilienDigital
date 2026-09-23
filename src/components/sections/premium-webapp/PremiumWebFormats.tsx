@@ -59,7 +59,7 @@ export function PremiumWebFormats() {
             <small>ATELIER / SAVOIR-FAIRE & MATIÈRE</small>
             <h4>Du caractère.<br />Et du sens.</h4>
             <div className="mini-pills">
-              <span>Notre univers ↗</span>
+              <span>Notre univers ↗&#xFE0E;</span>
               <span>Parlons de votre projet</span>
             </div>
           </div>
@@ -82,7 +82,7 @@ export function PremiumWebFormats() {
             <div className="data-rows">
               <div>Offre Découverte <b>Active</b></div>
               <div>Offre Équipe <b>Active</b></div>
-              <div>Espace administrateur <b>↗</b></div>
+              <div>Espace administrateur <b>↗&#xFE0E;&#xFE0E;</b></div>
             </div>
           </div>
         </div>
@@ -103,9 +103,9 @@ export function PremiumWebFormats() {
             <small>VOTRE ACTIVITÉ / DOSSIERS</small>
             <h4>Clair. Simple. Utile.</h4>
             <div className="data-rows">
-              <div>Dossier client <b>Validé ✓</b></div>
-              <div>Document reçu <b>Classé ✓</b></div>
-              <div>Rappel envoyé <b>Terminé ✓</b></div>
+              <div>Dossier client <b>Validé ✓&#xFE0E;</b></div>
+              <div>Document reçu <b>Classé ✓&#xFE0E;</b></div>
+              <div>Rappel envoyé <b>Terminé ✓&#xFE0E;</b></div>
             </div>
           </div>
         </div>

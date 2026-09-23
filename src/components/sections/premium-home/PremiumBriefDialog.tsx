@@ -181,13 +181,13 @@ export function PremiumBriefDialog({ isOpen, onClose }: PremiumBriefDialogProps)
                     <span className="choice-icon" aria-hidden="true">▤</span>
                     <strong>J’ai un cahier des charges</strong>
                     <span>Importez votre document et ajoutez une précision si besoin.</span>
-                    <b aria-hidden="true">↗</b>
+                    <b aria-hidden="true">↗&#xFE0E;&#xFE0E;</b>
                   </button>
                   <button type="button" className={`brief-choice ${flow === "guided" ? "selected" : ""}`} onClick={() => { setFlow("guided"); setStep(1); }}>
-                    <span className="choice-icon" aria-hidden="true">✳</span>
+                    <span className="choice-icon" aria-hidden="true">✳&#xFE0E;&#xFE0E;</span>
                     <strong>J’ai une idée, guidez-moi</strong>
                     <span>Quelques questions simples pour expliquer votre projet.</span>
-                    <b aria-hidden="true">↗</b>
+                    <b aria-hidden="true">↗&#xFE0E;&#xFE0E;</b>
                   </button>
                 </div>
               </fieldset>
@@ -198,7 +198,7 @@ export function PremiumBriefDialog({ isOpen, onClose }: PremiumBriefDialogProps)
               <fieldset data-panel="document">
                 <legend>Votre projet, noir sur blanc.</legend>
                 <label className="upload-zone" htmlFor="brief-file" style={{ borderColor: data.fileUrl ? "var(--lime)" : "", backgroundColor: data.fileUrl ? "rgba(189,255,0,0.05)" : "" }}>
-                  <span aria-hidden="true" style={{ color: data.fileUrl ? "var(--lime)" : "" }}>{data.fileUrl ? "✓" : "↑"}</span>
+                  <span aria-hidden="true" style={{ color: data.fileUrl ? "var(--lime)" : "" }}>{data.fileUrl ? "✓\uFE0E" : "↑"}</span>
                   <strong>{isSubmitting ? "Upload en cours..." : (data.fileUrl ? "Fichier ajouté !" : "Choisir mon cahier des charges")}</strong>
                   <small>PDF, Word ou texte · 10 Mo maximum</small>
                   <input type="file" id="brief-file" accept=".pdf,.doc,.docx,.txt" required disabled={isSubmitting || !!data.fileUrl} onChange={handleFileUpload} />
@@ -263,7 +263,7 @@ export function PremiumBriefDialog({ isOpen, onClose }: PremiumBriefDialogProps)
 
           <div className="brief-direct" style={{ marginTop: "30px", textAlign: "center", borderTop: "1px solid var(--border)", paddingTop: "20px" }}>
             <span style={{ display: "block", color: "var(--color-dim)", marginBottom: "5px" }}>Vous préférez en discuter ?</span>
-            <a href="mailto:maximilien.godeau.off@gmail.com?subject=Parlons%20de%20mon%20projet" style={{ color: "var(--lime)", fontWeight: "bold" }}>Contactez-moi directement par email ↗</a>
+            <a href="mailto:maximilien.godeau.off@gmail.com?subject=Parlons%20de%20mon%20projet" style={{ color: "var(--lime)", fontWeight: "bold" }}>Contactez-moi directement par email ↗&#xFE0E;</a>
           </div>
         </>
       ) : (

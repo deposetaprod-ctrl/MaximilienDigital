@@ -19,7 +19,7 @@ export function PremiumWebHero() {
           Un site qui vous ressemble. Une application qui vous simplifie la vie. Je crée votre solution web sur mesure.
         </p>
         <button className="button open-brief reveal" onClick={onCtaClick}>
-          Recevoir ma maquette gratuite <span>↗</span>
+          Recevoir ma maquette gratuite <span>↗&#xFE0E;&#xFE0E;</span>
         </button>
         <div className="hero-assurances reveal">
           <span>Design sur mesure</span>
@@ -57,7 +57,7 @@ export function PremiumWebHero() {
                   <div className="metric">
                     <small>Tâches terminées</small>
                     <b>84</b>
-                    <em>↗ 24 %</em>
+                    <em>↗&#xFE0E; 24 %</em>
                   </div>
                   <div className="metric">
                     <small>Temps gagné</small>
@@ -94,7 +94,7 @@ export function PremiumWebHero() {
               <div className="orb"></div>
               <div className="phone-bottom">
                 <span>Votre espace personnel</span>
-                <b>↗</b>
+                <b>↗&#xFE0E;&#xFE0E;</b>
               </div>
             </div>
           </div>
@@ -103,7 +103,7 @@ export function PremiumWebHero() {
             <small>De l’idée au lancement</small>
             <strong>C’est en ligne.</strong>
             <div className="note-line">
-              <span className="tick">✓</span> Votre produit. Vos règles.
+              <span className="tick">✓&#xFE0E;&#xFE0E;</span> Votre produit. Vos règles.
             </div>
           </div>
         </div>
@@ -112,7 +112,7 @@ export function PremiumWebHero() {
       
       <div className="shell intro-bar reveal">
         <span>Un interlocuteur, de l’idée à la mise en ligne.</span>
-        <strong>Freelance · Design & développement ↗</strong>
+        <strong>Freelance · Design & développement ↗&#xFE0E;</strong>
       </div>
     </>
   );

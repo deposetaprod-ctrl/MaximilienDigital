@@ -12,7 +12,7 @@ export function PremiumAppBenefits() {
         <div className="benefit-track">
           <article className="benefit-card">
             <span className="page-number">01 / UNE EXPÉRIENCE QUI DONNE ENVIE</span>
-            <div className="benefit-icon" aria-hidden="true">↗</div>
+            <div className="benefit-icon" aria-hidden="true">↗&#xFE0E;&#xFE0E;</div>
             <div>
               <h3>Simple à ouvrir.<br />Facile à adopter.</h3>
               <p>

@@ -12,7 +12,7 @@ export function PremiumAppHero() {
           Une application que l’on aime ouvrir.<br />Je vous accompagne du premier écran à la publication sur l’App Store et Google Play.
         </p>
         <button className="button open-brief">
-          Recevoir ma maquette gratuite <span>↗</span>
+          Recevoir ma maquette gratuite <span>↗&#xFE0E;&#xFE0E;</span>
         </button>
         <div className="hero-assurances">
           <span>iOS & Android</span>
@@ -45,7 +45,7 @@ export function PremiumAppHero() {
       </section>
       <div className="shell intro-bar">
         <span>Un produit pensé pour votre public.</span>
-        <strong>Du premier croquis à la mise en ligne ↗</strong>
+        <strong>Du premier croquis à la mise en ligne ↗&#xFE0E;</strong>
       </div>
     </>
   );

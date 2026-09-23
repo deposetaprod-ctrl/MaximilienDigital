@@ -13,7 +13,7 @@ export function PremiumHero({ onCtaClick }: { onCtaClick?: () => void }) {
           Sites web, applications, outils métier.<br />Je transforme vos idées en produits qui vivent.
         </p>
         <button className="button premium-open-brief" onClick={onCtaClick}>
-          Recevoir ma maquette gratuite <span className="arrow">↗</span>
+          Recevoir ma maquette gratuite <span className="arrow">↗&#xFE0E;&#xFE0E;</span>
         </button>
         <p className="fine">Gratuite. Sans engagement. Pour visualiser votre projet.</p>
         
@@ -39,7 +39,7 @@ export function PremiumHero({ onCtaClick }: { onCtaClick?: () => void }) {
                 <p>Votre activité, en un coup d’œil.</p>
                 <div className="metrics">
                   <div className="metric"><small>Projets en cours</small><b>12</b><em>+3 ce mois</em></div>
-                  <div className="metric"><small>Tâches terminées</small><b>84</b><em>↗ 24 %</em></div>
+                  <div className="metric"><small>Tâches terminées</small><b>84</b><em>↗&#xFE0E; 24 %</em></div>
                   <div className="metric"><small>Temps gagné</small><b>18 h</b></div>
                 </div>
                 <small style={{fontSize: "9px"}}>Votre activité</small>
@@ -59,14 +59,14 @@ export function PremiumHero({ onCtaClick }: { onCtaClick?: () => void }) {
               <div className="phone-label"><b>mood.</b><span>☰</span></div>
               <h3>Un peu plus<br />de vous.</h3>
               <div className="orb"></div>
-              <div className="phone-bottom"><span>Votre espace personnel</span><b>↗</b></div>
+              <div className="phone-bottom"><span>Votre espace personnel</span><b>↗&#xFE0E;&#xFE0E;</b></div>
             </div>
           </div>
           
           <div className="mock note" data-move="-0.24">
             <small>De l’idée au lancement</small>
             <strong>C’est en ligne.</strong>
-            <div className="note-line"><span className="tick">✓</span> Votre produit. Vos règles.</div>
+            <div className="note-line"><span className="tick">✓&#xFE0E;&#xFE0E;</span> Votre produit. Vos règles.</div>
           </div>
         </div>
         
@@ -77,8 +77,8 @@ export function PremiumHero({ onCtaClick }: { onCtaClick?: () => void }) {
 
       <div className="marquee" aria-label="Sites web, applications mobiles, SaaS, outils métier et automatisation">
         <div className="marquee-track" aria-hidden="true">
-          <span>SITES WEB <i>✳</i> APPLICATIONS MOBILES <i>✳</i> SAAS <i>✳</i> OUTILS MÉTIER <i>✳</i> AUTOMATISATION <i>✳</i></span>
-          <span>SITES WEB <i>✳</i> APPLICATIONS MOBILES <i>✳</i> SAAS <i>✳</i> OUTILS MÉTIER <i>✳</i> AUTOMATISATION <i>✳</i></span>
+          <span>SITES WEB <i>✳&#xFE0E;&#xFE0E;</i> APPLICATIONS MOBILES <i>✳&#xFE0E;&#xFE0E;</i> SAAS <i>✳&#xFE0E;&#xFE0E;</i> OUTILS MÉTIER <i>✳&#xFE0E;&#xFE0E;</i> AUTOMATISATION <i>✳&#xFE0E;&#xFE0E;</i></span>
+          <span>SITES WEB <i>✳&#xFE0E;&#xFE0E;</i> APPLICATIONS MOBILES <i>✳&#xFE0E;&#xFE0E;</i> SAAS <i>✳&#xFE0E;&#xFE0E;</i> OUTILS MÉTIER <i>✳&#xFE0E;&#xFE0E;</i> AUTOMATISATION <i>✳&#xFE0E;&#xFE0E;</i></span>
         </div>
       </div>
 
