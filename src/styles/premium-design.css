@@ -63,3 +63,16 @@ dialog{background:#29211c;color:#f1eee8;border:1px solid #5a4030;margin:auto;max
 @media(max-width:600px){
   .landing-hero .stage{transform:scale(.38);margin-bottom:-190px}
 }
+
+.video-section {
+  display: grid;
+  grid-template-columns: 1fr 1.35fr;
+  gap: 7vw;
+  align-items: center;
+}
+@media(max-width: 900px) {
+  .video-section {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+}

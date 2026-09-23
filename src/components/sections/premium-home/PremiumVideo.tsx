@@ -1,6 +1,6 @@
 export function PremiumVideo() {
   return (
-    <section className="shell reveal" style={{ paddingTop: "100px", paddingBottom: "80px", display: "grid", gridTemplateColumns: "1fr 1.35fr", gap: "7vw", alignItems: "center" }}>
+    <section className="shell reveal video-section" style={{ paddingTop: "100px", paddingBottom: "80px" }}>
       <div>
         <div className="eyebrow" style={{ color: "#ff702d" }}>◉ &nbsp; En vidéo</div>
         <h2 style={{ fontWeight: 500, fontSize: "clamp(34px, 3.8vw, 56px)", letterSpacing: "-2px", lineHeight: 1.06, margin: "24px 0" }}>Découvrez mes réalisations</h2>
