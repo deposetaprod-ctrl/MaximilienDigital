@@ -2,6 +2,20 @@ export function PremiumHero({ onCtaClick }: { onCtaClick?: () => void }) {
   return (
     <>
       <section className="hero" aria-labelledby="hero-title">
+        <img 
+          src="/m_signature.png" 
+          alt="" 
+          style={{
+            position: 'absolute',
+            top: '100px',
+            right: '5vw',
+            width: 'clamp(50px, 10vw, 130px)',
+            opacity: 0.25,
+            transform: 'rotate(8deg)',
+            pointerEvents: 'none',
+            zIndex: 0
+          }} 
+        />
         <div className="eyebrow">
           <span className="dot"></span>Développeur indépendant · Créateur de produits
         </div>
