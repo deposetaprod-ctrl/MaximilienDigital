@@ -180,7 +180,7 @@ export function PremiumBriefDialog() {
         <>
           <div className="eyebrow">Votre projet commence ici</div>
           <h2 className="dialog-title" id="brief-title" tabIndex={-1}>Parlons de votre idée.</h2>
-          <p className="brief-demo">Aperçu interactif · Aucun envoi automatique.</p>
+
           
           <div className="brief-progress" aria-hidden="true">
             <i id="brief-progress-fill" style={{ width: `${progressPercent}%`, transition: "width 0.3s ease" }}></i>
