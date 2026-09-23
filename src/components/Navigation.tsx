@@ -1,24 +1,13 @@
 "use client";
 
 import { useState, useEffect } from "react";
-
-import { Link, usePathname, useRouter } from "@/i18n/routing";
-import { useLanguage } from "@/context/LanguageContext";
+import { Link, usePathname } from "@/i18n/routing";
 import { trackClick } from "@/lib/analytics";
-import { Menu, X, MessageCircle } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-
-const WHATSAPP_GROUP_URL = "https://chat.whatsapp.com/K1pakG7WODOC3tk27RQ42P?mode=gi_t";
 
 export function Navigation() {
   const pathname = usePathname();
-  const { locale, setLocale, t } = useLanguage();
-  const router = useRouter();
-
-  const handleLocaleChange = (newLocale: "fr" | "en") => {
-    setLocale(newLocale);
-    router.replace(pathname, { locale: newLocale });
-  };
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   // Close menu when route changes
@@ -26,7 +15,7 @@ export function Navigation() {
     setIsMenuOpen(false);
   }, [pathname]);
 
-  // Close menu when clicking outside (simple version)
+  // Prevent scrolling when mobile menu is open
   useEffect(() => {
     if (isMenuOpen) {
       document.body.style.overflow = "hidden";
@@ -39,153 +28,101 @@ export function Navigation() {
   }, [isMenuOpen]);
 
   const navItems = [
-    { name: t("nav_home"), href: "/" },
-    { name: "Site & Web App", href: "/application-web-sur-mesure" },
-    { name: "App Mobile", href: "/application-mobile" },
+    { name: "Accueil", href: "/" },
+    { name: "Sites & Web Apps", href: "/application-web-sur-mesure" },
+    { name: "Apps mobiles", href: "/application-mobile" },
+    { name: "Avis clients", href: "#avis" },
     { name: "Devis", href: "/devis" },
   ];
 
+  const onCtaClick = () => {
+    trackClick("nav_cta_open_brief");
+    const dialog = document.getElementById("brief") as HTMLDialogElement;
+    if (dialog) dialog.showModal();
+    setIsMenuOpen(false); // close mobile menu if open
+  };
+
   return (
     <>
-      <header className="fixed top-4 left-0 right-0 z-50 flex justify-center px-4 pointer-events-none">
-        <div className="flex items-center gap-2 sm:gap-4 rounded-full border border-border bg-background/80 px-2 py-1.5 backdrop-blur-md shadow-sm pointer-events-auto">
+      <header className="top" style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 50, pointerEvents: "none" }}>
+        {/* pointerEvents: none on header to allow clicking through it, auto on nav to make it clickable */}
+        <nav className="nav shell" aria-label="Navigation principale" style={{ pointerEvents: "auto", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
           
-          {/* Desktop Navigation Tabs */}
-          <nav className="hidden md:flex items-center gap-1">
+          {/* LOGO */}
+          <Link href="/" className="brand" onClick={() => trackClick("nav_logo")}>
+            maximilien<span>.digital</span>
+          </Link>
+
+          {/* DESKTOP LINKS */}
+          <div className="links">
             {navItems.map((item) => {
-              const isActive =
-                pathname === item.href ||
-                (item.href !== "/" && pathname?.startsWith(item.href));
+              const isActive = pathname === item.href || (item.href !== "/" && pathname?.startsWith(item.href));
               return (
                 <Link
                   key={item.href}
                   href={item.href}
+                  aria-current={isActive ? "page" : undefined}
                   onClick={() => trackClick(`nav_${item.name}`)}
-                  className={`px-3 py-1.5 text-sm font-medium rounded-full transition-colors ${
-                    isActive
-                      ? "bg-primary text-primary-foreground"
-                      : "text-muted-foreground hover:text-foreground hover:bg-secondary/50"
-                  }`}
                 >
                   {item.name}
                 </Link>
               );
             })}
-          </nav>
-
-          {/* Mobile Current Page Indicator (Optional, but helps keep the pill small) */}
-          <div className="md:hidden flex items-center px-3 py-1.5">
-            <span className="text-xs font-bold text-primary uppercase tracking-wider">
-              {navItems.find(item => item.href === pathname)?.name || "Menu"}
-            </span>
           </div>
 
-          {/* Separator */}
-          <div className="w-px h-5 bg-border" />
-
-          {/* Language Toggle (Always visible) */}
-          <div className="flex items-center gap-0.5 rounded-full bg-secondary/50 p-0.5">
-            <button
-              onClick={() => handleLocaleChange("fr")}
-              className={`px-2.5 py-1 text-[10px] sm:text-xs font-semibold rounded-full transition-all cursor-pointer ${
-                locale === "fr"
-                  ? "bg-primary text-primary-foreground shadow-sm"
-                  : "text-muted-foreground hover:text-foreground"
-              }`}
-              aria-label="Français"
-            >
-              FR
+          <div className="nav-actions" style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+            {/* CTA BUTTON */}
+            <button className="nav-cta open-brief" type="button" onClick={onCtaClick}>
+              Parlons de votre idée <span style={{ marginLeft: "8px" }}>↗</span>
             </button>
+
+            {/* MOBILE MENU BUTTON */}
             <button
-              onClick={() => handleLocaleChange("en")}
-              className={`px-2.5 py-1 text-[10px] sm:text-xs font-semibold rounded-full transition-all cursor-pointer ${
-                locale === "en"
-                  ? "bg-primary text-primary-foreground shadow-sm"
-                  : "text-muted-foreground hover:text-foreground"
-              }`}
-              aria-label="English"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="mobile-menu"
+              aria-expanded={isMenuOpen}
+              aria-label={isMenuOpen ? "Fermer le menu" : "Ouvrir le menu"}
             >
-              EN
+              {isMenuOpen ? "✕" : "☰"}
             </button>
           </div>
 
-          {/* Desktop WhatsApp & Separator */}
-          <div className="hidden md:flex items-center gap-2 sm:gap-4">
-            <div className="w-px h-5 bg-border" />
-            <a
-              href={WHATSAPP_GROUP_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-3 py-1 text-xs font-medium text-muted-foreground hover:border-primary/50 hover:text-foreground transition-colors group"
-            >
-              <span className="flex h-5 w-5 items-center justify-center rounded-full bg-secondary text-[0.6rem] font-bold text-secondary-foreground group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
-                WA
-              </span>
-              <span>WhatsApp</span>
-            </a>
-          </div>
-
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden flex h-8 w-8 items-center justify-center rounded-full bg-secondary text-muted-foreground hover:text-foreground transition-colors"
-            aria-label="Toggle Menu"
-          >
-            {isMenuOpen ? <X size={18} /> : <Menu size={18} />}
-          </button>
-        </div>
+        </nav>
       </header>
 
-      {/* Mobile Menu Overlay */}
+      {/* MOBILE MENU OVERLAY (Framer Motion) */}
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="fixed inset-0 z-40 md:hidden bg-background/95 backdrop-blur-lg pt-24 px-6 flex flex-col gap-8"
+            className="fixed inset-0 z-40 bg-[#171411]/95 backdrop-blur-lg pt-32 px-6 flex flex-col gap-8 md:hidden"
+            style={{ position: "fixed", top: 0, left: 0, right: 0, bottom: 0, zIndex: 40 }}
           >
-            <nav className="flex flex-col gap-4">
+            <nav className="flex flex-col gap-6">
               {navItems.map((item) => {
-                const isActive =
-                  pathname === item.href ||
-                  (item.href !== "/" && pathname?.startsWith(item.href));
+                const isActive = pathname === item.href || (item.href !== "/" && pathname?.startsWith(item.href));
                 return (
                   <Link
                     key={item.href}
                     href={item.href}
                     onClick={() => trackClick(`nav_mobile_${item.name}`)}
-                    className={`text-2xl font-bold transition-colors ${
-                      isActive ? "text-primary" : "text-foreground/60"
-                    }`}
+                    style={{ fontSize: "24px", fontWeight: "600", color: isActive ? "#ff702d" : "#e0d4c8", textDecoration: "none" }}
                   >
                     {item.name}
                   </Link>
                 );
               })}
             </nav>
-
-            <div className="mt-4 pt-8 border-t border-border">
-              <a
-                href={WHATSAPP_GROUP_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-between w-full p-6 rounded-3xl bg-primary/10 text-primary"
-              >
-                <div className="flex items-center gap-4">
-                  <div className="h-12 w-12 rounded-2xl bg-primary flex items-center justify-center text-primary-foreground">
-                    <MessageCircle size={24} />
-                  </div>
-                  <div className="flex flex-col">
-                    <span className="font-bold">WhatsApp</span>
-                    <span className="text-xs opacity-70">Contact direct & réactvité</span>
-                  </div>
-                </div>
-                <div className="h-10 w-10 rounded-full border border-primary/20 flex items-center justify-center">
-                  →
-                </div>
-              </a>
-            </div>
+            
+            <button 
+              className="nav-cta" 
+              style={{ marginTop: "20px", padding: "16px", width: "100%", fontSize: "16px", borderRadius: "30px" }}
+              onClick={onCtaClick}
+            >
+              Recevoir ma maquette
+            </button>
           </motion.div>
         )}
       </AnimatePresence>

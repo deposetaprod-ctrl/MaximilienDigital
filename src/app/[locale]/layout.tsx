@@ -7,6 +7,7 @@ import { NextIntlClientProvider } from "next-intl";
 import { translations, type Locale } from "@/lib/i18n";
 import Script from "next/script";
 import "../globals.css";
+import "../../styles/premium-design.css";
 
 const OG_IMAGE_URL = "https://maximilien.digital/og-image.png";
 
@@ -24,11 +25,13 @@ export async function generateMetadata(props: { params: Promise<{ locale: string
   return {
     metadataBase: new URL(BASE_URL),
     title: {
-      default: t("seo_title_default") || "Développeur d'Applications Web & Mobile | Maquette Gratuite",
+      default: t("seo_title_default") || "Développeur Web Fullstack | Création App Mobile & Web",
       template: "%s | Maximilien Digital",
     },
-    description: t("seo_desc") || "Développeur d'applications web et mobile sur mesure.",
+    description: t("seo_desc") || "Développeur web fullstack et mobile sur mesure.",
     keywords: [
+      "développeur web",
+      "développeur fullstack",
       "développeur application mobile",
       "développeur application web",
       "création application mobile",

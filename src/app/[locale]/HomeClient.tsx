@@ -1,47 +1,54 @@
 "use client";
 
-import { useState, useRef } from "react";
-import { HeroDynamicForm } from "@/components/sections/HeroDynamicForm";
-import { ServicesSection } from "@/components/sections/ServicesSection";
-import { VideoSection } from "@/components/sections/VideoSection";
-import { TestimonialsSection } from "@/components/sections/TestimonialsSection";
-import { FinalCtaSection } from "@/components/sections/FinalCtaSection";
+import { useState } from "react";
+import { PremiumHero } from "@/components/sections/premium-home/PremiumHero";
+import { PremiumExpertise } from "@/components/sections/premium-home/PremiumExpertise";
+import { PremiumMethod } from "@/components/sections/premium-home/PremiumMethod";
+import { PremiumVideo } from "@/components/sections/premium-home/PremiumVideo";
+import { PremiumReviews } from "@/components/sections/premium-home/PremiumReviews";
+import { PremiumFaq } from "@/components/sections/premium-home/PremiumFaq";
+import { PremiumBriefDialog } from "@/components/sections/premium-home/PremiumBriefDialog";
 import { Footer } from "@/components/sections/Footer";
-import { FounderSection } from "@/components/sections/FounderSection";
-import { MethodologySection } from "@/components/sections/MethodologySection";
-import { FaqSection } from "@/components/sections/FaqSection";
-
-import { AiPoweredSection } from "@/components/sections/AiPoweredSection";
+import { usePremiumAnimations } from "@/hooks/usePremiumAnimations";
 
 export default function Home() {
-  const restOfSiteRef = useRef<HTMLDivElement>(null);
+  // Activer les animations du nouveau design
+  usePremiumAnimations();
 
-  function scrollToRestOfSite() {
-    restOfSiteRef.current?.scrollIntoView({ behavior: "smooth" });
-  }
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
 
-  function scrollToTop() {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+  function openBriefDialog() {
+    setIsDialogOpen(true);
   }
 
   return (
     <>
       <main>
-        <HeroDynamicForm onScrollDown={scrollToRestOfSite} />
+        {/* Nouveau Hero avec animation JS */}
+        <PremiumHero onCtaClick={openBriefDialog} />
         
-        <AiPoweredSection onCtaClick={scrollToTop} />
-        <FounderSection />
+        {/* Nouvelle section Vidéo */}
+        <PremiumVideo />
         
-        <div ref={restOfSiteRef}>
-          <VideoSection />
-          <ServicesSection />
-          <MethodologySection />
-          <TestimonialsSection />
-          <FaqSection />
-          <FinalCtaSection onCtaClick={scrollToTop} />
+        {/* Nouvelles Expertises (Sites, Mobile, Outils) */}
+        <PremiumExpertise />
+        
+        {/* Nouvelle Méthode & À Propos (Maximilien) */}
+        <PremiumMethod />
+        
+        {/* Nouveaux Avis Clients défilants */}
+        <PremiumReviews />
+        
+        {/* Nouvelle FAQ */}
+        <div style={{ marginTop: "80px", marginBottom: "80px" }}>
+          <PremiumFaq />
         </div>
+        
       </main>
       <Footer />
+      
+      {/* Le Popup Brief (Maquette Gratuite) */}
+      <PremiumBriefDialog isOpen={isDialogOpen} onClose={() => setIsDialogOpen(false)} />
     </>
   );
 }

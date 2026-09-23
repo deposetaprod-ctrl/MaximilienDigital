@@ -1,0 +1,4064 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta
+      name="description"
+      content="Création d’applications mobiles, du design à la soumission sur les stores. Découvrez Even Clock et présentez votre projet."
+    />
+    <title>Applications iOS & Android sur mesure — Maximilien Digital</title>
+    <style>
+      :root {
+        --paper: #201916;
+        --ink: #f1eee8;
+        --purple: #ff702d;
+        --lime: #ffbf3f;
+        --line: #42372f;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 95px;
+      }
+      body {
+        margin: 0;
+        background: var(--paper);
+        color: var(--ink);
+        font-family: Arial, Helvetica, sans-serif;
+        -webkit-font-smoothing: antialiased;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      button,
+      input,
+      textarea {
+        font: inherit;
+      }
+      button,
+      a {
+        -webkit-tap-highlight-color: transparent;
+      }
+      button {
+        cursor: pointer;
+      }
+      ::selection {
+        background: var(--lime);
+        color: var(--ink);
+      }
+      :focus-visible {
+        outline: 3px solid var(--purple);
+        outline-offset: 6px;
+      }
+      .shell {
+        max-width: 1500px;
+        margin: auto;
+        padding: 0 5vw;
+      }
+      .top {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 50;
+        background: #f3f2edef;
+        backdrop-filter: blur(18px);
+        border-bottom: 1px solid #22221f12;
+      }
+      .nav {
+        height: 83px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 25px;
+      }
+      .brand {
+        font-size: 23px;
+        font-weight: 800;
+        letter-spacing: -1.2px;
+      }
+      .brand span {
+        color: var(--purple);
+      }
+      .links {
+        display: flex;
+        gap: 32px;
+        font-size: 13px;
+      }
+      .nav-cta {
+        font-size: 13px;
+        border: 1px solid var(--ink);
+        padding: 13px 19px;
+        border-radius: 50px;
+      }
+      .nav-cta span {
+        margin-left: 22px;
+      }
+      .eyebrow {
+        text-transform: uppercase;
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 2px;
+        display: flex;
+        gap: 10px;
+        align-items: center;
+      }
+      .dot {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: var(--purple);
+        display: inline-block;
+      }
+      .hero {
+        position: relative;
+        text-align: center;
+        padding-top: 145px;
+        overflow: hidden;
+        min-height: 1030px;
+      }
+      .hero .eyebrow {
+        justify-content: center;
+      }
+      .hero h1 {
+        font-size: clamp(70px, 8.9vw, 142px);
+        line-height: 0.97;
+        letter-spacing: -0.075em;
+        font-weight: 500;
+        margin: 34px 0 24px;
+        position: relative;
+        z-index: 2;
+      }
+      .serif {
+        font-family: Georgia, "Times New Roman", serif;
+        font-weight: 400;
+        font-style: italic;
+        letter-spacing: -0.075em;
+        color: var(--purple);
+      }
+      .hero-intro {
+        font-size: 17px;
+        line-height: 1.55;
+        max-width: 460px;
+        margin: 0 auto 26px;
+        color: #64645d;
+        position: relative;
+        z-index: 2;
+      }
+      .button {
+        display: inline-flex;
+        align-items: center;
+        gap: 30px;
+        background: var(--ink);
+        color: white;
+        padding: 18px 23px;
+        border-radius: 40px;
+        font-size: 13px;
+        border: 0;
+        transition:
+          transform 0.25s,
+          background 0.25s;
+      }
+      .button:hover {
+        background: var(--purple);
+        transform: translateY(-3px);
+      }
+      .button .arrow {
+        font-size: 19px;
+      }
+      .hero .button {
+        position: relative;
+        z-index: 3;
+      }
+      .fine {
+        font-size: 11px;
+        color: #77776e;
+        margin: 13px 0;
+      }
+      .stage {
+        height: 415px;
+        position: relative;
+        max-width: 1120px;
+        margin: 42px auto 0;
+        text-align: left;
+      }
+      .stage:before {
+        content: "";
+        position: absolute;
+        inset: 80px 12% -80px;
+        background: radial-gradient(ellipse, #03423870, transparent 68%);
+        filter: blur(25px);
+      }
+      .mock {
+        position: absolute;
+        box-shadow: 0 18px 55px #22221f15;
+        border: 1px solid #ffffff80;
+        will-change: transform;
+      }
+      .desktop {
+        width: 600px;
+        height: 350px;
+        background: #fff;
+        border-radius: 13px;
+        left: 50%;
+        margin-left: -300px;
+        top: 25px;
+        z-index: 2;
+        overflow: hidden;
+        transform: rotate(-3deg);
+      }
+      .browser {
+        height: 31px;
+        border-bottom: 1px solid #ecece7;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        padding: 0 12px;
+        background: #fbfbf9;
+      }
+      .browser i {
+        width: 5px;
+        height: 5px;
+        background: #c8c8c1;
+        border-radius: 50%;
+      }
+      .browser small {
+        margin: auto;
+        font-size: 8px;
+        color: #8b8b85;
+      }
+      .dash {
+        display: grid;
+        grid-template-columns: 117px 1fr;
+        height: 319px;
+      }
+      .sidebar {
+        background: #f8f8f5;
+        border-right: 1px solid #edede8;
+        padding: 19px 12px;
+        font-size: 9px;
+      }
+      .sidebrand {
+        font-weight: 800;
+        font-size: 15px;
+        margin-bottom: 25px;
+      }
+      .sidebar p {
+        padding: 9px 7px;
+        border-radius: 5px;
+        color: #777;
+      }
+      .sidebar p.active {
+        background: #ffe8d9;
+        color: #a64216;
+      }
+      .dash-main {
+        padding: 22px;
+      }
+      .dash-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .dash-top b {
+        font-size: 18px;
+        letter-spacing: -0.6px;
+      }
+      .dash-top span {
+        background: var(--lime);
+        border-radius: 10px;
+        font-size: 8px;
+        padding: 7px;
+      }
+      .dash-main > p {
+        font-size: 8px;
+        color: #888;
+        margin-top: 6px;
+      }
+      .metrics {
+        display: flex;
+        gap: 10px;
+        margin: 19px 0;
+      }
+      .metric {
+        flex: 1;
+        border: 1px solid #e9e9e6;
+        border-radius: 8px;
+        padding: 12px;
+      }
+      .metric small {
+        display: block;
+        font-size: 8px;
+        color: #777;
+        margin-bottom: 9px;
+      }
+      .metric b {
+        font-size: 20px;
+      }
+      .metric em {
+        font-size: 8px;
+        color: #739843;
+        font-style: normal;
+        margin-left: 8px;
+      }
+      .chart {
+        height: 115px;
+        background: repeating-linear-gradient(
+          to top,
+          #efefeb 0px,
+          #efefeb 1px,
+          transparent 1px,
+          transparent 29px
+        );
+        display: flex;
+        align-items: end;
+        gap: 9px;
+        padding: 5px 10px;
+      }
+      .chart i {
+        flex: 1;
+        border-radius: 3px 3px 0 0;
+        background: #ffd4b5;
+      }
+      .chart i:nth-last-child(-n + 3) {
+        background: var(--purple);
+      }
+      .phone {
+        width: 181px;
+        height: 325px;
+        right: 80px;
+        top: 4px;
+        background: #242421;
+        border: 5px solid #242421;
+        border-radius: 29px;
+        transform: rotate(10deg);
+        z-index: 3;
+        overflow: hidden;
+        color: white;
+      }
+      .phone-inside {
+        background: #f7deb7;
+        height: 100%;
+        border-radius: 24px;
+        padding: 15px;
+        color: #28202f;
+      }
+      .notch {
+        width: 58px;
+        height: 13px;
+        background: #242421;
+        border-radius: 20px;
+        margin: -10px auto 20px;
+      }
+      .phone-label {
+        font-size: 9px;
+        display: flex;
+        justify-content: space-between;
+      }
+      .phone h3 {
+        font-size: 28px;
+        font-weight: 500;
+        line-height: 1;
+        letter-spacing: -1px;
+        margin: 23px 0 13px;
+      }
+      .orb {
+        width: 100px;
+        height: 100px;
+        margin: 4px auto;
+        background: radial-gradient(
+          circle at 33% 28%,
+          #f7ffe1,
+          #b5d875 48%,
+          #749351 70%,
+          #d7f19f
+        );
+        border-radius: 50%;
+        box-shadow:
+          inset -14px -8px 24px #4e6e6f44,
+          13px 12px 18px #76502c2b;
+      }
+      .phone-bottom {
+        margin-top: 15px;
+        padding: 11px;
+        background: white;
+        border-radius: 14px;
+        font-size: 9px;
+        display: flex;
+        justify-content: space-between;
+      }
+      .note {
+        left: 20px;
+        top: 125px;
+        z-index: 4;
+        width: 206px;
+        background: var(--lime);
+        padding: 21px;
+        border-radius: 12px;
+        transform: rotate(-10deg);
+      }
+      .note small {
+        font-size: 9px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+      }
+      .note strong {
+        display: block;
+        font-size: 24px;
+        font-weight: 500;
+        letter-spacing: -1px;
+        margin: 12px 0 18px;
+      }
+      .note-line {
+        display: flex;
+        gap: 7px;
+        font-size: 10px;
+        align-items: center;
+      }
+      .tick {
+        background: var(--ink);
+        color: var(--lime);
+        border-radius: 50%;
+        padding: 3px 5px;
+      }
+      .float-label {
+        position: absolute;
+        top: 24px;
+        left: 100px;
+        font-family: Georgia, serif;
+        font-style: italic;
+        color: #7f7e74;
+        transform: rotate(-10deg);
+        font-size: 19px;
+      }
+      .stage-foot {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 15px 5vw 25px;
+        font-size: 10px;
+        color: #76766e;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+      .marquee {
+        overflow: hidden;
+        background: var(--ink);
+        color: var(--paper);
+        padding: 25px 0;
+      }
+      .marquee-track {
+        display: flex;
+        white-space: nowrap;
+        width: max-content;
+        animation: marquee 32s linear infinite;
+        font-size: 14px;
+        letter-spacing: 1px;
+      }
+      .marquee-track span {
+        display: flex;
+        gap: 48px;
+        align-items: center;
+        padding-right: 48px;
+      }
+      .marquee-track i {
+        color: var(--lime);
+        font-style: normal;
+        font-size: 22px;
+      }
+      @keyframes marquee {
+        to {
+          transform: translateX(-50%);
+        }
+      }
+      .intro {
+        padding: 125px 0 110px;
+        display: grid;
+        grid-template-columns: 1fr 2.15fr;
+        gap: 50px;
+      }
+      .intro h2 {
+        font-size: clamp(36px, 4.5vw, 66px);
+        font-weight: 500;
+        line-height: 1.08;
+        letter-spacing: -3px;
+        margin: 0 0 25px;
+      }
+      .intro h2 span {
+        color: #aaa99f;
+      }
+      .intro p {
+        font-size: 16px;
+        line-height: 1.6;
+        color: #6c6c63;
+        max-width: 520px;
+      }
+      .text-link {
+        display: inline-flex;
+        gap: 40px;
+        font-size: 13px;
+        padding: 14px 0;
+        border-bottom: 1px solid var(--ink);
+        margin-top: 14px;
+      }
+      .services {
+        background: #e8e5dd;
+        height: 220vh;
+        position: relative;
+      }
+      .services-sticky {
+        position: sticky;
+        top: 83px;
+        min-height: 650px;
+        height: calc(100vh - 83px);
+        overflow: hidden;
+        padding: 55px 0 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      .section-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: end;
+        margin-bottom: 34px;
+      }
+      .section-head h2 {
+        font-weight: 500;
+        letter-spacing: -2px;
+        font-size: clamp(35px, 4vw, 57px);
+        margin: 13px 0 0;
+        line-height: 1.04;
+      }
+      .scroll-hint {
+        font-size: 11px;
+        color: #73736b;
+      }
+      .track {
+        display: flex;
+        gap: 22px;
+        width: max-content;
+        padding: 0 5vw;
+        will-change: transform;
+      }
+      .service {
+        width: min(65vw, 780px);
+        height: 350px;
+        border-radius: 18px;
+        padding: 32px;
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+      .service small {
+        font-size: 10px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+      .service h3 {
+        font-size: 44px;
+        font-weight: 500;
+        letter-spacing: -2px;
+        line-height: 1.05;
+        max-width: 340px;
+        margin: 0 0 14px;
+      }
+      .service p {
+        font-size: 13px;
+        line-height: 1.5;
+        max-width: 285px;
+        margin: 0;
+      }
+      .service-top {
+        display: flex;
+        justify-content: space-between;
+        position: relative;
+        z-index: 2;
+      }
+      .service-copy {
+        position: relative;
+        z-index: 2;
+      }
+      .service.purple {
+        background: var(--purple);
+        color: white;
+      }
+      .service.lime {
+        background: var(--lime);
+      }
+      .service.white {
+        background: #fff;
+      }
+      .mini-web {
+        position: absolute;
+        right: -35px;
+        top: 77px;
+        width: 300px;
+        height: 245px;
+        background: #f8f3e8;
+        border-radius: 9px;
+        transform: rotate(-10deg);
+        box-shadow: 0 20px 35px #27105d40;
+        padding: 16px;
+        color: #403c2f;
+      }
+      .mini-web small {
+        font-size: 7px;
+      }
+      .mini-web h4 {
+        font-family: Georgia, serif;
+        font-weight: 400;
+        font-size: 32px;
+        line-height: 1;
+        margin: 27px 0 12px;
+        max-width: 160px;
+        letter-spacing: -1px;
+      }
+      .mini-web .art {
+        width: 92px;
+        height: 134px;
+        position: absolute;
+        right: 15px;
+        top: 60px;
+        background: #c5ceac;
+        border-radius: 60px 60px 4px 4px;
+      }
+      .art:before {
+        content: "";
+        position: absolute;
+        inset: 23px;
+        background: #728761;
+        border-radius: 50%;
+        transform: rotate(25deg);
+      }
+      .mini-web .bar {
+        height: 19px;
+        width: 88px;
+        background: #403c2f;
+        border-radius: 3px;
+      }
+      .stack-app {
+        position: absolute;
+        right: 45px;
+        top: 70px;
+        width: 200px;
+        height: 260px;
+        background: #fcfff7;
+        border: 5px solid #252820;
+        border-radius: 22px;
+        transform: rotate(12deg);
+        box-shadow: 15px 15px 0 #28362217;
+        padding: 22px 15px;
+      }
+      .stack-app strong {
+        font-size: 19px;
+        display: block;
+        letter-spacing: -1px;
+      }
+      .stack-app p {
+        font-size: 8px;
+        margin: 8px 0;
+      }
+      .stack-app div {
+        background: #ffe1c7;
+        margin-top: 13px;
+        border-radius: 9px;
+        padding: 15px;
+        font-size: 10px;
+      }
+      .stack-app div:last-child {
+        background: #dceab9;
+      }
+      .workflow {
+        position: absolute;
+        right: 22px;
+        top: 100px;
+        width: 240px;
+        transform: rotate(-7deg);
+        font-size: 12px;
+      }
+      .workflow div {
+        padding: 19px;
+        background: #f3e6d7;
+        border: 1px solid #e3cebb;
+        border-radius: 10px;
+        width: 185px;
+        box-shadow: 0 8px 15px #22221f08;
+      }
+      .workflow div + div {
+        margin: 25px 0 0 35px;
+        background: var(--ink);
+        color: var(--lime);
+      }
+      .progress {
+        height: 2px;
+        background: #d0cfc6;
+        margin: 34px 5vw 0;
+      }
+      .progress i {
+        display: block;
+        background: var(--ink);
+        height: 100%;
+        width: 0;
+      }
+      .about {
+        padding: 130px 0;
+        display: grid;
+        grid-template-columns: 1fr 1.1fr;
+        gap: 9vw;
+        align-items: center;
+      }
+      .portrait-box {
+        position: relative;
+        background: #3a2b22;
+        border-radius: 150px 150px 16px 16px;
+        max-width: 440px;
+        height: 470px;
+        overflow: hidden;
+      }
+      .portrait-box img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center 25%;
+      }
+      .portrait-caption {
+        position: absolute;
+        bottom: 18px;
+        left: 18px;
+        right: 18px;
+        background: #f3f2edf0;
+        padding: 18px 20px;
+        border-radius: 8px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 12px;
+      }
+      .portrait-caption small {
+        display: block;
+        color: #777;
+        margin-top: 5px;
+        font-size: 10px;
+      }
+      .about h2 {
+        font-weight: 500;
+        font-size: clamp(42px, 5vw, 69px);
+        line-height: 1.05;
+        letter-spacing: -3.5px;
+        margin: 25px 0;
+      }
+      .about p {
+        color: #6c6c63;
+        line-height: 1.7;
+        font-size: 15px;
+        max-width: 440px;
+      }
+      .tags {
+        display: flex;
+        gap: 7px;
+        flex-wrap: wrap;
+        margin-top: 25px;
+      }
+      .tags span {
+        border: 1px solid #cfcec4;
+        border-radius: 20px;
+        font-size: 10px;
+        padding: 10px 13px;
+      }
+      .method {
+        padding: 95px 0;
+        background: #232320;
+        color: var(--paper);
+      }
+      .method .eyebrow {
+        color: #b7b7a7;
+      }
+      .method h2 {
+        font-size: clamp(40px, 5vw, 72px);
+        font-weight: 500;
+        letter-spacing: -3px;
+        margin: 20px 0 55px;
+      }
+      .steps {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 35px;
+      }
+      .step {
+        border-top: 1px solid #5c5c52;
+        padding-top: 20px;
+      }
+      .step small {
+        color: var(--lime);
+        font-size: 11px;
+      }
+      .step h3 {
+        font-weight: 400;
+        font-size: 23px;
+        letter-spacing: -0.8px;
+        margin: 35px 0 12px;
+      }
+      .step p {
+        font-size: 13px;
+        line-height: 1.6;
+        color: #a8a89c;
+      }
+      .ownership {
+        border-top: 1px solid #4b4b42;
+        margin-top: 50px;
+        padding-top: 25px;
+        font-size: 12px;
+        color: #c3c3b7;
+        display: flex;
+        justify-content: space-between;
+      }
+      .ownership b {
+        color: var(--lime);
+        font-weight: 400;
+      }
+      .faq {
+        padding: 100px 0;
+        display: grid;
+        grid-template-columns: 1fr 1.4fr;
+        gap: 8vw;
+      }
+      .faq h2 {
+        font-size: 43px;
+        letter-spacing: -2px;
+        font-weight: 500;
+        margin-top: 20px;
+      }
+      .faq details {
+        border-bottom: 1px solid var(--line);
+      }
+      .faq summary {
+        cursor: pointer;
+        list-style: none;
+        padding: 25px 30px 25px 0;
+        font-size: 17px;
+        position: relative;
+      }
+      .faq summary::-webkit-details-marker {
+        display: none;
+      }
+      .faq summary:after {
+        content: "+";
+        position: absolute;
+        right: 0;
+        font-size: 22px;
+      }
+      .faq details[open] summary:after {
+        content: "−";
+      }
+      .faq details p {
+        color: #717168;
+        font-size: 14px;
+        line-height: 1.7;
+        margin: 0 0 24px;
+      }
+      .contact {
+        background: #2b211b;
+        position: relative;
+        overflow: hidden;
+        padding: 85px 5vw 90px;
+        text-align: center;
+      }
+      .contact .eyebrow {
+        justify-content: center;
+      }
+      .contact h2 {
+        font-size: clamp(64px, 9vw, 130px);
+        line-height: 0.98;
+        font-weight: 500;
+        letter-spacing: -0.065em;
+        margin: 30px 0;
+      }
+      .contact p {
+        font-size: 15px;
+        color: #6d627c;
+        margin-bottom: 25px;
+      }
+      .contact .serif {
+        color: #ffbf3f;
+      }
+      .contact-note {
+        font-size: 11px !important;
+        margin-top: 17px;
+      }
+      .footer {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+        align-items: center;
+        padding-top: 29px;
+        padding-bottom: 29px;
+        font-size: 11px;
+      }
+      .footer .brand {
+        font-size: 19px;
+      }
+      .footer a:last-child {
+        color: #73736b;
+      }
+      .reveal {
+        transition:
+          opacity 0.8s,
+          transform 0.8s;
+      }
+      .js .reveal {
+        opacity: 0;
+        transform: translateY(28px);
+      }
+      .js .reveal.visible {
+        opacity: 1;
+        transform: none;
+      }
+      .menu-toggle {
+        display: none;
+      }
+      .decor {
+        position: absolute;
+        font-size: 100px;
+        color: #ff702d;
+        font-family: Georgia, serif;
+        left: 7%;
+        top: 140px;
+        transform: rotate(15deg);
+        opacity: 0.6;
+      }
+      .contact .decor:last-child {
+        left: auto;
+        right: 7%;
+        top: auto;
+        bottom: 90px;
+        font-size: 70px;
+      }
+      dialog {
+        border: 0;
+        border-radius: 20px;
+        background: var(--paper);
+        color: var(--ink);
+        max-width: 540px;
+        width: calc(100% - 32px);
+        padding: 35px;
+        box-shadow: 0 30px 90px #0003;
+      }
+      dialog::backdrop {
+        background: #22221f88;
+        backdrop-filter: blur(7px);
+      }
+      .close {
+        position: absolute;
+        right: 18px;
+        top: 15px;
+        border: 0;
+        background: transparent;
+        font-size: 27px;
+      }
+      .dialog-title {
+        font-size: 35px;
+        letter-spacing: -1.5px;
+        font-weight: 500;
+        margin: 15px 0 10px;
+      }
+      dialog p {
+        font-size: 13px;
+        color: #717168;
+        line-height: 1.5;
+      }
+      dialog label {
+        display: block;
+        font-size: 12px;
+        margin: 20px 0 8px;
+      }
+      input,
+      textarea {
+        width: 100%;
+        background: #fff;
+        border: 1px solid #d5d5cb;
+        padding: 13px;
+        border-radius: 7px;
+        resize: vertical;
+      }
+      dialog .button {
+        margin-top: 22px;
+        width: 100%;
+        justify-content: space-between;
+      }
+      dialog .fine {
+        font-size: 11px;
+      }
+      #mail-fallback {
+        display: none;
+        font-size: 12px;
+        line-height: 1.6;
+        margin-top: 15px;
+      }
+      #mail-fallback a {
+        text-decoration: underline;
+      }
+      @media (min-width: 1600px) {
+        .service {
+          width: 780px;
+        }
+        .hero {
+          min-height: 1100px;
+        }
+      }
+      @media (max-width: 900px) {
+        .links {
+          gap: 18px;
+        }
+        .hero {
+          min-height: 950px;
+        }
+        .stage {
+          transform: scale(0.85);
+          transform-origin: top center;
+          width: 1000px;
+          left: 50%;
+          margin-left: -500px;
+          margin-bottom: -60px;
+        }
+        .intro {
+          grid-template-columns: 1fr;
+          gap: 25px;
+          padding: 80px 0;
+        }
+        .service {
+          width: 80vw;
+        }
+        .service h3 {
+          font-size: 36px;
+          max-width: 240px;
+        }
+        .service p {
+          max-width: 220px;
+        }
+        .mini-web {
+          right: -80px;
+        }
+        .stack-app {
+          right: -30px;
+        }
+        .workflow {
+          right: -85px;
+        }
+        .about {
+          gap: 40px;
+        }
+        .portrait-box {
+          height: 400px;
+        }
+        .steps {
+          gap: 20px;
+        }
+        .step h3 {
+          font-size: 21px;
+        }
+        .decor {
+          display: none;
+        }
+      }
+      @media (max-width: 600px) {
+        .nav {
+          height: 70px;
+        }
+        .brand {
+          font-size: 20px;
+        }
+        .nav-cta {
+          padding: 11px 13px;
+          font-size: 11px;
+        }
+        .nav-cta span {
+          margin-left: 10px;
+        }
+        .links {
+          display: none;
+        }
+        .hero {
+          padding-top: 119px;
+          min-height: 795px;
+        }
+        .hero h1 {
+          font-size: 68px;
+          margin: 29px 0 23px;
+        }
+        .hero .eyebrow {
+          font-size: 9px;
+          letter-spacing: 1.5px;
+        }
+        .hero-intro {
+          font-size: 15px;
+          max-width: 295px;
+        }
+        .stage {
+          transform: scale(0.58);
+          margin-top: 42px;
+          margin-bottom: -172px;
+        }
+        .phone {
+          right: 139px;
+        }
+        .note {
+          left: 130px;
+        }
+        .float-label {
+          left: 170px;
+        }
+        .stage-foot {
+          font-size: 8px;
+          letter-spacing: 0.5px;
+          margin-top: 10px;
+          gap: 10px;
+        }
+        .marquee {
+          padding: 18px 0;
+        }
+        .marquee-track {
+          font-size: 11px;
+        }
+        .intro h2 {
+          letter-spacing: -1.7px;
+          font-size: 37px;
+        }
+        .intro p {
+          font-size: 14px;
+        }
+        .services {
+          height: auto;
+        }
+        .services-sticky {
+          position: relative;
+          top: 0;
+          height: auto;
+          min-height: 0;
+          padding: 55px 0;
+        }
+        .section-head {
+          display: block;
+        }
+        .scroll-hint {
+          margin-top: 18px;
+          display: block;
+        }
+        .track {
+          width: 100%;
+          overflow-x: auto;
+          scroll-snap-type: x mandatory;
+          padding: 0 5vw 16px;
+          transform: none !important;
+          gap: 14px;
+        }
+        .service {
+          min-width: 86vw;
+          width: 86vw;
+          height: 390px;
+          scroll-snap-align: center;
+          padding: 23px;
+        }
+        .service h3 {
+          font-size: 33px;
+          max-width: 210px;
+        }
+        .service p {
+          font-size: 12px;
+          max-width: 215px;
+        }
+        .mini-web {
+          width: 220px;
+          height: 150px;
+          top: 60px;
+          right: -18px;
+          padding: 12px;
+          transform: rotate(-7deg);
+        }
+        .mini-web h4 {
+          font-size: 23px;
+          margin: 17px 0 8px;
+        }
+        .mini-web .art {
+          width: 65px;
+          height: 87px;
+          top: 39px;
+        }
+        .stack-app {
+          width: 140px;
+          height: 178px;
+          right: 20px;
+          top: 53px;
+          padding: 15px;
+        }
+        .stack-app strong {
+          font-size: 13px;
+        }
+        .stack-app div {
+          padding: 8px;
+          font-size: 8px;
+          margin-top: 8px;
+        }
+        .stack-app p {
+          font-size: 7px;
+        }
+        .workflow {
+          top: 65px;
+          right: 5px;
+          transform: rotate(-6deg);
+          width: 190px;
+          font-size: 10px;
+        }
+        .workflow div {
+          width: 150px;
+          padding: 13px;
+        }
+        .workflow div + div {
+          margin-top: 14px;
+        }
+        .progress {
+          display: none;
+        }
+        .about {
+          grid-template-columns: 1fr;
+          padding: 80px 0;
+          gap: 35px;
+        }
+        .portrait-box {
+          height: 350px;
+          width: 100%;
+          max-width: 360px;
+          margin: auto;
+        }
+        .about h2 {
+          font-size: 49px;
+          letter-spacing: -2px;
+        }
+        .method {
+          padding: 65px 0;
+        }
+        .method h2 {
+          font-size: 43px;
+          letter-spacing: -2px;
+          margin-bottom: 35px;
+        }
+        .steps {
+          grid-template-columns: 1fr 1fr;
+          gap: 25px;
+        }
+        .step h3 {
+          margin-top: 22px;
+        }
+        .ownership {
+          display: block;
+          line-height: 1.8;
+        }
+        .ownership b {
+          display: block;
+          margin-top: 12px;
+        }
+        .faq {
+          grid-template-columns: 1fr;
+          gap: 10px;
+          padding: 65px 0;
+        }
+        .faq h2 {
+          font-size: 38px;
+        }
+        .faq summary {
+          font-size: 15px;
+        }
+        .contact {
+          padding: 65px 5vw;
+        }
+        .contact h2 {
+          font-size: 63px;
+        }
+        .contact p {
+          font-size: 13px;
+        }
+        .footer {
+          flex-wrap: wrap;
+          font-size: 10px;
+        }
+        .footer a:last-child {
+          width: 100%;
+        }
+        dialog {
+          padding: 28px 22px;
+        }
+        .dialog-title {
+          font-size: 30px;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+        *,
+        *:before,
+        *:after {
+          animation: none !important;
+          transition: none !important;
+        }
+        .js .reveal {
+          opacity: 1;
+          transform: none;
+        }
+        .services {
+          height: auto;
+        }
+        .services-sticky {
+          position: relative;
+          top: 0;
+          height: auto;
+          min-height: 0;
+        }
+        .track {
+          width: 100%;
+          overflow-x: auto;
+          transform: none !important;
+        }
+        .service {
+          flex-shrink: 0;
+        }
+        .progress {
+          display: none;
+        }
+        .mock {
+          will-change: auto;
+        }
+      }
+
+      /* Charte Maximilien Digital : brun profond, orange, or et blanc cassé. */
+      :root {
+        color-scheme: dark;
+      }
+      body {
+        background: #201916;
+        color: #f1eee8;
+      }
+      .top {
+        background: transparent;
+        backdrop-filter: none;
+        border: 0;
+        padding: 15px 0 0;
+      }
+      .nav {
+        height: 64px;
+        border: 1px solid #46362c;
+        background: #241e1aef;
+        backdrop-filter: blur(18px);
+        border-radius: 50px;
+        max-width: 1320px;
+        width: calc(100% - 6vw);
+        padding: 0 25px;
+      }
+      .brand span {
+        color: #ff702d;
+      }
+      .links {
+        color: #bdb2a8;
+      }
+      .links a:hover {
+        color: #ffbf3f;
+      }
+      .nav-cta {
+        background: #ff702d;
+        color: #201916;
+        border-color: #ff702d;
+        font-weight: 600;
+      }
+      .hero {
+        background:
+          radial-gradient(ellipse at 50% 65%, #002e2670 0, transparent 55%),
+          #201916;
+      }
+      .hero .eyebrow {
+        color: #ff702d;
+      }
+      .dot {
+        background: #ff702d;
+      }
+      .serif {
+        color: #ffbf3f;
+      }
+      .hero-intro,
+      .intro p,
+      .about p,
+      .faq details p {
+        color: #b5aba1;
+      }
+      .fine {
+        color: #a3988e;
+      }
+      .button {
+        background: #ff702d;
+        color: #1e1712;
+        font-weight: 600;
+      }
+      .button:hover {
+        background: #ffbf3f;
+        color: #201916;
+      }
+      .stage-foot,
+      .float-label {
+        color: #ac9f92;
+      }
+      .mock {
+        border-color: #ffffff30;
+      }
+      .desktop {
+        color: #28221c;
+      }
+      .browser {
+        background: #f7eee4;
+        border-color: #e3d7c8;
+      }
+      .browser small {
+        color: #817263;
+      }
+      .sidebar {
+        background: #faf3ea;
+        border-color: #e8d9c9;
+      }
+      .sidebar p {
+        color: #847363;
+      }
+      .sidebar p.active {
+        color: #a64216;
+        background: #ffe8d9;
+      }
+      .dash-top span {
+        background: #ffbf3f;
+      }
+      .metric {
+        border-color: #e9ded0;
+      }
+      .metric small,
+      .dash-main > p {
+        color: #7c7166;
+      }
+      .metric em {
+        color: #5e7837;
+      }
+      .phone {
+        background: #30251d;
+        border-color: #30251d;
+      }
+      .notch {
+        background: #30251d;
+      }
+      .phone-inside {
+        color: #35261b;
+      }
+      .phone-bottom {
+        background: #fff8ed;
+        color: #39281c;
+      }
+      .note {
+        background: #ffbf3f;
+        color: #352315;
+      }
+      .tick {
+        background: #352315;
+        color: #ffcf65;
+      }
+      .marquee {
+        background: #ff702d;
+        color: #231a13;
+      }
+      .marquee-track i {
+        color: #683011;
+      }
+      .intro h2 span {
+        color: #ffbf3f;
+      }
+      .text-link {
+        border-color: #67503e;
+      }
+      .intro .eyebrow,
+      .section-head .eyebrow,
+      .about .eyebrow,
+      .faq .eyebrow {
+        color: #ff702d;
+      }
+      .services {
+        background: #29211c;
+      }
+      .scroll-hint {
+        color: #b2a395;
+      }
+      .progress {
+        background: #4b392b;
+      }
+      .progress i {
+        background: #ff702d;
+      }
+      .service.purple {
+        background: #ed692b;
+        color: #201710;
+      }
+      .service.lime {
+        background: #ffbf3f;
+        color: #2d2012;
+      }
+      .service.white {
+        background: #342a23;
+        color: #f3ece3;
+        border: 1px solid #584332;
+      }
+      .mini-web {
+        box-shadow: 0 20px 35px #52240940;
+      }
+      .stack-app {
+        color: #28221c;
+        background: #fff6e8;
+        border-color: #36281d;
+      }
+      .stack-app div {
+        background: #ffe1c7;
+      }
+      .stack-app div:last-child {
+        background: #f3d38a;
+      }
+      .workflow div {
+        color: #39291e;
+        background: #f3e6d7;
+        border-color: #e3cebb;
+      }
+      .workflow div + div {
+        background: #ffbf3f;
+        color: #39291e;
+      }
+      .portrait-box {
+        background: #3a2b22;
+      }
+      .portrait-caption {
+        background: #27201ced;
+        border: 1px solid #5e4937;
+        color: #f3ece3;
+      }
+      .portrait-caption small {
+        color: #b7a89b;
+      }
+      .tags span {
+        border-color: #544334;
+        color: #c9b8a8;
+      }
+      .method {
+        background: #171411;
+        color: #f1eee8;
+      }
+      .method .eyebrow {
+        color: #ff702d;
+      }
+      .step {
+        border-color: #514030;
+      }
+      .step small {
+        color: #ffbf3f;
+      }
+      .step p {
+        color: #b4a697;
+      }
+      .ownership {
+        border-color: #514030;
+        color: #c7b8a8;
+      }
+      .ownership b {
+        color: #ffbf3f;
+      }
+      .faq summary:hover {
+        color: #ffbf3f;
+      }
+      .contact {
+        background:
+          radial-gradient(ellipse at 50% 100%, #00483a55, transparent 65%),
+          #29201b;
+        border-top: 1px solid #4b3528;
+      }
+      .contact .eyebrow {
+        color: #ff702d;
+      }
+      .contact .serif {
+        color: #ffbf3f;
+      }
+      .contact p {
+        color: #c1aea0;
+      }
+      .decor {
+        color: #ff702d;
+        opacity: 0.45;
+      }
+      .footer {
+        color: #b09e8e;
+      }
+      .footer a:last-child {
+        color: #baa99a;
+      }
+      dialog {
+        background: #29211c;
+        color: #f1eee8;
+        border: 1px solid #5a4030;
+      }
+      dialog p,
+      dialog .fine {
+        color: #baaa9c;
+      }
+      dialog .eyebrow {
+        color: #ff702d;
+      }
+      .close {
+        color: #eee4d9;
+      }
+      input,
+      textarea {
+        background: #201916;
+        border-color: #584233;
+        color: #f1eee8;
+      }
+      input::placeholder,
+      textarea::placeholder {
+        color: #9d8e80;
+      }
+      dialog::backdrop {
+        background: #100d0bb8;
+      }
+      ::selection {
+        background: #ffbf3f;
+        color: #201916;
+      }
+      @media (max-width: 600px) {
+        .top {
+          padding-top: 10px;
+        }
+        .nav {
+          height: 58px;
+          padding: 0 14px;
+          width: calc(100% - 24px);
+          gap: 10px;
+        }
+        .brand {
+          font-size: 17px;
+        }
+        .nav-cta {
+          font-size: 10px;
+          padding: 10px;
+        }
+        .nav-cta span {
+          margin-left: 4px;
+        }
+        .hero {
+          padding-top: 117px;
+        }
+      }
+
+      .reviews-section {
+        padding: 100px 0;
+        background: #241c17;
+        border-bottom: 1px solid #423126;
+      }
+      .reviews-heading {
+        display: flex;
+        justify-content: space-between;
+        gap: 30px;
+        align-items: end;
+        margin-bottom: 38px;
+      }
+      .reviews-heading .eyebrow {
+        color: #ff702d;
+      }
+      .reviews-heading h2 {
+        font-size: clamp(38px, 4.5vw, 64px);
+        font-weight: 500;
+        letter-spacing: -2.5px;
+        line-height: 1.05;
+        margin: 20px 0 17px;
+      }
+      .reviews-heading p {
+        color: #b5aba1;
+        line-height: 1.6;
+        font-size: 15px;
+        margin: 0;
+      }
+      .review-controls {
+        display: flex;
+        gap: 10px;
+        flex-shrink: 0;
+      }
+      .review-controls button {
+        width: 46px;
+        height: 46px;
+        border-radius: 50%;
+        border: 1px solid #6c4b35;
+        color: #ffbf3f;
+        background: transparent;
+        font-size: 22px;
+        transition: background 0.2s;
+      }
+      .review-controls button:hover {
+        background: #493020;
+      }
+      .review-controls button:disabled {
+        opacity: 0.3;
+        cursor: default;
+      }
+      .review-rail {
+        display: flex;
+        gap: 20px;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: thin;
+        scrollbar-color: #9e5a32 #30231b;
+        padding: 4px 5vw 24px;
+        scroll-padding-inline: 5vw;
+      }
+      .review-card {
+        flex: 0 0 355px;
+        scroll-snap-align: start;
+        display: flex;
+        flex-direction: column;
+        min-height: 335px;
+        margin: 0;
+        background: #30251e;
+        border: 1px solid #58402e;
+        border-radius: 18px;
+        padding: 27px;
+      }
+      .review-quote {
+        font-family: Georgia, serif;
+        font-size: 60px;
+        line-height: 0.8;
+        color: #ff702d;
+        margin-bottom: 22px;
+      }
+      .review-card blockquote {
+        margin: 0 0 28px;
+        font-size: 15px;
+        line-height: 1.65;
+        color: #e7dfd6;
+      }
+      .review-card figcaption {
+        margin-top: auto;
+        padding-top: 18px;
+        border-top: 1px solid #513c2d;
+        display: flex;
+        align-items: center;
+        gap: 11px;
+        font-size: 13px;
+        font-weight: 600;
+      }
+      .review-avatar {
+        width: 32px;
+        height: 32px;
+        display: grid;
+        place-items: center;
+        background: #453024;
+        border-radius: 50%;
+        color: #ffbf3f;
+        font-size: 11px;
+      }
+      .review-bottom {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+        color: #ac9b8b;
+        font-size: 11px;
+        margin-top: 15px;
+      }
+      .review-counter {
+        color: #ffbf3f;
+      }
+      @media (max-width: 600px) {
+        .reviews-section {
+          padding: 65px 0;
+        }
+        .reviews-heading {
+          align-items: start;
+          flex-wrap: wrap;
+          gap: 22px;
+        }
+        .reviews-heading h2 {
+          font-size: 40px;
+          letter-spacing: -1.8px;
+        }
+        .reviews-heading p {
+          font-size: 14px;
+        }
+        .review-card {
+          flex-basis: 85vw;
+          padding: 23px;
+          min-height: 340px;
+        }
+        .review-card blockquote {
+          font-size: 14px;
+        }
+        .review-bottom {
+          line-height: 1.5;
+        }
+        .review-controls button {
+          width: 41px;
+          height: 41px;
+        }
+      }
+
+      #brief {
+        max-width: 680px;
+        max-height: 90dvh;
+        overflow-y: auto;
+        padding: 38px;
+      }
+      #brief [hidden] {
+        display: none !important;
+      }
+      #brief fieldset {
+        border: 0;
+        padding: 0;
+        margin: 25px 0 0;
+        min-width: 0;
+      }
+      #brief legend {
+        font-size: 23px;
+        line-height: 1.25;
+        letter-spacing: -0.6px;
+        margin-bottom: 18px;
+        padding: 0;
+        width: 100%;
+      }
+      #brief .dialog-title {
+        outline: none;
+        padding-right: 20px;
+      }
+      #brief .brief-demo {
+        font-size: 11px;
+        color: #bbaa99;
+      }
+      .brief-progress {
+        height: 3px;
+        background: #4c3729;
+        border-radius: 5px;
+        margin-top: 22px;
+      }
+      .brief-progress i {
+        display: block;
+        height: 100%;
+        width: 0;
+        background: #ff702d;
+        transition: width 0.3s;
+      }
+      #brief-step {
+        font-size: 11px;
+        color: #ffbf3f !important;
+        margin: 10px 0 0;
+      }
+      .brief-choices {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14px;
+      }
+      .brief-choice {
+        background: #211a16;
+        border: 1px solid #59402f;
+        border-radius: 14px;
+        text-align: left;
+        padding: 22px;
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        color: #f1eee8;
+        transition:
+          background 0.2s,
+          border-color 0.2s;
+      }
+      .brief-choice:hover {
+        border-color: #ff702d;
+        background: #3d281b;
+      }
+      .brief-choice strong {
+        font-size: 17px;
+        line-height: 1.3;
+      }
+      .brief-choice > span:not(.choice-icon) {
+        font-size: 12px;
+        line-height: 1.6;
+        color: #bbaa99;
+      }
+      .brief-choice .choice-icon {
+        font-size: 26px;
+        color: #ff702d;
+      }
+      .brief-choice b {
+        align-self: flex-end;
+        color: #ffbf3f;
+        font-size: 22px;
+        margin-top: auto;
+      }
+      .brief-direct {
+        border-top: 1px solid #513a2b;
+        margin-top: 28px;
+        padding-top: 22px;
+        display: flex;
+        flex-direction: column;
+        gap: 9px;
+        font-size: 12px;
+        color: #baa99b;
+      }
+      .brief-direct a {
+        color: #ffbf3f;
+        text-decoration: underline;
+        text-underline-offset: 4px;
+      }
+      .brief-actions {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
+        margin-top: 26px;
+      }
+      #brief .brief-actions .button {
+        width: auto;
+        margin: 0;
+        min-width: 150px;
+      }
+      .brief-back {
+        background: transparent;
+        border: 0;
+        color: #c9b4a1;
+        padding: 10px 0;
+        font-size: 13px;
+      }
+      .brief-fields {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+      }
+      #brief label span {
+        font-size: 11px;
+        color: #ab9786;
+      }
+      #brief .upload-zone {
+        border: 1px dashed #a6683e;
+        padding: 22px;
+        border-radius: 13px;
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        text-align: center;
+        align-items: center;
+        background: #241b15;
+        cursor: pointer;
+        margin-top: 0;
+      }
+      .upload-zone > span {
+        color: #ffbf3f !important;
+        font-size: 30px !important;
+      }
+      .upload-zone small {
+        color: #b5a292;
+        font-size: 11px;
+      }
+      .upload-zone input {
+        font-size: 12px;
+        max-width: 100%;
+        padding: 9px;
+      }
+      .upload-zone input::file-selector-button {
+        background: #ff702d;
+        color: #241a13;
+        border: 0;
+        border-radius: 5px;
+        padding: 8px;
+        margin-right: 8px;
+        cursor: pointer;
+      }
+      #brief-file-status {
+        font-size: 11px;
+      }
+      #brief-summary {
+        padding: 18px;
+        background: #211a16;
+        border: 1px solid #513a2b;
+        border-radius: 12px;
+        max-height: 250px;
+        overflow: auto;
+      }
+      #brief-summary dl {
+        margin: 0;
+      }
+      #brief-summary dt {
+        color: #ffbf3f;
+        font-size: 11px;
+        margin: 16px 0 7px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+      #brief-summary dt:first-child {
+        margin-top: 0;
+      }
+      #brief-summary dd {
+        margin: 0;
+        font-size: 13px;
+        line-height: 1.6;
+        white-space: pre-wrap;
+        overflow-wrap: anywhere;
+      }
+      #brief #attachment-reminder {
+        padding: 12px;
+        background: #5a351d;
+        color: #ffd38b;
+        border-radius: 8px;
+        font-size: 12px;
+      }
+      #brief-email-status a {
+        text-decoration: underline;
+      }
+      @media (max-width: 600px) {
+        #brief {
+          padding: 28px 20px;
+          max-height: 92dvh;
+        }
+        #brief legend {
+          font-size: 21px;
+        }
+        .brief-choices {
+          grid-template-columns: 1fr;
+        }
+        .brief-choice {
+          padding: 17px;
+          gap: 8px;
+          position: relative;
+        }
+        .brief-choice .choice-icon {
+          font-size: 22px;
+        }
+        .brief-choice b {
+          position: absolute;
+          right: 17px;
+          top: 16px;
+        }
+        .brief-choice strong {
+          padding-right: 20px;
+          font-size: 16px;
+        }
+        .brief-fields {
+          grid-template-columns: 1fr;
+          gap: 0;
+        }
+        #brief .brief-actions .button {
+          font-size: 12px;
+          min-width: 0;
+          padding: 15px 18px;
+        }
+        .brief-actions {
+          gap: 10px;
+        }
+      }
+
+      /* Navigation commune et pages de services — HTML autonome, sans dépendance. */
+      .links [aria-current="page"] {
+        color: #ffbf3f;
+      }
+      .mobile-menu {
+        display: none;
+        border: 0;
+        background: transparent;
+        color: #ffbf3f;
+        font-size: 23px;
+        padding: 5px;
+      }
+      #mobile-nav[hidden] {
+        display: none;
+      }
+      #mobile-nav {
+        margin: 8px 4vw;
+        background: #29211c;
+        border: 1px solid #594332;
+        padding: 16px;
+        border-radius: 18px;
+      }
+      #mobile-nav a {
+        display: block;
+        padding: 13px;
+        font-size: 14px;
+        color: #d6c6b7;
+      }
+      #mobile-nav a[aria-current] {
+        color: #ffbf3f;
+      }
+      .nav .links {
+        gap: 22px;
+      }
+      .capabilities {
+        padding-top: 100px;
+        padding-bottom: 110px;
+        display: grid;
+        grid-template-columns: 1fr 1.35fr;
+        gap: 7vw;
+      }
+      .cap-head h2 {
+        font-size: clamp(34px, 3.8vw, 56px);
+        letter-spacing: -2px;
+        font-weight: 500;
+        line-height: 1.06;
+        margin: 24px 0;
+      }
+      .cap-head p {
+        font-size: 14px;
+        line-height: 1.7;
+        color: #b9a998;
+      }
+      .cap-head .eyebrow {
+        color: #ff702d;
+      }
+      .cap-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+      }
+      .cap-item {
+        border-top: 1px solid #563c2b;
+        padding-top: 18px;
+      }
+      .cap-num {
+        font-size: 10px;
+        color: #ff702d;
+      }
+      .cap-item h3 {
+        font-size: 18px;
+        font-weight: 500;
+        letter-spacing: -0.5px;
+        margin: 18px 0 10px;
+      }
+      .cap-item p {
+        font-size: 13px;
+        color: #b9a998;
+        line-height: 1.6;
+        margin: 0;
+      }
+      .service-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 20px;
+        margin-top: 16px;
+        font-size: 12px;
+        padding-bottom: 5px;
+        border-bottom: 1px solid currentColor;
+        font-weight: 600;
+      }
+      .service:has(.service-link) {
+        height: 390px;
+      }
+      .service h3 {
+        font-size: 40px;
+      }
+      .home-expertise-note {
+        max-width: 260px;
+      }
+      .landing-hero {
+        padding: 143px 5vw 0;
+        text-align: center;
+        overflow: hidden;
+        position: relative;
+        background: radial-gradient(
+          ellipse at 50% 83%,
+          #004b354f,
+          transparent 58%
+        );
+      }
+      .landing-hero .eyebrow {
+        justify-content: center;
+        color: #ff702d;
+      }
+      .landing-hero h1 {
+        font-size: clamp(64px, 8.3vw, 123px);
+        line-height: 0.98;
+        letter-spacing: -0.065em;
+        font-weight: 500;
+        margin: 32px 0 24px;
+      }
+      .landing-hero .lead {
+        max-width: 520px;
+        margin: 0 auto 27px;
+        font-size: 16px;
+        line-height: 1.6;
+        color: #baaea2;
+      }
+      .hero-assurances {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 24px;
+        font-size: 10px;
+        color: #c6b5a5;
+        margin-top: 22px;
+      }
+      .hero-assurances span:before {
+        content: "✓";
+        color: #ffbf3f;
+        margin-right: 7px;
+      }
+      .landing-hero .stage {
+        margin-top: 60px;
+        height: 400px;
+      }
+      .small-caption {
+        font-size: 10px;
+        color: #a28e7a;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        position: relative;
+        padding: 16px 0 30px;
+      }
+      .intro-bar {
+        border-top: 1px solid #483123;
+        border-bottom: 1px solid #483123;
+        display: flex;
+        justify-content: space-between;
+        gap: 25px;
+        padding-top: 25px;
+        padding-bottom: 25px;
+        font-size: 12px;
+        color: #c3af9c;
+      }
+      .intro-bar strong {
+        color: #ffbf3f;
+        font-weight: 400;
+      }
+      .editorial {
+        padding: 100px 0;
+        display: grid;
+        grid-template-columns: 1fr 1.2fr;
+        gap: 10vw;
+        align-items: center;
+      }
+      .editorial h2 {
+        font-size: clamp(40px, 4.8vw, 68px);
+        line-height: 1.03;
+        letter-spacing: -3px;
+        font-weight: 500;
+        margin: 24px 0;
+      }
+      .editorial p {
+        font-size: 15px;
+        line-height: 1.7;
+        color: #bbaa99;
+      }
+      .editorial .eyebrow {
+        color: #ff702d;
+      }
+      .formats {
+        padding: 85px 0 95px;
+        background: #29201b;
+      }
+      .formats-heading {
+        display: flex;
+        justify-content: space-between;
+        align-items: end;
+        gap: 30px;
+      }
+      .formats h2 {
+        font-size: clamp(36px, 4.6vw, 65px);
+        letter-spacing: -2.6px;
+        font-weight: 500;
+        line-height: 1.05;
+        margin: 22px 0 32px;
+      }
+      .formats .eyebrow {
+        color: #ff702d;
+      }
+      .format-tabs {
+        display: flex;
+        gap: 9px;
+        margin-bottom: 30px;
+        flex-wrap: wrap;
+      }
+      .format-tabs button {
+        border: 1px solid #65442d;
+        border-radius: 40px;
+        color: #c1ae9c;
+        padding: 12px 19px;
+        background: transparent;
+        font-size: 12px;
+      }
+      .format-tabs [aria-selected="true"] {
+        background: #ffbf3f;
+        color: #2e1b0c;
+        border-color: #ffbf3f;
+      }
+      .format-panel {
+        display: grid;
+        grid-template-columns: 1fr 1.15fr;
+        gap: 6vw;
+        background: #201916;
+        border: 1px solid #493324;
+        border-radius: 20px;
+        padding: 44px;
+        align-items: center;
+        min-height: 330px;
+      }
+      .format-panel[hidden] {
+        display: none;
+      }
+      .format-panel h3 {
+        font-size: 35px;
+        letter-spacing: -1.5px;
+        line-height: 1.1;
+        font-weight: 500;
+        margin: 12px 0 18px;
+      }
+      .format-panel p {
+        font-size: 14px;
+        line-height: 1.7;
+        color: #b5a291;
+      }
+      .format-panel ul {
+        padding: 0;
+        list-style: none;
+        font-size: 12px;
+        color: #d5c3b2;
+        line-height: 2;
+      }
+      .format-panel li:before {
+        content: "↗";
+        margin-right: 10px;
+        color: #ff702d;
+      }
+      .format-visual {
+        border: 1px solid #dec9b0;
+        border-radius: 12px;
+        background: #f0e6d8;
+        color: #2d241e;
+        padding: 25px;
+        transform: rotate(2deg);
+        box-shadow: 12px 18px 0 #56331d33;
+        min-height: 230px;
+      }
+      .format-visual > small {
+        font-size: 9px;
+        letter-spacing: 1px;
+      }
+      .format-visual h4 {
+        font-family: Georgia, serif;
+        font-weight: 400;
+        font-size: 43px;
+        line-height: 1;
+        margin: 27px 0 20px;
+        letter-spacing: -2px;
+      }
+      .mini-pills {
+        display: flex;
+        gap: 7px;
+        flex-wrap: wrap;
+      }
+      .mini-pills span {
+        border: 1px solid #b9a78f;
+        padding: 8px 10px;
+        border-radius: 20px;
+        font-size: 9px;
+      }
+      .data-rows {
+        margin-top: 20px;
+      }
+      .data-rows div {
+        display: flex;
+        justify-content: space-between;
+        font-size: 11px;
+        border-bottom: 1px solid #cfc1ae;
+        padding: 13px 0;
+        gap: 20px;
+      }
+      .data-rows b {
+        font-weight: 400;
+        background: #e0ca96;
+        padding: 3px 8px;
+        border-radius: 20px;
+      }
+      .automation-art {
+        padding: 40px;
+        background: #31251d;
+        border: 1px solid #61412c;
+        border-radius: 24px;
+        position: relative;
+      }
+      .automation-node {
+        background: #211914;
+        padding: 22px 24px;
+        border: 1px solid #80522e;
+        border-radius: 12px;
+        font-size: 14px;
+        display: flex;
+        gap: 15px;
+        align-items: center;
+      }
+      .automation-node span {
+        color: #ffbf3f;
+        font-size: 21px;
+      }
+      .automation-line {
+        height: 32px;
+        width: 1px;
+        background: #e88b43;
+        margin: auto;
+      }
+      .automation-node:last-child {
+        background: #ffbf3f;
+        color: #37220f;
+      }
+      .automation-node:last-child span {
+        color: #37220f;
+      }
+      .integration-badges {
+        display: flex;
+        gap: 9px;
+        flex-wrap: wrap;
+        margin-top: 30px;
+      }
+      .integration-badges span {
+        padding: 8px 12px;
+        border: 1px solid #553c2b;
+        border-radius: 20px;
+        color: #c7b4a1;
+        font-size: 10px;
+      }
+      .crosslink {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 25px;
+        padding: 30px 0;
+        margin-bottom: 85px;
+        border-top: 1px solid #65442d;
+        border-bottom: 1px solid #65442d;
+      }
+      .crosslink p {
+        font-size: 15px;
+        margin: 0;
+        color: #c2af9d;
+      }
+      .crosslink a {
+        font-size: 13px;
+        color: #ffbf3f;
+      }
+      .page-number {
+        font-size: 11px;
+        color: #ff702d;
+        letter-spacing: 2px;
+      }
+      .mobile-stage {
+        position: relative;
+        max-width: 1000px;
+        height: 620px;
+        margin: 15px auto 0;
+        isolation: isolate;
+      }
+      .app-render {
+        position: absolute;
+        width: 620px;
+        top: -10px;
+        max-width: none;
+        will-change: transform;
+      }
+      .app-render.first {
+        left: 40px;
+        z-index: 2;
+        transform: rotate(-6deg);
+      }
+      .app-render.second {
+        right: 20px;
+        top: 20px;
+        transform: rotate(8deg);
+      }
+      .mobile-stage:before {
+        content: "";
+        position: absolute;
+        inset: 50px 0;
+        background: radial-gradient(ellipse, #03524660, transparent 65%);
+        z-index: -1;
+      }
+      .mobile-stage .floating-chip {
+        position: absolute;
+        z-index: 4;
+        left: 25px;
+        top: 250px;
+        border: 1px solid #a56b39;
+        background: #392516f0;
+        border-radius: 12px;
+        padding: 17px 21px;
+        text-align: left;
+        font-size: 12px;
+        color: #ffbf3f;
+        transform: rotate(-6deg);
+      }
+      .mobile-stage .floating-chip.right {
+        left: auto;
+        right: 10px;
+        top: 410px;
+        transform: rotate(5deg);
+        background: #ffbf3f;
+        color: #37220f;
+      }
+      .floating-chip small {
+        display: block;
+        font-size: 9px;
+        margin-bottom: 6px;
+        color: inherit;
+        opacity: 0.75;
+      }
+      .mobile-benefits {
+        height: 230vh;
+        background: #181410;
+      }
+      .mobile-benefits-sticky {
+        position: sticky;
+        top: 90px;
+        height: calc(100vh - 90px);
+        min-height: 640px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        overflow: hidden;
+        padding: 45px 0;
+      }
+      .mobile-benefits h2 {
+        font-size: clamp(36px, 4.6vw, 66px);
+        font-weight: 500;
+        letter-spacing: -2.8px;
+        line-height: 1.04;
+        margin: 20px 0 35px;
+      }
+      .mobile-benefits .eyebrow {
+        color: #ff702d;
+      }
+      .benefit-track {
+        display: flex;
+        width: max-content;
+        gap: 22px;
+        padding: 0 5vw;
+        will-change: transform;
+      }
+      .benefit-card {
+        width: 65vw;
+        max-width: 800px;
+        min-height: 360px;
+        border-radius: 22px;
+        padding: 40px;
+        position: relative;
+        overflow: hidden;
+        background: #3a2b21;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+      .benefit-card:nth-child(2) {
+        background: #ff702d;
+        color: #261a13;
+      }
+      .benefit-card:nth-child(3) {
+        background: #ffbf3f;
+        color: #35200f;
+      }
+      .benefit-card .page-number {
+        color: inherit;
+      }
+      .benefit-card h3 {
+        font-size: 43px;
+        font-weight: 500;
+        letter-spacing: -1.8px;
+        margin: 25px 0 14px;
+        max-width: 390px;
+      }
+      .benefit-card p {
+        font-size: 14px;
+        line-height: 1.7;
+        max-width: 360px;
+        position: relative;
+        z-index: 1;
+      }
+      .benefit-icon {
+        position: absolute;
+        right: 40px;
+        top: 90px;
+        width: 150px;
+        height: 150px;
+        border-radius: 35px;
+        border: 1px solid currentColor;
+        display: grid;
+        place-items: center;
+        font-size: 80px;
+        transform: rotate(13deg);
+        opacity: 0.3;
+      }
+      .case-section {
+        padding: 100px 0;
+      }
+      .case-head {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8vw;
+        align-items: end;
+        margin-bottom: 40px;
+      }
+      .case-head h2 {
+        font-size: clamp(45px, 5vw, 75px);
+        font-weight: 500;
+        letter-spacing: -3px;
+        margin: 20px 0 0;
+      }
+      .case-head p {
+        color: #b6a18e;
+        font-size: 15px;
+        line-height: 1.7;
+        max-width: 460px;
+      }
+      .case-visual {
+        border-radius: 25px;
+        min-height: 430px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        overflow: hidden;
+        background:
+          radial-gradient(ellipse at 30% 90%, #064140, transparent 65%), #10191a;
+        padding: 45px 7vw;
+        gap: 6vw;
+      }
+      .case-copy h3 {
+        font-size: 45px;
+        font-weight: 500;
+        letter-spacing: -2px;
+        line-height: 1.05;
+        color: #e2f4ed;
+      }
+      .case-copy p {
+        font-size: 14px;
+        line-height: 1.7;
+        color: #a5bdb7;
+      }
+      .case-chart {
+        height: 220px;
+        border: 1px solid #3b6d68;
+        border-radius: 18px;
+        background: #122628;
+        padding: 25px;
+        transform: rotate(-3deg);
+      }
+      .case-chart small {
+        font-size: 10px;
+        letter-spacing: 1px;
+        color: #4ac7c3;
+      }
+      .case-chart b {
+        font-size: 42px;
+        display: block;
+        color: #d6f0e7;
+        margin: 16px 0;
+        font-weight: 500;
+        letter-spacing: -2px;
+      }
+      .case-chart svg {
+        width: 100%;
+        height: 95px;
+      }
+      .case-chart p {
+        font-size: 9px;
+        color: #8ca6a1;
+      }
+      .case-label {
+        font-size: 10px;
+        color: #8bb5ab;
+        margin-top: 22px;
+      }
+      .landing-hero.mobile-landing {
+        padding-bottom: 0;
+      }
+      .landing-footer {
+        padding-bottom: 15px;
+      }
+      .landing-footer .fine {
+        line-height: 1.6;
+      }
+      @media (max-width: 1050px) {
+        .nav .links {
+          gap: 14px;
+          font-size: 11px;
+        }
+        .brand {
+          font-size: 20px;
+        }
+        .nav-cta {
+          font-size: 11px;
+        }
+        .capabilities {
+          gap: 4vw;
+        }
+        .benefit-card {
+          width: 80vw;
+        }
+        .benefit-icon {
+          right: 20px;
+          opacity: 0.16;
+        }
+        .format-panel {
+          padding: 30px;
+        }
+        .mobile-stage {
+          max-width: 800px;
+        }
+        .app-render.first {
+          left: -50px;
+        }
+        .app-render.second {
+          right: -60px;
+        }
+        .mobile-stage .floating-chip {
+          left: 0;
+        }
+        .mobile-stage .floating-chip.right {
+          right: 0;
+        }
+      }
+      @media (max-width: 760px) {
+        .nav .links {
+          display: none;
+        }
+        .mobile-menu {
+          display: block;
+        }
+        .nav {
+          gap: 10px;
+        }
+        .nav-cta {
+          margin-left: auto;
+          font-size: 10px;
+          padding: 11px 12px;
+        }
+        .brand {
+          font-size: 18px;
+        }
+        .capabilities {
+          grid-template-columns: 1fr;
+          padding-top: 70px;
+          padding-bottom: 70px;
+          gap: 30px;
+        }
+        .cap-head h2 {
+          font-size: 44px;
+        }
+        .cap-grid {
+          gap: 25px;
+        }
+        .cap-item h3 {
+          font-size: 16px;
+        }
+        .cap-item p {
+          font-size: 12px;
+        }
+        .landing-hero {
+          padding-top: 125px;
+        }
+        .landing-hero h1 {
+          font-size: 69px;
+        }
+        .landing-hero .stage {
+          margin-top: 40px;
+          height: 370px;
+          margin-bottom: -135px;
+        }
+        .landing-hero .lead {
+          font-size: 14px;
+          max-width: 370px;
+        }
+        .hero-assurances {
+          gap: 10px 18px;
+          font-size: 9px;
+        }
+        .intro-bar {
+          font-size: 10px;
+          gap: 15px;
+          flex-wrap: wrap;
+        }
+        .editorial {
+          grid-template-columns: 1fr;
+          gap: 35px;
+          padding: 70px 0;
+        }
+        .editorial h2 {
+          font-size: 48px;
+          letter-spacing: -2px;
+        }
+        .editorial p {
+          font-size: 14px;
+        }
+        .formats {
+          padding: 65px 0;
+        }
+        .formats-heading {
+          display: block;
+        }
+        .formats h2 {
+          font-size: 45px;
+        }
+        .format-panel {
+          grid-template-columns: 1fr;
+          gap: 25px;
+          padding: 26px;
+          min-height: 0;
+        }
+        .format-visual {
+          min-height: 210px;
+          padding: 20px;
+        }
+        .format-visual h4 {
+          font-size: 38px;
+        }
+        .format-tabs {
+          gap: 6px;
+        }
+        .format-tabs button {
+          padding: 11px 13px;
+          font-size: 11px;
+        }
+        .automation-art {
+          padding: 26px;
+        }
+        .crosslink {
+          align-items: start;
+          flex-direction: column;
+          margin-bottom: 60px;
+        }
+        .mobile-stage {
+          height: 450px;
+          width: 670px;
+          left: 50%;
+          margin-left: -335px;
+          transform: scale(0.8);
+          transform-origin: top center;
+          margin-bottom: -75px;
+        }
+        .app-render {
+          width: 500px;
+        }
+        .app-render.first {
+          left: -10px;
+        }
+        .app-render.second {
+          right: -30px;
+        }
+        .mobile-stage .floating-chip {
+          left: 55px;
+          top: 160px;
+          font-size: 11px;
+        }
+        .mobile-stage .floating-chip.right {
+          right: 50px;
+          top: 300px;
+        }
+        .mobile-benefits {
+          height: auto;
+        }
+        .mobile-benefits-sticky {
+          position: relative;
+          top: 0;
+          height: auto;
+          min-height: 0;
+          padding: 60px 0;
+        }
+        .mobile-benefits h2 {
+          font-size: 43px;
+        }
+        .benefit-track {
+          width: 100%;
+          overflow: auto;
+          scroll-snap-type: x mandatory;
+          padding-bottom: 15px;
+          transform: none !important;
+        }
+        .benefit-card {
+          flex: 0 0 86vw;
+          min-height: 350px;
+          padding: 27px;
+          scroll-snap-align: center;
+        }
+        .benefit-card h3 {
+          font-size: 37px;
+          max-width: 290px;
+        }
+        .benefit-card p {
+          font-size: 13px;
+          max-width: 285px;
+        }
+        .benefit-icon {
+          top: 25px;
+          width: 80px;
+          height: 80px;
+          font-size: 40px;
+        }
+        .case-section {
+          padding: 65px 0;
+        }
+        .case-head {
+          grid-template-columns: 1fr;
+          gap: 12px;
+        }
+        .case-head h2 {
+          font-size: 58px;
+        }
+        .case-visual {
+          grid-template-columns: 1fr;
+          padding: 30px;
+          gap: 15px;
+        }
+        .case-copy h3 {
+          font-size: 38px;
+        }
+        .case-chart {
+          height: 220px;
+        }
+        .landing-footer .contact h2 {
+          font-size: 65px;
+        }
+      }
+      @media (max-width: 420px) {
+        .nav {
+          padding: 0 12px;
+        }
+        .brand {
+          font-size: 15px;
+        }
+        .nav-cta span {
+          display: none;
+        }
+        .nav-cta {
+          font-size: 9px;
+        }
+        .mobile-menu {
+          font-size: 20px;
+        }
+        .landing-hero h1 {
+          font-size: 59px;
+        }
+        .mobile-stage {
+          transform: scale(0.66);
+          margin-bottom: -132px;
+        }
+        .landing-hero .stage {
+          transform: scale(0.49);
+          margin-bottom: -175px;
+        }
+        .cap-grid {
+          gap: 22px 18px;
+        }
+        .format-panel h3 {
+          font-size: 29px;
+        }
+        .hero-assurances {
+          font-size: 8px;
+        }
+        .button {
+          font-size: 12px;
+          padding: 17px 20px;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .mobile-benefits {
+          height: auto;
+        }
+        .mobile-benefits-sticky {
+          position: relative;
+          top: 0;
+          height: auto;
+          min-height: 0;
+        }
+        .benefit-track {
+          width: 100%;
+          overflow-x: auto;
+          transform: none !important;
+        }
+        .benefit-card {
+          flex-shrink: 0;
+        }
+        .app-render {
+          will-change: auto;
+        }
+      }
+
+      .mobile-stage {
+        height: 660px;
+      }
+      .app-render.first {
+        top: -85px;
+      }
+      .app-render.second {
+        top: -65px;
+      }
+      @media (max-width: 760px) {
+        .mobile-stage {
+          height: 530px;
+          margin-bottom: -106px;
+        }
+        .app-render.first {
+          top: -55px;
+        }
+        .app-render.second {
+          top: -35px;
+        }
+      }
+      @media (max-width: 420px) {
+        .mobile-stage {
+          margin-bottom: -180px;
+        }
+      }
+      @media (max-width: 760px) {
+        .case-chart {
+          height: auto;
+          min-height: 250px;
+        }
+        .case-chart b {
+          font-size: 34px;
+        }
+        .case-chart svg {
+          display: block;
+          margin-top: 10px;
+        }
+      }
+    </style>
+  </head>
+  <body data-project-type="Application mobile iOS / Android">
+    <header class="top">
+      <nav class="nav shell" aria-label="Navigation principale">
+        <a class="brand" href="maximilien-home.html"
+          >maximilien<span>.digital</span></a
+        >
+        <div class="links">
+          <a href="maximilien-home.html">Accueil</a
+          ><a href="application-web-sur-mesure.html">Sites & Web Apps</a
+          ><a href="application-mobile.html" aria-current="page">Apps mobiles</a
+          ><a href="#avis">Avis clients</a>
+        </div>
+        <button class="nav-cta open-brief" type="button">
+          Parlons de votre idée <span>↗</span></button
+        ><button
+          class="mobile-menu"
+          aria-expanded="false"
+          aria-controls="mobile-nav"
+          aria-label="Ouvrir le menu"
+        >
+          ☰
+        </button>
+      </nav>
+      <nav id="mobile-nav" aria-label="Navigation mobile" hidden>
+        <a href="maximilien-home.html">Accueil</a
+        ><a href="application-web-sur-mesure.html">Sites & Web Apps</a
+        ><a href="application-mobile.html" aria-current="page">Apps mobiles</a
+        ><a href="#avis">Avis clients</a>
+      </nav>
+    </header>
+    <main>
+      <section class="landing-hero mobile-landing" aria-labelledby="page-title">
+        <div class="eyebrow">
+          <span class="dot"></span>Applications iOS & Android sur mesure
+        </div>
+        <h1 id="page-title">
+          Votre idée.<br />Dans leurs <span class="serif">mains.</span>
+        </h1>
+        <p class="lead">
+          Une application que l’on aime ouvrir.<br />Je vous accompagne du
+          premier écran à la publication sur l’App Store et Google Play.
+        </p>
+        <button class="button open-brief">
+          Recevoir ma maquette gratuite <span>↗</span>
+        </button>
+        <div class="hero-assurances">
+          <span>iOS & Android</span><span>Accompagnement à la publication</span
+          ><span>Code source livré</span>
+        </div>
+        <div class="mobile-stage">
+          <img
+            class="app-render first"
+            alt="Even Clock : écran de suivi du poids"
+            fetchpriority="high"
+          /><img
+            class="app-render second"
+            alt="Even Clock : écran des graphiques"
+          />
+          <div class="floating-chip">
+            <small>DESIGN + DÉVELOPPEMENT</small>Du beau. Et du fonctionnel.
+          </div>
+          <div class="floating-chip right">
+            <small>UNE RÉALISATION CONCRÈTE</small>Even Clock ↗
+          </div>
+        </div>
+        <div class="small-caption">
+          Even Clock · Une application développée par Maximilien Digital
+        </div>
+      </section>
+      <div class="shell intro-bar">
+        <span>Un produit pensé pour votre public.</span
+        ><strong>Du premier croquis à la mise en ligne ↗</strong>
+      </div>
+      <section class="mobile-benefits" id="experience">
+        <div class="mobile-benefits-sticky">
+          <div class="shell" style="width: 100%">
+            <div class="eyebrow">01 / Plus proche de vos utilisateurs</div>
+            <h2>
+              Bien plus qu’une<br />icône sur un
+              <span class="serif">écran.</span>
+            </h2>
+          </div>
+          <div class="benefit-track">
+            <article class="benefit-card">
+              <span class="page-number"
+                >01 / UNE EXPÉRIENCE QUI DONNE ENVIE</span
+              >
+              <div class="benefit-icon" aria-hidden="true">↗</div>
+              <div>
+                <h3>Simple à ouvrir.<br />Facile à adopter.</h3>
+                <p>
+                  Des écrans clairs, des interactions soignées et un parcours
+                  pensé pour ce que vos utilisateurs viennent faire.
+                </p>
+              </div>
+            </article>
+            <article class="benefit-card">
+              <span class="page-number"
+                >02 / LE BON MESSAGE, AU BON MOMENT</span
+              >
+              <div class="benefit-icon" aria-hidden="true">◉</div>
+              <div>
+                <h3>Gardez<br />le contact.</h3>
+                <p>
+                  Notifications push, rappels et messagerie : créez des échanges
+                  utiles, avec le contrôle laissé à l’utilisateur.
+                </p>
+              </div>
+            </article>
+            <article class="benefit-card">
+              <span class="page-number">03 / PENSÉE POUR LE TÉLÉPHONE</span>
+              <div class="benefit-icon" aria-hidden="true">⊕</div>
+              <div>
+                <h3>Connectée<br />au réel.</h3>
+                <p>
+                  Appareil photo, géolocalisation, scan ou mode hors ligne : les
+                  fonctions pertinentes pour votre projet, selon sa faisabilité.
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+      <section class="case-section shell" id="realisation">
+        <div class="case-head">
+          <div>
+            <div class="eyebrow" style="color: #ff702d">
+              02 / Du concret, déjà entre les mains
+            </div>
+            <h2>Even Clock<span style="color: #ff702d">.</span></h2>
+          </div>
+          <p>
+            Une application de suivi du poids, avec une interface dédiée aux
+            mesures, aux tendances et à leur visualisation. Un projet développé
+            de A à Z.
+          </p>
+        </div>
+        <div class="case-visual">
+          <div class="case-copy">
+            <span class="page-number" style="color: #4ac7c3"
+              >UNE RÉALISATION MOBILE</span
+            >
+            <h3>Rendre les données<br />plus lisibles.</h3>
+            <p>
+              Du suivi quotidien aux graphiques, chaque écran aide l’utilisateur
+              à retrouver les informations qui comptent.
+            </p>
+            <div class="integration-badges">
+              <span style="border-color: #3b6d68; color: #b6d5cb"
+                >Design d’interface</span
+              ><span style="border-color: #3b6d68; color: #b6d5cb"
+                >iOS & Android</span
+              >
+            </div>
+          </div>
+          <div>
+            <div
+              class="case-chart"
+              aria-label="Illustration du suivi des mesures"
+            >
+              <small>ÉVOLUTION / MESURES</small><b>Votre progression.</b
+              ><svg
+                viewBox="0 0 340 95"
+                role="img"
+                aria-label="Courbe illustrative de mesures"
+              >
+                <path
+                  d="M10 15L80 35L150 44L230 65L325 81"
+                  fill="none"
+                  stroke="#4ac7c3"
+                  stroke-width="2"
+                />
+                <g fill="#4ac7c3">
+                  <circle cx="10" cy="15" r="4" />
+                  <circle cx="80" cy="35" r="4" />
+                  <circle cx="150" cy="44" r="4" />
+                  <circle cx="230" cy="65" r="4" />
+                  <circle cx="325" cy="81" r="4" />
+                </g>
+              </svg>
+              <p>Illustration du principe de visualisation</p>
+            </div>
+            <div class="case-label">
+              Les captures réelles de l’application sont présentées en haut de
+              page.
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="capabilities shell" id="fonctionnalites">
+        <div class="cap-head reveal">
+          <div class="eyebrow">Les bons détails font la différence</div>
+          <h2>
+            Tout ce dont votre<br />projet a <span class="serif">besoin.</span>
+          </h2>
+          <p>
+            Des fonctionnalités choisies pour votre usage.<br />Et connectées
+            pour fonctionner ensemble.
+          </p>
+        </div>
+        <div class="cap-grid">
+          <article class="cap-item reveal">
+            <span class="cap-num">01</span>
+            <h3>Paiements & abonnements</h3>
+            <p>
+              Encaissements, offres récurrentes et suivi des paiements avec
+              Stripe ou d’autres solutions de paiement.
+            </p>
+          </article>
+          <article class="cap-item reveal">
+            <span class="cap-num">02</span>
+            <h3>Agents IA</h3>
+            <p>
+              Assistance, analyse de documents et automatisation des tâches.
+            </p>
+          </article>
+          <article class="cap-item reveal">
+            <span class="cap-num">03</span>
+            <h3>Emails, SMS & notifications</h3>
+            <p>Confirmation, rappel et suivi, au bon moment.</p>
+          </article>
+          <article class="cap-item reveal">
+            <span class="cap-num">04</span>
+            <h3>Connexions API</h3>
+            <p>Vos outils et vos données communiquent entre eux.</p>
+          </article>
+          <article class="cap-item reveal">
+            <span class="cap-num">05</span>
+            <h3>Comptes & espaces clients</h3>
+            <p>Des accès adaptés à chaque utilisateur et à chaque équipe.</p>
+          </article>
+          <article class="cap-item reveal">
+            <span class="cap-num">06</span>
+            <h3>Protection des données</h3>
+            <p>Sécurité, gestion des accès et prise en compte du RGPD.</p>
+          </article>
+        </div>
+      </section>
+      <div class="shell">
+        <section class="about" id="apropos">
+          <div class="portrait-box reveal">
+            <img
+              alt="Maximilien, développeur et entrepreneur"
+              loading="lazy"
+            />
+            <div class="portrait-caption">
+              <div>
+                <b>Maximilien</b><small>Développeur & entrepreneur</small>
+              </div>
+              <span>↗</span>
+            </div>
+          </div>
+          <div class="reveal">
+            <div class="eyebrow">03 / La personne derrière le produit</div>
+            <h2>
+              Un développeur.<br />Et un vrai<br /><span class="serif"
+                >partenaire.</span
+              >
+            </h2>
+            <p>
+              Je m’intéresse autant à votre projet qu’à son code. On échange
+              directement, on fait les bons choix, et on avance ensemble.
+            </p>
+            <p>
+              Mon objectif : un produit utile, simple à utiliser et prêt pour la
+              suite.
+            </p>
+            <div class="tags">
+              <span>Un interlocuteur direct</span
+              ><span>Une vision entrepreneuriale</span>
+            </div>
+          </div>
+        </section>
+      </div>
+      <section class="method" id="methode">
+        <div class="shell">
+          <div class="eyebrow">04 / Une idée claire de la suite</div>
+          <h2 class="reveal">
+            De votre idée<br />à leur
+            <span style="color: var(--lime)">écran.</span>
+          </h2>
+          <div class="steps">
+            <article class="step reveal">
+              <small>01 / ON ÉCHANGE</small>
+              <h3>On cadre le projet.</h3>
+              <p>
+                On définit l’essentiel : vos utilisateurs, leurs besoins et vos
+                priorités.
+              </p>
+            </article>
+            <article class="step reveal">
+              <small>02 / ON DESSINE</small>
+              <h3>On dessine les écrans.</h3>
+              <p>
+                Vous validez les écrans avant le développement. La direction est
+                claire.
+              </p>
+            </article>
+            <article class="step reveal">
+              <small>03 / JE DÉVELOPPE</small>
+              <h3>On développe et teste.</h3>
+              <p>
+                L’application est développée et testée sur les appareils ciblés,
+                avec vos retours.
+              </p>
+            </article>
+            <article class="step reveal">
+              <small>04 / ON LANCE</small>
+              <h3>On prépare le lancement.</h3>
+              <p>
+                Je prépare avec vous la soumission aux stores. La validation
+                dépend d’Apple et de Google.
+              </p>
+            </article>
+          </div>
+          <div class="ownership">
+            <span>Votre application vous appartient. Vous gardez la main.</span
+            ><b>100 % votre projet. ↗</b>
+          </div>
+        </div>
+      </section>
+      <section
+        class="reviews-section"
+        id="avis"
+        aria-labelledby="reviews-title"
+      >
+        <div class="shell reviews-heading">
+          <div>
+            <div class="eyebrow">05 / La confiance, en mots</div>
+            <h2 id="reviews-title">
+              Ce que disent<br /><span class="serif">mes clients.</span>
+            </h2>
+            <p>Des retours concrets de ceux qui m'ont fait confiance.</p>
+          </div>
+          <div class="review-controls">
+            <button
+              type="button"
+              id="reviews-prev"
+              aria-label="Avis précédents"
+              aria-controls="review-rail"
+            >
+              ←</button
+            ><button
+              type="button"
+              id="reviews-next"
+              aria-label="Avis suivants"
+              aria-controls="review-rail"
+            >
+              →
+            </button>
+          </div>
+        </div>
+        <div
+          class="review-rail"
+          id="review-rail"
+          tabindex="0"
+          role="region"
+          aria-label="Les 11 avis clients, défilement horizontal"
+        >
+          <figure class="review-card">
+            <div class="review-quote" aria-hidden="true">“</div>
+            <blockquote>
+              Merci à Maximilien pour l&#x27;accompagnement, il a été très
+              réactif, à l&#x27;écoute.
+            </blockquote>
+            <figcaption>
+              <span class="review-avatar" aria-hidden="true">H</span>Humbert
+            </figcaption>
+          </figure>
+          <figure class="review-card">
+            <div class="review-quote" aria-hidden="true">“</div>
+            <blockquote>RAS</blockquote>
+            <figcaption>
+              <span class="review-avatar" aria-hidden="true">S</span>Satoschi
+            </figcaption>
+          </figure>
+          <figure class="review-card">
+            <div class="review-quote" aria-hidden="true">“</div>
+            <blockquote>Très pro</blockquote>
+            <figcaption>
+              <span class="review-avatar" aria-hidden="true">MC</span>Marcus
+              Cadasse
+            </figcaption>
+          </figure>
+          <figure class="review-card">
+            <div class="review-quote" aria-hidden="true">“</div>
+            <blockquote>
+              Service professionnel à l&#x27;écoute, top et livré dans les
+              délais. Je recommande.
+            </blockquote>
+            <figcaption>
+              <span class="review-avatar" aria-hidden="true">A</span>apetitsprix
+            </figcaption>
+          </figure>
+          <figure class="review-card">
+            <div class="review-quote" aria-hidden="true">“</div>
+            <blockquote>
+              Très bon développement d&#x27;une application complexe
+            </blockquote>
+            <figcaption>
+              <span class="review-avatar" aria-hidden="true">TL</span>Thomas Le
+              Berre
+            </figcaption>
+          </figure>
+          <figure class="review-card">
+            <div class="review-quote" aria-hidden="true">“</div>
+            <blockquote>Excellent prestataire je recommande à 100%</blockquote>
+            <figcaption>
+              <span class="review-avatar" aria-hidden="true">M</span>Mathieu
+            </figcaption>
+          </figure>
+          <figure class="review-card">
+            <div class="review-quote" aria-hidden="true">“</div>
+            <blockquote>Très bon travail</blockquote>
+            <figcaption>
+              <span class="review-avatar" aria-hidden="true">TL</span>Thomas Le
+              Berre
+            </figcaption>
+          </figure>
+          <figure class="review-card">
+            <div class="review-quote" aria-hidden="true">“</div>
+            <blockquote>
+              Je recommande Maximilien qui est très à l&#x27;écoute, très
+              patient et surtout très professionnel. Une bonne manière de penser
+              et de fonctionner pour une satisfaction client assurée. Vraiment
+              agréablement surpris. Merci encore.
+            </blockquote>
+            <figcaption>
+              <span class="review-avatar" aria-hidden="true">R</span>René
+            </figcaption>
+          </figure>
+          <figure class="review-card">
+            <div class="review-quote" aria-hidden="true">“</div>
+            <blockquote>
+              Maximilien a su être à l&#x27;écoute de mes besoins pour mon
+              application. Nous avons fait plusieurs appels durant le mois, afin
+              qu&#x27;il s&#x27;assure lui-même du bon avancement de
+              l&#x27;application et il a su accompagner pas à pas. Je vous
+              recommande fortement Maximilien pour votre futur projet !
+            </blockquote>
+            <figcaption>
+              <span class="review-avatar" aria-hidden="true">R</span>Romain
+            </figcaption>
+          </figure>
+          <figure class="review-card">
+            <div class="review-quote" aria-hidden="true">“</div>
+            <blockquote>
+              Maximilien a bien répondu à mes attentes, il prend les choses à
+              cœur, et est très agréable !
+            </blockquote>
+            <figcaption>
+              <span class="review-avatar" aria-hidden="true">R</span>reyvax
+            </figcaption>
+          </figure>
+          <figure class="review-card">
+            <div class="review-quote" aria-hidden="true">“</div>
+            <blockquote>
+              Très bon contact, je recommande :) a exactement sorti ce que je
+              voulais ! Merci Maximilien
+            </blockquote>
+            <figcaption>
+              <span class="review-avatar" aria-hidden="true">RL</span>Rudy
+              Lemoine
+            </figcaption>
+          </figure>
+        </div>
+        <div class="shell review-bottom">
+          <span>Vos projets. Leurs expériences.</span
+          ><span class="review-counter">11 retours clients</span>
+        </div>
+      </section>
+      <div class="shell">
+        <section class="faq">
+          <div>
+            <div class="eyebrow">Les réponses, simplement</div>
+            <h2>Bonnes questions.</h2>
+          </div>
+          <div>
+            <details>
+              <summary>
+                Dois-je forcément commencer par une application web ?
+              </summary>
+              <p>
+                Non. Une application mobile peut être développée directement.
+                Une première version web est une option si elle répond mieux à
+                votre budget, à vos usages ou à votre besoin de tester le
+                marché.
+              </p>
+            </details>
+            <details>
+              <summary>
+                Vous vous occupez de la publication sur les stores ?
+              </summary>
+              <p>
+                Je vous accompagne pour préparer les versions, les fiches et les
+                soumissions. Vous restez propriétaire de vos comptes
+                développeur. Apple et Google prennent la décision finale de
+                validation.
+              </p>
+            </details>
+            <details>
+              <summary>
+                Mon application pourra-t-elle recevoir des paiements ?
+              </summary>
+              <p>
+                Oui, selon les biens ou services vendus. La solution de paiement
+                est choisie en fonction de votre modèle et des règles
+                applicables sur chaque store.
+              </p>
+            </details>
+            <details>
+              <summary>Quel budget et quels frais prévoir ?</summary>
+              <p>
+                Le devis dépend du nombre d’écrans, des fonctions et des
+                intégrations. Les comptes développeur, l’hébergement et les
+                services externes éventuels sont précisés lors du cadrage.
+              </p>
+            </details>
+            <details>
+              <summary>
+                Peut-on faire évoluer l’application après le lancement ?
+              </summary>
+              <p>
+                Oui. On peut commencer par les fonctionnalités essentielles puis
+                ajouter des évolutions. Chaque nouvelle demande fait l’objet
+                d’un périmètre et d’un budget définis ensemble.
+              </p>
+            </details>
+          </div>
+        </section>
+      </div>
+      <div class="shell">
+        <div class="crosslink">
+          <p>Un service accessible par un simple lien serait plus adapté ?</p>
+          <a href="application-web-sur-mesure.html"
+            >Explorer les solutions web ↗</a
+          >
+        </div>
+      </div>
+      <section class="contact" id="contact">
+        <div class="eyebrow">Une idée suffit pour commencer</div>
+        <h2>Bientôt dans<br /><span class="serif">leurs mains.</span></h2>
+        <p>Donnons une première forme à votre application.</p>
+        <button class="button open-brief">
+          Recevoir ma maquette gratuite <span>↗</span>
+        </button>
+        <p class="contact-note">Un premier aperçu gratuit, sans engagement.</p>
+      </section>
+    </main>
+    <footer class="footer shell">
+      <a class="brand" href="maximilien-home.html"
+        >maximilien<span>.digital</span></a
+      ><span>© 2026 Maximilien Digital</span
+      ><a href="mailto:maximilien.godeau.off@gmail.com">On en parle ? ↗</a>
+    </footer>
+    <dialog id="brief" aria-labelledby="brief-title">
+      <button class="close" type="button" aria-label="Fermer">×</button>
+      <div class="eyebrow">Votre projet commence ici</div>
+      <h2 class="dialog-title" id="brief-title" tabindex="-1">
+        Parlons de votre idée.
+      </h2>
+      <p class="brief-demo">Aperçu interactif · Aucun envoi automatique.</p>
+      <div class="brief-progress" aria-hidden="true">
+        <i id="brief-progress-fill"></i>
+      </div>
+      <p id="brief-step" aria-live="polite"></p>
+      <form id="brief-form" novalidate>
+        <fieldset data-panel="choice">
+          <legend>Comment souhaitez-vous me présenter votre projet ?</legend>
+          <div class="brief-choices">
+            <button type="button" class="brief-choice" data-route="document">
+              <span class="choice-icon" aria-hidden="true">▤</span
+              ><strong>J’ai un cahier des charges</strong
+              ><span
+                >Importez votre document et ajoutez une précision si
+                besoin.</span
+              ><b aria-hidden="true">↗</b></button
+            ><button type="button" class="brief-choice" data-route="guided">
+              <span class="choice-icon" aria-hidden="true">✳</span
+              ><strong>J’ai une idée, guidez-moi</strong
+              ><span
+                >Quelques questions simples pour expliquer votre projet.</span
+              ><b aria-hidden="true">↗</b>
+            </button>
+          </div>
+        </fieldset>
+        <fieldset data-panel="document" hidden disabled>
+          <legend>Votre projet, noir sur blanc.</legend>
+          <label class="upload-zone" for="brief-file"
+            ><span aria-hidden="true">↑</span
+            ><strong>Choisir mon cahier des charges</strong
+            ><small>PDF, Word ou texte · 10 Mo maximum</small
+            ><input
+              type="file"
+              id="brief-file"
+              accept=".pdf,.doc,.docx,.txt"
+              required
+          /></label>
+          <p id="brief-file-status" role="status">
+            Le document reste sur votre appareil dans cet aperçu.
+          </p>
+          <label for="brief-note"
+            >Une précision à ajouter ? <span>(facultatif)</span></label
+          ><textarea
+            id="brief-note"
+            rows="3"
+            placeholder="Vos priorités, une référence, un point important…"
+          ></textarea>
+        </fieldset>
+        <fieldset data-panel="idea" hidden disabled>
+          <legend>Que souhaitez-vous créer ou simplifier ?</legend>
+          <label for="brief-idea">Racontez-moi votre idée</label
+          ><textarea
+            id="brief-idea"
+            rows="5"
+            required
+            maxlength="5000"
+            placeholder="J’aimerais une application pour permettre à mes clients de réserver leurs séances…"
+          ></textarea>
+          <p>
+            Pas besoin de termes techniques. Expliquez simplement à quoi votre
+            outil doit servir.
+          </p>
+        </fieldset>
+        <fieldset data-panel="features" hidden disabled>
+          <legend>Qu’est-ce qui compte le plus ?</legend>
+          <label for="brief-features">Les fonctionnalités essentielles</label
+          ><textarea
+            id="brief-features"
+            rows="4"
+            required
+            maxlength="5000"
+            placeholder="Par exemple : réservation, paiement en ligne, espace client…"
+          ></textarea>
+          <p>Si vous hésitez, indiquez simplement « À définir ensemble ».</p>
+        </fieldset>
+        <fieldset data-panel="contact" hidden disabled>
+          <legend>Où puis-je vous répondre ?</legend>
+          <div class="brief-fields">
+            <div>
+              <label for="brief-name">Votre prénom</label
+              ><input
+                id="brief-name"
+                autocomplete="given-name"
+                required
+                maxlength="100"
+                placeholder="Votre prénom"
+              />
+            </div>
+            <div>
+              <label for="brief-email">Votre email</label
+              ><input
+                id="brief-email"
+                type="email"
+                autocomplete="email"
+                required
+                placeholder="vous@exemple.fr"
+              />
+            </div>
+          </div>
+          <label for="brief-phone"
+            >Votre téléphone <span>(facultatif)</span></label
+          ><input
+            id="brief-phone"
+            type="tel"
+            autocomplete="tel"
+            placeholder="06…"
+          />
+          <p>
+            Ces coordonnées servent à échanger avec vous au sujet de votre
+            projet.
+          </p>
+        </fieldset>
+        <fieldset data-panel="review" hidden disabled>
+          <legend>Tout est prêt ?</legend>
+          <div id="brief-summary"></div>
+          <p id="attachment-reminder" hidden>
+            Vous devrez joindre votre document manuellement dans votre
+            messagerie.
+          </p>
+          <p>
+            Le bouton ci-dessous ouvre un email prérempli. Vous pourrez le
+            relire avant de l’envoyer.
+          </p>
+        </fieldset>
+        <div class="brief-actions" hidden>
+          <button class="brief-back" type="button">← Retour</button
+          ><button class="button brief-next" type="submit">
+            Continuer <span>→</span>
+          </button>
+        </div>
+        <p id="brief-email-status" role="status" hidden>
+          Votre demande a été préparée. Aucun message n’a été envoyé par cette
+          page. Si votre messagerie ne s’ouvre pas, contactez-moi à
+          <a href="mailto:maximilien.godeau.off@gmail.com"
+            >maximilien.godeau.off@gmail.com</a
+          >.
+        </p>
+      </form>
+      <div class="brief-direct">
+        <span>Vous préférez en discuter ?</span
+        ><a
+          href="mailto:maximilien.godeau.off@gmail.com?subject=Parlons%20de%20mon%20projet"
+          >Contactez-moi directement par email ↗</a
+        >
+      </div>
+    </dialog>
+    <script>
+      (() => {
+        document.documentElement.classList.add("js");
+        const reduced = matchMedia("(prefers-reduced-motion: reduce)"),
+          compact = matchMedia("(max-width:760px)");
+        const io = new IntersectionObserver(
+          (es) =>
+            es.forEach((e) => {
+              if (e.isIntersecting) {
+                e.target.classList.add("visible");
+                io.unobserve(e.target);
+              }
+            }),
+          { threshold: 0.1 },
+        );
+        document.querySelectorAll(".reveal").forEach((e) => io.observe(e));
+        const hero = document.querySelector(".landing-hero");
+        let pending = false;
+        function draw() {
+          pending = false;
+          const y = Math.max(
+            0,
+            Math.min(1000, -hero.getBoundingClientRect().top),
+          );
+          const d = document.querySelector(".desktop"),
+            p = document.querySelector(".phone"),
+            n = document.querySelector(".note"),
+            a = document.querySelector(".app-render.first"),
+            b = document.querySelector(".app-render.second");
+          if (reduced.matches) {
+            [d, p, n, a, b]
+              .filter(Boolean)
+              .forEach((e) => (e.style.transform = ""));
+            return;
+          }
+          if (d)
+            d.style.transform = `translateX(${-y * 0.15}px) rotate(${-3 - y * 0.01}deg)`;
+          if (p)
+            p.style.transform = `translateX(${y * 0.2}px) rotate(${10 + y * 0.015}deg)`;
+          if (n)
+            n.style.transform = `translateX(${-y * 0.25}px) rotate(${-10 - y * 0.018}deg)`;
+          if (a)
+            a.style.transform = `translateX(${-y * 0.16}px) rotate(${-6 - y * 0.008}deg)`;
+          if (b)
+            b.style.transform = `translateX(${y * 0.16}px) rotate(${8 + y * 0.008}deg)`;
+          const section = document.querySelector(".mobile-benefits"),
+            track = document.querySelector(".benefit-track");
+          if (section && track) {
+            if (compact.matches) {
+              track.style.transform = "";
+              return;
+            }
+            const sticky = section.firstElementChild,
+              progress = Math.max(
+                0,
+                Math.min(
+                  1,
+                  (90 - section.getBoundingClientRect().top) /
+                    (section.offsetHeight - sticky.offsetHeight),
+                ),
+              );
+            track.style.transform = `translateX(${-progress * Math.max(0, track.scrollWidth - innerWidth)}px)`;
+          }
+        }
+        function schedule() {
+          if (!pending) {
+            pending = true;
+            requestAnimationFrame(draw);
+          }
+        }
+        addEventListener("scroll", schedule, { passive: true });
+        addEventListener("resize", schedule);
+        reduced.addEventListener("change", schedule);
+        draw();
+      })();
+    </script>
+    <script>
+      (() => {
+        const rail = document.getElementById("review-rail"),
+          prev = document.getElementById("reviews-prev"),
+          next = document.getElementById("reviews-next");
+        const update = () => {
+          prev.disabled = rail.scrollLeft <= 2;
+          next.disabled =
+            rail.scrollLeft + rail.clientWidth >= rail.scrollWidth - 2;
+        };
+        const move = (dir) => {
+          const card = rail.querySelector(".review-card");
+          rail.scrollBy({
+            left: dir * (card.getBoundingClientRect().width + 20),
+            behavior: matchMedia("(prefers-reduced-motion: reduce)").matches
+              ? "instant"
+              : "smooth",
+          });
+        };
+        prev.addEventListener("click", () => move(-1));
+        next.addEventListener("click", () => move(1));
+        rail.addEventListener("scroll", update, { passive: true });
+        rail.addEventListener("keydown", (e) => {
+          if (e.key === "ArrowRight" || e.key === "ArrowLeft") {
+            e.preventDefault();
+            move(e.key === "ArrowRight" ? 1 : -1);
+          }
+        });
+        addEventListener("resize", update);
+        update();
+      })();
+    </script>
+    <script>
+      (() => {
+        const dialog = document.getElementById("brief"),
+          form = document.getElementById("brief-form"),
+          panels = [...form.querySelectorAll("[data-panel]")],
+          file = document.getElementById("brief-file"),
+          next = form.querySelector(".brief-next"),
+          back = form.querySelector(".brief-back"),
+          actions = form.querySelector(".brief-actions");
+        let route = null,
+          index = 0;
+        const paths = {
+          document: ["choice", "document", "contact", "review"],
+          guided: ["choice", "idea", "features", "contact", "review"],
+        };
+        const path = () => (route ? paths[route] : ["choice"]);
+        const value = (id) => document.getElementById(id).value.trim();
+        function items() {
+          return [
+            ["Type de projet", document.body.dataset.projectType],
+            [
+              "Parcours",
+              route === "document" ? "Cahier des charges" : "Projet guidé",
+            ],
+            ...(route === "document"
+              ? [
+                  ["Document", file.files[0]?.name || ""],
+                  ["Précisions", value("brief-note") || "Aucune"],
+                ]
+              : [
+                  ["Votre idée", value("brief-idea")],
+                  ["Fonctionnalités", value("brief-features")],
+                ]),
+            ["Prénom", value("brief-name")],
+            ["Email", value("brief-email")],
+            ["Téléphone", value("brief-phone") || "Non renseigné"],
+          ];
+        }
+        function summary() {
+          const root = document.getElementById("brief-summary");
+          root.replaceChildren();
+          const dl = document.createElement("dl");
+          for (const [label, text] of items()) {
+            const dt = document.createElement("dt"),
+              dd = document.createElement("dd");
+            dt.textContent = label;
+            dd.textContent = text;
+            dl.append(dt, dd);
+          }
+          root.append(dl);
+          document.getElementById("attachment-reminder").hidden =
+            route !== "document";
+        }
+        function show(focus = true) {
+          const name = path()[index];
+          panels.forEach((p) => {
+            p.hidden = p.dataset.panel !== name;
+            p.disabled = p.hidden;
+          });
+          actions.hidden = index === 0;
+          document.getElementById("brief-step").textContent =
+            index === 0
+              ? "Choisissez votre parcours"
+              : `Étape ${index} sur ${path().length - 1}`;
+          document.getElementById("brief-progress-fill").style.width =
+            index === 0 ? "0%" : `${(index / (path().length - 1)) * 100}%`;
+          next.textContent =
+            name === "review" ? "Préparer mon email ↗" : "Continuer →";
+          document.getElementById("brief-email-status").hidden = true;
+          if (name === "review") summary();
+          dialog.scrollTop = 0;
+          if (focus) {
+            const legend = panels
+              .find((p) => !p.hidden)
+              .querySelector("legend");
+            legend.tabIndex = -1;
+            legend.focus();
+          }
+        }
+        document.querySelectorAll(".open-brief").forEach((b) =>
+          b.addEventListener("click", () => {
+            dialog.showModal();
+            show(false);
+          }),
+        );
+        dialog
+          .querySelector(".close")
+          .addEventListener("click", () => dialog.close());
+        dialog.addEventListener("click", (e) => {
+          if (e.target === dialog) {
+            const r = dialog.getBoundingClientRect();
+            if (
+              e.clientX < r.left ||
+              e.clientX > r.right ||
+              e.clientY < r.top ||
+              e.clientY > r.bottom
+            )
+              dialog.close();
+          }
+        });
+        form.querySelectorAll("[data-route]").forEach((b) =>
+          b.addEventListener("click", () => {
+            route = b.dataset.route;
+            index = 1;
+            show();
+          }),
+        );
+        back.addEventListener("click", () => {
+          index = Math.max(0, index - 1);
+          show();
+        });
+        file.addEventListener("change", () => {
+          const f = file.files[0],
+            status = document.getElementById("brief-file-status");
+          file.setCustomValidity("");
+          if (!f) {
+            status.textContent = "Aucun document sélectionné.";
+            return;
+          }
+          if (!/\.(pdf|doc|docx|txt)$/i.test(f.name)) {
+            file.setCustomValidity("Choisissez un fichier PDF, Word ou texte.");
+          } else if (f.size > 10 * 1024 * 1024) {
+            file.setCustomValidity("Le document doit faire moins de 10 Mo.");
+          }
+          status.textContent =
+            file.validationMessage ||
+            `${f.name} · ${(f.size / 1024 / 1024).toFixed(2)} Mo · sélectionné sur votre appareil`;
+          if (!file.checkValidity()) file.reportValidity();
+        });
+        form.addEventListener("submit", (e) => {
+          e.preventDefault();
+          if (index === 0) return;
+          const current = panels.find((p) => !p.hidden);
+          for (const input of current.querySelectorAll("input,textarea")) {
+            if (input.required && input.type !== "file")
+              input.value = input.value.trim();
+            if (!input.reportValidity()) return;
+          }
+          if (path()[index] !== "review") {
+            index++;
+            show();
+            return;
+          }
+          const text =
+            "Bonjour Maximilien,\n\nJe souhaite discuter de mon projet et recevoir une maquette.\n\n" +
+            items()
+              .map(([k, v]) => `${k} : ${v}`)
+              .join("\n\n") +
+            (route === "document"
+              ? "\n\nJe joins mon cahier des charges à cet email."
+              : "") +
+            "\n\nÀ bientôt !";
+          location.href =
+            "mailto:maximilien.godeau.off@gmail.com?subject=" +
+            encodeURIComponent("Mon projet — demande de maquette") +
+            "&body=" +
+            encodeURIComponent(text);
+          document.getElementById("brief-email-status").hidden = false;
+        });
+        show(false);
+      })();
+    </script>
+    <script>
+      (() => {
+        const button = document.querySelector(".mobile-menu"),
+          menu = document.getElementById("mobile-nav");
+        button.addEventListener("click", () => {
+          const open = button.getAttribute("aria-expanded") !== "true";
+          button.setAttribute("aria-expanded", String(open));
+          button.setAttribute(
+            "aria-label",
+            open ? "Fermer le menu" : "Ouvrir le menu",
+          );
+          menu.hidden = !open;
+        });
+        menu.querySelectorAll("a").forEach((a) =>
+          a.addEventListener("click", () => {
+            menu.hidden = true;
+            button.setAttribute("aria-expanded", "false");
+          }),
+        );
+        document.addEventListener("keydown", (e) => {
+          if (e.key === "Escape" && !menu.hidden) {
+            menu.hidden = true;
+            button.setAttribute("aria-expanded", "false");
+            button.focus();
+          }
+        });
+        const tabs = [...document.querySelectorAll("[role=tab]")];
+        function activate(tab) {
+          tabs.forEach((t) => {
+            const active = t === tab;
+            t.setAttribute("aria-selected", String(active));
+            t.tabIndex = active ? 0 : -1;
+            document.getElementById(t.getAttribute("aria-controls")).hidden =
+              !active;
+          });
+        }
+        tabs.forEach((t, i) => {
+          t.addEventListener("click", () => activate(t));
+          t.addEventListener("keydown", (e) => {
+            let n;
+            if (e.key === "ArrowRight") n = (i + 1) % tabs.length;
+            if (e.key === "ArrowLeft") n = (i - 1 + tabs.length) % tabs.length;
+            if (e.key === "Home") n = 0;
+            if (e.key === "End") n = tabs.length - 1;
+            if (n !== undefined) {
+              e.preventDefault();
+              activate(tabs[n]);
+              tabs[n].focus();
+            }
+          });
+        });
+      })();
+    </script>
+  </body>
+</html>

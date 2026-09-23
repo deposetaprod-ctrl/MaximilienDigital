@@ -2,10 +2,23 @@ import type { Metadata } from "next";
 import MobileAppClient from "./MobileAppClient";
 
 export const metadata: Metadata = {
-  title: "Création d'Application Mobile | Développeur iOS & Android | Maquette Gratuite",
+  title: "Développeur Web Freelance | Application Mobile iOS & Android sur Mesure",
   description:
-    "Développeur d'application mobile sur mesure iOS et Android. Design UX/UI, publication sur les stores (App Store, Google Play), et hébergement sécurisé. Recevez une maquette gratuite.",
-  keywords: ["développeur application mobile", "création application iOS", "création application Android", "développement mobile sur mesure", "publication App Store", "publication Google Play", "design UI mobile"],
+    "Développeur web fullstack et freelance spécialisé en création d'applications mobiles iOS et Android sur mesure. Design UX/UI, publication App Store & Google Play, code source livré. Maquette gratuite.",
+  keywords: [
+    "développeur web freelance",
+    "développeur fullstack",
+    "développeur web",
+    "développeur application mobile",
+    "création application iOS",
+    "création application Android",
+    "développement mobile sur mesure",
+    "freelance développeur mobile",
+    "publication App Store",
+    "publication Google Play",
+    "design UI mobile",
+    "développeur React Native",
+  ],
 };
 
 export default function MobileAppPage() {

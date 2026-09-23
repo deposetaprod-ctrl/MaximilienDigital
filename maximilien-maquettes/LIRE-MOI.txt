@@ -1,0 +1,20 @@
+MAXIMILIEN DIGITAL — MAQUETTES HTML
+
+Ouvrir maximilien-home.html dans Chrome ou Safari.
+Conserver les trois fichiers HTML dans le même dossier pour naviguer entre les pages.
+Chaque fichier contient ses styles, ses scripts et ses images ; aucun serveur requis.
+
+PAGES
+maximilien-home.html : accueil et orientation vers les deux offres.
+application-web-sur-mesure.html : sites, applications web, SaaS, outils métier.
+application-mobile.html : applications iOS/Android et réalisation Even Clock.
+
+À REPRENDRE DANS ANTIGRAVITY
+- Remplacer les liens .html par les routes de votre application.
+- Mutualiser le menu, le pied de page, les avis et le formulaire.
+- Brancher le formulaire et le dépôt de document à votre backend. Actuellement, les données restent locales jusqu’à l’ouverture volontaire d’un email prérempli ; les pièces jointes sont à ajouter manuellement.
+- Ajouter le contact WhatsApp quand le numéro professionnel est défini.
+- Rebrancher votre suivi de conversions existant sur les actions réellement terminées. Aucun traceur n’est inclus dans ces maquettes.
+- Adapter mentions légales et confidentialité avant publication.
+
+La navigation mobile, les formulaires et les effets de scroll ont été vérifiés dans Chromium. Le mode de réduction des animations est pris en compte. Les maquettes n’ont pas été déployées sur votre site.
