@@ -142,7 +142,7 @@ export function PremiumReviews() {
           className="button"
           style={{ width: "auto", minWidth: 0, padding: "14px 24px", fontSize: "14px", margin: 0 }}
         >
-          Voir plus d'avis <span>↗&#xFE0E;&#xFE0E;</span>
+          Voir plus d'avis
         </a>
       </div>
     </section>

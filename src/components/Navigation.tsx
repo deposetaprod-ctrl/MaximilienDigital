@@ -92,7 +92,7 @@ export function Navigation() {
 
             {/* CTA BUTTON */}
             <button className="nav-cta open-brief glow-effect" type="button">
-              Votre maquette gratuite <span style={{ marginLeft: "8px" }}>↗&#xFE0E;&#xFE0E;</span>
+              Votre maquette gratuite
             </button>
 
             {/* MOBILE MENU BUTTON */}
@@ -141,7 +141,7 @@ export function Navigation() {
                 </svg>
                 <div style={{ display: "flex", flexDirection: "column", lineHeight: "1.2" }}>
                   <strong style={{ fontWeight: 600, fontSize: "16px", color: "#f1eee8" }}>Top Service sur ComeUp</strong>
-                  <span style={{ fontSize: "12px", color: "#a3988e" }}>Voir les avis ↗</span>
+                  <span style={{ fontSize: "12px", color: "#a3988e" }}>Voir les avis</span>
                 </div>
               </a>
 
