@@ -43,8 +43,8 @@ export function PremiumMethod() {
       
       <div className="shell">
         <section className="about" id="apropos">
-          <div className="portrait-box reveal">
-            <img src="/maximilien-portrait.png" alt="Maximilien, développeur et entrepreneur" loading="lazy" />
+          <div className="portrait-box reveal" style={{ borderRadius: '24px' }}>
+            <img src="/maximilien-portrait.png" alt="Maximilien, développeur et entrepreneur" loading="lazy" style={{ borderRadius: '24px' }} />
             <div className="portrait-caption">
               <div>
                 <b>Maximilien</b>
@@ -62,6 +62,39 @@ export function PremiumMethod() {
               <span>Un développeur direct</span>
               <span>Une vision entrepreneuriale</span>
             </div>
+            <a 
+              href="https://comeup.com/fr/service/382688/developper-votre-application-mobile-ou-web-sur-mesure" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "10px",
+                padding: "10px 16px",
+                borderRadius: "30px",
+                background: "rgba(255, 191, 63, 0.1)",
+                border: "1px solid rgba(255, 191, 63, 0.2)",
+                color: "#ffbf3f",
+                textDecoration: "none",
+                marginTop: "25px",
+                fontSize: "13px",
+                fontWeight: "600",
+                transition: "all 0.2s"
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.background = "rgba(255, 191, 63, 0.2)";
+                e.currentTarget.style.borderColor = "rgba(255, 191, 63, 0.4)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.background = "rgba(255, 191, 63, 0.1)";
+                e.currentTarget.style.borderColor = "rgba(255, 191, 63, 0.2)";
+              }}
+            >
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="#ffbf3f" stroke="#ffbf3f" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+              </svg>
+              Top Service sur ComeUp — Voir d'autres avis ↗
+            </a>
           </div>
         </section>
       </div>
