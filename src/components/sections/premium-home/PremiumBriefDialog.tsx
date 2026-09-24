@@ -13,7 +13,7 @@ interface PremiumBriefDialogProps {
 type FlowType = "" | "document" | "guided";
 
 export function PremiumBriefDialog() {
-  const dialogRef = useRef<HTMLDialogElement>(null);
+  const [isOpen, setIsOpen] = useState(false);
   const [step, setStep] = useState(0);
   const [flow, setFlow] = useState<FlowType>("");
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -32,7 +32,7 @@ export function PremiumBriefDialog() {
   });
 
   const closeDialog = () => {
-    dialogRef.current?.close();
+    setIsOpen(false);
     document.body.style.overflow = "";
     setStep(0);
     setFlow("");
@@ -45,11 +45,15 @@ export function PremiumBriefDialog() {
       const target = (e.target as HTMLElement).closest('.open-brief, .premium-open-brief, .nav-cta');
       if (target) {
         e.preventDefault();
-        dialogRef.current?.showModal();
+        setIsOpen(true);
         document.body.style.overflow = "hidden";
         
         const id = typeof crypto !== "undefined" && crypto.randomUUID ? crypto.randomUUID() : Math.random().toString(36).substring(2, 15);
         setSessionId(id);
+        
+        if (typeof window !== "undefined" && (window as any).clarity) {
+          (window as any).clarity("event", "Ouverture Brief Dialog");
+        }
         
         fetch("/api/track-funnel", {
           method: "POST",
@@ -61,14 +65,8 @@ export function PremiumBriefDialog() {
     
     document.addEventListener('click', handleOpen);
     
-    const dialog = dialogRef.current;
-    if (dialog) {
-      dialog.addEventListener('close', closeDialog);
-    }
-    
     return () => {
       document.removeEventListener('click', handleOpen);
-      if (dialog) dialog.removeEventListener('close', closeDialog);
     };
   }, []);
 
@@ -174,9 +172,12 @@ export function PremiumBriefDialog() {
     }
   };
 
+  if (!isOpen) return null;
+
   return (
-    <dialog ref={dialogRef} id="brief" aria-labelledby="brief-title" onCancel={closeDialog}>
-      <button className="close" type="button" aria-label="Fermer" onClick={closeDialog}>×</button>
+    <div className="dialog-overlay" onClick={closeDialog}>
+      <div className="dialog-content" onClick={(e) => e.stopPropagation()} id="brief" aria-labelledby="brief-title">
+        <button className="close" type="button" aria-label="Fermer" onClick={closeDialog}>×</button>
       
       {!isSuccess ? (
         <>
@@ -346,6 +347,7 @@ export function PremiumBriefDialog() {
           <button className="button" onClick={closeDialog} style={{ width: "auto" }}>Fermer</button>
         </div>
       )}
-    </dialog>
+      </div>
+    </div>
   );
 }

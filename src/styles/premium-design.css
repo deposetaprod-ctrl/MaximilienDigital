@@ -37,7 +37,15 @@ body{background:#201916;color:#f1eee8}
 .tags span{border-color:#544334;color:#c9b8a8}.method{background:#171411;color:#f1eee8}.method .eyebrow{color:#ff702d}.step{border-color:#514030}.step small{color:#ffbf3f}.step p{color:#b4a697}.ownership{border-color:#514030;color:#c7b8a8}.ownership b{color:#ffbf3f}
 .faq summary:hover{color:#ffbf3f}.contact{background:radial-gradient(ellipse at 50% 100%,#00483a55,transparent 65%),#29201b;border-top:1px solid #4b3528}.contact .eyebrow{color:#ff702d}.contact .serif{color:#ffbf3f}.contact p{color:#c1aea0}.decor{color:#ff702d;opacity:.45}
 .footer{color:#b09e8e}.footer a:last-child{color:#baa99a}
-dialog{background:#29211c;color:#f1eee8;border:1px solid #5a4030;margin:auto;max-height:90vh;overflow-y:auto}dialog p,dialog .fine{color:#baaa9c}dialog .eyebrow{color:#ff702d}.close{color:#eee4d9;outline:none;}input,textarea{background:#201916;border-color:#584233;color:#f1eee8}input::placeholder,textarea::placeholder{color:#9d8e80}dialog::backdrop{background:#100d0bb8}
+.dialog-overlay { position: fixed; inset: 0; background: #100d0bb8; z-index: 1000; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(7px); padding: 20px; }
+.dialog-content { background: #29211c; color: #f1eee8; border: 1px solid #5a4030; max-height: 90vh; overflow-y: auto; border-radius: 20px; max-width: 540px; width: 100%; padding: 35px; box-shadow: 0 30px 90px #0003; position: relative; margin: auto; }
+.dialog-content p, .dialog-content .fine { color: #baaa9c; }
+.dialog-content .eyebrow { color: #ff702d; }
+.dialog-content label { display: block; font-size: 12px; margin: 20px 0 8px; }
+.dialog-content .button { margin-top: 22px; width: 100%; justify-content: space-between; }
+.close{position:absolute;right:18px;top:15px;border:0;background:transparent;font-size:27px;color:#eee4d9;outline:none;}
+input,textarea{background:#201916;border-color:#584233;color:#f1eee8}
+input::placeholder,textarea::placeholder{color:#9d8e80}
 ::selection{background:#ffbf3f;color:#201916}
 @media(max-width:600px){.top{padding-top:10px}.nav{height:58px;padding:0 14px;width:calc(100% - 24px);gap:10px}.brand{font-size:17px}.nav-cta{font-size:10px;padding:10px}.nav-cta span{margin-left:4px}.hero{padding-top:117px}}
 
