@@ -15,7 +15,7 @@ export function PremiumWebHero() {
         <p className="lead reveal">
           Un site qui vous ressemble. Une application qui vous simplifie la vie. Je crée votre solution web sur mesure.
         </p>
-        <button className="button open-brief reveal">
+        <button className="button open-brief reveal glow-effect">
           Recevoir ma maquette gratuite <span>↗&#xFE0E;&#xFE0E;</span>
         </button>
         <button className="open-existing-mockup reveal" type="button" style={{ display: "block", margin: "16px auto 0", background: "transparent", border: "none", color: "#bbaa99", textDecoration: "underline", fontSize: "13px", cursor: "pointer", transition: "color 0.2s", position: "relative", zIndex: 10 }} onMouseOver={(e) => e.currentTarget.style.color = "#ffbf3f"} onMouseOut={(e) => e.currentTarget.style.color = "#bbaa99"}>

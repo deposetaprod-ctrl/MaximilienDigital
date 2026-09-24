@@ -16,7 +16,7 @@ body{background:#201916;color:#f1eee8}
 .top{background:transparent;backdrop-filter:none;border:0;padding:15px 0 0}
 .nav{height:64px;border:1px solid #46362c;background:#241e1aeF;backdrop-filter:blur(18px);border-radius:50px;max-width:1320px;width:calc(100% - 6vw);padding:0 25px}
 .brand span{color:#ff702d}.links{color:#bdb2a8}.links a:hover{color:#ffbf3f}
-.nav-cta{background:#ff702d;color:#201916;border-color:#ff702d;font-weight:600}
+.nav-cta{background:#ff702d;color:#201916;border-color:#ff702d;font-weight:600;white-space:nowrap}
 .hero{background:radial-gradient(ellipse at 50% 65%,#002e2670 0,transparent 55%),#201916}
 .hero .eyebrow{color:#ff702d}.dot{background:#ff702d}.serif{color:#ffbf3f}
 .hero-intro,.intro p,.about p,.faq details p{color:#b5aba1}.fine{color:#a3988e}
@@ -75,4 +75,13 @@ dialog{background:#29211c;color:#f1eee8;border:1px solid #5a4030;margin:auto;max
     grid-template-columns: 1fr;
     gap: 35px;
   }
+}
+
+@keyframes pulse-glow {
+  0% { box-shadow: 0 0 0 0 rgba(255, 112, 45, 0.7); }
+  70% { box-shadow: 0 0 0 10px rgba(255, 112, 45, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(255, 112, 45, 0); }
+}
+.glow-effect {
+  animation: pulse-glow 2s infinite;
 }

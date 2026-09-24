@@ -26,7 +26,7 @@ export function PremiumHero({ onCtaClick }: { onCtaClick?: () => void }) {
         <p className="hero-intro">
           Sites web, applications, outils métier.<br />Je transforme vos idées en produits qui vivent.
         </p>
-        <button className="button premium-open-brief">
+        <button className="button premium-open-brief glow-effect">
           Recevoir ma maquette gratuite <span className="arrow">↗&#xFE0E;&#xFE0E;</span>
         </button>
         <button className="open-existing-mockup" type="button" style={{ display: "block", margin: "16px auto 0", background: "transparent", border: "none", color: "#bbaa99", textDecoration: "underline", fontSize: "13px", cursor: "pointer", transition: "color 0.2s" }} onMouseOver={(e) => e.currentTarget.style.color = "#ffbf3f"} onMouseOut={(e) => e.currentTarget.style.color = "#bbaa99"}>

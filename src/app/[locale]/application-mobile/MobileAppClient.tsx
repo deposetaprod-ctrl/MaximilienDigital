@@ -35,7 +35,7 @@ export default function MobileAppClient() {
           <div className="eyebrow">Une idée suffit pour commencer</div>
           <h2>Bientôt dans<br /><span className="serif">leurs mains.</span></h2>
           <p>Donnons une première forme à votre application.</p>
-          <button className="button open-brief">
+          <button className="button open-brief glow-effect">
             Recevoir ma maquette gratuite <span>↗&#xFE0E;&#xFE0E;</span>
           </button>
           <p className="contact-note">Un premier aperçu gratuit, sans engagement.</p>

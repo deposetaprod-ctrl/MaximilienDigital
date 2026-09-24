@@ -47,7 +47,7 @@ export function Navigation() {
           {/* LOGO */}
           <Link href="/" className="brand" onClick={() => trackClick("nav_logo")} style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
             <img src="/cellequejeprefere_rounded.png" alt="Maximilien" style={{ width: '32px', height: '32px', borderRadius: '50%', objectFit: 'cover', border: '1px solid #46362c' }} />
-            <div>maximilien<span>.digital</span></div>
+            <div className="brand-text">maximilien<span>.digital</span></div>
           </Link>
 
           {/* DESKTOP LINKS */}
@@ -69,8 +69,8 @@ export function Navigation() {
 
           <div className="nav-actions" style={{ display: "flex", alignItems: "center", gap: "10px" }}>
             {/* CTA BUTTON */}
-            <button className="nav-cta open-brief" type="button">
-              Parlons de votre idée <span style={{ marginLeft: "8px" }}>↗&#xFE0E;&#xFE0E;</span>
+            <button className="nav-cta open-brief glow-effect" type="button">
+              Votre maquette gratuite <span style={{ marginLeft: "8px" }}>↗&#xFE0E;&#xFE0E;</span>
             </button>
 
             {/* MOBILE MENU BUTTON */}
