@@ -10,10 +10,11 @@ export function PremiumWebHero() {
           <span className="dot"></span>Sites · Applications web · SaaS
         </div>
         <h1 id="page-title" className="reveal">
-          Votre projet.<br />À portée de <span className="serif">clic.</span>
+          Votre Application Web & SaaS.<br />
+          <span className="serif">Rapide et sur mesure.</span>
         </h1>
         <p className="lead reveal">
-          Un site qui vous ressemble. Une application qui vous simplifie la vie. Je crée votre solution web sur mesure.
+          Des solutions web innovantes et efficaces.<br />Je crée votre SaaS ou site sur mesure pour générer du revenu et améliorer votre présence en ligne.
         </p>
         <button className="button open-brief reveal glow-effect">
           Recevoir ma maquette gratuite <span>↗&#xFE0E;&#xFE0E;</span>

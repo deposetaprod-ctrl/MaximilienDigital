@@ -6,10 +6,11 @@ export function PremiumAppHero() {
           <span className="dot"></span>Applications iOS & Android sur mesure
         </div>
         <h1 id="page-title">
-          Votre idée.<br />Dans leurs <span className="serif">mains.</span>
+          Votre Application Mobile.<br />
+          <span className="serif">iOS et Android, rapidement.</span>
         </h1>
         <p className="lead">
-          Une application que l’on aime ouvrir.<br />Je vous accompagne du premier écran à la publication sur l’App Store et Google Play.
+          Publiez votre application sur les stores.<br />Un design soigné et performant pour générer des revenus rapidement et simplement.
         </p>
         <button className="button open-brief glow-effect" style={{ position: "relative", zIndex: 10 }}>
           Recevoir ma maquette gratuite <span>↗&#xFE0E;&#xFE0E;</span>

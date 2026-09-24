@@ -20,11 +20,11 @@ export function PremiumHero({ onCtaClick }: { onCtaClick?: () => void }) {
           <span className="dot"></span>Développeur indépendant · Créateur de produits
         </div>
         <h1 id="hero-title">
-          Votre idée.<br />
-          <span className="serif">En grand.</span>
+          Développeur Web Freelance.<br />
+          <span className="serif">Rapide, accessible, efficace.</span>
         </h1>
         <p className="hero-intro">
-          Sites web, applications, outils métier.<br />Je transforme vos idées en produits qui vivent.
+          Sites web, applications SaaS, outils métiers.<br />Des solutions innovantes et efficaces pour développer votre activité.
         </p>
         <button className="button premium-open-brief glow-effect">
           Recevoir ma maquette gratuite <span className="arrow">↗&#xFE0E;&#xFE0E;</span>
