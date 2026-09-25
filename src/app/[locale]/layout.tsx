@@ -9,7 +9,6 @@ import Script from "next/script";
 import "../globals.css";
 import "../../styles/premium-design.css";
 import { PremiumBriefDialog } from "@/components/sections/premium-home/PremiumBriefDialog";
-import { ExistingMockupDialog } from "@/components/ExistingMockupDialog";
 import { MobileBottomNav } from "@/components/MobileBottomNav";
 
 const OG_IMAGE_URL = "https://maximilien.digital/og-image.png";
@@ -224,7 +223,6 @@ export default async function RootLayout(
           </LanguageProvider>
         </NextIntlClientProvider>
         <PremiumBriefDialog />
-        <ExistingMockupDialog />
       </body>
     </html>
   );

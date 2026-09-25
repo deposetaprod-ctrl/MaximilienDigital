@@ -43,11 +43,19 @@ export function PremiumBriefDialog() {
 
   useEffect(() => {
     const handleOpen = (e: MouseEvent) => {
-      const target = (e.target as HTMLElement).closest('.open-brief, .premium-open-brief, .nav-cta');
+      const target = (e.target as HTMLElement).closest('.open-brief, .premium-open-brief, .nav-cta, .open-existing-mockup');
       if (target) {
         e.preventDefault();
         setIsOpen(true);
         document.body.style.overflow = "hidden";
+        
+        if (target.classList.contains('open-existing-mockup')) {
+          setFlow("maquette");
+          setStep(1);
+        } else {
+          setFlow("");
+          setStep(0);
+        }
         
         const id = typeof crypto !== "undefined" && crypto.randomUUID ? crypto.randomUUID() : Math.random().toString(36).substring(2, 15);
         setSessionId(id);
