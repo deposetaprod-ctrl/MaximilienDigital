@@ -10,7 +10,7 @@ interface PremiumBriefDialogProps {
   onClose: () => void;
 }
 
-type FlowType = "" | "document" | "guided";
+type FlowType = "" | "document" | "guided" | "maquette";
 
 export function PremiumBriefDialog() {
   const [isOpen, setIsOpen] = useState(false);
@@ -29,6 +29,7 @@ export function PremiumBriefDialog() {
     name: "",
     email: "",
     phone: "",
+    projectLink: "",
   });
 
   const closeDialog = () => {
@@ -37,7 +38,7 @@ export function PremiumBriefDialog() {
     setStep(0);
     setFlow("");
     setIsSuccess(false);
-    setData({ fileUrl: "", note: "", projectType: "", sector: "", details: "", name: "", email: "", phone: "" });
+    setData({ fileUrl: "", note: "", projectType: "", sector: "", details: "", name: "", email: "", phone: "", projectLink: "" });
   };
 
   useEffect(() => {
@@ -116,12 +117,12 @@ export function PremiumBriefDialog() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          need: flow === "document" ? "Upload de CDC" : `Projet: ${data.projectType}`,
-          sector: flow === "document" ? "N/A" : data.sector,
-          description: flow === "document" 
+          need: flow === "document" ? "Upload de CDC" : (flow === "maquette" ? "Création depuis maquette" : `Projet: ${data.projectType}`),
+          sector: flow === "document" || flow === "maquette" ? "N/A" : data.sector,
+          description: flow === "document" || flow === "maquette" 
             ? `Note: ${data.note || "Aucune"}` 
             : `Détails: ${data.details || "Aucun"}`,
-          dataLink: data.fileUrl,
+          dataLink: data.fileUrl || data.projectLink || "Aucun",
           email: data.email,
           phone: data.phone,
           name: data.name
@@ -148,7 +149,7 @@ export function PremiumBriefDialog() {
     }
   };
 
-  const totalSteps = flow === "document" ? 3 : 4;
+  const totalSteps = flow === "document" ? 3 : (flow === "maquette" ? 3 : 4);
   const progressPercent = Math.max(5, (step / totalSteps) * 100);
 
   const canGoNext = () => {
@@ -156,6 +157,9 @@ export function PremiumBriefDialog() {
     if (flow === "document") {
       if (step === 1) return data.fileUrl !== "";
       if (step === 2) return data.name && data.email;
+    } else if (flow === "maquette") {
+      if (step === 1) return data.fileUrl !== "" || data.projectLink !== "";
+      if (step === 2) return data.email !== "";
     } else {
       if (step === 1) return data.projectType !== "";
       if (step === 2) return data.sector !== "";
@@ -164,7 +168,18 @@ export function PremiumBriefDialog() {
     return false;
   };
 
+  const [isSimulating, setIsSimulating] = useState(false);
+
   const handleNext = () => {
+    if (flow === "maquette" && step === 1) {
+      setIsSimulating(true);
+      setTimeout(() => {
+        setIsSimulating(false);
+        setStep(s => s + 1);
+      }, 2500);
+      return;
+    }
+
     if (step === totalSteps - 1) {
       handleSubmit();
     } else {
@@ -182,37 +197,57 @@ export function PremiumBriefDialog() {
       {!isSuccess ? (
         <>
           <div className="eyebrow">Votre projet commence ici</div>
-          <h2 className="dialog-title" id="brief-title" tabIndex={-1}>Parlons de votre idée.</h2>
 
           
-          <div className="brief-progress" aria-hidden="true">
+          <div className="brief-progress" aria-hidden="true" style={{ marginTop: "10px" }}>
             <i id="brief-progress-fill" style={{ width: `${progressPercent}%`, transition: "width 0.3s ease" }}></i>
           </div>
           
-          <p id="brief-step" aria-live="polite">Étape {step + 1} sur {totalSteps}</p>
-
           <form id="premium-brief-form" onSubmit={(e) => { e.preventDefault(); handleNext(); }} noValidate>
             
-            {/* STEP 0 : Choix du parcours */}
-            {step === 0 && (
-              <fieldset data-panel="choice">
-                <legend>Comment souhaitez-vous me présenter votre projet ?</legend>
-                <div className="brief-choices">
-                  <button type="button" className={`brief-choice ${flow === "document" ? "selected" : ""}`} onClick={() => { setFlow("document"); setStep(1); }}>
-                    <span className="choice-icon" aria-hidden="true">▤</span>
-                    <strong>J’ai un cahier des charges</strong>
-                    <span>Importez votre document et ajoutez une précision si besoin.</span>
-                    <b aria-hidden="true">↗&#xFE0E;&#xFE0E;</b>
-                  </button>
-                  <button type="button" className={`brief-choice ${flow === "guided" ? "selected" : ""}`} onClick={() => { setFlow("guided"); setStep(1); }}>
-                    <span className="choice-icon" aria-hidden="true">✳&#xFE0E;&#xFE0E;</span>
-                    <strong>J’ai une idée, guidez-moi</strong>
-                    <span>Quelques questions simples pour expliquer votre projet.</span>
-                    <b aria-hidden="true">↗&#xFE0E;&#xFE0E;</b>
-                  </button>
-                </div>
-              </fieldset>
-            )}
+            {isSimulating ? (
+              <div style={{ textAlign: "center", padding: "60px 20px" }}>
+                <div className="spinner" style={{ margin: "0 auto 20px", width: "40px", height: "40px", border: "3px solid rgba(255,191,63,0.3)", borderTopColor: "#ffbf3f", borderRadius: "50%", animation: "spin 1s linear infinite" }}></div>
+                <h3 style={{ fontSize: "20px", marginBottom: "10px" }}>Analyse de la maquette...</h3>
+                <p style={{ color: "var(--color-dim)" }}>Préparation de votre application en cours</p>
+                <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
+              </div>
+            ) : (
+              <>
+                {/* STEP 0 : Choix du parcours */}
+                {step === 0 && (
+                  <fieldset data-panel="choice">
+                    <legend>Comment souhaitez-vous présenter votre projet ?</legend>
+                    <div className="brief-choices" style={{ gridTemplateColumns: "1fr" }}>
+                      <button type="button" className={`brief-choice ${flow === "document" ? "selected" : ""}`} onClick={() => { setFlow("document"); setStep(1); }} style={{ padding: "16px 20px", flexDirection: "row", alignItems: "center", gap: "16px" }}>
+                        <span className="choice-icon" aria-hidden="true" style={{ fontSize: "24px", margin: 0, flexShrink: 0 }}>▤</span>
+                        <div style={{ flex: 1, textAlign: "left", display: "flex", flexDirection: "column", gap: "4px" }}>
+                          <strong style={{ fontSize: "15px", margin: 0, paddingRight: 0 }}>J’ai un cahier des charges</strong>
+                          <span style={{ fontSize: "12px", lineHeight: "1.4", margin: 0 }}>Importez votre document et ajoutez une précision si besoin.</span>
+                        </div>
+                        <b aria-hidden="true" style={{ fontSize: "18px", margin: 0, position: "static" }}>↗&#xFE0E;&#xFE0E;</b>
+                      </button>
+                      
+                      <button type="button" className={`brief-choice ${flow === "guided" ? "selected" : ""}`} onClick={() => { setFlow("guided"); setStep(1); }} style={{ padding: "16px 20px", flexDirection: "row", alignItems: "center", gap: "16px" }}>
+                        <span className="choice-icon" aria-hidden="true" style={{ fontSize: "24px", margin: 0, flexShrink: 0 }}>✳&#xFE0E;&#xFE0E;</span>
+                        <div style={{ flex: 1, textAlign: "left", display: "flex", flexDirection: "column", gap: "4px" }}>
+                          <strong style={{ fontSize: "15px", margin: 0, paddingRight: 0 }}>J’ai une idée, guidez-moi</strong>
+                          <span style={{ fontSize: "12px", lineHeight: "1.4", margin: 0 }}>Quelques questions simples pour expliquer votre projet.</span>
+                        </div>
+                        <b aria-hidden="true" style={{ fontSize: "18px", margin: 0, position: "static" }}>↗&#xFE0E;&#xFE0E;</b>
+                      </button>
+
+                      <button type="button" className={`brief-choice ${flow === "maquette" ? "selected" : ""}`} onClick={() => { setFlow("maquette"); setStep(1); }} style={{ padding: "16px 20px", flexDirection: "row", alignItems: "center", gap: "16px" }}>
+                        <span className="choice-icon" aria-hidden="true" style={{ fontSize: "24px", margin: 0, flexShrink: 0 }}>❏</span>
+                        <div style={{ flex: 1, textAlign: "left", display: "flex", flexDirection: "column", gap: "4px" }}>
+                          <strong style={{ fontSize: "15px", margin: 0, paddingRight: 0 }}>J’ai déjà une maquette</strong>
+                          <span style={{ fontSize: "12px", lineHeight: "1.4", margin: 0 }}>Importez votre design pour générer l'application.</span>
+                        </div>
+                        <b aria-hidden="true" style={{ fontSize: "18px", margin: 0, position: "static" }}>↗&#xFE0E;&#xFE0E;</b>
+                      </button>
+                    </div>
+                  </fieldset>
+                )}
 
             {/* STEP 1 (Document) : Upload */}
             {step === 1 && flow === "document" && (
@@ -231,6 +266,27 @@ export function PremiumBriefDialog() {
                 </div>
                 <label htmlFor="brief-note">Une précision à ajouter ? <span>(facultatif)</span></label>
                 <textarea id="brief-note" rows={3} placeholder="Vos priorités, une référence, un point important…" value={data.note} onChange={(e) => updateField("note", e.target.value)}></textarea>
+              </fieldset>
+            )}
+
+            {/* STEP 1 (Maquette) : Upload ou Lien */}
+            {step === 1 && flow === "maquette" && (
+              <fieldset data-panel="maquette">
+                <legend>Partagez votre maquette</legend>
+                
+                <div style={{ marginBottom: "25px" }}>
+                  <label htmlFor="brief-link">Lien vers votre maquette <span>(Figma, v0, Bolt, Lovable...)</span></label>
+                  <input id="brief-link" type="url" placeholder="https://..." value={data.projectLink} onChange={(e) => updateField("projectLink", e.target.value)} disabled={!!data.fileUrl} style={{ opacity: data.fileUrl ? 0.5 : 1 }} />
+                </div>
+
+                <div style={{ textAlign: "center", marginBottom: "20px", color: "var(--color-dim)", fontSize: "12px", textTransform: "uppercase", letterSpacing: "1px" }}>Ou</div>
+
+                <label className="upload-zone" htmlFor="brief-maquette" style={{ borderColor: data.fileUrl ? "var(--lime)" : "", backgroundColor: data.fileUrl ? "rgba(189,255,0,0.05)" : "", opacity: data.projectLink ? 0.5 : 1 }}>
+                  <span aria-hidden="true" style={{ color: data.fileUrl ? "var(--lime)" : "" }}>{data.fileUrl ? "✓\uFE0E" : "↑"}</span>
+                  <strong>{isSubmitting ? "Upload en cours..." : (data.fileUrl ? "Fichier ajouté !" : "Importer un fichier (.zip)")}</strong>
+                  <small>Fichier .zip, image ou PDF · 10 Mo max</small>
+                  <input type="file" id="brief-maquette" accept=".zip,image/*,.pdf" disabled={isSubmitting || !!data.fileUrl || !!data.projectLink} onChange={handleFileUpload} />
+                </label>
               </fieldset>
             )}
 
@@ -319,14 +375,36 @@ export function PremiumBriefDialog() {
               </fieldset>
             )}
 
+            {/* LAST STEP (Maquette) : Contact */}
+            {(step === 2 && flow === "maquette") && (
+              <fieldset data-panel="contact-maquette">
+                <legend>Où envoyer votre application ?</legend>
+                <div className="brief-fields" style={{ display: 'block' }}>
+                  <div style={{ marginBottom: '15px' }}>
+                    <label htmlFor="brief-email-maquette">Votre email</label>
+                    <input id="brief-email-maquette" type="email" required placeholder="vous@exemple.fr" value={data.email} onChange={(e) => updateField("email", e.target.value)} />
+                  </div>
+                  <div>
+                    <label htmlFor="brief-phone-maquette">Votre téléphone <span>(facultatif mais recommandé)</span></label>
+                    <input id="brief-phone-maquette" type="tel" placeholder="06…" value={data.phone} onChange={(e) => updateField("phone", e.target.value)} />
+                  </div>
+                </div>
+                <p style={{ marginTop: "15px", fontSize: "14px", color: "var(--color-dim)" }}>
+                  Nous vous enverrons le lien de l'application dès qu'elle sera prête.
+                </p>
+              </fieldset>
+            )}
+
             {/* Actions */}
             {step > 0 && (
               <div className="brief-actions" style={{ display: "flex", gap: "10px", marginTop: "30px" }}>
                 <button className="brief-back" type="button" onClick={() => setStep(s => s - 1)}>← Retour</button>
                 <button className="button brief-next" type="button" onClick={handleNext} disabled={!canGoNext() || isSubmitting} style={{ opacity: (!canGoNext() || isSubmitting) ? 0.5 : 1 }}>
-                  {isSubmitting ? "Envoi..." : (step === totalSteps - 1 ? "Envoyer ma demande" : "Continuer")} <span>→</span>
+                  {isSubmitting ? "Envoi..." : (step === 1 && flow === "maquette" ? "Créer l'application" : (step === totalSteps - 1 ? "Envoyer ma demande" : "Continuer"))} <span>→</span>
                 </button>
               </div>
+            )}
+              </>
             )}
             
           </form>
