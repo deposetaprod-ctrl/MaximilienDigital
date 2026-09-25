@@ -115,7 +115,7 @@ export function PremiumWebFormats() {
               <li>Suivi des dossiers et des équipes</li>
               <li>Connexions avec vos outils actuels</li>
             </ul>
-            <a href="#outils-metier" className="text-link">Voir les automatisations ↘</a>
+            <button className="text-link open-brief" style={{ background: 'transparent', border: 'none', padding: 0, cursor: 'pointer', fontFamily: 'inherit' }}>Parlons de votre projet ↗</button>
           </div>
           <div className="format-visual" aria-hidden="true">
             <small>VOTRE ACTIVITÉ / DOSSIERS</small>

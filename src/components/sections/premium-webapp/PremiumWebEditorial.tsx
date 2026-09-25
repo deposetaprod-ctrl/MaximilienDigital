@@ -22,7 +22,7 @@ export function PremiumWebEditorial() {
           </div>
           <div className="automation-line"></div>
           <div className="automation-node">
-            <span>02</span>Lancer une version utilisable
+            <span>02</span>Lancer une version utilisable (Minimum Viable Product)
           </div>
           <div className="automation-line"></div>
           <div className="automation-node">
