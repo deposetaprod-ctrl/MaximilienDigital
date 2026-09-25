@@ -153,6 +153,11 @@ export function PremiumAppMethod() {
               <h3>Évolution sur mesure.</h3>
               <p>On ajuste et on fait évoluer l'application ensemble pour toujours mieux répondre à vos besoins.</p>
             </article>
+            <article className="step reveal">
+              <small>06 / ACQUISITION & DATA</small>
+              <h3>Attirer et comprendre.</h3>
+              <p>Stratégie d'acquisition (ASO/SEO), campagnes ciblées et analyse du comportement des utilisateurs.</p>
+            </article>
           </div>
           <div className="ownership">
             <span>Votre application vous appartient. Vous gardez la main.</span>

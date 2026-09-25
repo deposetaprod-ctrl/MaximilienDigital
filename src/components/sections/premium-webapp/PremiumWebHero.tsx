@@ -29,56 +29,6 @@ export function PremiumWebHero() {
           De votre idée au <strong>succès de votre projet</strong>. Conçu pour les besoins de vos utilisateurs.
         </p>
 
-        <style>{`
-          .stats-bar {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            max-width: 720px;
-            margin: 0 auto 40px;
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            border-radius: 24px;
-            padding: 24px;
-            background: rgba(255, 255, 255, 0.03);
-          }
-          .stat-item {
-            flex: 1;
-            text-align: center;
-          }
-          .stat-value {
-            font-size: 32px;
-            font-weight: 700;
-            margin-bottom: 6px;
-            line-height: 1;
-            letter-spacing: -0.5px;
-          }
-          .stat-label {
-            color: #a3988e;
-            font-size: 13px;
-          }
-          .stat-divider {
-            width: 1px;
-            height: 50px;
-            background: rgba(255, 255, 255, 0.15);
-          }
-          @media (max-width: 600px) {
-            .stats-bar {
-              flex-direction: column;
-              gap: 12px;
-              padding: 16px;
-              border-radius: 20px;
-              margin-bottom: 24px;
-            }
-            .stat-value {
-              font-size: 24px;
-              margin-bottom: 2px;
-            }
-            .stat-divider {
-              width: 50px;
-              height: 1px;
-            }
-          }
-        `}</style>
 
         <div className="stats-bar reveal" style={{ position: 'relative', zIndex: 10, transitionDelay: '0.1s' }}>
           <div className="stat-item">

@@ -15,6 +15,13 @@ export function Navigation() {
     setIsMenuOpen(false);
   }, [pathname]);
 
+  // Listen for open-mobile-menu event
+  useEffect(() => {
+    const handleOpenMenu = () => setIsMenuOpen(true);
+    document.addEventListener("open-mobile-menu", handleOpenMenu);
+    return () => document.removeEventListener("open-mobile-menu", handleOpenMenu);
+  }, []);
+
   // Prevent scrolling when mobile menu is open
   useEffect(() => {
     if (isMenuOpen) {
@@ -40,7 +47,7 @@ export function Navigation() {
 
   return (
     <>
-      <header className="top" style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 50, pointerEvents: "none" }}>
+      <header className="top hidden md:block" style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 50, pointerEvents: "none" }}>
         {/* pointerEvents: none on header to allow clicking through it, auto on nav to make it clickable */}
         <nav className="nav shell" aria-label="Navigation principale" style={{ pointerEvents: "auto", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
