@@ -17,7 +17,7 @@ export function Navigation() {
 
   // Listen for open-mobile-menu event
   useEffect(() => {
-    const handleOpenMenu = () => setIsMenuOpen(true);
+    const handleOpenMenu = () => setIsMenuOpen((prev) => !prev);
     document.addEventListener("open-mobile-menu", handleOpenMenu);
     return () => document.removeEventListener("open-mobile-menu", handleOpenMenu);
   }, []);
@@ -101,13 +101,46 @@ export function Navigation() {
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            style={{ position: "fixed", top: "75px", left: 0, right: 0, zIndex: 40 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            style={{ 
+              position: "fixed", 
+              inset: 0, 
+              zIndex: 45, 
+              backgroundColor: "rgba(20, 15, 12, 0.7)", 
+              backdropFilter: "blur(12px)", 
+              WebkitBackdropFilter: "blur(12px)",
+              display: "flex", 
+              flexDirection: "column", 
+              justifyContent: "center", 
+              alignItems: "center" 
+            }}
           >
-            <nav id="mobile-nav">
+            {/* Close Button */}
+            <button
+              onClick={() => setIsMenuOpen(false)}
+              style={{
+                position: "absolute",
+                top: "20px",
+                right: "20px",
+                background: "rgba(255, 255, 255, 0.1)",
+                border: "1px solid rgba(255, 255, 255, 0.2)",
+                color: "#ffbf3f",
+                width: "44px",
+                height: "44px",
+                borderRadius: "50%",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                cursor: "pointer"
+              }}
+              aria-label="Fermer le menu"
+            >
+              <X size={24} />
+            </button>
 
+            <nav id="mobile-nav" style={{ width: "85%", maxWidth: "400px", background: "transparent", border: "none", boxShadow: "none" }}>
               {navItems.map((item) => {
                 const isActive = pathname === item.href || (item.href !== "/" && pathname?.startsWith(item.href));
                 return (
@@ -119,7 +152,18 @@ export function Navigation() {
                       setIsMenuOpen(false);
                     }}
                     aria-current={isActive ? "page" : undefined}
-                    style={{ textDecoration: "none" }}
+                    style={{ 
+                      textDecoration: "none", 
+                      fontSize: "22px", 
+                      textAlign: "center",
+                      display: "block",
+                      padding: "16px",
+                      marginBottom: "8px",
+                      color: isActive ? "#ffbf3f" : "#f1eee8",
+                      fontWeight: isActive ? "600" : "400",
+                      background: isActive ? "rgba(255, 191, 63, 0.1)" : "transparent",
+                      borderRadius: "12px"
+                    }}
                   >
                     {item.name}
                   </Link>
@@ -127,11 +171,11 @@ export function Navigation() {
               })}
               <button 
                 className="nav-cta open-brief" 
-                style={{ marginTop: "20px", padding: "16px", width: "100%", fontSize: "16px", borderRadius: "30px", border: "none" }}
+                style={{ marginTop: "30px", padding: "18px", width: "100%", fontSize: "18px", borderRadius: "30px", border: "none", fontWeight: "600" }}
               >
                 Recevoir ma maquette
               </button>
-              <button className="open-existing-mockup" type="button" style={{ display: "block", width: "100%", margin: "16px 0 0", background: "transparent", border: "none", color: "#bbaa99", textDecoration: "underline", fontSize: "13px", cursor: "pointer", textAlign: "center" }}>
+              <button className="open-existing-mockup" type="button" style={{ display: "block", width: "100%", margin: "20px 0 0", background: "transparent", border: "none", color: "#bbaa99", textDecoration: "underline", fontSize: "15px", cursor: "pointer", textAlign: "center" }}>
                 J'ai déjà une maquette
               </button>
             </nav>
