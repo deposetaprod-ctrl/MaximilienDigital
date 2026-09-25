@@ -42,19 +42,17 @@ export function PremiumAppFaq() {
           <details>
             <summary>Quel budget et quels frais prévoir ?</summary>
             <p>
-              Le devis dépend du nombre d’écrans, des fonctions et des
-              intégrations. Les comptes développeur, l’hébergement et les
-              services externes éventuels sont précisés lors du cadrage.
+              Les projets démarrent à partir de 500 € pour une première version simple, et vont jusqu'à 5 000 € pour les applications les plus complètes (multi-écrans, paiement, espace admin…). Les comptes développeur (Apple : 99 €/an, Google : 25 € une fois), l'hébergement et les services externes éventuels sont précisés lors du cadrage.
             </p>
           </details>
           <details>
             <summary>
-              Peut-on faire évoluer l’application après le lancement ?
+              Peut-on faire évoluer l'application après le lancement ?
             </summary>
             <p>
               Oui. On peut commencer par les fonctionnalités essentielles puis
-              ajouter des évolutions. Chaque nouvelle demande fait l’objet
-              d’un périmètre et d’un budget définis ensemble.
+              ajouter des évolutions. Chaque nouvelle demande fait l'objet
+              d'un périmètre et d'un budget définis ensemble.
             </p>
           </details>
         </div>

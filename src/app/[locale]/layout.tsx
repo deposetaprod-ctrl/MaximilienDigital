@@ -43,6 +43,8 @@ export async function generateMetadata(props: { params: Promise<{ locale: string
       "base de données RGPD",
       "tableaux de bord administrateur",
       "stratégie MVP",
+      "Minimum Viable Product",
+      "MVP application",
       "modules de paiement et abonnements",
       "Google Ads et optimisation SEO",
       "publication App Store et Google Play",

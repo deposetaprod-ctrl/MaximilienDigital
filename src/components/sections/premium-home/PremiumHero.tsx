@@ -31,11 +31,86 @@ export function PremiumHero({ onCtaClick }: { onCtaClick?: () => void }) {
         </div>
         <h1 id="hero-title">
           Développeur Web Freelance.<br />
-          <span className="serif">Rapide, accessible, efficace.</span>
+          <span className="serif" style={{ color: '#ffbf3f' }}>Abordable et sur mesure.</span>
         </h1>
-        <p className="hero-intro">
-          Sites web, applications SaaS, outils métiers.<br />Des solutions innovantes et efficaces pour développer votre activité.
+        
+        <p className="hero-intro reveal" style={{ marginBottom: '35px', color: '#a3988e' }}>
+          De votre idée au <strong>succès de votre projet</strong>. Conçu pour les besoins de vos utilisateurs.
         </p>
+
+        <style>{`
+          .stats-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 720px;
+            margin: 0 auto 40px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 24px;
+            padding: 24px;
+            background: rgba(255, 255, 255, 0.03);
+          }
+          .stat-item {
+            flex: 1;
+            text-align: center;
+          }
+          .stat-value {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 6px;
+            line-height: 1;
+            letter-spacing: -0.5px;
+          }
+          .stat-label {
+            color: #a3988e;
+            font-size: 13px;
+          }
+          .stat-divider {
+            width: 1px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.15);
+          }
+          @media (max-width: 600px) {
+            .stats-bar {
+              flex-direction: column;
+              gap: 12px;
+              padding: 16px;
+              border-radius: 20px;
+              margin-bottom: 24px;
+            }
+            .stat-value {
+              font-size: 24px;
+              margin-bottom: 2px;
+            }
+            .stat-divider {
+              width: 50px;
+              height: 1px;
+            }
+          }
+        `}</style>
+
+        <div className="stats-bar reveal" style={{ position: 'relative', zIndex: 10, transitionDelay: '0.1s' }}>
+          <div className="stat-item">
+            <div className="stat-value" style={{ color: '#ffbf3f' }}>max 30 j</div>
+            <div className="stat-label">pour une première version</div>
+          </div>
+          
+          <div className="stat-divider"></div>
+          
+          <div className="stat-item">
+            <div className="stat-value" style={{ color: '#ff702d' }}>30+</div>
+            <div className="stat-label">
+              projets livrés · <a href="https://comeup.com/fr/profil/maximilien-d" target="_blank" rel="noopener noreferrer" style={{ color: '#ffbf3f', textDecoration: 'underline', textUnderlineOffset: '2px', transition: 'opacity 0.2s' }} onMouseOver={(e) => e.currentTarget.style.opacity = '0.8'} onMouseOut={(e) => e.currentTarget.style.opacity = '1'}>Top Service sur ComeUp</a>
+            </div>
+          </div>
+          
+          <div className="stat-divider"></div>
+          
+          <div className="stat-item">
+            <div className="stat-value" style={{ color: '#ffffff' }}>200–5 000 €</div>
+            <div className="stat-label">selon les besoins du projet</div>
+          </div>
+        </div>
         <button className="button premium-open-brief glow-effect">
           Recevoir ma maquette gratuite <span className="arrow">↗&#xFE0E;&#xFE0E;</span>
         </button>
@@ -106,17 +181,6 @@ export function PremiumHero({ onCtaClick }: { onCtaClick?: () => void }) {
           <span>SITES WEB <i>✳&#xFE0E;&#xFE0E;</i> APPLICATIONS MOBILES <i>✳&#xFE0E;&#xFE0E;</i> SAAS <i>✳&#xFE0E;&#xFE0E;</i> OUTILS MÉTIER <i>✳&#xFE0E;&#xFE0E;</i> AUTOMATISATION <i>✳&#xFE0E;&#xFE0E;</i></span>
           <span>SITES WEB <i>✳&#xFE0E;&#xFE0E;</i> APPLICATIONS MOBILES <i>✳&#xFE0E;&#xFE0E;</i> SAAS <i>✳&#xFE0E;&#xFE0E;</i> OUTILS MÉTIER <i>✳&#xFE0E;&#xFE0E;</i> AUTOMATISATION <i>✳&#xFE0E;&#xFE0E;</i></span>
         </div>
-      </div>
-
-      <div className="shell">
-        <section className="intro reveal">
-          <div className="eyebrow" style={{alignSelf: "start"}}>01 / Du concret, simplement</div>
-          <div>
-            <h2>Moins de complexité.<br />Plus de <span>possibilités.</span></h2>
-            <p>Vous avez une idée, un besoin, un processus à simplifier. Je conçois le bon outil, avec vous. Du premier écran à la mise en ligne.</p>
-            <a className="text-link" href="#expertises">Trouver votre solution <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ display: 'inline-block', verticalAlign: 'middle', marginLeft: '4px' }}><path d="M7 7l10 10M17 7v10H7"/></svg></a>
-          </div>
-        </section>
       </div>
     </>
   );

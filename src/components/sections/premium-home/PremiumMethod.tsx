@@ -105,24 +105,29 @@ export function PremiumMethod() {
           <h2 className="reveal">De « et si… » à <span style={{color: "var(--lime)"}}>« c’est prêt. »</span></h2>
           <div className="steps">
             <article className="step reveal">
-              <small>01 / ON ÉCHANGE</small>
-              <h3>Votre idée, au clair.</h3>
-              <p>On définit l’essentiel : vos utilisateurs, leurs besoins et vos priorités.</p>
-            </article>
-            <article className="step reveal">
-              <small>02 / ON DESSINE</small>
+              <small>01 / MAQUETTE</small>
               <h3>Vous vous projetez.</h3>
-              <p>Vous validez les écrans avant le développement. La direction est claire.</p>
+              <p>On définit vos besoins et on valide ensemble les écrans avant tout développement.</p>
             </article>
             <article className="step reveal">
-              <small>03 / JE DÉVELOPPE</small>
+              <small>02 / MINIMUM VIABLE PRODUCT (MVP)</small>
+              <h3>L'essentiel d'abord.</h3>
+              <p>On développe rapidement une première version fonctionnelle pour tester votre idée sur le marché.</p>
+            </article>
+            <article className="step reveal">
+              <small>03 / PRODUIT</small>
               <h3>Ça prend vie.</h3>
-              <p>Votre produit avance, avec des échanges réguliers et des retours concrets.</p>
+              <p>L'application s'enrichit de nouvelles fonctionnalités selon les retours de vos utilisateurs.</p>
             </article>
             <article className="step reveal">
-              <small>04 / ON LANCE</small>
+              <small>04 / LANCEMENT</small>
               <h3>À vous de jouer.</h3>
-              <p>Votre produit est livré avec son code source et vos accès administrateur.</p>
+              <p>Votre produit est publié et livré avec son code source. Vous en êtes 100% propriétaire.</p>
+            </article>
+            <article className="step reveal">
+              <small>05 / AMÉLIORATION CONTINUE</small>
+              <h3>Évolution sur mesure.</h3>
+              <p>On ajuste et on fait évoluer l'application ensemble pour toujours mieux répondre à vos besoins.</p>
             </article>
           </div>
           <div className="ownership">

@@ -5,33 +5,28 @@ export function PremiumWebEditorial() {
 
   return (
     <div className="shell">
-      <section className="editorial" id="outils-metier">
+      <section className="editorial" id="mvp-strategie">
         <div className="reveal">
-          <div className="eyebrow">02 / Vos outils travaillent ensemble</div>
-          <h2>Gardez votre temps.<br />Automatisez<br /><span className="serif">le reste.</span></h2>
-          <p>Un document arrive. Il est analysé, classé, puis transmis au bon endroit. Vos équipes avancent, vos données suivent.</p>
-          <p>Je conçois vos outils métier, agents IA et connexions API autour de vos vrais processus.</p>
-          <div className="integration-badges">
-            <span>ERP & CRM</span>
-            <span>Documents</span>
-            <span>API</span>
-            <span>Agents IA</span>
-          </div>
+          <div className="eyebrow">02 / Une première version qui va à l'essentiel</div>
+          <h2>Lancez l'essentiel.<br />Faites grandir<br /><span className="serif">le reste.</span></h2>
+          <p>Avant d’ajouter toutes les fonctionnalités imaginées, nous définissons ce qui permet à votre projet de fonctionner et d’être utile dès le départ.</p>
+          <p>Je développe cette première version — votre <strong>MVP</strong> — pour que vous puissiez la tester, recueillir des retours et décider de la suite sur des bases concrètes. Vous évitez ainsi d’investir trop tôt dans des fonctions dont vos utilisateurs n’ont peut-être pas besoin.</p>
+          
           <button className="button open-brief" style={{ marginTop: "28px" }}>
-            Parlons de votre outil <span>↗&#xFE0E;&#xFE0E;</span>
+            Parlons de votre première version <span>↗&#xFE0E;&#xFE0E;</span>
           </button>
         </div>
-        <div className="automation-art reveal" aria-label="Exemple de processus automatisé">
+        <div className="automation-art reveal" aria-label="Stratégie MVP en 3 étapes">
           <div className="automation-node">
-            <span>▤</span>Un document est reçu
+            <span>01</span>Définir l'essentiel
           </div>
           <div className="automation-line"></div>
           <div className="automation-node">
-            <span>✳&#xFE0E;&#xFE0E;</span>L’agent analyse et classe
+            <span>02</span>Lancer une version utilisable
           </div>
           <div className="automation-line"></div>
           <div className="automation-node">
-            <span>✓&#xFE0E;&#xFE0E;</span>Votre logiciel est à jour
+            <span>03</span>Améliorer selon les retours
           </div>
         </div>
       </section>

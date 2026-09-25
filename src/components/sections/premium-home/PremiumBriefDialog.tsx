@@ -240,8 +240,9 @@ export function PremiumBriefDialog() {
                 <legend>Quel type de solution envisagez-vous ?</legend>
                 <div className="brief-choices" style={{ gridTemplateColumns: "1fr", gap: "10px" }}>
                   {[
-                    { id: "Mobile & PWA", title: "Application Mobile & PWA", icon: <Smartphone size={24} color="var(--lime)" />, desc: "Pour iOS, Android ou le web mobile" },
                     { id: "Web & SaaS", title: "Plateforme Web & SaaS", icon: <Laptop size={24} color="var(--lime)" />, desc: "Logiciel en ligne, marketplace, portail" },
+                    { id: "Mobile & PWA", title: "Application Mobile & PWA", icon: <Smartphone size={24} color="var(--lime)" />, desc: "Pour iOS, Android ou le web mobile" },
+                    { id: "Site Vitrine", title: "Site vitrine / Landing page", icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--lime)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>, desc: "Présence en ligne, portfolio, page d'atterrissage" },
                     { id: "Outil Métier", title: "Outil métier / Automatisation", icon: <Settings size={24} color="var(--lime)" />, desc: "CRM sur mesure, gestion interne, flux" }
                   ].map(opt => (
                     <button 

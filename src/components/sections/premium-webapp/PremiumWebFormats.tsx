@@ -3,7 +3,7 @@
 import { useState } from "react";
 
 export function PremiumWebFormats() {
-  const [activeTab, setActiveTab] = useState<"site" | "saas" | "metier">("site");
+  const [activeTab, setActiveTab] = useState<"site" | "saas" | "metier">("saas");
 
   return (
     <section className="formats" id="solutions-web">
@@ -76,13 +76,31 @@ export function PremiumWebFormats() {
               <li>Administration et suivi d’activité</li>
             </ul>
           </div>
-          <div className="format-visual" aria-hidden="true">
-            <small>VOTRE PLATEFORME / VUE D’ENSEMBLE</small>
-            <h4>Tout est connecté.</h4>
-            <div className="data-rows">
-              <div>Offre Découverte <b>Active</b></div>
-              <div>Offre Équipe <b>Active</b></div>
-              <div>Espace administrateur <b>↗&#xFE0E;&#xFE0E;</b></div>
+          <div className="format-visual" aria-hidden="true" style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: '1px solid var(--line)', paddingBottom: '12px' }}>
+               <h4 style={{ margin: 0, fontSize: '16px', letterSpacing: '-0.5px' }}>Dashboard Utilisateur</h4>
+               <span style={{ fontSize: '11px', background: '#ffbf3f', color: '#000', padding: '3px 8px', borderRadius: '20px', fontWeight: '600' }}>Plan Pro Actif</span>
+            </div>
+            
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
+              <div style={{ border: '1px solid var(--line)', padding: '12px', borderRadius: '12px' }}>
+                <small style={{ color: '#a3988e', fontSize: '11px', display: 'block', marginBottom: '4px', textTransform: 'uppercase', letterSpacing: '1px' }}>Rendez-vous</small>
+                <div style={{ fontSize: '20px', fontWeight: '600' }}>12 <span style={{ fontSize: '12px', color: '#ffbf3f' }}>+3</span></div>
+              </div>
+              <div style={{ border: '1px solid var(--line)', padding: '12px', borderRadius: '12px' }}>
+                <small style={{ color: '#a3988e', fontSize: '11px', display: 'block', marginBottom: '4px', textTransform: 'uppercase', letterSpacing: '1px' }}>Abonnés</small>
+                <div style={{ fontSize: '20px', fontWeight: '600' }}>348 <span style={{ fontSize: '12px', color: 'var(--lime)' }}>+12%</span></div>
+              </div>
+            </div>
+            
+            <div style={{ border: '1px solid var(--line)', padding: '12px', borderRadius: '12px', marginTop: '4px' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}>
+                <span style={{ fontSize: '13px' }}>Prochain RDV : Consultation</span>
+                <span style={{ fontSize: '13px', color: '#ff702d', fontWeight: '500' }}>Aujourd'hui, 14:30</span>
+              </div>
+              <div style={{ height: '4px', background: 'rgba(255,255,255,0.1)', borderRadius: '2px', overflow: 'hidden' }}>
+                 <div style={{ width: '70%', height: '100%', background: '#ffbf3f', borderRadius: '2px' }}></div>
+              </div>
             </div>
           </div>
         </div>

@@ -42,71 +42,7 @@ export function PremiumReviews() {
       
       <div className="review-rail" id="review-rail" tabIndex={0} role="region" aria-label="Les 11 avis clients, défilement horizontal" ref={railRef}>
         <figure className="review-card">
-          <div className="review-quote" aria-hidden="true">“</div>
-          <blockquote>Merci à Maximilien pour l'accompagnement, il a été très réactif, à l'écoute.</blockquote>
-          <figcaption>
-            <span className="review-avatar" aria-hidden="true">H</span>Humbert
-          </figcaption>
-        </figure>
-        
-        <figure className="review-card">
-          <div className="review-quote" aria-hidden="true">“</div>
-          <blockquote>RAS</blockquote>
-          <figcaption>
-            <span className="review-avatar" aria-hidden="true">S</span>Satoschi
-          </figcaption>
-        </figure>
-        
-        <figure className="review-card">
-          <div className="review-quote" aria-hidden="true">“</div>
-          <blockquote>Très pro</blockquote>
-          <figcaption>
-            <span className="review-avatar" aria-hidden="true">MC</span>Marcus Cadasse
-          </figcaption>
-        </figure>
-        
-        <figure className="review-card">
-          <div className="review-quote" aria-hidden="true">“</div>
-          <blockquote>Service professionnel à l'écoute, top et livré dans les délais. Je recommande.</blockquote>
-          <figcaption>
-            <span className="review-avatar" aria-hidden="true">A</span>apetitsprix
-          </figcaption>
-        </figure>
-        
-        <figure className="review-card">
-          <div className="review-quote" aria-hidden="true">“</div>
-          <blockquote>Très bon développement d'une application complexe</blockquote>
-          <figcaption>
-            <span className="review-avatar" aria-hidden="true">TL</span>Thomas Le Berre
-          </figcaption>
-        </figure>
-        
-        <figure className="review-card">
-          <div className="review-quote" aria-hidden="true">“</div>
-          <blockquote>Excellent prestataire je recommande à 100%</blockquote>
-          <figcaption>
-            <span className="review-avatar" aria-hidden="true">M</span>Mathieu
-          </figcaption>
-        </figure>
-        
-        <figure className="review-card">
-          <div className="review-quote" aria-hidden="true">“</div>
-          <blockquote>Très bon travail</blockquote>
-          <figcaption>
-            <span className="review-avatar" aria-hidden="true">TL</span>Thomas Le Berre
-          </figcaption>
-        </figure>
-        
-        <figure className="review-card">
-          <div className="review-quote" aria-hidden="true">“</div>
-          <blockquote>Je recommande Maximilien qui est très à l'écoute, très patient et surtout très professionnel. Une bonne manière de penser et de fonctionner pour une satisfaction client assurée. Vraiment agréablement surpris. Merci encore.</blockquote>
-          <figcaption>
-            <span className="review-avatar" aria-hidden="true">R</span>René
-          </figcaption>
-        </figure>
-        
-        <figure className="review-card">
-          <div className="review-quote" aria-hidden="true">“</div>
+          <div className="review-quote" aria-hidden="true">{"\u201C"}</div>
           <blockquote>Maximilien a su être à l'écoute de mes besoins pour mon application. Nous avons fait plusieurs appels durant le mois, afin qu'il s'assure lui-même du bon avancement de l'application et il a su accompagner pas à pas. Je vous recommande fortement Maximilien pour votre futur projet !</blockquote>
           <figcaption>
             <span className="review-avatar" aria-hidden="true">R</span>Romain
@@ -114,7 +50,39 @@ export function PremiumReviews() {
         </figure>
         
         <figure className="review-card">
-          <div className="review-quote" aria-hidden="true">“</div>
+          <div className="review-quote" aria-hidden="true">{"\u201C"}</div>
+          <blockquote>Je recommande Maximilien qui est très à l'écoute, très patient et surtout très professionnel. Une bonne manière de penser et de fonctionner pour une satisfaction client assurée. Vraiment agréablement surpris. Merci encore.</blockquote>
+          <figcaption>
+            <span className="review-avatar" aria-hidden="true">R</span>René
+          </figcaption>
+        </figure>
+        
+        <figure className="review-card">
+          <div className="review-quote" aria-hidden="true">{"\u201C"}</div>
+          <blockquote>Très bon contact, je recommande :) a exactement sorti ce que je voulais ! Merci Maximilien</blockquote>
+          <figcaption>
+            <span className="review-avatar" aria-hidden="true">RL</span>Rudy Lemoine
+          </figcaption>
+        </figure>
+        
+        <figure className="review-card">
+          <div className="review-quote" aria-hidden="true">{"\u201C"}</div>
+          <blockquote>Très bon développement d'une application complexe</blockquote>
+          <figcaption>
+            <span className="review-avatar" aria-hidden="true">TL</span>Thomas Le Berre
+          </figcaption>
+        </figure>
+
+        <figure className="review-card">
+          <div className="review-quote" aria-hidden="true">{"\u201C"}</div>
+          <blockquote>Service professionnel à l'écoute, top et livré dans les délais. Je recommande.</blockquote>
+          <figcaption>
+            <span className="review-avatar" aria-hidden="true">A</span>apetitsprix
+          </figcaption>
+        </figure>
+        
+        <figure className="review-card">
+          <div className="review-quote" aria-hidden="true">{"\u201C"}</div>
           <blockquote>Maximilien a bien répondu à mes attentes, il prend les choses à cœur, et est très agréable !</blockquote>
           <figcaption>
             <span className="review-avatar" aria-hidden="true">R</span>reyvax
@@ -122,10 +90,42 @@ export function PremiumReviews() {
         </figure>
         
         <figure className="review-card">
-          <div className="review-quote" aria-hidden="true">“</div>
-          <blockquote>Très bon contact, je recommande :) a exactement sorti ce que je voulais ! Merci Maximilien</blockquote>
+          <div className="review-quote" aria-hidden="true">{"\u201C"}</div>
+          <blockquote>Merci à Maximilien pour l'accompagnement, il a été très réactif, à l'écoute.</blockquote>
           <figcaption>
-            <span className="review-avatar" aria-hidden="true">RL</span>Rudy Lemoine
+            <span className="review-avatar" aria-hidden="true">H</span>Humbert
+          </figcaption>
+        </figure>
+        
+        <figure className="review-card">
+          <div className="review-quote" aria-hidden="true">{"\u201C"}</div>
+          <blockquote>Excellent prestataire je recommande à 100%</blockquote>
+          <figcaption>
+            <span className="review-avatar" aria-hidden="true">M</span>Mathieu
+          </figcaption>
+        </figure>
+        
+        <figure className="review-card">
+          <div className="review-quote" aria-hidden="true">{"\u201C"}</div>
+          <blockquote>Très bon travail</blockquote>
+          <figcaption>
+            <span className="review-avatar" aria-hidden="true">TL</span>Thomas Le Berre
+          </figcaption>
+        </figure>
+        
+        <figure className="review-card">
+          <div className="review-quote" aria-hidden="true">{"\u201C"}</div>
+          <blockquote>Très pro</blockquote>
+          <figcaption>
+            <span className="review-avatar" aria-hidden="true">MC</span>Marcus Cadasse
+          </figcaption>
+        </figure>
+
+        <figure className="review-card">
+          <div className="review-quote" aria-hidden="true">{"\u201C"}</div>
+          <blockquote>RAS</blockquote>
+          <figcaption>
+            <span className="review-avatar" aria-hidden="true">S</span>Satoschi
           </figcaption>
         </figure>
       </div>

@@ -9,6 +9,7 @@ import { PremiumAppBenefits } from "@/components/sections/premium-mobile/Premium
 import { PremiumAppMethod } from "@/components/sections/premium-mobile/PremiumAppMethod";
 import { PremiumAppFaq } from "@/components/sections/premium-mobile/PremiumAppFaq";
 import { PremiumReviews } from "@/components/sections/premium-home/PremiumReviews";
+import { PremiumVideo } from "@/components/sections/premium-home/PremiumVideo";
 
 export default function MobileAppClient() {
   usePremiumAnimations();
@@ -18,6 +19,7 @@ export default function MobileAppClient() {
       <Navigation />
       <main>
         <PremiumAppHero />
+        <PremiumVideo />
         <PremiumAppBenefits />
 
         <PremiumAppMethod />

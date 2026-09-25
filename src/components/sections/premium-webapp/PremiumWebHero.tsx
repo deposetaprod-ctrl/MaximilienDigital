@@ -22,11 +22,86 @@ export function PremiumWebHero() {
         </div>
         <h1 id="page-title" className="reveal">
           Votre Application Web & SaaS.<br />
-          <span className="serif">Rapide et sur mesure.</span>
+          <span className="serif" style={{ color: '#ffbf3f' }}>Abordable et sur mesure.</span>
         </h1>
-        <p className="lead reveal">
-          Des solutions web innovantes, robustes et sur mesure.<br />De la conception à la mise en production de votre plateforme.
+        
+        <p className="lead reveal" style={{ marginBottom: '35px', color: '#a3988e' }}>
+          De votre idée au <strong>succès de votre projet</strong>. Conçu pour les besoins de vos utilisateurs.
         </p>
+
+        <style>{`
+          .stats-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 720px;
+            margin: 0 auto 40px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 24px;
+            padding: 24px;
+            background: rgba(255, 255, 255, 0.03);
+          }
+          .stat-item {
+            flex: 1;
+            text-align: center;
+          }
+          .stat-value {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 6px;
+            line-height: 1;
+            letter-spacing: -0.5px;
+          }
+          .stat-label {
+            color: #a3988e;
+            font-size: 13px;
+          }
+          .stat-divider {
+            width: 1px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.15);
+          }
+          @media (max-width: 600px) {
+            .stats-bar {
+              flex-direction: column;
+              gap: 12px;
+              padding: 16px;
+              border-radius: 20px;
+              margin-bottom: 24px;
+            }
+            .stat-value {
+              font-size: 24px;
+              margin-bottom: 2px;
+            }
+            .stat-divider {
+              width: 50px;
+              height: 1px;
+            }
+          }
+        `}</style>
+
+        <div className="stats-bar reveal" style={{ position: 'relative', zIndex: 10, transitionDelay: '0.1s' }}>
+          <div className="stat-item">
+            <div className="stat-value" style={{ color: '#ffbf3f' }}>max 30 j</div>
+            <div className="stat-label">pour une première version</div>
+          </div>
+          
+          <div className="stat-divider"></div>
+          
+          <div className="stat-item">
+            <div className="stat-value" style={{ color: '#ff702d' }}>30+</div>
+            <div className="stat-label">
+              projets livrés · <a href="https://comeup.com/fr/profil/maximilien-d" target="_blank" rel="noopener noreferrer" style={{ color: '#ffbf3f', textDecoration: 'underline', textUnderlineOffset: '2px', transition: 'opacity 0.2s' }} onMouseOver={(e) => e.currentTarget.style.opacity = '0.8'} onMouseOut={(e) => e.currentTarget.style.opacity = '1'}>Top Service sur ComeUp</a>
+            </div>
+          </div>
+          
+          <div className="stat-divider"></div>
+          
+          <div className="stat-item">
+            <div className="stat-value" style={{ color: '#ffffff' }}>200–5 000 €</div>
+            <div className="stat-label">selon les besoins du projet</div>
+          </div>
+        </div>
         <button className="button open-brief reveal glow-effect">
           Recevoir ma maquette gratuite <span>↗&#xFE0E;&#xFE0E;</span>
         </button>
