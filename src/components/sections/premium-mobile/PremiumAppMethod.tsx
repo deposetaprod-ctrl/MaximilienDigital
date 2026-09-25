@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export function PremiumAppMethod() {
   return (
     <>
@@ -54,10 +56,11 @@ export function PremiumAppMethod() {
       <div className="shell">
         <section className="about" id="apropos">
           <div className="portrait-box reveal" style={{ borderRadius: '24px' }}>
-            <img
+            <Image
               src="/maximilien-portrait.png"
               alt="Maximilien, développeur web freelance et entrepreneur"
-              loading="lazy"
+              width={400}
+              height={400}
               style={{ borderRadius: '24px' }}
             />
             <div className="portrait-caption">
@@ -115,7 +118,7 @@ export function PremiumAppMethod() {
               <svg width="18" height="18" viewBox="0 0 24 24" fill="#ffbf3f" stroke="#ffbf3f" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round">
                 <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
               </svg>
-              Top Service sur ComeUp — Voir d'autres avis
+              Top Service sur ComeUp — Voir d&apos;autres avis
             </a>
           </div>
         </section>
@@ -135,13 +138,13 @@ export function PremiumAppMethod() {
             </article>
             <article className="step reveal">
               <small>02 / MINIMUM VIABLE PRODUCT (MVP)</small>
-              <h3>L'essentiel d'abord.</h3>
+              <h3>L&apos;essentiel d&apos;abord.</h3>
               <p>On développe rapidement une première version fonctionnelle pour tester votre idée sur le marché.</p>
             </article>
             <article className="step reveal">
               <small>03 / PRODUIT</small>
               <h3>Ça prend vie.</h3>
-              <p>L'application s'enrichit de nouvelles fonctionnalités selon les retours de vos utilisateurs.</p>
+              <p>L&apos;application s&apos;enrichit de nouvelles fonctionnalités selon les retours de vos utilisateurs.</p>
             </article>
             <article className="step reveal">
               <small>04 / LANCEMENT</small>
@@ -151,12 +154,12 @@ export function PremiumAppMethod() {
             <article className="step reveal">
               <small>05 / AMÉLIORATION CONTINUE</small>
               <h3>Évolution sur mesure.</h3>
-              <p>On ajuste et on fait évoluer l'application ensemble pour toujours mieux répondre à vos besoins.</p>
+              <p>On ajuste et on fait évoluer l&apos;application ensemble pour toujours mieux répondre à vos besoins.</p>
             </article>
             <article className="step reveal">
               <small>06 / ACQUISITION & DATA</small>
               <h3>Attirer et comprendre.</h3>
-              <p>Stratégie d'acquisition (ASO/SEO), campagnes ciblées et analyse du comportement des utilisateurs.</p>
+              <p>Stratégie d&apos;acquisition (ASO/SEO), campagnes ciblées et analyse du comportement des utilisateurs.</p>
             </article>
           </div>
           <div className="ownership">

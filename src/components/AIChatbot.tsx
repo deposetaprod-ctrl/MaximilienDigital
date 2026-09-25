@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { X, Send, Bot, User, MessageCircle, Sparkles, FileText, GraduationCap } from "lucide-react";
 import { useChat } from "@ai-sdk/react";
 import { trackClick, trackChat } from "@/lib/analytics";
+import Image from "next/image";
 
 type View = "closed" | "menu" | "chat";
 
@@ -169,7 +170,7 @@ export function AIChatbot() {
             <div className="bg-primary px-4 py-3 flex items-center justify-between text-primary-foreground shadow-sm relative z-10">
               <div className="flex items-center gap-2">
                 <div className="bg-background/20 p-0.5 rounded-full overflow-hidden">
-                  <img src="/max.png" alt="Maximilien" className="h-8 w-8 object-cover rounded-full" />
+                  <Image src="/max.png" alt="Maximilien" width={32} height={32} className="h-8 w-8 object-cover rounded-full" />
                 </div>
                 <div>
                   <h3 className="font-bold text-sm leading-none mb-0.5">Assistant IA</h3>
@@ -188,7 +189,7 @@ export function AIChatbot() {
             <div className="flex-1 overflow-y-auto p-4 flex flex-col gap-4 bg-secondary/10 relative">
               {messages.length === 0 && (
                 <div className="flex flex-col items-center justify-center h-full text-center opacity-70">
-                  <img src="/max.png" alt="Maximilien" className="h-16 w-16 object-cover rounded-full mb-3 shadow-md border-2 border-primary/20" />
+                  <Image src="/max.png" alt="Maximilien" width={64} height={64} className="h-16 w-16 object-cover rounded-full mb-3 shadow-md border-2 border-primary/20" />
                   <p className="text-sm font-medium text-muted-foreground max-w-[250px]">
                     Bonjour ! Je suis l&apos;assistant IA de Maximilien. Posez-moi vos questions sur nos applications Web ou Mobiles !
                   </p>
@@ -203,7 +204,7 @@ export function AIChatbot() {
                   className={`flex items-start gap-2 max-w-[85%] ${m.role === "user" ? "ml-auto flex-row-reverse" : "mr-auto"}`}
                 >
                   <div className={`flex-shrink-0 w-8 h-8 rounded-full overflow-hidden flex items-center justify-center ${m.role === "user" ? "bg-primary/20 text-primary" : "bg-primary shadow-sm"}`}>
-                    {m.role === "user" ? <User className="h-4 w-4" /> : <img src="/max.png" alt="Maximilien" className="h-full w-full object-cover" />}
+                    {m.role === "user" ? <User className="h-4 w-4" /> : <Image src="/max.png" alt="Maximilien" width={32} height={32} className="h-full w-full object-cover" />}
                   </div>
                   <div className={`p-3 text-sm rounded-2xl ${m.role === "user" ? "bg-primary/10 text-foreground border border-primary/20 rounded-tr-sm" : "bg-card border border-border shadow-sm rounded-tl-sm text-card-foreground whitespace-pre-wrap"}`}>
                     {m.parts?.filter((p: any) => p.type === "text").map((p: any) => p.text).join("") || (m as any).content || ""}
@@ -214,7 +215,7 @@ export function AIChatbot() {
               {isLoading && (
                 <div className="flex items-start gap-2 max-w-[85%] mr-auto">
                   <div className="flex-shrink-0 w-8 h-8 rounded-full overflow-hidden flex items-center justify-center bg-primary shadow-sm">
-                    <img src="/max.png" alt="Maximilien" className="h-full w-full object-cover" />
+                    <Image src="/max.png" alt="Maximilien" width={32} height={32} className="h-full w-full object-cover" />
                   </div>
                   <div className="p-4 rounded-2xl bg-card border border-border shadow-sm rounded-tl-sm flex items-center gap-1.5">
                     <motion.div animate={{ scale: [1, 1.2, 1] }} transition={{ repeat: Infinity, duration: 1 }} className="w-1.5 h-1.5 bg-muted-foreground rounded-full" />

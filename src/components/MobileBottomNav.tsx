@@ -64,6 +64,7 @@ export function MobileBottomNav() {
         style={{ color: '#a3988e', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '4px', textDecoration: 'none', background: 'none', border: 'none', cursor: 'pointer', flex: 1 }}
       >
         <Menu size={22} />
+        <span style={{ fontSize: '10px' }}>Menu</span>
       </button>
 
       {/* 2. Apps Menu (Combined Web & Mobile) */}
@@ -73,6 +74,7 @@ export function MobileBottomNav() {
           style={{ color: isAppActive ? '#ffbf3f' : '#a3988e', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '4px', background: 'none', border: 'none', cursor: 'pointer' }}
         >
           <MonitorSmartphone size={22} />
+          <span style={{ fontSize: '10px' }}>Apps</span>
         </button>
         
         {/* Dropdown Menu */}
@@ -105,7 +107,7 @@ export function MobileBottomNav() {
       </div>
 
       {/* 3. Plus Button (Center) */}
-      <div style={{ flex: 1, display: 'flex', justifyContent: 'center' }}>
+      <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
         <button 
           className="open-brief glow-effect"
           style={{ 
@@ -118,18 +120,21 @@ export function MobileBottomNav() {
             justifyContent: 'center', 
             alignItems: 'center',
             border: 'none',
-            transform: 'translateY(-10px)',
+            transform: 'translateY(-8px)',
             boxShadow: '0 4px 15px rgba(255, 191, 63, 0.3)',
-            cursor: 'pointer'
+            cursor: 'pointer',
+            marginBottom: '-4px'
           }}
         >
           <Plus size={26} />
         </button>
+        <span style={{ fontSize: '10px', color: '#ffbf3f' }}>Créer</span>
       </div>
 
       {/* 4. Avis clients */}
       <Link href="/#avis" style={{ color: pathname === '/#avis' ? '#ffbf3f' : '#a3988e', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '4px', textDecoration: 'none', flex: 1 }}>
         <Star size={22} />
+        <span style={{ fontSize: '10px' }}>Avis</span>
       </Link>
 
       {/* 5. Chatbot Message */}
@@ -138,6 +143,7 @@ export function MobileBottomNav() {
         style={{ color: '#a3988e', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '4px', border: 'none', background: 'none', cursor: 'pointer', flex: 1 }}
       >
         <MessageSquare size={22} />
+        <span style={{ fontSize: '10px' }}>Contact</span>
       </button>
     </div>
   );

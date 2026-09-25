@@ -1,10 +1,15 @@
+import Image from "next/image";
+
 export function PremiumHero({ onCtaClick }: { onCtaClick?: () => void }) {
   return (
     <>
       <section className="hero" aria-labelledby="hero-title">
-        <img 
+        <Image 
           src="/m_signature.png" 
           alt="" 
+          width={130}
+          height={130}
+          priority
           style={{
             position: 'absolute',
             top: '100px',
@@ -21,9 +26,12 @@ export function PremiumHero({ onCtaClick }: { onCtaClick?: () => void }) {
             onClick={() => typeof document !== 'undefined' && document.dispatchEvent(new CustomEvent('open-chatbot'))}
             style={{ position: 'relative', display: 'inline-block', cursor: 'pointer' }}
           >
-            <img 
+            <Image 
               src="/cellequejeprefere_rounded.png" 
               alt="Maximilien, Développeur Freelance" 
+              width={90}
+              height={90}
+              priority
               style={{ width: '90px', height: '90px', borderRadius: '50%', objectFit: 'cover', border: '1px solid rgba(255, 255, 255, 0.1)', padding: '6px', background: 'rgba(255, 255, 255, 0.03)', display: 'block' }} 
             />
             <span style={{ position: 'absolute', bottom: '4px', right: '4px', width: '18px', height: '18px', backgroundColor: '#ff702d', border: '3px solid #1a1412', borderRadius: '50%', boxShadow: '0 0 10px rgba(255, 112, 45, 0.5)' }}></span>

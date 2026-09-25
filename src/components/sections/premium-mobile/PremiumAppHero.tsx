@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export function PremiumAppHero() {
   return (
     <>
@@ -7,9 +9,12 @@ export function PremiumAppHero() {
             onClick={() => typeof document !== 'undefined' && document.dispatchEvent(new CustomEvent('open-chatbot'))}
             style={{ position: 'relative', display: 'inline-block', cursor: 'pointer' }}
           >
-            <img 
+            <Image 
               src="/cellequejeprefere_rounded.png" 
               alt="Maximilien, Développeur Freelance" 
+              width={90}
+              height={90}
+              priority
               style={{ width: '90px', height: '90px', borderRadius: '50%', objectFit: 'cover', border: '1px solid rgba(255, 255, 255, 0.1)', padding: '6px', background: 'rgba(255, 255, 255, 0.03)', display: 'block' }} 
             />
             <span style={{ position: 'absolute', bottom: '4px', right: '4px', width: '18px', height: '18px', backgroundColor: '#ff702d', border: '3px solid #1a1412', borderRadius: '50%', boxShadow: '0 0 10px rgba(255, 112, 45, 0.5)' }}></span>
@@ -51,19 +56,25 @@ export function PremiumAppHero() {
           Recevoir ma maquette gratuite <span>↗&#xFE0E;&#xFE0E;</span>
         </button>
         <button className="open-existing-mockup" type="button" style={{ display: "block", margin: "16px auto 0", background: "transparent", border: "none", color: "#bbaa99", textDecoration: "underline", fontSize: "13px", cursor: "pointer", transition: "color 0.2s", position: "relative", zIndex: 10 }} onMouseOver={(e) => e.currentTarget.style.color = "#ffbf3f"} onMouseOut={(e) => e.currentTarget.style.color = "#bbaa99"}>
-          J'ai déjà une maquette
+          J&apos;ai déjà une maquette
         </button>
         <div className="mobile-stage">
-          <img
+          <Image
             className="app-render first"
             src="/286shots_so.png"
             alt="Even Clock : écran de suivi du poids"
+            width={300}
+            height={600}
+            priority
             data-move="-1.6"
           />
-          <img
+          <Image
             className="app-render second"
             src="/641shots_so.png"
             alt="Even Clock : écran des graphiques"
+            width={300}
+            height={600}
+            priority
             data-move="1.6"
           />
           <div className="floating-chip" data-move="-2.5">
@@ -74,7 +85,7 @@ export function PremiumAppHero() {
           </div>
         </div>
         <div className="small-caption">
-          Illustrations d'interfaces · Votre projet aura son propre design
+          Illustrations d&apos;interfaces · Votre projet aura son propre design
         </div>
       </section>
       <div className="shell intro-bar">
