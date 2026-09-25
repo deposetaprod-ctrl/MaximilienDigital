@@ -47,26 +47,15 @@ export function PremiumHero({ onCtaClick }: { onCtaClick?: () => void }) {
         </p>
 
 
-        <div className="stats-bar reveal" style={{ position: 'relative', zIndex: 10, transitionDelay: '0.1s' }}>
-          <div className="stat-item">
-            <div className="stat-value" style={{ color: '#ffbf3f' }}>max 30 j</div>
-            <div className="stat-label">pour une première version</div>
+        <div className="stats-list reveal" style={{ position: 'relative', zIndex: 10, transitionDelay: '0.1s' }}>
+          <div className="stats-list-item">
+            <span style={{ color: '#ffbf3f' }}>✓&#xFE0E;</span> <b>En 30 jours</b> pour une première version
           </div>
-          
-          <div className="stat-divider"></div>
-          
-          <div className="stat-item">
-            <div className="stat-value" style={{ color: '#ff702d' }}>30+</div>
-            <div className="stat-label">
-              projets livrés · <a href="https://comeup.com/fr/profil/maximilien-d" target="_blank" rel="noopener noreferrer" style={{ color: '#ffbf3f', textDecoration: 'underline', textUnderlineOffset: '2px', transition: 'opacity 0.2s' }} onMouseOver={(e) => e.currentTarget.style.opacity = '0.8'} onMouseOut={(e) => e.currentTarget.style.opacity = '1'}>Top Service sur ComeUp</a>
-            </div>
+          <div className="stats-list-item">
+            <span style={{ color: '#ff702d' }}>★</span> <b>30+</b> projets livrés · <a href="https://comeup.com/fr/profil/maximilien-d" target="_blank" rel="noopener noreferrer" style={{ color: '#ffbf3f', textDecoration: 'underline', textUnderlineOffset: '2px', transition: 'opacity 0.2s' }} onMouseOver={(e) => e.currentTarget.style.opacity = '0.8'} onMouseOut={(e) => e.currentTarget.style.opacity = '1'}>Top Service sur ComeUp</a>
           </div>
-          
-          <div className="stat-divider"></div>
-          
-          <div className="stat-item">
-            <div className="stat-value" style={{ color: '#ffffff' }}>200–5 000 €</div>
-            <div className="stat-label">selon les besoins du projet</div>
+          <div className="stats-list-item">
+            <span style={{ color: '#ffffff' }}>€</span> <b>À partir de 200 €</b> selon le projet
           </div>
         </div>
         <button className="button premium-open-brief glow-effect">
