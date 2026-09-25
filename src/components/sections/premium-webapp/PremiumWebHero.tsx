@@ -6,15 +6,26 @@ export function PremiumWebHero() {
   return (
     <>
       <section className="landing-hero web-landing" aria-labelledby="page-title">
-        <div className="eyebrow reveal">
-          <span className="dot"></span>Sites · Applications web · SaaS
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: '28px' }}>
+          <div 
+            className="reveal" 
+            onClick={() => typeof document !== 'undefined' && document.dispatchEvent(new CustomEvent('open-chatbot'))}
+            style={{ position: 'relative', display: 'inline-block', cursor: 'pointer' }}
+          >
+            <img 
+              src="/cellequejeprefere_rounded.png" 
+              alt="Maximilien, Développeur Freelance" 
+              style={{ width: '90px', height: '90px', borderRadius: '50%', objectFit: 'cover', border: '1px solid rgba(255, 255, 255, 0.1)', padding: '6px', background: 'rgba(255, 255, 255, 0.03)', display: 'block' }} 
+            />
+            <span style={{ position: 'absolute', bottom: '4px', right: '4px', width: '18px', height: '18px', backgroundColor: '#ff702d', border: '3px solid #1a1412', borderRadius: '50%', boxShadow: '0 0 10px rgba(255, 112, 45, 0.5)' }}></span>
+          </div>
         </div>
         <h1 id="page-title" className="reveal">
           Votre Application Web & SaaS.<br />
           <span className="serif">Rapide et sur mesure.</span>
         </h1>
         <p className="lead reveal">
-          Des solutions web innovantes et efficaces.<br />Je crée votre SaaS ou site sur mesure pour générer du revenu et améliorer votre présence en ligne.
+          Des solutions web innovantes, robustes et sur mesure.<br />De la conception à la mise en production de votre plateforme.
         </p>
         <button className="button open-brief reveal glow-effect">
           Recevoir ma maquette gratuite <span>↗&#xFE0E;&#xFE0E;</span>
@@ -22,11 +33,6 @@ export function PremiumWebHero() {
         <button className="open-existing-mockup reveal" type="button" style={{ display: "block", margin: "16px auto 0", background: "transparent", border: "none", color: "#bbaa99", textDecoration: "underline", fontSize: "13px", cursor: "pointer", transition: "color 0.2s", position: "relative", zIndex: 10 }} onMouseOver={(e) => e.currentTarget.style.color = "#ffbf3f"} onMouseOut={(e) => e.currentTarget.style.color = "#bbaa99"}>
           J'ai déjà une maquette
         </button>
-        <div className="hero-assurances reveal" style={{ marginTop: "24px" }}>
-          <span>Design sur mesure</span>
-          <span>Ordinateur, tablette et mobile</span>
-          <span>Code source livré</span>
-        </div>
         
         <div className="stage" aria-label="Illustrations d’interfaces : tableau de bord, application mobile et livraison" role="img">
 

@@ -16,8 +16,18 @@ export function PremiumHero({ onCtaClick }: { onCtaClick?: () => void }) {
             zIndex: 0
           }} 
         />
-        <div className="eyebrow">
-          <span className="dot"></span>Développeur indépendant · Créateur de produits
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: '28px', position: 'relative', zIndex: 2 }}>
+          <div 
+            onClick={() => typeof document !== 'undefined' && document.dispatchEvent(new CustomEvent('open-chatbot'))}
+            style={{ position: 'relative', display: 'inline-block', cursor: 'pointer' }}
+          >
+            <img 
+              src="/cellequejeprefere_rounded.png" 
+              alt="Maximilien, Développeur Freelance" 
+              style={{ width: '90px', height: '90px', borderRadius: '50%', objectFit: 'cover', border: '1px solid rgba(255, 255, 255, 0.1)', padding: '6px', background: 'rgba(255, 255, 255, 0.03)', display: 'block' }} 
+            />
+            <span style={{ position: 'absolute', bottom: '4px', right: '4px', width: '18px', height: '18px', backgroundColor: '#ff702d', border: '3px solid #1a1412', borderRadius: '50%', boxShadow: '0 0 10px rgba(255, 112, 45, 0.5)' }}></span>
+          </div>
         </div>
         <h1 id="hero-title">
           Développeur Web Freelance.<br />
@@ -32,7 +42,6 @@ export function PremiumHero({ onCtaClick }: { onCtaClick?: () => void }) {
         <button className="open-existing-mockup" type="button" style={{ display: "block", margin: "16px auto 0", background: "transparent", border: "none", color: "#bbaa99", textDecoration: "underline", fontSize: "13px", cursor: "pointer", transition: "color 0.2s" }} onMouseOver={(e) => e.currentTarget.style.color = "#ffbf3f"} onMouseOut={(e) => e.currentTarget.style.color = "#bbaa99"}>
           J'ai déjà une maquette
         </button>
-        <p className="fine" style={{ marginTop: "10px" }}>Gratuite. Sans engagement. Pour visualiser votre projet.</p>
         
         <div className="stage" aria-label="Illustrations d’interfaces : tableau de bord, application mobile et livraison" role="img">
 

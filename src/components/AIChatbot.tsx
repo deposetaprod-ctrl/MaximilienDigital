@@ -35,6 +35,12 @@ export function AIChatbot() {
     }
   }, [messages, isLoading, status]);
 
+  useEffect(() => {
+    const handleOpenChatbot = () => setView("menu");
+    document.addEventListener("open-chatbot", handleOpenChatbot);
+    return () => document.removeEventListener("open-chatbot", handleOpenChatbot);
+  }, []);
+
   function handleScrollToForm() {
     setView("closed");
     const dialog = document.getElementById("brief") as HTMLDialogElement;
