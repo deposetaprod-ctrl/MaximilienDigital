@@ -99,9 +99,9 @@ export async function generateMetadata(props: { params: Promise<{ locale: string
     manifest: "/manifest.json",
     icons: {
       icon: [
-        { url: "/icon.png" },
-        { url: "/icon.png", sizes: "32x32", type: "image/png" },
-        { url: "/icon.png", sizes: "192x192", type: "image/png" },
+        { url: "/icon-rounded.png" },
+        { url: "/icon-rounded.png", sizes: "32x32", type: "image/png" },
+        { url: "/icon-rounded.png", sizes: "192x192", type: "image/png" },
       ],
       apple: [
         { url: "/apple-icon.png" },
