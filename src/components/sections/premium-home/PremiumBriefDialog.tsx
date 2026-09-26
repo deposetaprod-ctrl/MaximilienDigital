@@ -198,7 +198,7 @@ export function PremiumBriefDialog() {
   if (!isOpen) return null;
 
   return (
-    <div className="dialog-overlay" onClick={closeDialog}>
+    <div className="dialog-overlay" data-clarity-unmask="true" onClick={closeDialog}>
       <div className="dialog-content" onClick={(e) => e.stopPropagation()} id="brief" aria-labelledby="brief-title">
         <button className="close" type="button" aria-label="Fermer" onClick={closeDialog}>×</button>
       
