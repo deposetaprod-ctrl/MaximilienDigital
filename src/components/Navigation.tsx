@@ -9,6 +9,9 @@ export function Navigation() {
   const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  // Hide on generator page
+  if (pathname?.includes('/generateur-appli')) return null;
+
   // Close menu when route changes
   useEffect(() => {
     setIsMenuOpen(false);

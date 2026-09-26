@@ -6,13 +6,18 @@ import { X, Send, Bot, User, MessageCircle, Sparkles, FileText, GraduationCap } 
 import { useChat } from "@ai-sdk/react";
 import { trackClick, trackChat } from "@/lib/analytics";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 
 type View = "closed" | "menu" | "chat";
 
 export function AIChatbot() {
+  const pathname = usePathname();
   const [view, setView] = useState<View>("closed");
   const { messages, sendMessage, status, stop } = useChat();
   const [input, setInput] = useState("");
+
+  if (pathname?.includes('/generateur-appli')) return null;
+
   const isLoading = status === "submitted" || status === "streaming";
   
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => setInput(e.target.value);
