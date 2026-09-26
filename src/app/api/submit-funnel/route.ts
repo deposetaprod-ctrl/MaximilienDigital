@@ -17,7 +17,7 @@ export async function POST(request: Request) {
     if (process.env.NEXT_PUBLIC_SUPABASE_URL) {
       const { error } = await supabase
         .from("funnel_leads")
-        .insert([{ need, sector, timeline: dataLink || "Non renseigné", email, phone }]);
+        .insert([{ need, sector, timeline: dataLink || "Non renseigné", email, phone, description }]);
 
       if (error) {
         console.error("Supabase insert lead error:", error);
