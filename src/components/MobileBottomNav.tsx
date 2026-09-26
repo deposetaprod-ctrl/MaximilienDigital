@@ -29,7 +29,7 @@ export function MobileBottomNav() {
 
   return (
     <div 
-      className="mobile-bottom-nav md:hidden"
+      className="mobile-bottom-nav flex justify-between items-center md:hidden"
       style={{
         position: 'fixed',
         bottom: 0,
@@ -39,9 +39,6 @@ export function MobileBottomNav() {
         borderTop: '1px solid rgba(255, 255, 255, 0.1)',
         paddingBottom: 'env(safe-area-inset-bottom)',
         zIndex: 50,
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
         padding: '10px 15px',
         boxShadow: '0 -4px 20px rgba(0,0,0,0.5)'
       }}
