@@ -3,7 +3,6 @@
 import { useState, useRef, useEffect } from "react";
 import { CheckCircle2, UploadCloud, Smartphone, Laptop, Settings, Download } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
-import { generateNda } from "@/lib/generateNda";
 
 interface PremiumBriefDialogProps {
   isOpen: boolean;
@@ -268,7 +267,7 @@ export function PremiumBriefDialog() {
                   <input type="file" id="brief-file" accept=".pdf,.doc,.docx,.txt" required disabled={isSubmitting || !!data.fileUrl} onChange={handleFileUpload} />
                 </label>
                 <div style={{ marginTop: "15px", marginBottom: "25px", textAlign: "center" }}>
-                  <button type="button" onClick={() => generateNda(data.projectType || "Votre Projet")} style={{ display: "inline-flex", alignItems: "center", gap: "8px", padding: "12px 20px", borderRadius: "10px", border: "1px solid #59402f", backgroundColor: "#211a16", color: "#ffbf3f", cursor: "pointer", fontSize: "13px", margin: "0 auto", transition: "all 0.2s" }} onMouseOver={(e) => e.currentTarget.style.borderColor = "#ff702d"} onMouseOut={(e) => e.currentTarget.style.borderColor = "#59402f"}>
+                  <button type="button" onClick={async () => { const { generateNda } = await import("@/lib/generateNda"); generateNda(data.projectType || "Votre Projet"); }} style={{ display: "inline-flex", alignItems: "center", gap: "8px", padding: "12px 20px", borderRadius: "10px", border: "1px solid #59402f", backgroundColor: "#211a16", color: "#ffbf3f", cursor: "pointer", fontSize: "13px", margin: "0 auto", transition: "all 0.2s" }} onMouseOver={(e) => e.currentTarget.style.borderColor = "#ff702d"} onMouseOut={(e) => e.currentTarget.style.borderColor = "#59402f"}>
                     <Download size={16} /> Télécharger le modèle d'accord de confidentialité (NDA)
                   </button>
                 </div>

@@ -9,7 +9,7 @@ export function PremiumHero({ onCtaClick }: { onCtaClick?: () => void }) {
           alt="" 
           width={130}
           height={130}
-          priority
+          loading="lazy"
           style={{
             position: 'absolute',
             top: '100px',

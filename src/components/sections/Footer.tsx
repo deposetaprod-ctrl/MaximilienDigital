@@ -18,7 +18,9 @@ export function Footer() {
           <div className="flex items-center gap-3 text-xs text-muted-foreground justify-center sm:justify-start">
             <a href="/logiciel-expert-comptable" className="hover:text-primary transition-colors">Logiciel Expert-Comptable</a>
             <span>•</span>
-            <a href="/portail-client-expert-comptable" className="hover:text-primary transition-colors">Portail Client Expert-Comptable</a>
+            <a href="/portail-client-expert-comptable" className="hover:text-primary transition-colors">Portail Client</a>
+            <span>•</span>
+            <a href="/generateur-appli" className="hover:text-primary transition-colors">Générateur d'Application</a>
           </div>
         </div>
         <div className="flex items-center gap-4">

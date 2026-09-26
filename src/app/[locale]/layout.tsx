@@ -1,16 +1,18 @@
 import type { Metadata } from "next";
 import { Geist } from "next/font/google";
 import { Navigation } from "@/components/Navigation";
-import { AIChatbot } from "@/components/AIChatbot";
 import { LanguageProvider } from "@/context/LanguageContext";
 import { NextIntlClientProvider } from "next-intl";
 import { translations, type Locale } from "@/lib/i18n";
 import Script from "next/script";
+import dynamic from "next/dynamic";
 import "../globals.css";
 import "../../styles/premium-design.css";
-import { PremiumBriefDialog } from "@/components/sections/premium-home/PremiumBriefDialog";
-import { WelcomePopup } from "@/components/sections/premium-home/WelcomePopup";
-import { MobileBottomNav } from "@/components/MobileBottomNav";
+
+// Lazy-load heavy interactive components — code-split away from main bundle
+const AIChatbot = dynamic(() => import("@/components/AIChatbot").then((mod) => mod.AIChatbot));
+const PremiumBriefDialog = dynamic(() => import("@/components/sections/premium-home/PremiumBriefDialog").then((mod) => mod.PremiumBriefDialog));
+const MobileBottomNav = dynamic(() => import("@/components/MobileBottomNav").then((mod) => mod.MobileBottomNav));
 
 const OG_IMAGE_URL = "https://maximilien.digital/og-image.png";
 
@@ -174,6 +176,12 @@ export default async function RootLayout(
   return (
     <html lang={locale} className="dark" suppressHydrationWarning>
       <head>
+        {/* DNS prefetch and preconnect for critical third-party domains */}
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="https://www.google-analytics.com" />
+        <link rel="dns-prefetch" href="https://www.clarity.ms" />
+        <link rel="dns-prefetch" href="https://i.ytimg.com" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -224,7 +232,7 @@ export default async function RootLayout(
           </LanguageProvider>
         </NextIntlClientProvider>
         <PremiumBriefDialog />
-        <WelcomePopup />
+
       </body>
     </html>
   );
