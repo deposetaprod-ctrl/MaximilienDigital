@@ -6,19 +6,8 @@ import { useEffect, useState, useRef } from "react";
 
 export function MobileBottomNav() {
   const pathname = usePathname();
-  const [isVisible, setIsVisible] = useState(false);
   const [showAppsMenu, setShowAppsMenu] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    // Only show on mobile screens
-    const handleResize = () => {
-      setIsVisible(window.innerWidth <= 768);
-    };
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
 
   // Close apps menu when clicking outside
   useEffect(() => {
@@ -36,12 +25,11 @@ export function MobileBottomNav() {
     setShowAppsMenu(false);
   }, [pathname]);
 
-  if (!isVisible) return null;
-
   const isAppActive = pathname?.includes('/application-');
 
   return (
     <div 
+      className="mobile-bottom-nav md:hidden"
       style={{
         position: 'fixed',
         bottom: 0,
